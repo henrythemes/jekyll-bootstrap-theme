@@ -1,2 +1,34 @@
 # jekyll-bootstrap-theme
+
 jekyll theme w/ bootstrap
+
+Note: The theme uses the bootstrap sass/scss (source) version
+letting you change (override) all bootstrap css variables.
+
+Example:
+
+~~~
+tbd
+~~~
+
+
+Note: GitHub Pages has built-in support for sass/scss, thus, you static
+site will result in a single all-in-one-file stylesheet, that is, `style.css`.
+
+
+
+## Build & Update Notes
+
+- Get a copy of the [`bootstrap-sass`](https://github.com/twbs/bootstrap-sass)
+  archive - the official Sass port of Bootstrap
+
+tbd
+
+
+
+
+## Alternative Jekyll Themes
+
+- [Shiori](https://github.com/ellekasai/shiori) by Elle Kasai
+  (ships w/ pre-defined color themes e.g. Dark, Turquoise, Green, Blue, Purple, Orange, Red)
+
