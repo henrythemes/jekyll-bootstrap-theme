@@ -1,0 +1,25 @@
+###########
+# site.url, site.title
+
+url:   'http://feedreader.github.io/jekyll-bootstrap-theme'
+title: 'Jekyll Bootrap Theme'
+
+
+########
+# more settings
+
+markdown: kramdown
+
+sass:
+  sass_dir: stylesheets
+  style:    expanded
+
+
+
+exclude:
+- README.md
+
+
+safe: true
+lsi: false
+
