@@ -1,6 +1,7 @@
 # jekyll-bootstrap-theme
 
-jekyll theme w/ bootstrap
+Jekyll theme w/ Bootstrap  - [(Live Demo)](http://feedreader.github.io/jekyll-bootstrap-theme/)
+
 
 Note: The theme uses the bootstrap sass/scss (source) version
 letting you change (override) all bootstrap css variables.
@@ -12,7 +13,7 @@ tbd
 ~~~
 
 
-Note: GitHub Pages has built-in support for sass/scss, thus, you static
+Note: GitHub Pages has built-in support for sass/scss, thus, your static
 site will result in a single all-in-one-file stylesheet, that is, `style.css`.
 
 
@@ -31,4 +32,3 @@ tbd
 
 - [Shiori](https://github.com/ellekasai/shiori) by Elle Kasai
   (ships w/ pre-defined color themes e.g. Dark, Turquoise, Green, Blue, Purple, Orange, Red)
-

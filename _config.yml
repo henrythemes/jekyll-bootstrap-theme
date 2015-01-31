@@ -2,7 +2,7 @@
 # site.url, site.title
 
 url:   'http://feedreader.github.io/jekyll-bootstrap-theme'
-title: 'Jekyll Bootrap Theme'
+title: 'Jekyll Bootstrap Theme'
 
 
 ########
@@ -11,7 +11,7 @@ title: 'Jekyll Bootrap Theme'
 markdown: kramdown
 
 sass:
-  sass_dir: stylesheets
+  sass_dir: css
   style:    expanded
 
 
