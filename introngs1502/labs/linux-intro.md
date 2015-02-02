@@ -95,7 +95,7 @@ Look at what is in the folder (please ignore the old project id, there are limit
 
 If you look closely, you'll see that I did not write **ls -l**, but used **ll** instead. Typing ls -l all the time is.. more annoying than one would think, so someone came up with the good idea to add a shortcut here. If you type **ll**, it is the same as typing **ls -l** Use it from now on.
 
-Now we have practised moving around and looking at what we have in folders. The next step will show you how to do the same thing, but without the moving around part. If we want to look at what we have in our home folder, while standing in the course's project folder, we type ```ll /home/<username>/``` and remember to substitute **\<username\>** with your own user name.
+Now we have practised moving around and looking at what we have in folders. The next step will show you how to do the same thing, but without the moving around part. If we want to look at what we have in our home folder, while standing in the course's project folder, we type ```$ ll /home/<username>/``` and remember to substitute **\<username\>** with your own user name.
 
 ```bash
 $ ll /home/dahlo/
@@ -121,24 +121,48 @@ or
 $ cd
 ```
 
-4. Copying files needed for laboratory
+## 4. Copying files needed for laboratory
 To be able to do parts of this lab, you will need some files. To avoid all the course participants editing the same file all at once, undoing each other's edits, each participant will get their own copy of the needed files.
-The files are located in the folder /proj/g2014279/labs/linux_tutorial
-or they can be downloaded if you are not on uppmax at the moment, files.tar.gz (instruction on how to download further down)
-For structures sake, first create a folder named ngs-intro in your glob, and a folder called linux_tutorial inside that folder, where you can put all your lab files.
+
+The files are located in the folder **/proj/g2014279/labs/linux_tutorial**
+
+or they can be downloaded if you are not on uppmax at the moment, [files.tar.gz](files/linux-intro/files.tar.gz) (instruction on how to download further down)
+
+For structures sake, first create a folder named **ngs-intro** in your glob, and a folder called **linux_tutorial** inside that folder, where you can put all your lab files.
+
 This can be done in 2 ways:
+
+```bash
 $ mkdir ~/glob/ngs-intro/
 $ mkdir ~/glob/ngs-intro/linux_tutorial
+```
+
 or
+
+```bash
 $ mkdir -p ~/glob/ngs-intro/linux_tutorial
-The reason for this is that Linux will not like it if you try to create the folder linux_tutorial inside a folder (ngs-intro) that does not exist yet. Then you have the choice to either first create ngs-intro (the first way), or to tell Linux to create it for you by giving it the -p option (the second way).
-Next, copy the lab files to this folder. -r means recursively, which means all the files including sub-folders of the source folder. Without it, only files directly in the source folder would be copied, NOT sub-folders and files in sub-folders.
-NOTE: Remember to tab-complete to avoid typos and too much writing.
+```
+
+The reason for this is that Linux will not like it if you try to create the folder linux_tutorial inside a folder (ngs-intro) that does not exist yet. Then you have the choice to either first create ngs-intro (the first way), or to tell Linux to create it for you by giving it the **-p** option (the second way).
+
+Next, copy the lab files to this folder. **-r** means recursively, which means all the files including sub-folders of the source folder. Without it, only files directly in the source folder would be copied, NOT sub-folders and files in sub-folders.
+
+**NOTE:** Remember to tab-complete to avoid typos and too much writing.
+
+```bash
 Ex: cp -r <source folder> <destination folder>
 
 $ cp -r /proj/g2014279/labs/linux_tutorial/* ~/glob/ngs-intro/linux_tutorial
-If you are unable to copy the files on uppmax, you can download the files instead of copying them. This is done with the command wget (web get). It works kind of the same way as the cp command, but you give it an source URL instead of a source file, and you specify the destination by giving it a prefix, a path that will be appended in front on the file name when it's downloaded. I.e. if you want to download the file http://somewhere.com/my.file and you give it the prefix ~/analysis/, the downloaded file will be saved as ~/analysis/my.file
+```
+
+If you are unable to copy the files on uppmax, you can download the files instead of copying them. This is done with the command **wget** (web get). It works kind of the same way as the cp command, but you give it an source URL instead of a source file, and you specify the destination by giving it a prefix, a path that will be appended in front on the file name when it's downloaded. I.e. if you want to download the file http://somewhere.com/my.file and you give it the prefix ~/analysis/, the downloaded file will be saved as ~/analysis/my.file
+
+```bash
 Ex: wget -P <destination prefix> <source URL>
+
+$ wget -P ~/glob/ngs-intro/linux_tutorial {{site.url}}/files.tar.gz
+```
+
 $ wget -P ~/glob/ngs-intro/linux_tutorial http://uppnex.se/twiki/pub/Courses/WebHome/files.tar.gz
 5. Unpack Files
 Go to the folder you just copied and see what is in it.
