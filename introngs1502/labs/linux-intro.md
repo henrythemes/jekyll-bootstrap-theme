@@ -396,23 +396,44 @@ The wildcard works with most, if not all, Linux commands. We can try using wildc
 
 <font color='white'>$ ll many_files/*.txt</font>
 
-10. Utility Commands
-Ok, the last 2 commands now. Top and man.
-Top can be useful when you want to look at which programs are being run on the computer, and how hard the computer is working. Type top and have a look.
+## 10. Utility Commands
+Ok, the last 2 commands now. **top** and **man**.
+
+Top can be useful when you want to look at which programs are being run on the computer, and how hard the computer is working. Type **top** and have a look.
+
+```bash
 $ top
-top.jpg
-(press q to close it down)
-Each row in top corresponds to one program running on the computer, and the column describe various information about the program. The right-most column shows you which program the row is about.
-There are mainly 2 things that are interesting when looking in top. The first is how much cpu each program is using. I have marked it with blue in the picture. If you are doing calculations, which is what bioinformatics is mostly about, the cpu usage should be high. The numbers in the column is how many percent of a core the program is running. If you have a computer with 8 cores, like the UPPMAX computers, you can have 8 programs using 100% of a core each running at the same time without anything slowing down. As soon as you start a 9th program, it will have to share a core with another program and those 2 programs will run at half-speed since a core can only work that fast. In the image, one instance of the program ssh is using 78.4% of a core.
-The areas marked with red is describing how much memory is being used. The area in the top describes the overall memory usage. Total tells you how much memory the computer has, used tells you how much of the memory is being used at the moment, and free tells you how much memory is free at the moment. Total = Used + Free
-The red column tells you how much memory each program uses. The numbers mean how many percent of the total memory a program uses. In the image, the program celeryd is using 0.3% of the total memory.
+```
+
+![](files/linux-intro/top.jpg)
+
+**(press q to close it down)**
+
+Each row in top corresponds to one program running on the computer, and the column describe various information about the program. **The right-most column** shows you which program the row is about.
+
+There are mainly 2 things that are interesting when looking in top. The first is **how much cpu** each program is using. I have marked it with **blue** in the picture. If you are doing calculations, which is what bioinformatics is mostly about, the cpu usage should be high. The numbers in the column is how many percent of a core the program is running. If you have a computer with 8 cores, like the UPPMAX computers, you can have 8 programs using 100% of a core each running at the same time without anything slowing down. As soon as you start a 9th program, it will have to share a core with another program and those 2 programs will run at half-speed since a core can only work that fast. In the image, one instance of the program ssh is using 78.4% of a core.
+
+The areas marked with **red** is describing **how much memory** is being used. The area in the top describes the overall memory usage. Total tells you how much memory the computer has, used tells you how much of the memory is being used at the moment, and free tells you how much memory is free at the moment. Total = Used + Free
+
+The **red column** tells you how much memory each program uses. The numbers mean how many percent of the total memory a program uses. In the image, the program celeryd is using 0.3% of the total memory.
+
 A warning sign you can look for in top is when you are running an analysis which seems to take forever to complete, and you see that there is almost no cpu usage on the computer. That means that the computer is not doing any calculation, which could be bad. If you look at the memory usage at the same time, and see that it's maxed out (used â‰ƒ total), you can more or less abort the analysis.
+
 When the memory runs out, the computer more or less stops. Since it can't fit everything into the RAM memory, it will start using the hard drive to store the things it can't fit in the RAM. Since the hard drive is ~1000 times slower than the RAM, things will be going in slow-motion. The solution to that could be to either change the settings of the program you are running to decrease the memory usage (if the program has that functionality), or just get a computer with more memory.
-Ok, the last command of the day (Yup, there will be more tomorrow!). You might wonder how the heck am I supposed to be able to remember all these commands, options and flags? The simple answer is that you won't. Not all of them at least. You might remember ls, but was it -l or -a you should use to see hidden files? You might wish that there was a manual for these things. Good news everyone, there is a manual! To get all the nitty-gritty details about ls, you use the man command. Syntax:
+
+Ok, the last command of the day (Yup, there will be more tomorrow!). You might wonder how the heck am I supposed to be able to remember all these commands, options and flags? The simple answer is that you won't. Not all of them at least. You might remember ls, but was it -l or -a you should use to see hidden files? You might wish that there was a manual for these things. Good news everyone, there is a manual! To get all the nitty-gritty details about ls, you use the **man** command. Syntax:
+
+```bash
 $ man <command you want to look at>
+
 $ man ls
-man.jpg
+```
+
+![](files/linux-intro/man.jpg)
+
 This will open a less window (remember, q to close it down, arrows to scroll) with the manual page about ls. Here you will be able to read everything about ls. You'll see which flag does what (-a is to show the hidden files, which in linux are files with a name starting with a dot .), which syntax the program has, etc. If you are unsure about how to use a command, look it up in man.
+
 The man pages can be a bit tricky to understand at first, but you get used to it with time. If it is still unclear after looking in man, try searching for it on the internet. You are bound to find someone with the exact same question as you, that has already asked on a forum, and gotten a good answer. 5 years ago.
 The end.
-If you still have time left on the lab and you finished early, check out the advanced linux exercises!
+
+If you still have time left on the lab and you finished early, check out the [advanced linux exercises](advanced-linux)!
