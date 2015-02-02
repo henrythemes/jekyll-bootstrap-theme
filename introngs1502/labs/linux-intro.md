@@ -55,7 +55,7 @@ $ ssh -X q34
 ## 3. Moving and Looking Around
 It is good to know how to move around in the file system. I'm sure you all have experienced this using a graphical user interface (**GUI**) before, Windows Explorer in Windows and Finder in OSX. Using the command line can be confusing at first, but the more your do it, the easier it gets.
 
-When you connect to UPPMAX, you will start out in your home folder. The absolute path to your home folder is usually **/home/\<username\>**
+When you connect to UPPMAX, you will start out in your home folder. The absolute path to your home folder is usually ```/home/<username>```
 
 Start with looking at what you have in your home folder. The command for this ls, and it stand for LiSt (list).
 
