@@ -16,7 +16,8 @@ On OSX: it is included by default, named **Terminal**.
 On Windows: [Google MobaXterm](http://bit.ly/19yaQOM) and download it.
 
 Fire up the available ssh program and enter the following (replace **username** with your uppmax user name). -X means that X-forwarding is activated on the connection, which means graphical data can be transmitted if a program requests it, i.e. programs can use a graphical user interface (GUI) if they want to.
-```bash
+
+```javascript
 $ ssh -X username@milou.uppmax.uu.se
 ```
 
