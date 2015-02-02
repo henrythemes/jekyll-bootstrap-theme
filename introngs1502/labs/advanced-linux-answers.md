@@ -41,13 +41,31 @@ A: yes.
 command to grep all lines with chr1 and send to other file.
 
 ex:
+
+```bash
 grep "chr1" sample_1.sam > chr1.txt
-Assignment - WC
+```
+
+#### Assignment - WC
+
+```bash
 grep "chr1" sample_1.sam | wc -l
 samtools view outbam.bam | grep "CATCATCAT" | wc -l
-Extra material 1.
-Task1: grep "^@" sample_1.sam > at.txt
-Task2: grep "[0-9]\{3\}$" sample_1.sam
+```
+
+#### Extra material 1.
+Task1:
+
+```bash
+grep "^@" sample_1.sam > at.txt
+```
+
+Task2:
+
+```bash
+grep "[0-9]\{3\}$" sample_1.sam
+```
+
 Extra material 2.
 sed 's/chr1/chr2/' sample_1.sam > sample_2.sam
 Extra material 3
