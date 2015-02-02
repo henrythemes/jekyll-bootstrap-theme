@@ -213,7 +213,8 @@ You see that there are some unimportant temporary files that you have no interes
 $ mv important_results/temp_file-1 backed_up_proj_folder/
 ```
 
-Now do the same, but move the important DNA data file!
+**Now do the same, but move the important DNA data file!**
+
 Look in the backed up project folder to make sure you moved the file correctly.
 
 ```bash
@@ -222,17 +223,34 @@ $ ll backed_up_proj_folder
 
 ![](files/linux-intro/backed_up-0.jpg)
 
-Another use for the move command is to rename things. When you think of it, renaming is just a special case of moving. You move the file to a location and give the file a new name in the process. The location you move the file to can of very well be the same folder the file already is in. To give this a try, we will rename the folder a_strange_name to a better name.
+Another use for the move command is to rename things. When you think of it, renaming is just a special case of moving. You move the file to a location and give the file a new name in the process. The location you move the file **to** can of very well be the same folder the file already is in. To give this a try, we will rename the folder **a_strange_name** to a better name.
+
+```bash
 $ mv a_strange_name a_better_name
+```
+
 Look around to see that the name change worked.
+
+```bash
 $ ll
-linux_tutorial-post_mv.jpg
-Sometimes you don't want to move things, you want to copy them. Moving a file will remove the original file, whereas copying the file will leave the original untouched. An example when you want to do this could be that you want to give a copy of a file to a friend. Imagine that you have a external hard drive that you want to place the file on. The file you want to give to your friend is data from last years project, which is located in your backed_up project folder, backed_up_proj_folder/last_years_data
+```
+
+![](files/linux-intro/linux_tutorial-post_mv.jpg)
+
+Sometimes you don't want to move things, you want to copy them. Moving a file will remove the original file, whereas copying the file will leave the original untouched. An example when you want to do this could be that you want to give a copy of a file to a friend. Imagine that you have a external hard drive that you want to place the file on. The file you want to give to your friend is data from last years project, which is located in your backed_up project folder, **backed_up_proj_folder/last_years_data**
+
 As with the move command, the syntax is
+
+```bash
 $ cp <source> <destination>
+
 $ cp backed_up_proj_folder/last_years_data external_hdd/
+```
+
 Take a look in the external_hdd to make sure the file got copied.
-external_hdd.jpg
+
+![](files/linux-intro/external_hdd.jpg)
+
 7. Deleting Files
 Sometimes you will delete files. Usually this is when you know that the file or files are useless to you, and they only take up space on your hard drive or UPPMAX account. To delete a file, we use the ReMove command, rm. Syntax:
 $ rm <file to remove>
