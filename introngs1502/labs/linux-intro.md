@@ -175,25 +175,53 @@ $ ll
 ```
 
 tar.gz is a file ending give to compressed files, something you will encounter quite often. Compression decreases the size of the files which is good when downloading, and it can take thousands of files and compress them all into a single compressed file. This is both convenient for the person downloading and speeds up the transfer more than you would think.
-To unpack the files.tar.gz file use the following line while standing in the newly copied linux_tutorial folder.
+
+To unpack the **files.tar.gz** file use the following line while standing in the newly copied linux_tutorial folder.
+
+```bash
 $ tar -xzvf files.tar.gz
-The command will always be the same for all tar.gz files you want to unpack. -xzvf means eXtract from a Zipped file, Verbose (prints the name of the file being unpacked), from the specified File (f must always be the last of the letters).
+```
+
+The command will always be the same for all tar.gz files you want to unpack. -xzvf means e**X**tract from a **Z**ipped file, **V**erbose (prints the name of the file being unpacked), from the specified **F**ile (f must always be the last of the letters).
+
 Look in the folder again and see what we just unpacked:
-linux_tutorial-0.jpg
-6. Copying and Moving Files
+
+![](files/linux-intro/linux_tutorial-0.jpg)
+
+## 6. Copying and Moving Files
 Let's move some files. Moving files might be one of the more common things you do, after cd and ls. You might want to organise your files in a better way, or move important result files to the project folder, who knows?
+
 We will start with moving our important result to a backed up folder. When months of analysis is done, that last thing you want is to lose your files. Typically this would mean that you move the final results to your project folder.
+
 In this example we want to move the result file only, located in the folder important_results, to our fake project folder, called backed_up_proj_folder. The syntax for the move command is:
+
+```bash
 $ mv <source> <destination>
+```
+
 First, take a look inside the important_results folder:
+
+```bash
 $ ll important_results
-important_results-0.jpg
+```
+
+![](files/linux-intro/important_results-0.jpg)
+
 You see that there are some unimportant temporary files that you have no interest in. Just to demonstrate the move command, I will show how you would move one of these temporary files to your backed up project folder:
+
+```bash
 $ mv important_results/temp_file-1 backed_up_proj_folder/
+```
+
 Now do the same, but move the important DNA data file!
 Look in the backed up project folder to make sure you moved the file correctly.
+
+```bash
 $ ll backed_up_proj_folder
-backed_up-0.jpg
+```
+
+![](files/linux-intro/backed_up-0.jpg)
+
 Another use for the move command is to rename things. When you think of it, renaming is just a special case of moving. You move the file to a location and give the file a new name in the process. The location you move the file to can of very well be the same folder the file already is in. To give this a try, we will rename the folder a_strange_name to a better name.
 $ mv a_strange_name a_better_name
 Look around to see that the name change worked.
