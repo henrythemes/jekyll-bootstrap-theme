@@ -373,16 +373,29 @@ $ tail -n <number of rows to view> <filename>
 $ tail -n 23 /proj/g2014279/labs/linux_additional-files/large_file
 ```
 
-9. Wildcards
-Sometimes (most time really) you have many files. So many that it would take you a day just to type all their names. This is where wildcards saves the day. The wildcard symbol in Linux is the star sign, * , and it means literally anything. Say that you want to move all the files which has names starting with sample_1_ and the rest of the name doesn't matter. You want all the files belonging to sample_1. Then you could use the wildcard to represent the rest of the name:
-(don't run this command, it's just an example)
+##9. Wildcards
+Sometimes (most time really) you have many files. So many that it would take you a day just to type all their names. This is where **wildcards** saves the day. The wildcard symbol in Linux is the star sign, * , and it means literally **anything**. Say that you want to move all the files which has names starting with sample_1_ and the rest of the name doesn't matter. You want all the files belonging to sample_1. Then you could use the wildcard to represent the rest of the name:
+
+**(don't run this command, it's just an example)**
+
+```bash
 $ mv  sample_1_*  my_other_folder
-We can try it out on the example files I have prepared. There are two folder called part_1 and part_2. We want to collect all the .txt files from both these folders in one of the folders. Look around in both the folders to see what they contain.
-wildcards-0.jpg
-We see that part_1 only contains .txt files, and that part_2 contains some other files as well. The best option seem to be to move all .txt files from part_2 info part_1.
+```
+
+We can try it out on the example files I have prepared. There are two folder called **part_1** and **part_2**. We want to collect all the **.txt** files from both these folders in one of the folders. Look around in both the folders to see what they contain.
+
+![](files/linux-intro/wildcards-0.jpg)
+
+We see that **part_1** only contains .txt files, and that **part_2** contains some other files as well. The best option seem to be to move all .txt files from **part_2** info **part_1**.
+
+```bash
 $ mv part_2/*.txt part_1/
-The wildcard works with most, if not all, Linux commands. We can try using wildcards with ls. Look in the folder many_files. Yes, there are ~1000 .docx files in there. But not only .docx files.. There are a couple of .txt files in there as well. Find out which numbers they have. Try to figure out the solution on your own. I have written the answer below, with white text. Mark the text with the mouse, or press cmd+a to mark everything on the page to see the answer.
-$ ll many_files/*.txt
+```
+
+The wildcard works with most, if not all, Linux commands. We can try using wildcards with **ls**. Look in the folder **many_files**. Yes, there are ~1000 .docx files in there. But not only .docx files.. There are a couple of **.txt** files in there as well. Find out which numbers they have. Try to figure out the solution on your own. I have written the answer below, with white text. Mark the text with the mouse, or press cmd+a to mark everything on the page to see the answer.
+
+<font color='white'>$ ll many_files/*.txt</font>
+
 10. Utility Commands
 Ok, the last 2 commands now. Top and man.
 Top can be useful when you want to look at which programs are being run on the computer, and how hard the computer is working. Type top and have a look.
