@@ -1,6 +1,6 @@
 # jekyll-bootstrap-theme
 
-Jekyll theme w/ Bootstrap  - [(Live Demo)](http://feedreader.github.io/jekyll-bootstrap-theme/)
+Jekyll theme w/ Bootstrap; live demo [planetjekyll.github.io/jekyll-bootstrap-theme](http://planetjekyll.github.io/jekyll-bootstrap-theme/)
 
 
 Note: The theme uses the bootstrap sass/scss (source) version
