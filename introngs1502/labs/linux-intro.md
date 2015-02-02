@@ -25,6 +25,8 @@ and give your password when prompted. As you type, nothing will show on screen. 
 
 Now your screen should look something like this:
 
+!(linux-intro/just-logged-in.jpg)
+
 2. Getting a node of your own
 Usually you would do most of the work in this lab directly on one of the login nodes at uppmax, but we have arranged for you to have one core each to avoid disturbances. This was covered briefly in the lecture notes.
 $ salloc -A g2014279 -t 07:00:00 -p core -n 1 --no-shell --reservation=g2014279_mon &
