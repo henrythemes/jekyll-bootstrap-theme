@@ -163,13 +163,17 @@ Ex: wget -P <destination prefix> <source URL>
 $ wget -P ~/glob/ngs-intro/linux_tutorial {{site.url}}/introngs1502/labs/files/linux-intro/files.tar.gz
 ```
 
-$ wget -P ~/glob/ngs-intro/linux_tutorial http://uppnex.se/twiki/pub/Courses/WebHome/files.tar.gz
-5. Unpack Files
+## 5. Unpack Files
 Go to the folder you just copied and see what is in it.
-NOTE: Remember to tab-complete to avoid typos and too much writing.
+
+**NOTE: Remember to tab-complete to avoid typos and too much writing.**
+
+```bash
 $ cd ~/glob/ngs-intro/linux_tutorial
 
 $ ll
+```
+
 tar.gz is a file ending give to compressed files, something you will encounter quite often. Compression decreases the size of the files which is good when downloading, and it can take thousands of files and compress them all into a single compressed file. This is both convenient for the person downloading and speeds up the transfer more than you would think.
 To unpack the files.tar.gz file use the following line while standing in the newly copied linux_tutorial folder.
 $ tar -xzvf files.tar.gz
