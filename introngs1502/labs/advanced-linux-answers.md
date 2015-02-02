@@ -55,16 +55,25 @@ samtools view outbam.bam | grep "CATCATCAT" | wc -l
 
 #### Extra material 1.
 Task1:
+
 ```bash
 grep "^@" sample_1.sam > at.txt
 ```
 
 Task2:
+
 ```bash
 grep "[0-9]\{3\}$" sample_1.sam
 ```
 
-Extra material 2.
+#### Extra material 2.
+
+```bash
 sed 's/chr1/chr2/' sample_1.sam > sample_2.sam
-Extra material 3
+```
+
+#### Extra material 3
+
+```bash
 for f in *.sam; do mv $f ${f/.sam}.bam; done
+```
