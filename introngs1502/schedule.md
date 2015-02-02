@@ -1,6 +1,6 @@
 ---
 layout: default
-title:  'Precourse Material'
+title:  'Schedule'
 ---
 
-# Precourse
+# Schedule
