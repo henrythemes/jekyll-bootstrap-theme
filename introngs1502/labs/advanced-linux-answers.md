@@ -8,11 +8,14 @@ title:  'Advanced Linux Answers'
 #### Assignment – Ownership and permissions
 
 Q:  
-Change permission from  
+Change permission from 
+
 ```bash
 ----------
 ```
+
 to
+
 ```bash
 -rw-rw—wx
 ```
