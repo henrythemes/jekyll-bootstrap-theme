@@ -11,10 +11,10 @@ title:  'Schedule'
 Room:  
 **09.00-09.15** Registration and Welcome (Martin Dahlö)  
 **09.15-10.30** Lecture: Introduction to Unix and UPPMAX/UPPNEX part I (Martin Dahlö)  
-**11.00-12.00** Exercise: Introduction to Unix and UPPMAX/UPPNEX part I (Martin Dahlö, Jacques Dainat, Alvaro Martinez Barrio, Manfred Grabherr)  
+**11.00-12.00** [Exercise: Introduction to Unix and UPPMAX/UPPNEX part I](labs/linux-intro) (Martin Dahlö, Jacques Dainat, Alvaro Martinez Barrio, Manfred Grabherr)  
 **12.00-13.00** Lunch  
 **13.00-13.45** Lecture: Introduction to Unix and UPPMAX/UPPNEX part II (Martin Dahlö)  
-**13.45-17.00** Exercise: Introduction to Unix and UPPMAX/UPPNEX part II (Martin Dahlö, Sebastian DiLorenzo, Alvaro Martinez Barrio, Martin Norling)  
+**13.45-17.00** [Exercise: Introduction to Unix and UPPMAX/UPPNEX part II](labs/uppmax-intro) (Martin Dahlö, Sebastian DiLorenzo, Alvaro Martinez Barrio, Martin Norling)  
 
 **Tuesday 10th**  
 Room:  
