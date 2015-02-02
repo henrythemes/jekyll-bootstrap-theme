@@ -21,8 +21,10 @@ to
 ```
 
 One answer:  
+```bash
 chmod ug+rw filename  
 chmod o+wx filename  
+```
 
 #### Assignment - Symbolic links - files
 Q Did editing the information in the link change the information in the original?  
