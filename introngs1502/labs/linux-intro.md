@@ -251,28 +251,57 @@ Take a look in the external_hdd to make sure the file got copied.
 
 ![](files/linux-intro/external_hdd.jpg)
 
-7. Deleting Files
-Sometimes you will delete files. Usually this is when you know that the file or files are useless to you, and they only take up space on your hard drive or UPPMAX account. To delete a file, we use the ReMove command, rm. Syntax:
+## 7. Deleting Files
+Sometimes you will delete files. Usually this is when you know that the file or files are useless to you, and they only take up space on your hard drive or UPPMAX account. To delete a file, we use the **R**e<b>M</b>ove command, **rm**. Syntax:
+
+```bash
 $ rm <file to remove>
+```
+
 If you want, you can also specify multiple files a once, as many as you want!
+
+```bash
 $ rm <file to remove> <file to remove> <file to remove> <file to remove> <file to remove>
-IMPORTANT: There is no trash bin in Linux. If you delete a file, it is gone. So be careful when deleting stuff..
+```
+
+**IMPORTANT: There is no trash bin in Linux. If you delete a file, it is gone. So be careful when deleting stuff..**
+
 Try it out by deleting the useless file in the folder you are standing in. First, look around in the folder to see the file.
-useless_file.jpg
+
+![](files/linux-intro/useless_file.jpg)
+
 Now remove it:
+
+```bash
 $ rm useless_file
-Its not only files you can remove. Folders can be removed too. There is even a special command for removing folders, rmdir. They work similar to rm, except that they can't remove files. There are two folders, this_is_empty and this_has_a_file, that we now will delete.
+```
+
+Its not only files you can remove. Folders can be removed too. There is even a special command for removing folders, **rmdir**. They work similar to **rm**, except that they can't remove files. There are two folders, **this_is_empty** and **this_has_a_file**, that we now will delete.
+
+```bash
 $ rmdir this_is_empty
 
 $ rmdir this_has_a_file
-If you look inside this_has_a_file
-this_has_a_file.jpg
-you will see there is a file in there! Only directories that are completely empty can be deleted using rmdir. To be able to delete this_has_a_file, either delete the file manually and then remove the folder
+```
+
+If you look inside **this_has_a_file**:
+
+![](files/linux-intro/this_has_a_file.jpg)
+
+you will see there is a file in there! Only directories that are completely empty can be deleted using rmdir. To be able to delete **this_has_a_file**, either delete the file manually and then remove the folder
+
+```bash
 $ rm this_has_a_file/file
 
 $ rmdir this_has_a_file
+```
+
 or delete the directory recursively, which will remove this_has_a_file and everything inside:
+
+```bash
 $ rm -r this_has_a_file
+```
+
 8. Open files
 So what happens if you give your files bad names like 'file1' or 'results'? You take a break in a project and return to it 4 months later, and all those short names you gave your files doesn't tell you at all what the files actually contain. Of course, this should never happend, because you should ALWAYS name your files so that you definetly know what they contain. But lets say it did happen. Then the only way out is to look at the contents of the files and try to figure out if it is the file you are looking for.
 Now, we are looking for that really good script we wrote a couple of months ago in that other project. Look in the project's folder, old_project, and find the script.
