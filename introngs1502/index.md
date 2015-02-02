@@ -12,6 +12,8 @@ Held in Uppsala Feb 9-13, 2015.
 [Pre-course material](precourse)  
 [Schedule](schedule)  
 
+<img scr="/images/scilife-green_on_black-80px.png">
+
 ## Maps & Travel Info
 [Map over Uppsala](https://www.google.se/maps/place/Uppsala/@59.8332794,17.6584471,12z/data=!3m1!4b1!4m2!3m1!1s0x465fcbfb8532ab8d:0xaa4fe90a85820807)  
 [Map over Uppsala Biomedical Centre (BMC)](http://www.bmc.uu.se/digitalAssets/205/205659_3bmc-2014-810x374.jpg)  
