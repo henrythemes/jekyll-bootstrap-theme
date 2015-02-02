@@ -3,16 +3,24 @@ layout: default
 title:  'Linux Intro'
 ---
 
-Linux Introduction
-NOTE: in syntax examples, the dollar sign ($) is not to be printed. The dollar sign is usually an indicator that the text following it should be typed in a terminal window.
-1. Connecting to UPPMAX
+# Linux Introduction
+**NOTE:** in syntax examples, the dollar sign ($) is not to be printed. The dollar sign is usually an indicator that the text following it should be typed in a terminal window.
+
+## 1. Connecting to UPPMAX
 The first step of this lab is to open a ssh connection to UPPMAX. You will need a ssh program to do this:
-On Linux: it is included by default, named Terminal.
-On OSX: it is included by default, named Terminal.
-On Windows: Google MobaXterm and download it.
-Fire up the available ssh program and enter the following (replace username with your uppmax user name). -X means that X-forwarding is activated on the connection, which means graphical data can be transmitted if a program requests it, i.e. programs can use a graphical user interface (GUI) if they want to.
-$ ssh -X username@milou.uppmax.uu.se
+
+On Linux: it is included by default, named **Terminal**.
+
+On OSX: it is included by default, named **Terminal**.
+
+On Windows: [Google MobaXterm](http://bit.ly/19yaQOM) and download it.
+
+Fire up the available ssh program and enter the following (replace **username** with your uppmax user name). -X means that X-forwarding is activated on the connection, which means graphical data can be transmitted if a program requests it, i.e. programs can use a graphical user interface (GUI) if they want to.
+
+    $ ssh -X username@milou.uppmax.uu.se
+
 and give your password when prompted. As you type, nothing will show on screen. No stars, no dots. It is supposed to be that way. Just type the password and press enter, it will be fine.
+
 Now your screen should look something like this:
 
 2. Getting a node of your own
