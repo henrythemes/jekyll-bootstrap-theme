@@ -182,7 +182,7 @@ To unpack the **files.tar.gz** file use the following line while standing in the
 $ tar -xzvf files.tar.gz
 ```
 
-The command will always be the same for all tar.gz files you want to unpack. -xzvf means e**X**tract from a **Z**ipped file, **V**erbose (prints the name of the file being unpacked), from the specified **F**ile (f must always be the last of the letters).
+The command will always be the same for all tar.gz files you want to unpack. -xzvf means **eXtract** from a **Z**ipped file, **V**erbose (prints the name of the file being unpacked), from the specified **F**ile (f must always be the last of the letters).
 
 Look in the folder again and see what we just unpacked:
 
