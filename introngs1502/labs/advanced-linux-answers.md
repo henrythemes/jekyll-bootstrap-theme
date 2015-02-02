@@ -20,7 +20,8 @@ to
 -rw-rw—wx
 ```
 
-One answer:  
+One answer:
+
 ```bash
 chmod ug+rw filename  
 chmod o+wx filename  
