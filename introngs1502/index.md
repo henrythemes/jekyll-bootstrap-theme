@@ -13,7 +13,7 @@ Held in Uppsala Feb 9-13, 2015.
 [Schedule](schedule)  
 
 <picture data-alt="A beautiful responsive image" data-default-src="img/960x960.gif">
-	<source srcset="/images/scilife-green_on_black-80px.png, /images/scilife-green_on_black-80px.png 2x"/>
+	<source srcset="http://scilifelabcourses.github.io/images/scilife-green_on_black-60px.png, /http://scilifelabcourses.github.io/images/scilife-green_on_black-60px.png 2x"/>
 	<img src="" srcset="" alt="A beautiful responsive image"/>
 </picture>
 
