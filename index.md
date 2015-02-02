@@ -2,7 +2,7 @@
 layout: default
 title:  'Welcome'
 ---
-
+ 
 
 ## Courses
 
