@@ -25,7 +25,8 @@ and give your password when prompted. As you type, nothing will show on screen. 
 
 Now your screen should look something like this:
 
-![](files/uppmax-intro/just-logged-in.jpg)
+![](files/uppmax-pipeline
+/just-logged-in.jpg)
 
 ## 2. Getting a node of your own (only if you canceled your job before lunch)
 Usually you would do most of the work in this lab directly on one of the login nodes at uppmax, but we have arranged for you to have one core each to avoid disturbances. This was covered briefly in the lecture notes.
@@ -46,7 +47,8 @@ $ squeue -u username
 
 should look something like this
 
-![](files/uppmax-intro/allocation.png)
+![](files/uppmax-pipeline
+/allocation.png)
 
 where **q34** is the name of the node I got (yours will probably be different). Note the numbers in the Time column. They show for how long the job has been running. When it reaches the time limit you requested (4.5 hours in this case) the session will shut down, and you will lose all unsaved data. Connect to this node from within uppmax.
 
@@ -104,7 +106,8 @@ $ echo $PATH
 
 It should give you something like this, a list of directories, separated by colon signs:
 
-![](files/uppmax-intro/echoPath.png)
+![](files/uppmax-pipeline
+/echoPath.png)
 
 Try loading a module, and then look at the $PATH variable again. You'll see that there are a few extra directories there now, after the module has been loaded.
 
@@ -113,7 +116,8 @@ $ module load bioinfo-tools samtools
 $ echo $PATH
 ```
 
-![](files/uppmax-intro/echoPathPostModuleLoad.png)
+![](files/uppmax-pipeline
+/echoPathPostModuleLoad.png)
 
 To pretend that we are loading a module, we will just add a the directory containing my dummy scripts to the $PATH variable, and it will be like we loaded the module for them.
 
@@ -153,7 +157,8 @@ $ <program name> --help
 
 This is useful to remember, since most programs has this function. If you do this for the filter program, you get
 
-![](files/uppmax-intro/filterHelp.png)
+![](files/uppmax-pipeline
+/filterHelp.png)
 
 This help text tells you that the program has to be run a certain way. The options -i and -o are mandatory, since they are explicitly written. The hard brackets [ ] around "-c <cutoff>" means that the cutoff value is NOT mandatory. They can be specified if the user wishes to change the cutoff from the default values.
 
@@ -191,7 +196,8 @@ $ nano exome_analysis_script.sh
 
 The .sh ending is commonly used for shell scripts (shell..) which is what we are creating.
 
-![](files/uppmax-intro/dualTerminals.png)
+![](files/uppmax-pipeline
+/dualTerminals.png)
 
 Since our memory is far from perfect, try to **always comment your scripts**. The comments are rows that start with a hash sign, # These lines will not be interpreted as a command to be run, they will just be skipped. They are only meant for humans to read, and they are real lifesafers when you are reading old scripts you have forgotten what they do. Commands are hard for humans to read, so try to write a couple of words explaining what the commad below does. You'll be thankful later!
 
@@ -231,7 +237,8 @@ In SLURM words, this would be
 
 SLURM options always start with **#SBATCH** followed by a flag (-A for account, -t for time, -p for partition) and the value for that flag. Your script should now look something like this (ignore the old project id and path to the scripts):
 
-![](files/uppmax-intro/slurmScript.png)
+![](files/uppmax-pipeline
+/slurmScript.png)
 
 To submit this script to the queue:
 
