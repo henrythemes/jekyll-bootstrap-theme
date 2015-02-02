@@ -103,11 +103,13 @@ As you can see the first character correctly identifies it as **d**, a directory
 ## Editing Ownership & Permissions
 The command to set file permission is "chmod" which means "**CH**ange **MOD**e". Only the owner can set file permissions.
 
-1. First you decide which group you want to set permissions for. User, u, group, g, other, o, or all three, a.
-1. Next you either add, +, remove, -, or wipe out previous and add new, =, permissions.
-1. Then you specify the kind of permission: r,w,x, or -.
+1. First you decide which group you want to set permissions for. User, **u**, group, **g**, other, **o**, or all three, **a**.
+1. Next you either add, **+**, remove, **-**, or wipe out previous and add new, **=**, permissions.
+1. Then you specify the kind of permission: **r**,**w**,**x**, or **-**.
 
 Lets revisit our example file and directory to test this.
+
+```bash
 $ ls -lh
 total 0
 drwxr-xr-x  2 S_D  staff    68B Sep 21 14:41 directoryname
@@ -117,14 +119,21 @@ $ ls -lh
 total 0
 drwxr-xr-x  2 S_D  staff    68B Sep 21 14:41 directoryname
 ---x--x--x  1 S_D  staff     0B Sep 21 13:54 filename
-As you can see this affected all three, a, it wiped the previous permissions, =, and added an executable permission, x, to all three groups.
+```
+
+As you can see this affected all three, **a**, it wiped the previous permissions, **=**, and added an executable permission, **x**, to all three groups.
+
 Try some others both on the file and directory to get the hang of it.
+
+```bash
 $ chmod g+r filename
 $ chmod u-x filename
 $ chmod ug=rx filename
 $ chmod a=- filename
 $ chmod a+w directoryname
-Assignment
+```
+
+## Assignment
 The assignments do not have to be handed in in any form. Just complete them for your own sake, to make sure that you have understood the material. If you need help or further explanations to complete any assignments, please do not hesistate to contact us, it is what we are here for =).
 In no more than two commands, get the file permissions from
 ---------- 
