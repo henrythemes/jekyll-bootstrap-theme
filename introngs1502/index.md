@@ -19,8 +19,8 @@ Held in Uppsala Feb 9-13, 2015.
 [Travel Info](travel)  
 
 ## Helpful Things
-[Linux cheat sheet](introngs1502/files/linux-cheat-sheet.pdf)  
-[UPPMAX cheat sheet](introngs1502/files/uppmax-cheat-sheet.png)  
+[Linux cheat sheet](files/linux-cheat-sheet.pdf)  
+[UPPMAX cheat sheet](files/uppmax-cheat-sheet.png)  
 
 ## External Resources
 [IGV (Integrative Genomics Viewer) Home](https://www.broadinstitute.org/igv/)  
