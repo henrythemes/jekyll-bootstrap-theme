@@ -160,7 +160,7 @@ If you are unable to copy the files on uppmax, you can download the files instea
 ```bash
 Ex: wget -P <destination prefix> <source URL>
 
-$ wget -P ~/glob/ngs-intro/linux_tutorial {{site.url}}/introngs1502/labs/linux-intro/files.tar.gz
+$ wget -P ~/glob/ngs-intro/linux_tutorial {{site.url}}/introngs1502/labs/files/linux-intro/files.tar.gz
 ```
 
 $ wget -P ~/glob/ngs-intro/linux_tutorial http://uppnex.se/twiki/pub/Courses/WebHome/files.tar.gz
