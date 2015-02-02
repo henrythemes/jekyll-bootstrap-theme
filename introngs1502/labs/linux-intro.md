@@ -302,36 +302,77 @@ or delete the directory recursively, which will remove this_has_a_file and every
 $ rm -r this_has_a_file
 ```
 
-8. Open files
-So what happens if you give your files bad names like 'file1' or 'results'? You take a break in a project and return to it 4 months later, and all those short names you gave your files doesn't tell you at all what the files actually contain. Of course, this should never happend, because you should ALWAYS name your files so that you definetly know what they contain. But lets say it did happen. Then the only way out is to look at the contents of the files and try to figure out if it is the file you are looking for.
-Now, we are looking for that really good script we wrote a couple of months ago in that other project. Look in the project's folder, old_project, and find the script.
-old_project.jpg
+## 8. Open files
+So what happens if you give your files bad names like 'file1' or 'results'? You take a break in a project and return to it 4 months later, and all those short names you gave your files doesn't tell you at all what the files actually contain. Of course, this should never happend, because you should **ALWAYS** name your files so that you definetly know what they contain. But lets say it did happen. Then the only way out is to look at the contents of the files and try to figure out if it is the file you are looking for.
+
+Now, we are looking for that really good script we wrote a couple of months ago in that other project. Look in the project's folder, **old_project**, and find the script.
+
+![](files/linux-intro/old_project.jpg)
+
 Not so easy with those names.. We will have to use less to look at the files and figure out which is which. Syntax for less:
+
+```bash
 $ less <filename>
-Have a look at the_best, that must be our script, right?
+```
+
+Have a look at **the_best**, that must be our script, right?
+
+```bash
 $ less old_project/the_best
-(press q to close it down, use arrows to scroll up/down)
-I guess not. Carrot cakes might be the bomb, but they won't solve bioinformatic problems. Have a look at the file a instead.
+```
+
+**(press q to close it down, use arrows to scroll up/down)**
+
+I guess not. Carrot cakes might be the bomb, but they won't solve bioinformatic problems. Have a look at the file **a** instead.
+
 That's more like it!
+
 Now imagine that you had 100s of files with weird names, and you really needed to find it.. Lesson learned: name your files so that you know what they are! And don't be afraid to create folders to organise files.
-Another thing to think about when opening files in Linux is which program should you open the file in? The programs we covered during the lectures are nano and less. The main difference between these programs in that less can't edit files, only view them. Another difference is that less doesn't load the whole file into the RAM memory when opening it. So, why care about how the program works? I'll show you why. This time we will be opening a larger file, located in the course's project folder. It's 65 megabytes, so it is a tiny file compared with bio-data. Normal sequencing files can easily be 100-1000 times larger than this.
+
+Another thing to think about when opening files in Linux is which program should you open the file in? The programs we covered during the lectures are **nano** and **less**. The main difference between these programs in that **less can't edit files**, only view them. Another difference is that **less doesn't load the whole file** into the RAM memory when opening it. So, why care about how the program works? I'll show you why. This time we will be opening a larger file, located in the course's project folder. It's 65 megabytes, so it is a tiny file compared with bio-data. Normal sequencing files can easily be 100-1000 times larger than this.
+
 First, open the file with nano. Syntax:
+
+```bash
 $ nano <filename>
+
 $ nano /proj/g2014279/labs/linux_additional-files/large_file
-(press ctrl+x to close it down, user arrows to scroll up/down)
+```
+
+**(press ctrl+x to close it down, user arrows to scroll up/down)**
+
 Is the file loaded yet? Now take that waiting time and multiply it with 100-1000. Now open the file with less. Notice the difference?
-Head and tail works the same was as less in this regard. They don't load the whole file into RAM, they just take what they need.
+
+**Head** and **tail** works the same was as less in this regard. They don't load the whole file into RAM, they just take what they need.
+
 To view the first rows of the large file, use head. Syntax:
+
+```bash
 $ head <filename>
+
 $ head /proj/g2014279/labs/linux_additional-files/large_file
+```
+
 Remember how to view an arbitrary number of first rows in a file?
+
+```bash
 $ head -n <number of rows to view> <filename>
- $ head -n 23 /proj/g2014279/labs/linux_additional-files/large_file
+
+$ head -n 23 /proj/g2014279/labs/linux_additional-files/large_file
+```
+
 The same syntax for viewing the last rows of a file with tail:
+
+```bash
 $ tail <filename>
+
 $ tail /proj/g2014279/labs/linux_additional-files/large_file
+
 $ tail -n <number of rows to view> <filename>
- $ tail -n 23 /proj/g2014279/labs/linux_additional-files/large_file
+
+$ tail -n 23 /proj/g2014279/labs/linux_additional-files/large_file
+```
+
 9. Wildcards
 Sometimes (most time really) you have many files. So many that it would take you a day just to type all their names. This is where wildcards saves the day. The wildcard symbol in Linux is the star sign, * , and it means literally anything. Say that you want to move all the files which has names starting with sample_1_ and the rest of the name doesn't matter. You want all the files belonging to sample_1. Then you could use the wildcard to represent the rest of the name:
 (don't run this command, it's just an example)
