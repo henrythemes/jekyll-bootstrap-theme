@@ -9,7 +9,7 @@ title:  'Introduction to Bioinformatics Using NGS Data - February 2015'
 Held in Uppsala Feb 9-13, 2015.
 
 ## Important Links
-
+<img scr="/images/scilife-green_on_black-60px.png">
 [Pre-course material](precourse)  
 [Schedule](schedule)  
 
