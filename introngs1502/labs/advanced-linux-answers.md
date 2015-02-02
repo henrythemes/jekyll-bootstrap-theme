@@ -55,13 +55,11 @@ samtools view outbam.bam | grep "CATCATCAT" | wc -l
 
 #### Extra material 1.
 Task1:
-
 ```bash
 grep "^@" sample_1.sam > at.txt
 ```
 
 Task2:
-
 ```bash
 grep "[0-9]\{3\}$" sample_1.sam
 ```
