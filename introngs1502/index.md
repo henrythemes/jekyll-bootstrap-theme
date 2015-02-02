@@ -12,7 +12,10 @@ Held in Uppsala Feb 9-13, 2015.
 [Pre-course material](precourse)  
 [Schedule](schedule)  
 
-<img scr="/images/scilife-green_on_black-80px.png">
+<picture data-alt="A beautiful responsive image" data-default-src="img/960x960.gif">
+	<source srcset="/images/scilife-green_on_black-80px.png, /images/scilife-green_on_black-80px.png 2x"/>
+	<img src="" srcset="" alt="A beautiful responsive image"/>
+</picture>
 
 ## Maps & Travel Info
 [Map over Uppsala](https://www.google.se/maps/place/Uppsala/@59.8332794,17.6584471,12z/data=!3m1!4b1!4m2!3m1!1s0x465fcbfb8532ab8d:0xaa4fe90a85820807)  
