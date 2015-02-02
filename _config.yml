@@ -8,7 +8,7 @@ title: 'Jekyll Bootstrap Theeme'
 ########
 # more settings
 
-markdown: kramdown
+#markdown: kramdown
 
 sass:
   sass_dir: css
