@@ -83,6 +83,13 @@ The starting point of the pipeline is reads fresh from the sequencing machine in
 
 First, let's go through the steps of the pipeline:
 
+1. Item 1
+2. Item 2
+3. Item 3
+   * Item 3a
+   * Item 3b
+   
+
 **1. Build an index for the reference genome.**
   * This will speed up the alignment process. Not possible to do without it.
 **2. Align the reads.**
