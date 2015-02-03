@@ -18,8 +18,8 @@ Room:
 
 **Tuesday 10th**  
 Room:  
-**09.00-09.20** [Lecture: Introduction to Unix and UPPMAX/UPPNEX part III](slides/dahlo-filetypes.pdf) (Martin Dahlö)
-**09.20-10.15** [Exercise: Introduction to Unix and UPPMAX/UPPNEX part III] (Martin Dahlö, Sebastian DiLorenzo, Martin Norling, Alvaro Martinez Barrio)  
+**09.00-09.20** [Lecture: Introduction to Unix and UPPMAX/UPPNEX part III](slides/dahlo-filetypes.pdf) (Martin Dahlö)  
+**09.20-10.15** [Exercise: Introduction to Unix and UPPMAX/UPPNEX part III](labs/filetypes) (Martin Dahlö, Sebastian DiLorenzo, Martin Norling, Alvaro Martinez Barrio)  
 **10.30-12.00** Lecture: Next Generation Sequencing Overview (Olga Vinnere Pettersson)  
 **12.00-13.00** Lunch  
 **13.00-14.00** Lecture: NGS and bioinformatics analysis pipelines (Adam Ameur)  
