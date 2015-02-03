@@ -446,4 +446,4 @@ filestuff
 
 Good luck and have fun! :)
 
-If you get completely lost on some of the questions and there is nobody around to answer, here is a [cheat sheet](advanced-linux-answers) :)
+If you get completely lost on some of the questions and there is nobody around to answer, here is a [cheat sheet](advanced-linux-answers) :) 
