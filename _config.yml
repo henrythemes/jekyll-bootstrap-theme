@@ -11,6 +11,7 @@ ga: 'UA-23985298-11'
 
 environment: production
 markdown: kramdown
+highlighter: pygments
 permalink: pretty
 
 #markdown: redcarpet
