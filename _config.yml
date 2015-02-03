@@ -10,7 +10,6 @@ ga: 'UA-23985298-11'
 # more settings
 
 highlighter: pygments
-permalink: pretty
 
 markdown: redcarpet
 redcarpet:
