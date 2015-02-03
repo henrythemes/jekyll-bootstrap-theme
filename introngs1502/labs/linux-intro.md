@@ -71,9 +71,9 @@ We can start off with moving to your **glob** folder. The glob folder is the fol
 
 As seen in the lecture, the command for moving around is **cd**. The command stands for **C**hange **D** irectory and does exactly that. It is the equivalent of double clicking a folder in a GUI. To enter your glob folder, simply type
 
-```bash
+{% highlight bash %}
 $ cd glob
-```
+{% highlight bash %}
 
 We can easily see that this is a relative path, since it does not start with a **/** That means that this command will only work when you are standing in your home folder. If you are standing somewhere else and say that you want to enter a folder named glob, the computer will tell you that there is no folder named glob where you are located at the moment. The absolute path to your glob folder would be **/glob/\<username\>**
 
