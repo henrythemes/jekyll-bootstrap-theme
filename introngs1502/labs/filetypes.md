@@ -93,7 +93,7 @@ First, let's go through the steps of the pipeline:
 	We have to sort it to be able to index it.  
 5. Index the BAM file.  
 	We have to index it to make it fast to access the data in the file.  
-6. View the aligned data together with the annotations.  
+7. View the aligned data together with the annotations.  
 
 Before we do any steps, we have to load the modules for the programs we will be running.
 $ module load bwa samtools IGV
