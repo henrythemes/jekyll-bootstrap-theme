@@ -35,7 +35,7 @@ Usually you would do most of the work in this lab directly on one of the login n
 (We only have 20 reserved cores, so if someone has two, someone else will not get one..)
 
 ```bash
-$ salloc -A g2014279 -t 04:30:00 -p core -n 1 --no-shell --reservation=g2014279_mon &
+$ salloc -A g2015005 -t 04:30:00 -p core -n 1 --no-shell --reservation=g2015005_mon &
 ```
 
 check which node you got (replace **username** with your uppmax user name)
@@ -57,7 +57,7 @@ $ ssh -X q34
 **Note:** there is a uppmax specific tool called jobinfo that supplies the same kind of information as squeue that you can use as well (```$ jobinfo -u username```).
 
 ## 3. Copying files needed for laboratory
-To be able to do parts of this lab, you will need some files. To avoid all the course participants editing the same file all at once, undoing each other's edits, each participant will get their own copy of the needed files. The files are located in the folder **/proj/g2014279/labs/uppmax_pipeline_exercise**
+To be able to do parts of this lab, you will need some files. To avoid all the course participants editing the same file all at once, undoing each other's edits, each participant will get their own copy of the needed files. The files are located in the folder **/proj/g2015005/labs/uppmax_pipeline_exercise**
 
 Next, copy the lab files from this folder. -r means recursively, which means all the files including sub-folders of the source folder. Without it, only files directly in the source folder would be copied, NOT sub-folders and files in sub-folders.
 
@@ -68,7 +68,7 @@ Ex.
 ```bash
 $ cp -r <source> <destination>
 
-$ cp -r /proj/g2014279/labs/uppmax_pipeline_exercise ~/glob/ngs-intro/
+$ cp -r /proj/g2015005/labs/uppmax_pipeline_exercise ~/glob/ngs-intro/
 ```
 
 Have a look in **~/glob/ngs-intro/uppmax_pipeline_exercise**:
@@ -118,7 +118,7 @@ $ echo $PATH
 To pretend that we are loading a module, we will just add a the directory containing my dummy scripts to the $PATH variable, and it will be like we loaded the module for them.
 
 ```bash
-$ export PATH=$PATH:/proj/g2014279/labs/uppmax_pipeline_exercise/dummy_scripts
+$ export PATH=$PATH:/proj/g2015005/labs/uppmax_pipeline_exercise/dummy_scripts
 ```
 
 This will set the $PATH variable to whatever it is at the moment, and add a directory at the end of it. Note the lack of a dollar sign infront of the variable name directly after "export". You don't use dollar signs when **assigning** values to variables, and you always use dollar signs when **getting** values from variables.
@@ -224,7 +224,7 @@ In SLURM words, this would be
 
 ```bash
 #!/bin/sh
-#SBATCH -A g2014279
+#SBATCH -A g2015005
 #SBATCH -t 00:05:00
 #SBATCH -p core
 ```

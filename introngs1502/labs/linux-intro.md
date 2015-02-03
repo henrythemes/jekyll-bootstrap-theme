@@ -31,7 +31,7 @@ Now your screen should look something like this:
 Usually you would do most of the work in this lab directly on one of the login nodes at uppmax, but we have arranged for you to have one core each to avoid disturbances. This was covered briefly in the lecture notes.
 
 ```bash
-$ salloc -A g2014279 -t 07:00:00 -p core -n 1 --no-shell --reservation=g2014279_mon &
+$ salloc -A g2015005 -t 07:00:00 -p core -n 1 --no-shell --reservation=g2015005_mon &
 ```
 
 check which node you got (replace **username** with your uppmax user name)
@@ -81,12 +81,12 @@ It is the exact same things as if you are using a GUI. If you are standing on yo
 
 If you look around in your glob folder, you probably only have a folder called **private***. This is how everyone's glob folder looks before you start putting files there.
 
-Next, let's move to the course's project folder. A project folder is like a home folder, but it is shared between all the members of the project. It is the common file area in the project, and the place where you will store your raw data and important analysis results. This course's project id is **g2014279**, so the path to the project folder is **/proj/g2014279**
+Next, let's move to the course's project folder. A project folder is like a home folder, but it is shared between all the members of the project. It is the common file area in the project, and the place where you will store your raw data and important analysis results. This course's project id is **g2015005**, so the path to the project folder is **/proj/g2015005**
 
 **NOTE: Remember to tab-complete to avoid typos and too much writing.**
 
 ```bash
-$ cd /proj/g2014279
+$ cd /proj/g2015005
 ```
 
 Look at what is in the folder (please ignore the old project id, there are limit to how many pictures I want to spend the time to edit..):
@@ -124,7 +124,7 @@ $ cd
 ## 4. Copying files needed for laboratory
 To be able to do parts of this lab, you will need some files. To avoid all the course participants editing the same file all at once, undoing each other's edits, each participant will get their own copy of the needed files.
 
-The files are located in the folder **/proj/g2014279/labs/linux_tutorial**
+The files are located in the folder **/proj/g2015005/labs/linux_tutorial**
 
 or they can be downloaded if you are not on uppmax at the moment, [files.tar.gz](files/linux-intro/files.tar.gz) (instruction on how to download further down)
 
@@ -152,7 +152,7 @@ Next, copy the lab files to this folder. **-r** means recursively, which means a
 ```bash
 Ex: cp -r <source folder> <destination folder>
 
-$ cp -r /proj/g2014279/labs/linux_tutorial/* ~/glob/ngs-intro/linux_tutorial
+$ cp -r /proj/g2015005/labs/linux_tutorial/* ~/glob/ngs-intro/linux_tutorial
 ```
 
 If you are unable to copy the files on uppmax, you can download the files instead of copying them. This is done with the command **wget** (web get). It works kind of the same way as the cp command, but you give it an source URL instead of a source file, and you specify the destination by giving it a prefix, a path that will be appended in front on the file name when it's downloaded. I.e. if you want to download the file http://somewhere.com/my.file and you give it the prefix ~/analysis/, the downloaded file will be saved as ~/analysis/my.file
@@ -336,7 +336,7 @@ First, open the file with nano. Syntax:
 ```bash
 $ nano <filename>
 
-$ nano /proj/g2014279/labs/linux_additional-files/large_file
+$ nano /proj/g2015005/labs/linux_additional-files/large_file
 ```
 
 **(press ctrl+x to close it down, user arrows to scroll up/down)**
@@ -350,7 +350,7 @@ To view the first rows of the large file, use head. Syntax:
 ```bash
 $ head <filename>
 
-$ head /proj/g2014279/labs/linux_additional-files/large_file
+$ head /proj/g2015005/labs/linux_additional-files/large_file
 ```
 
 Remember how to view an arbitrary number of first rows in a file?
@@ -358,7 +358,7 @@ Remember how to view an arbitrary number of first rows in a file?
 ```bash
 $ head -n <number of rows to view> <filename>
 
-$ head -n 23 /proj/g2014279/labs/linux_additional-files/large_file
+$ head -n 23 /proj/g2015005/labs/linux_additional-files/large_file
 ```
 
 The same syntax for viewing the last rows of a file with tail:
@@ -366,11 +366,11 @@ The same syntax for viewing the last rows of a file with tail:
 ```bash
 $ tail <filename>
 
-$ tail /proj/g2014279/labs/linux_additional-files/large_file
+$ tail /proj/g2015005/labs/linux_additional-files/large_file
 
 $ tail -n <number of rows to view> <filename>
 
-$ tail -n 23 /proj/g2014279/labs/linux_additional-files/large_file
+$ tail -n 23 /proj/g2015005/labs/linux_additional-files/large_file
 ```
 
 ##9. Wildcards

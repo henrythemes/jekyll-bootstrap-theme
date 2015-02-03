@@ -49,7 +49,7 @@ Directory: Whether the directory can be entered through "cd".
 Start your terminal, log onto UPPMAX (check with squeue which core you had and ssh onto it, if for some reason your core is gone :
 
 ```bash
-$ salloc -A g2014279 -t 04:30:00 -p core --no-shell --reservation=g2014279_mon &
+$ salloc -A g2015005 -t 04:30:00 -p core --no-shell --reservation=g2015005_mon &
 
 ```
 
@@ -305,7 +305,7 @@ The * will ensure that any file starting with "text" and then anything following
 Copy the file sample_1.sam to your folder using the command below
 
 ```bash
-$ cp /proj/g2014279/labs/linux_additional-files/sample_1.sam .
+$ cp /proj/g2015005/labs/linux_additional-files/sample_1.sam .
 ```
 
 Use grep to search in the file for a specific string of nucleotides, for example:
