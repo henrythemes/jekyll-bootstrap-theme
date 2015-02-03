@@ -6,6 +6,10 @@ title:  'Linux Intro'
 # Linux Introduction
 **NOTE:** in syntax examples, the dollar sign ($) is not to be printed. The dollar sign is usually an indicator that the text following it should be typed in a terminal window.
 
+```bash
+print "test"
+```
+
 ## 1. Connecting to UPPMAX
 The first step of this lab is to open a ssh connection to UPPMAX. You will need a ssh program to do this:
 
