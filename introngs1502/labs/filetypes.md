@@ -90,10 +90,12 @@ First, let's go through the steps of the pipeline:
    * Item 3b
 
 
-**1. Build an index for the reference genome.**
+1. Build an index for the reference genome.
    * This will speed up the alignment process. Not possible to do without it.
-**2. Align the reads.**
+2. Align the reads.
    * Yepp.
+
+
 **3. Convert the SAM file to a BAM file.**
    * We want to use the space efficiently.
 **4. Sort the BAM file.**
