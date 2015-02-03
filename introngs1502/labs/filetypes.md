@@ -85,26 +85,30 @@ First, let's go through the steps of the pipeline:
 
 1. **Build an index for the reference genome.**
    * This will speed up the alignment process. Not possible to do without it.
-2. **Align the reads.**
+1. **Align the reads.**
    * Yepp.
-3. **Convert the SAM file to a BAM file.**
+1. **Convert the SAM file to a BAM file.**
    * We want to use the space efficiently.
-4. **Sort the BAM file.**
+1. **Sort the BAM file.**
    * We have to sort it to be able to index it.
-5. **Index the BAM file.**
+1. **Index the BAM file.**
    * We have to index it to make it fast to access the data in the file.
-6. **View the aligned data together with the annotations.**
+1. **View the aligned data together with the annotations.**
 
 Before we do any steps, we have to load the modules for the programs we will be running.
+
+```bash
 $ module load bwa samtools IGV
+```
  
-1. Building an index
-1. Build an index for the reference genome.
-2. Align the reads.
-3. Convert the SAM file to a BAM file.
-4. Sort the BAM file.
-5. Index the BAM file.
-6. View the aligned data together with the annotations.
+## 1. Building an index
+1. **Build an index for the reference genome.**
+1. **Align the reads.**
+1. **Convert the SAM file to a BAM file.**
+1. **Sort the BAM file.**
+1. **Index the BAM file.**
+1. **View the aligned data together with the annotations.**
+
 All aligners will have to index the reference genome you are aligning your data against. This is only done once per reference genome, and then you reuse that index whenever you need it. All aligners have their own kind of index unfortunately, so you will have to build one index for each aligner you want to use. In this lab we will use BWA, so we will build a BWA index.
 First, have a look in the 0_ref folder
 $ ll 0_ref
