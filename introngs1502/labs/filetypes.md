@@ -110,22 +110,39 @@ $ module load bwa samtools IGV
 1. View the aligned data together with the annotations.
 
 All aligners will have to index the reference genome you are aligning your data against. This is only done once per reference genome, and then you reuse that index whenever you need it. All aligners have their own kind of index unfortunately, so you will have to build one index for each aligner you want to use. In this lab we will use BWA, so we will build a BWA index.
+
 First, have a look in the 0_ref folder
+
+```bash
 $ ll 0_ref
+```
+
 You should see 2 files: the fasta file, the gtf file. Have a look at each of them with less, just to see how they look inside.
+
+```bash
 Syntax: bwa index <name of the fasta file you want to index>
+
 $ bwa index 0_ref/ad2.fa
+```
+
 Since the genome is so small this should only take a second or so. The human genome will probably take a couple of hours.
+
 Look in the 0_ref folder again and see if anything has changed.
+
+```bash
 $ ll 0_ref
+```
+
 The new files you see are the index files created by BWA. We are now ready to align our reads.
-2. Align the reads
+
+### 2. Align the reads
 1. Build an index for the reference genome.
-2. Align the reads.
-3. Convert the SAM file to a BAM file.
-4. Sort the BAM file.
-5. Index the BAM file.
-6. View the aligned data together with the annotations.
+1. **Align the reads.**
+1. Convert the SAM file to a BAM file.
+1. Sort the BAM file.
+1. Index the BAM file.
+1. View the aligned data together with the annotations.
+
 Now we have a reference genome that has been indexed, and reads that we should align. Do that using BWA, and give the arguments
 Syntax: bwa aln <reference genome> <fastq file with reads> > <name of the output file>
 $ bwa aln 0_ref/ad2.fa 0_seq/ad2.fq > 1_alignment/ad2.sai
