@@ -90,7 +90,7 @@ First, let's go through the steps of the pipeline:
    * Item 3b
 
 
-1. Build an index for the reference genome.
+**1. Build an index for the reference genome.**
    * This will speed up the alignment process. Not possible to do without it.
 2. Align the reads.
    * Yepp.
