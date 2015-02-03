@@ -9,14 +9,12 @@ ga: 'UA-23985298-11'
 ########
 # more settings
 
-environment: production
-markdown: kramdown
 highlighter: pygments
 permalink: pretty
 
-#markdown: redcarpet
-#redcarpet:
-  #extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript", "with_toc_data"]
+markdown: redcarpet
+redcarpet:
+  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript", "with_toc_data"]
 
 sass:
   sass_dir: css
