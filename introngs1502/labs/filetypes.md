@@ -4,9 +4,11 @@ title:  'Filetypes'
 ---
 
 # File Types
+
 **NOTE:** in syntax examples, the dollar sign ($) is not to be printed. The dollar sign is usually an indicator that the text following it should be typed in a terminal window.
 
 ## 1. Connecting to UPPMAX
+
 The first step of this lab is to open a ssh connection to UPPMAX. You will need a ssh program to do this:
 
 On Linux: it is included by default, named **Terminal**.
@@ -28,6 +30,7 @@ Now your screen should look something like this:
 ![](files/linux-intro/just-logged-in.jpg)
 
 ## 2. Getting a node of your own
+
 Usually you would do most of the work in this lab directly on one of the login nodes at uppmax, but we have arranged for you to have one core each to avoid disturbances. This was covered briefly in the lecture notes.
 
 ```bash
@@ -53,6 +56,7 @@ $ ssh -X q34
 **Note:** there is a uppmax specific tool called jobinfo that supplies the same kind of information as squeue that you can use as well (```$ jobinfo -u username```).
 
 ## 3. Copying files needed for laboratory
+
 To be able to do parts of this lab, you will need some files. To avoid all the course participants editing the same file all at once, undoing each other's edits, each participant will get their own copy of the needed files. The files are located in the folder **/proj/g2015005/labs/filetypes**
 
 Next, copy the lab files from this folder. -r means recursively, which means all the files including sub-folders of the source folder. Without it, only files directly in the source folder would be copied, NOT sub-folders and files in sub-folders.
@@ -77,6 +81,7 @@ $ tree
 This will print a file tree, which gives you a nice overview of the folders where you are standing. As you can see, you have a couple of files and a couple of empty folders. In the **0_ref** folder you have a reference genome in fasta format and annotations for the genome in GTF format. In **0_seq** you have a fastq file containing the reads we will align.
 
 ## 4. Running a mini pipeline
+
 The best way to see all the different file formats is to run a small pipeline and see which files we encounter along the way. The pipeline is roughly the same steps you'll do in the resequencing part of the course, so the focus now is not to learn how the programs work. The data is from a sequencing of the adenovirus genome, which is tiny compared to the human genom (36kb vs 3gb).
 
 The starting point of the pipeline is reads fresh from the sequencing machine in fastq format, and a reference genome in fasta format. The goal of the exercise is to look at our aligned reads in a genome viewer together with the annotations of the adenovirus genome.
@@ -102,6 +107,7 @@ $ module load bwa samtools IGV
 ```
  
 ### 1. Building an index
+
 1. **Build an index for the reference genome.**
 1. Align the reads.
 1. Convert the SAM file to a BAM file.
