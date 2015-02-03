@@ -136,6 +136,7 @@ $ ll 0_ref
 The new files you see are the index files created by BWA. We are now ready to align our reads.
 
 ### 2. Align the reads
+
 1. Build an index for the reference genome.
 1. **Align the reads.**
 1. Convert the SAM file to a BAM file.
