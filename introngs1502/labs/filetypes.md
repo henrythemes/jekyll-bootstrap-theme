@@ -78,19 +78,23 @@ This will print a file tree, which gives you a nice overview of the folders wher
 
 ## 4. Running a mini pipeline
 The best way to see all the different file formats is to run a small pipeline and see which files we encounter along the way. The pipeline is roughly the same steps you'll do in the resequencing part of the course, so the focus now is not to learn how the programs work. The data is from a sequencing of the adenovirus genome, which is tiny compared to the human genom (36kb vs 3gb).
+
 The starting point of the pipeline is reads fresh from the sequencing machine in fastq format, and a reference genome in fasta format. The goal of the exercise is to look at our aligned reads in a genome viewer together with the annotations of the adenovirus genome.
+
 First, let's go through the steps of the pipeline:
-1. Build an index for the reference genome.
-This will speed up the alignment process. Not possible to do without it.
-2. Align the reads.
-Yepp.
-3. Convert the SAM file to a BAM file.
-We want to use the space efficiently.
-4. Sort the BAM file.
-We have to sort it to be able to index it.
-5. Index the BAM file.
-We have to index it to make it fast to access the data in the file.
-6. View the aligned data together with the annotations.
+
+1. Build an index for the reference genome.  
+	This will speed up the alignment process. Not possible to do without it.  
+2. Align the reads.  
+	Yepp.  
+3. Convert the SAM file to a BAM file.  
+	We want to use the space efficiently.  
+4. Sort the BAM file.  
+	We have to sort it to be able to index it.  
+5. Index the BAM file.  
+	We have to index it to make it fast to access the data in the file.  
+6. View the aligned data together with the annotations.  
+
 Before we do any steps, we have to load the modules for the programs we will be running.
 $ module load bwa samtools IGV
  
