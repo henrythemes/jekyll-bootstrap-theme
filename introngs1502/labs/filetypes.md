@@ -83,17 +83,17 @@ The starting point of the pipeline is reads fresh from the sequencing machine in
 
 First, let's go through the steps of the pipeline:
 
-**1. Build an index for the reference genome.**  
-* This will speed up the alignment process. Not possible to do without it.  
-**2. Align the reads.**  
- * Yepp.  
-**3. Convert the SAM file to a BAM file.**  
-  * We want to use the space efficiently.  
-**4. Sort the BAM file.**  
-   * We have to sort it to be able to index it.  
-**5. Index the BAM file.**  
-    * We have to index it to make it fast to access the data in the file.  
-**6. View the aligned data together with the annotationss.**  
+**1. Build an index for the reference genome.**
+* This will speed up the alignment process. Not possible to do without it.
+**2. Align the reads.**
+ * Yepp.
+**3. Convert the SAM file to a BAM file.**
+  * We want to use the space efficiently.
+**4. Sort the BAM file.**
+   * We have to sort it to be able to index it.
+**5. Index the BAM file.**
+    * We have to index it to make it fast to access the data in the file.
+**6. View the aligned data together with the annotationss.**
 
 Before we do any steps, we have to load the modules for the programs we will be running.
 $ module load bwa samtools IGV
