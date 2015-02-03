@@ -9,11 +9,10 @@ google_analytics: 'UA-23985298-11'
 ########
 # more settings
 
-highlighter: pygments
-
 markdown: redcarpet
+highlighter: pygments
 redcarpet:
-  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript", "with_toc_data"]
+  #extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript", "with_toc_data"]
 
 sass:
   sass_dir: css
