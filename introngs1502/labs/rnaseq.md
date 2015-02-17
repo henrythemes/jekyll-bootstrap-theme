@@ -132,14 +132,15 @@ Tophat will take one or multiple FASTQ files and align the reads therein to a ge
 
 ```bash
 $ tophat -o tophat_outputSE30888 --solexa-quals -p 8 --library-type=fr-unstranded reference/rm.chr.1 SE/ERR030888.fq.gz
+
 $ tophat -o tophat_outputPE30880 --solexa-quals -p 8 -r 200 --mate-std-dev 90 --library-type=fr-unstranded reference/rm.chr.1 PE/ERR030880_1.fq.gz PE/ERR030880_2.fq.gz
 ```
 
 We specify the output location (-o), the number of CPUs to use (-p), which type of sequencing library was used to produce the data (here ‘fr-unstranded’), in which format the quality information was stored (here ‘solexa’, pre 1.3), the location of the reference annotation, the location of the Bowtie2-formatted index file for the genome sequence and finally a FASTQ file. For pair-end data we have two FASTQ files and also define the expected size and variation in size of the fragments sequenced.
 
-While this is running, you may want to head over to the <a href="http://cole-trapnell-lab.github.io/cufflinks/cufflinks/index.html" target="_top">tophat manual</a> and have a look at the available options and technical details.
+While this is running, you may want to head over to the [tophat manual](http://cole-trapnell-lab.github.io/cufflinks/cufflinks/index.html) and have a look at the available options and technical details.
 
-The aligned reads are found in the output directory *you have chosen*, e.g. accepted_hits.bam. For convenience, you may want to sym-link this file into your main project folder:
+The aligned reads are found in the output directory **you have chosen**, e.g. accepted_hits.bam. For convenience, you may want to sym-link this file into your main project folder:
 
 ```bash
 $ ln -s tophat_outputSE30888/accepted_hits.bam SE30888.bam
