@@ -34,9 +34,9 @@ The main goal goal with this tutorial is to detect differential gene expression 
   * ERR030885: Female kidney
   * ERR030874: Female ovary
 * human reference genome (or in this lab, for the sake of saving time only chromosome 1 named: rm.chr.1.fa)
-  * genome index for aligning reads with Bowtie2
-  * reference genome annotation based on the <a href="http://www.ensembl.org/index.html" target="_top">EnsEMBL</a> database named: Homo_sapiens.GRCh38_Chr1.77.gtf
-  * NB! All intermediate files are available at Uppmax so if any of the steps fails you can pick up the analysis at the next step pf the tutorial
+* genome index for aligning reads with Bowtie2
+* reference genome annotation based on the <a href="http://www.ensembl.org/index.html" target="_top">EnsEMBL</a> database named: Homo_sapiens.GRCh38_Chr1.77.gtf
+* NB! All intermediate files are available at Uppmax so if any of the steps fails you can pick up the analysis at the next step pf the tutorial
 
 ## Tophat
 
