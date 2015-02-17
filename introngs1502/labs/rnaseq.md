@@ -149,9 +149,9 @@ $ ln -s tophat_outputSE30888/accepted_hits.bam SE30888.bam
 
 What goes in, what comes out:
 
-In: A read alignment in BAM format (SAM is also an option, but should not be used due to it being uncrompressed)
+**In:** A read alignment in BAM format (SAM is also an option, but should not be used due to it being uncrompressed)
 
-Out: A number of files, including a transcriptome annotation reconstructed from the read distribution
+**Out:** A number of files, including a transcriptome annotation reconstructed from the read distribution
 
 General command format:
 
@@ -165,17 +165,17 @@ Here we specify where to store the output, how many CPUs to use as well as where
 
 The command line output will read something like:
 
-> Processed 48858 loci. [* * * * *] 100%
+&gt; Processed 48858 loci. [* * * * *] 100%
 
-> Map Properties:
+&gt; Map Properties:
 
-> Total Map Mass: 1893657.20
+&gt; Total Map Mass: 1893657.20
 
-> Fragment Length Distribution: Truncated Gaussian (default)
+&gt; Fragment Length Distribution: Truncated Gaussian (default)
 
-> Default Mean: 200
+&gt; Default Mean: 200
 
-> Default Std Dev: 80
+&gt; Default Std Dev: 80
 
 One important thing that can be noted here:
 
