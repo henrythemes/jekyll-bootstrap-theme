@@ -67,7 +67,7 @@ All of your input data for the first steps of these exercises will be in our cou
 
 Normally, if you were working on your own project, you would want to write your output into your project directory also. However, since we're all sharing the same data, we've made these file read-only so that no one accidentally deletes them or writes over the raw data or someone else's output.
 
-Instead, you are going to write your output to the glob2 directory in your home directory. Remember that your home directory can be represented by the '~' character. This may save you a lot of typing. The glob2 space is not backed up and is occasionally deleted, and is meant to be used for temporary storage. (You could also write these files to your regular home directory space, but you may run out of space, and it is not good practice to keep large amounts of data in your home directory, so please do not do that.)
+Instead, you are going to write your output to the glob directory in your home directory. Remember that your home directory can be represented by the '~' character. This may save you a lot of typing. The glob space is not backed up and is occasionally deleted, and is meant to be used for temporary storage. (You could also write these files to your regular home directory space, but you may run out of space, and it is not good practice to keep large amounts of data in your home directory, so please do not do that.)
 
 This creates some complexity, because your input data and your output data are not in the same place. This is a common data processing problem, and one you should get used to dealing with. It does mean that you'll need to type a lot. There are a few ways to deal with this.
 
@@ -79,7 +79,7 @@ Also, remember that tab completion can be very helpful in typing paths to files,
 So that we don't clutter up the top level of our globs and get in the way of later exercises, we will make a subdirectory in there
 
 ```bash
-mkdir ~/glob2/gatk
+mkdir ~/glob/gatk
 ```
 
 Throughout the exercises, we will us a common convention that "<parameter>" (or <inputfile>, <outputfile>, <your directory>, etc.) means "type in this space in the command the parameter (input file, output file, directory, etc.) that you will be using", never that you should literally type "<parameter>" into the computer. If you don't know what you should be replacing this with, ask. We do this for two reasons. First, as you all work, not everyone will create files with exactly the same names, so there is no way to make standard instructions for everyone. Second, you need to learn how to figure out what goes into these spaces.
@@ -93,13 +93,13 @@ We will align our data to the reference using BWA, a popular aligner based on th
 Before we can run BWA at all, we need a reference genome, and we need to perform the Burrows-Wheeler transform on the reference and build the associated files. For our exercises, we'll use only human chromosome 17. You can copy this from the project directory to your workspace. (Normally copying references is a bad thing, but this is so that everyone can see the full BWA process.)
 
 ```bash
-cp /proj/g2015005/labs/gatk/refs/human_17_v37.fasta ~/glob2/gatk
+cp /proj/g2015005/labs/gatk/refs/human_17_v37.fasta ~/glob/gatk
 ```
 
 Check to see that this worked.
 
 ```bash
-ls -l ~/glob2/gatk
+ls -l ~/glob/gatk
 ```
 
 should show you:
@@ -116,7 +116,7 @@ If your file is not there or if it's the wrong size, something went wrong with y
 Now we need to build the Burrows-Wheeler transform
 
 ```bash
-bwa index -a bwtsw ~/glob2/gatk/human_17_v37.fasta
+bwa index -a bwtsw ~/glob/gatk/human_17_v37.fasta
 ```
 
 BWA is a single program that takes a series of different commands as the first argument. That command says to index the specified reference and use the bwtsw algorithm (BWA also has another indexing method for small genomes that we will not use).
@@ -126,7 +126,7 @@ This command will take about 2 minutes to run and should create 5 new files in y
 While we're doing this, we will also build a sequence dictionary for the reference, which It just lists the names and lengths of all the chromosomesother programs will need as input later. and is used to make sure the headers are correct.
 
 ```bash
-samtools faidx ~/glob2/gatk/human_17_v37.fasta
+samtools faidx ~/glob/gatk/human_17_v37.fasta
 ```
 
 ## Step 2. Mapping - Making Single Read Alignments for Each of the Reads in the Paired End Data
@@ -134,7 +134,7 @@ samtools faidx ~/glob2/gatk/human_17_v37.fasta
 Running BWA for paired end data is done in multiple steps. First we align each set of reads, then we combine the paired alignments together (which also includes a realignment step using a more sensitive algorithm for unplaced mates). Let's start with one chunk of whole genome shotgun data from individual NA06984.
 
 ```bash
-bwa aln ~/glob2/gatk/human_17_v37.fasta /proj/g2015005/labs/gatk/fastq/wgs/NA06984.ILLUMINA.low_coverage.17q_1.fq >~/glob2/gatk/NA06984.ILLUMINA.low_coverage.17q_1.sai
+bwa aln ~/glob/gatk/human_17_v37.fasta /proj/g2015005/labs/gatk/fastq/wgs/NA06984.ILLUMINA.low_coverage.17q_1.fq >~/glob/gatk/NA06984.ILLUMINA.low_coverage.17q_1.sai
 ```
 
 Note that if you have to use a file redirect ( >) for your output. Many (but not all!) functions of BWA default to sending their output to stdout (i.e., your screen) if you do not define a specific outputfile using the -f option, which is great if you want to build pipelines that redirect these things but not so useful when you want to write them to disk. Forgetting the redirect can be very disappointing.
@@ -169,7 +169,7 @@ bwa <function>
 and it will list the parameters and options. Run it for your files:
 
 ```bash
-bwa sampe <ref> <sai1> <sai2> <fq1> <fq2> > ~/glob2/gatk/<sample>.sam
+bwa sampe <ref> <sai1> <sai2> <fq1> <fq2> > ~/glob/gatk/<sample>.sam
 ```
 
 The sampe function takes a lot of arguments. It needs the reference and the reads, because the sai files just have the definitions of the alignments, not the sequences. It needs the sai files to get the alignments. It outputs a SAM format file. I would suggest that you give it the same name prefix as the others, but if you are getting tired of typing that, pick something shorter. Retain the sample name and the fact that it is the 17q low coverage data.

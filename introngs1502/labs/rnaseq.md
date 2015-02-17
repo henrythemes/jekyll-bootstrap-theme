@@ -73,7 +73,7 @@ Make sure you ony do this once, otherwise you will take away resources from the 
 * create a folder for your project
 
 ```bash
-$ cd ~/glob2
+$ cd ~/glob
 $ mkdir transcriptome
 $ cd transcriptome
 ```
@@ -199,17 +199,16 @@ These output files are tab-delimited and can e.g. be opened in e.g. Microsoft Ex
 
 What goes in, what comes out:
 
-In: An optional reference annotation and a list of transcript annotations to merge
+**In:** An optional reference annotation and a list of transcript annotations to merge
 
-Out: A consensus annotation, taking into account all input annotations
----
+**Out:** A consensus annotation, taking into account all input annotations
 
 It is important to keep in mind that reference annotations are very likely incomplete. This is because some genes or individual exons may be expressed at very low levels or under specific conditions, thus having evaded prior detection. Moreover, many vertebrate genomes have only been annotated by reference to other genomes, which themselves may only be poorly characterized. Using the expression data obtained through cufflinks may hence allow us to improve existing annotations. Cuffmerge is a tool that takes cufflinks-derived annotation files (known & ‘novel’ loci) and reconciles them into a consensus annotation, discarding e.g. spuriously transcribed loci and merging overlapping loci into larger transcription units where possible.
 
-Again, the commands below are<b> just examples</b>, your files and folder may be called differently.
+Again, the commands below are **just examples**, your files and folder may be called differently.
 
 ```bash
-$ cd ~/glob2
+$ cd ~/glob
 $ mkdir cuffmerge
 $ cd cuffmerge
 $ ln -s ../cufflinks.brainSE/transcripts.gtf brainSE.gtf
@@ -227,7 +226,7 @@ $ cuffmerge -o merged -g reference/Homo_sapiens.GRCh38_Chr1.77.gtf -p 8 -s refer
 This will save the reconciled annotation file as merged/merged.gtf. Symlink this file into your main project folder.
 
 ```bash
-$ cd ~/glob2/transcription
+$ cd ~/glob/transcription
 $ ln -s cuffmerge/merged/merged.gtf
 ```
 
