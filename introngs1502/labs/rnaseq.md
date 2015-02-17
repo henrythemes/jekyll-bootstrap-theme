@@ -15,7 +15,7 @@ Note: Do not simply copy the various unix commands quoted throughout this tutori
 
 ## Provided data from [Illumina Bodymap2.0](http://www.ebi.ac.uk/gxa/experiments/E-MTAB-513)
 
-[Illumina Bodymap2.0](http://www.ebi.ac.uk/gxa/experiments/E-MTAB-513) data consists of 16 human tissues that were sequenced using both single-end and pair-end technologies. The mapped reads can also be visualised at the <a href="http://www.ensembl.info/blog/2011/05/24/human-bodymap-2-0-data-from-illumina/" target="_top">Ensembl genome browser</a>   
+[Illumina Bodymap2.0](http://www.ebi.ac.uk/gxa/experiments/E-MTAB-513) data consists of 16 human tissues that were sequenced using both single-end and pair-end technologies. The mapped reads can also be visualised at the [Ensembl genome browser](http://www.ensembl.info/blog/2011/05/24/human-bodymap-2-0-data-from-illumina/)   
 
 In this tutorial we will focus on a limited set of tissues and only do the analysis for chromosome 1 of the human genome. The files are in addition just a small subset of the original files as the analysis of them would take too long to fit at a course lab.
 
