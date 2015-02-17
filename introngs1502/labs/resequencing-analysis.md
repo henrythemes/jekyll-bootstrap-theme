@@ -54,6 +54,7 @@ The Picard module does not, but they are in a similar place. For various parts o
 ```
 
 For the other programs, you can just type the name of the program and it will run. You can even tab complete the name. This is what the module system does for you.
+
 ## Accessing Data
 
 You need to know where your input data are and where your output will go.
@@ -84,9 +85,10 @@ mkdir ~/glob2/gatk
 Throughout the exercises, we will us a common convention that "<parameter>" (or <inputfile>, <outputfile>, <your directory>, etc.) means "type in this space in the command the parameter (input file, output file, directory, etc.) that you will be using", never that you should literally type "<parameter>" into the computer. If you don't know what you should be replacing this with, ask. We do this for two reasons. First, as you all work, not everyone will create files with exactly the same names, so there is no way to make standard instructions for everyone. Second, you need to learn how to figure out what goes into these spaces.
 
 That brings us to copying and pasting. It is possible to copy some of the commands out of this wiki and paste them into your terminal and make them work. This is not recommended. First, there can be formatting differences (especially how return characters are handled) between the browser and the terminal that make these commands not work properly. Second, and more important, when you are doing this on your own data, there will be no cutting and pasting. You will learn more by typing. Remember that tab completion will help you with this.
----++ Running BWA
 
 We will align our data to the reference using BWA, a popular aligner based on the Burrows-Wheeler transform.
+
+## Step 1. Indexing the reference genome
 
 Before we can run BWA at all, we need a reference genome, and we need to perform the Burrows-Wheeler transform on the reference and build the associated files. For our exercises, we'll use only human chromosome 17. You can copy this from the project directory to your workspace. (Normally copying references is a bad thing, but this is so that everyone can see the full BWA process.)
 
@@ -127,7 +129,7 @@ While we're doing this, we will also build a sequence dictionary for the referen
 samtools faidx ~/glob2/gatk/human_17_v37.fasta
 ```
 
-## step 2. Mapping - Making Single Read Alignments for each of the reads in the paired end data
+## step 2. Mapping - Making Single Read Alignments for Each of the Reads in the Paired End Data
 
 Running BWA for paired end data is done in multiple steps. First we align each set of reads, then we combine the paired alignments together (which also includes a realignment step using a more sensitive algorithm for unplaced mates). Let's start with one chunk of whole genome shotgun data from individual NA06984.
 
@@ -171,6 +173,7 @@ bwa sampe <ref> <sai1> <sai2> <fq1> <fq2> > ~/glob2/gatk/<sample>.sam
 ```
 
 The sampe function takes a lot of arguments. It needs the reference and the reads, because the sai files just have the definitions of the alignments, not the sequences. It needs the sai files to get the alignments. It outputs a SAM format file. I would suggest that you give it the same name prefix as the others, but if you are getting tired of typing that, pick something shorter. Retain the sample name and the fact that it is the 17q low coverage data.
+
 ## step 4. Creating a BAM File
 
 SAM files are nice, but bulky, so there is a compressed binary format, BAM. We want to convert our SAM into BAM for everything that comes downstream.
@@ -200,6 +203,7 @@ Lastly, we need to index this BAM, so that programs can randomly access the sort
 ```bash
 java -Xmx2g -jar /sw/apps/bioinfo/picard/1.69/kalkyl/BuildBamIndex.jar INPUT=<bam file>
 ```
+
 ## step 5. Processing Reads with GATK
 
 Now, we want to use the Genome Analysis Toolkit (GATK) to perform a couple of alignment and quality improvement steps, although on our data, they may not actually do much, due to the nature of the data and some of the shortcuts we have taken in identifying our read groups.
@@ -261,6 +265,7 @@ java -Xmx2g -jar /sw/apps/bioinfo/GATK/1.5.21/GenomeAnalysisTK.jar -T TableRecal
 The \<input bam\> in this step is the same as the last step, because we haven't changed it yet, but the <output bam> is new and will have the recalibrated qualities. The <calibration csv> is the file we created in the previous step.
 
 Now we are almost ready to call variants. First, though, go back and run at least one more set of data through this whole process on your own, then we will do one final step.
+
 ## Merging BAMs
 
 For variant calling, we want to merge the BAMs from multiple samples together. This makes them easier to handle and allows GATK to work on many samples at once. (We could also feed multiple BAMs, but it would potentially become unwieldy.) You can also use this feature if you have multiple runs of a single sample and want all of your data from that sample in one BAM.
@@ -272,6 +277,7 @@ java -Xmx2g -jar /sw/apps/bioinfo/picard/1.69/kalkyl/MergeSamFiles.jar INPUT=<in
 Note that you can specify the INPUT option multiple times.
 
 The inout should be sorted and you will need to reindex the new version with Picard.
+
 ## step 6. Variant Calling
 
 Now we'll run the GATK Unified Genotyper on our merged bams.
@@ -291,7 +297,8 @@ Note: we are using the term "output" here for two different things. With the -o 
 In practice, you would probably run jobs like this out to the cluster using slurm with the sbatch command, but we already have a whole 8 processors each reserved for our use, so it seems silly to then submit jobs out to the cluster and wait for them to get assigned to other machines. In reality, for applications like this where you are submitting multiple different jobs in parallel, it is usually faster and easier to use a job queueing system like slurm to manage your jobs instead of logging directly on to a multiprocessor machine and trying to manage the CPU usage yourself.
 
 While those are running, we'll skip ahead and start IGV.
----++ Filtering Variants
+
+## Filtering Variants
 
 The last thing we will do is filter variants. We do not have enough data that the VQSR technique for training filter thresholds on our data are likely to work, so instead we're just going to use the "best practices" parameters suggested by the GATK team (http://www.broadinstitute.org/gatk/guide/topic?name=best-practices).
 
@@ -308,6 +315,7 @@ Note two things about this. First, each filterName option has to immediately fol
 If you want to run the indel filtering version, you can look on the web page above and get those value and substitute them.
 
 Once you have the filtered calls, open your filtered VCF with less and page through it. It has all the variant lines, still, but one of the fields that was blank before is now filled in, indicating that the variant on that line either passed filtering or was filtered out, with a list of the filters it failed. Note also that the filters that were run are described in the header section.
+
 ## step 7. Looking at Your Data with IGV
 
 Next, we want to know how to look at these data. For that, we will use IGV (Integrative Genomics Viewer). We will launch IGV from our desktops because it runs faster that way. Go to your browser window and Google search for IGV. Find the downloads page. You will be prompted for an email address. If you have not already downloaded IGV from that email address, it will prompt you to fill in some information and agree to a license. When you go back to your own lab, you can just type in your email and download the software again without agreeing to the license.
