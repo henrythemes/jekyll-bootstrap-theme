@@ -121,7 +121,7 @@ In:
 * One or several <a href="http://en.wikipedia.org/wiki/FASTQ_format" target="_top">FastQ</a> files (one for single-end reads, two for paired-end)
 * An indexed reference genome (and optional a reference annnotation (eg. a [[http://www.ensembl.org/info/website/upload/gff.html][GTF or GFF file]]))
 
-Out:
+Out:  
 * A read alignment (BAM)<hr />
 
 NOTE: The /reads folder contains a small subset of an actual FASTQ, limited to a specific chromosome. For the next step, please chose two tissues that you want to analyse and make sure to align both a pair-end and a single-end library from you tissues of choice. We do this since the time needed to align an actual read file with data from all human chromosomes can take several hours. With these sub-sampled data sets, it should be possible to align them with tophat in a reasonable time frame. However, if this should still take too long (>20mins), you may wish to abort this step. You already have the corresponding output the subfolder results/tophat/.
