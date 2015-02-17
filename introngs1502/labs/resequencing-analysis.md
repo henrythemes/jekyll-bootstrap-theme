@@ -129,7 +129,7 @@ While we're doing this, we will also build a sequence dictionary for the referen
 samtools faidx ~/glob2/gatk/human_17_v37.fasta
 ```
 
-## step 2. Mapping - Making Single Read Alignments for Each of the Reads in the Paired End Data
+## Step 2. Mapping - Making Single Read Alignments for Each of the Reads in the Paired End Data
 
 Running BWA for paired end data is done in multiple steps. First we align each set of reads, then we combine the paired alignments together (which also includes a realignment step using a more sensitive algorithm for unplaced mates). Let's start with one chunk of whole genome shotgun data from individual NA06984.
 
@@ -158,7 +158,7 @@ less
 
 to read one of those .fq files in the project directory.
 
-## step 3. Merging Alignments and Making SAM Files
+## Step 3. Merging Alignments and Making SAM Files
 
 The sai files are a binary format internal to BWA. We now need to process those into something we can use. For paired ends, this is done with the sampe function of BWA. (Note that if you ever forget the syntax for a function, you can just type
 
@@ -174,7 +174,7 @@ bwa sampe <ref> <sai1> <sai2> <fq1> <fq2> > ~/glob2/gatk/<sample>.sam
 
 The sampe function takes a lot of arguments. It needs the reference and the reads, because the sai files just have the definitions of the alignments, not the sequences. It needs the sai files to get the alignments. It outputs a SAM format file. I would suggest that you give it the same name prefix as the others, but if you are getting tired of typing that, pick something shorter. Retain the sample name and the fact that it is the 17q low coverage data.
 
-## step 4. Creating a BAM File
+## Step 4. Creating a BAM File
 
 SAM files are nice, but bulky, so there is a compressed binary format, BAM. We want to convert our SAM into BAM for everything that comes downstream.
 
@@ -204,7 +204,7 @@ Lastly, we need to index this BAM, so that programs can randomly access the sort
 java -Xmx2g -jar /sw/apps/bioinfo/picard/1.69/kalkyl/BuildBamIndex.jar INPUT=<bam file>
 ```
 
-## step 5. Processing Reads with GATK
+## Step 5. Processing Reads with GATK
 
 Now, we want to use the Genome Analysis Toolkit (GATK) to perform a couple of alignment and quality improvement steps, although on our data, they may not actually do much, due to the nature of the data and some of the shortcuts we have taken in identifying our read groups.
 
@@ -278,7 +278,7 @@ Note that you can specify the INPUT option multiple times.
 
 The inout should be sorted and you will need to reindex the new version with Picard.
 
-## step 6. Variant Calling
+## Step 6. Variant Calling
 
 Now we'll run the GATK Unified Genotyper on our merged bams.
 
@@ -316,7 +316,7 @@ If you want to run the indel filtering version, you can look on the web page abo
 
 Once you have the filtered calls, open your filtered VCF with less and page through it. It has all the variant lines, still, but one of the fields that was blank before is now filled in, indicating that the variant on that line either passed filtering or was filtered out, with a list of the filters it failed. Note also that the filters that were run are described in the header section.
 
-## step 7. Looking at Your Data with IGV
+## Step 7. Looking at Your Data with IGV
 
 Next, we want to know how to look at these data. For that, we will use IGV (Integrative Genomics Viewer). We will launch IGV from our desktops because it runs faster that way. Go to your browser window and Google search for IGV. Find the downloads page. You will be prompted for an email address. If you have not already downloaded IGV from that email address, it will prompt you to fill in some information and agree to a license. When you go back to your own lab, you can just type in your email and download the software again without agreeing to the license.
 
