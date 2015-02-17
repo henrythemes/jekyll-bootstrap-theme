@@ -103,7 +103,7 @@ First, let's go through the steps of the pipeline:
 Before we do any steps, we have to load the modules for the programs we will be running.
 
 ```bash
-$ module load bwa samtools IGV
+$ module load bioinfo-tools bwa/0.7.8 samtools/1.1 IGV/2.3.17
 ```
  
 ### 1. Building an index
