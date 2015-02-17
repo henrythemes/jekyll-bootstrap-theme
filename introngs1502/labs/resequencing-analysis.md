@@ -71,8 +71,8 @@ Instead, you are going to write your output to the glob2 directory in your home 
 
 This creates some complexity, because your input data and your output data are not in the same place. This is a common data processing problem, and one you should get used to dealing with. It does mean that you'll need to type a lot. There are a few ways to deal with this.
 
-1 Remember where you are (your current working directory, [pwd]) and use relative or absolute paths as necessary to type the least. This is a quick but sloppy solution, and error prone, but if you are doing things one time by hand, it works. We all do it sometimes.
-1 Use the full paths to everything, regardless of where you are actually working. This is the most time consuming, and requires that you remember where everything is, but it is also the safest, because you always know that you are telling the computer exactly where you want to read and write. This method is not dependent on keeping track of your current directory, because there are no relative paths, and you are much less likely to write data out to the wrong place by mistake. Any time you get to the point of writing code or batch scripts to automate your data processing, you should do this. For purposes of these exercises, it does not really matter which of these you do. This is part of learning to work on the command line. For purposes of example, the full paths will be given, but there will be examples where only the general syntax will be given, and you will have to find your data.
+1. Remember where you are (your current working directory, [pwd]) and use relative or absolute paths as necessary to type the least. This is a quick but sloppy solution, and error prone, but if you are doing things one time by hand, it works. We all do it sometimes.
+1. Use the full paths to everything, regardless of where you are actually working. This is the most time consuming, and requires that you remember where everything is, but it is also the safest, because you always know that you are telling the computer exactly where you want to read and write. This method is not dependent on keeping track of your current directory, because there are no relative paths, and you are much less likely to write data out to the wrong place by mistake. Any time you get to the point of writing code or batch scripts to automate your data processing, you should do this. For purposes of these exercises, it does not really matter which of these you do. This is part of learning to work on the command line. For purposes of example, the full paths will be given, but there will be examples where only the general syntax will be given, and you will have to find your data.
 
 Also, remember that tab completion can be very helpful in typing paths to files, not just because it saves keystrokes but also because it validates that you have typed a valid path (if the file is not there, tab completion will not work).
 
@@ -141,12 +141,12 @@ Note that if you have to use a file redirect ( >) for your output. Many (but not
 
 While that's running, take a minute to look at the input file path. This is a fastq file, so I put it in a directory called fastq. It is from whole genome shotgun sequencing, so it is in a subdirectory called wgs. The file name has 6 parts, separated by . or _:
 
-1 NA06984 - this is the individual name
-1 ILLUMINA - these reads came from the Illumina platform
-1 low_coverage - these are low coverage whole genome shotgun reads
-1 17q - I have sampled these reads from one region of 17q
-1 1 - these are the first reads in their paired sets
-1 fq - this is a fastq file
+1. NA06984 - this is the individual name
+1. ILLUMINA - these reads came from the Illumina platform
+1. low_coverage - these are low coverage whole genome shotgun reads
+1. 17q - I have sampled these reads from one region of 17q
+1. 1 - these are the first reads in their paired sets
+1. fq - this is a fastq file
 
 Now we need to do this again for the second read file. Everything is that same except with 2s instead of 1s. Don't forget to change your output file also!
 
