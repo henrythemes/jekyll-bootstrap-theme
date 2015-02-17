@@ -152,7 +152,6 @@ What goes in, what comes out:
 In: A read alignment in BAM format (SAM is also an option, but should not be used due to it being uncrompressed)
 
 Out: A number of files, including a transcriptome annotation reconstructed from the read distribution
----
 
 General command format:
 
@@ -166,22 +165,23 @@ Here we specify where to store the output, how many CPUs to use as well as where
 
 The command line output will read something like:
 
-&gt; Processed 48858 loci. [* * * * *] 100%
+> Processed 48858 loci. [* * * * *] 100%
 
-&gt; Map Properties:
+> Map Properties:
 
-&gt; Total Map Mass: 1893657.20
+> Total Map Mass: 1893657.20
 
-&gt; Fragment Length Distribution: Truncated Gaussian (default)
+> Fragment Length Distribution: Truncated Gaussian (default)
 
-&gt; Default Mean: 200
+> Default Mean: 200
 
-&gt; Default Std Dev: 80
+> Default Std Dev: 80
 
-One important thing that can be noted here:<br /><br />
-   * Processed loci - these are the transcribed regions, or 'genes'. How does this number compare to offical estimates of human gene content?
-   * Total Map Mass - a measure for the size of your read library
-   * Length distribution - this value measures the distance between mate-paired reads. It can either be specified (if known) or will be determined by Cufflinks. Since we are using single-end reads, this value should not matter. The output of this run can then be found under my_output_folder/ and includes a total of 4 files:
+One important thing that can be noted here:
+
+* Processed loci - these are the transcribed regions, or 'genes'. How does this number compare to offical estimates of human gene content?
+ * Total Map Mass - a measure for the size of your read library
+ * Length distribution - this value measures the distance between mate-paired reads. It can either be specified (if known) or will be determined by Cufflinks. Since we are using single-end reads, this value should not matter. The output of this run can then be found under my_output_folder/ and includes a total of 4 files:
 
 genes.fpkm_tracking
 
