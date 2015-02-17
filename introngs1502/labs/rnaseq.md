@@ -48,13 +48,15 @@ Cufflinks is a collection of programs that perform different steps in the analys
 * Cuffdiff: Compare read data across samples, guided by consensus annotation, and determine differential expression of loci, test for significance The main output we are interested in comes from the cuffdiff analysis and consists of differential expression estimates for a set of genes. In the following, we will be going through the necessary steps to accomplish this.
 
 ### Step-by-Step
-   1 Prepare your data
-   1 Load software
-   1 Run Tophat on individual samples
-   1 Run Cufflinks on individual samples
-   1 Run Cuffmerge merge detected transcript over all samples
-   1 Run Cuffdiff
-## 0) Book a node
+
+1. Prepare your data
+1. Load software
+1. Run Tophat on individual samples
+1. Run Cufflinks on individual samples
+1. Run Cuffmerge merge detected transcript over all samples
+1. Run Cuffdiff
+
+#### 0) Book a node
 
 We have reserved half a node for each student during this course. By now, you are probably already familiar with the procedure:
 
