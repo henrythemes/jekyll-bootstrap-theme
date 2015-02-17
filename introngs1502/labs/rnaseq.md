@@ -60,22 +60,34 @@ Cufflinks is a collection of programs that perform different steps in the analys
 
 We have reserved half a node for each student during this course. By now, you are probably already familiar with the procedure:
 
-<verbatim>$ salloc -A g2015005 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2015005_thu &</verbatim>
+```bash
+$ salloc -A g2015005 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2015005_thu &
+```
 
 Make sure you ony do this once, otherwise you will take away resources from the other course participants!
 ## 1) Prepare your data
 
 *%RED% Note: It is completely up to your how you organize your data - what follows below is merely a suggestion:%ENDCOLOR%*
 
-   * create a folder for your project <verbatim>$ cd ~/glob2
+   * create a folder for your project ```bash
+$ cd ~/glob2
 $ mkdir transcriptome
-$ cd transcriptome</verbatim>
+$ cd transcriptome
+```
 
    * sym-link the required files and folders (this will ceate a symbolic link to the original folders/files and saves you the trouble of always typing the full path - BUT: Do not write into these linked folders, because that data is shared across everyone working with these folders...)
-   <verbatim>ln -s /proj/g2015005/labs/transcriptome_map/reads/PE/</verbatim>
-   <verbatim>ln -s /proj/g2015005/labs/transcriptome_map/reads/SE</verbatim>
-   <verbatim>ln -s /proj/g2015005/labs/transcriptome_map/results</verbatim>
-   <verbatim>ln -s /proj/g2015005/labs/transcriptome_map/reference</verbatim>
+   ```bash
+ln -s /proj/g2015005/labs/transcriptome_map/reads/PE/
+```
+   ```bash
+ln -s /proj/g2015005/labs/transcriptome_map/reads/SE
+```
+   ```bash
+ln -s /proj/g2015005/labs/transcriptome_map/results
+```
+   ```bash
+ln -s /proj/g2015005/labs/transcriptome_map/reference
+```
 
 Your directory structure should look like this:
 
@@ -90,11 +102,15 @@ We are skipping a few steps here, namely obtaining a reference annotation and ge
 
 You have done this before, but here is a quick reminder:
 
-<verbatim>$ module load bioinfo-tools samtools/0.1.19 bowtie2/2.2.3 tophat/2.0.12 cufflinks/2.2.1</verbatim>
+```bash
+$ module load bioinfo-tools samtools/0.1.19 bowtie2/2.2.3 tophat/2.0.12 cufflinks/2.2.1
+```
 
 If any of these packages does load as expected, you can check that module names are correct using the command
 
-<verbatim>$ module avail</verbatim>
+```bash
+$ module avail
+```
 
 It may be that you need to load a different version.
 
@@ -113,8 +129,10 @@ NOTE: The /reads folder contains a small subset of an actual FASTQ, limited to a
 
 Tophat will take one or multiple FASTQ files and align the reads therein to a genomic reference. A common command may look like this:
 
-<verbatim>$ tophat -o tophat_outputSE30888 --solexa-quals -p 8 --library-type=fr-unstranded reference/rm.chr.1 SE/ERR030888.fq.gz
-$ tophat -o tophat_outputPE30880 --solexa-quals -p 8 -r 200 --mate-std-dev 90 --library-type=fr-unstranded reference/rm.chr.1 PE/ERR030880_1.fq.gz PE/ERR030880_2.fq.gz</verbatim>
+```bash
+$ tophat -o tophat_outputSE30888 --solexa-quals -p 8 --library-type=fr-unstranded reference/rm.chr.1 SE/ERR030888.fq.gz
+$ tophat -o tophat_outputPE30880 --solexa-quals -p 8 -r 200 --mate-std-dev 90 --library-type=fr-unstranded reference/rm.chr.1 PE/ERR030880_1.fq.gz PE/ERR030880_2.fq.gz
+```
 
 We specify the output location (-o), the number of CPUs to use (-p), which type of sequencing library was used to produce the data (here ‘fr-unstranded’), in which format the quality information was stored (here ‘solexa’, pre 1.3), the location of the reference annotation, the location of the Bowtie2-formatted index file for the genome sequence and finally a FASTQ file. For pair-end data we have two FASTQ files and also define the expected size and variation in size of the fragments sequenced.
 
@@ -122,7 +140,9 @@ While this is running, you may want to head over to the <a href="http://cole-tra
 
 The aligned reads are found in the output directory *you have chosen*, e.g. accepted_hits.bam. For convenience, you may want to sym-link this file into your main project folder:
 
-<verbatim>$ ln -s tophat_outputSE30888/accepted_hits.bam SE30888.bam</verbatim>
+```bash
+$ ln -s tophat_outputSE30888/accepted_hits.bam SE30888.bam
+```
 ## 4) Cufflinks: Assembly and transcript calling
 
 What goes in, what comes out:
@@ -134,7 +154,9 @@ Out: A number of files, including a transcriptome annotation reconstructed from 
 
 General command format:
 
-<verbatim>$ cufflinks -o my_output_folder -p 8 -g reference/Homo_sapiens.GRCh38_Chr1.77.gtf my_infile.bam</verbatim>
+```bash
+$ cufflinks -o my_output_folder -p 8 -g reference/Homo_sapiens.GRCh38_Chr1.77.gtf my_infile.bam
+```
 
 Note: The Cufflinks step can take a while - so this is now a good time to get a coffee, or read through the available documentation on the Cufflinks website. While we have tried to cover the technical details of these tools to some degree in the lecture, there are a lot of details that will help you use these programs to their greatest effect.
 
@@ -183,22 +205,28 @@ It is important to keep in mind that reference annotations are very likely incom
 
 Again, the commands below are<b> just examples</b>, your files and folder may be called differently.
 
-<verbatim>$ cd ~/glob2
+```bash
+$ cd ~/glob2
 $ mkdir cuffmerge
 $ cd cuffmerge
 $ ln -s ../cufflinks.brainSE/transcripts.gtf brainSE.gtf
-$ ln -s ../cufflinks.kidneyPE/transcripts.gtf kidneyPE.gtf</verbatim>
+$ ln -s ../cufflinks.kidneyPE/transcripts.gtf kidneyPE.gtf
+```
 
 <i> *Note:* If this didn't work (check that the linked files actually exist and have content), then you probably chose a different way of organizing your folders and will have to figure out where your source files are yourself <img alt="wink" border="0" src="http://array.medsci.uu.se/twiki/pub/TWiki/SmiliesPlugin/wink.gif" title="wink" /></i>
 
 Now that we have both transcript model files in one location, we can attempt to merge them. For this, we first have to create a text file that contains a list of GTF files to merge (quite inconvenient, I know). Use whichever tool you feel comfortable with and write the name of each gtf file in one line, then save it as transcripts.txt.
 
-<verbatim>$ cuffmerge -o merged -g reference/Homo_sapiens.GRCh38_Chr1.77.gtf -p 8 -s reference/genome.fa transcripts.txt</verbatim>
+```bash
+$ cuffmerge -o merged -g reference/Homo_sapiens.GRCh38_Chr1.77.gtf -p 8 -s reference/genome.fa transcripts.txt
+```
 
 This will save the reconciled annotation file as merged/merged.gtf. Symlink this file into your main project folder.
 
-<verbatim>$ cd ~/glob2/transcription
-$ ln -s cuffmerge/merged/merged.gtf</verbatim>
+```bash
+$ cd ~/glob2/transcription
+$ ln -s cuffmerge/merged/merged.gtf
+```
 
 Now we are ready to check for differential expression in our read data from chromosome 1.
 ## 6) Cuffdiff: Differential expression analysis
@@ -214,7 +242,9 @@ Cuffdiff takes aligned reads from two or more samples, estimates comparable expr
 
 For running Cuffdiff, we type something like this (being in the main directory of our project):
 
-<verbatim>$ cuffdiff -o cuffdiff.brain_vs_kidney -L brain,kidney -p 8 -u merged.gtf brainPE.bam,brainSE.bam kidneyPE.bam,kidneySE.bam</verbatim>
+```bash
+$ cuffdiff -o cuffdiff.brain_vs_kidney -L brain,kidney -p 8 -u merged.gtf brainPE.bam,brainSE.bam kidneyPE.bam,kidneySE.bam
+```
 
 Adopt this to your data - if uncertain, run cuffdiff -h to learn more about the options. Note that the labels you give them are arbitrarily chosen, pick names that make sense to you.
 
@@ -222,8 +252,10 @@ This will write the output of the analysis into the subfolder cuffdiff.brain_vs_
 
 The main file of interest to us is gene_exp.diff. It includes the analysis of differential expression. A quick way to find the cases of interest is to filter the file for genes that show evidence of differential expression (identified by the tag ‘yes’ in the ‘significant’ column).
 
-<verbatim>$ head -n1 gene_exp.diff > results.txt
-$ grep yes gene_exp.diff >> results.txt</verbatim>
+```bash
+$ head -n1 gene_exp.diff > results.txt
+$ grep yes gene_exp.diff >> results.txt
+```
 
 (This copies the header of the output file as well as all rows tagged as significant into a new text file - open this file in a text editor or spread sheet program).
 
