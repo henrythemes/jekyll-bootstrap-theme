@@ -215,7 +215,7 @@ $ ln -s ../cufflinks.brainSE/transcripts.gtf brainSE.gtf
 $ ln -s ../cufflinks.kidneyPE/transcripts.gtf kidneyPE.gtf
 ```
 
-<i> *Note:* If this didn't work (check that the linked files actually exist and have content), then you probably chose a different way of organizing your folders and will have to figure out where your source files are yourself <img alt="wink" border="0" src="http://array.medsci.uu.se/twiki/pub/TWiki/SmiliesPlugin/wink.gif" title="wink" /></i>
+*Note: If this didn't work (check that the linked files actually exist and have content), then you probably chose a different way of organizing your folders and will have to figure out where your source files are yourself ;)*
 
 Now that we have both transcript model files in one location, we can attempt to merge them. For this, we first have to create a text file that contains a list of GTF files to merge (quite inconvenient, I know). Use whichever tool you feel comfortable with and write the name of each gtf file in one line, then save it as transcripts.txt.
 
