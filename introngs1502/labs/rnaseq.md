@@ -97,7 +97,7 @@ Your directory structure should look like this:
 
 We are skipping a few steps here, namely obtaining a reference annotation and genome sequence and preparing the latter for use with the Bowtie2 aligner. We have taken care of that for you (located in the subfolder /reference). This is due to two main factors. First, it takes a lot of CPU hours to convert a genome sequence into a Bowtie index. Second, finding the latest release of a genome sequence free of unmapped fragments and haplotype data as well as a fully Tophat/Cufflinks-compatible annotation of that sequence is an exercise in frustration for beginners. One useful resource here is the FTP server of Illumina [here](http://support.illumina.com/sequencing/sequencing_software/igenome.html). Finally, also note that we are providing you with the outputs of the different steps. This is to make sure that if you run into some trouble, like software crashing half-way through analysis, you can still continue with your exercises.
 
-## 2) Load software
+#### 2) Load software
 
 You have done this before, but here is a quick reminder:
 
@@ -113,7 +113,7 @@ $ module avail
 
 It may be that you need to load a different version.
 
-## 3) Run Tophat
+#### 3) Run Tophat
 
 What goes in, what comes out:
 
@@ -145,7 +145,7 @@ The aligned reads are found in the output directory **you have chosen**, e.g. ac
 ```bash
 $ ln -s tophat_outputSE30888/accepted_hits.bam SE30888.bam
 ```
-## 4) Cufflinks: Assembly and transcript calling
+#### 4) Cufflinks: Assembly and transcript calling
 
 What goes in, what comes out:
 
@@ -195,7 +195,7 @@ The first two files contain basic information about expressed genes and transcri
 
 These output files are tab-delimited and can e.g. be opened in e.g. Microsoft Excel (or similiar) to be analyzed and/or visualized.
 
-## 5) Cuffmerge: Reconciling different transcript models
+#### 5) Cuffmerge: Reconciling different transcript models
 
 What goes in, what comes out:
 
@@ -232,7 +232,8 @@ $ ln -s cuffmerge/merged/merged.gtf
 ```
 
 Now we are ready to check for differential expression in our read data from chromosome 1.
-## 6) Cuffdiff: Differential expression analysis
+
+#### 6) Cuffdiff: Differential expression analysis
 
 What goes in, what comes out:
 
@@ -263,9 +264,11 @@ $ grep yes gene_exp.diff >> results.txt
 (This copies the header of the output file as well as all rows tagged as significant into a new text file - open this file in a text editor or spread sheet program).
 
 Using their _EnsEMBL_ accession numbers, you can go to <a href="http://www.ensembl.org/" target="_top">http://www.ensembl.org</a> to retrieve information on the function of these genes and see whether you can draw any conclusions as to why these genes would be differentially expressed between samples.
+
 ### Where to go next
 
 So now you have analyzed the expression of genes between two samples. However, usually the work does not end here. For example, you may want to perform a thorough analysis of your output, visualze distributions and obtain statictics. This can be done either through clever scripting in R, or by use of a recently developed software suite called <a href="http://compbio.mit.edu/cummeRbund/" target="_top">CummeRbund</a>. It reads the native output from Cuffdiff, parses it into a database and provide ample options for in-depth analysis of the data. This package offer a lot of efficient parsing of the output files created by cuffdiff, however a recent update to Rsqlite package has broken the procedure whereby this package reads the data into R.
+
 ### Closing remarks
 
 This tutorial has introduced you to a very straight-forward, but somewhat simplified pipeline for the analysis of RNA-seq data by use of a reference genome to study transcription. Both Cufflinks and Tophat come with additional parameters that we have not touched upon to avoid unnecessary confusion. Likewise, the read data we have used was strand-unspecific. This has certain drawbacks, specifically with respect to accuracy in the isoform analysis. Or perhaps you are not interested in comparing expression between pairs of samples but in a time series. For this reason as well as others, you may need to adjust one or several parameters to get the best results - depending on the nature of your data. We therefore highly recommend you to carefully read both manuals (and possible the original publications) so as to familiarize yourself with these additional options.
