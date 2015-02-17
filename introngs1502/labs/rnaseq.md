@@ -65,11 +65,14 @@ $ salloc -A g2015005 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2015005_
 ```
 
 Make sure you ony do this once, otherwise you will take away resources from the other course participants!
-## 1) Prepare your data
 
-*%RED% Note: It is completely up to your how you organize your data - what follows below is merely a suggestion:%ENDCOLOR%*
+#### 1) Prepare your data
 
-   * create a folder for your project ```bash
+<font color="red">**Note: It is completely up to your how you organize your data - what follows below is merely a suggestion:**</font>
+
+* create a folder for your project
+
+```bash
 $ cd ~/glob2
 $ mkdir transcriptome
 $ cd transcriptome
