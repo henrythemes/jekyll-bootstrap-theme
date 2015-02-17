@@ -180,8 +180,8 @@ The command line output will read something like:
 One important thing that can be noted here:
 
 * Processed loci - these are the transcribed regions, or 'genes'. How does this number compare to offical estimates of human gene content?
- * Total Map Mass - a measure for the size of your read library
- * Length distribution - this value measures the distance between mate-paired reads. It can either be specified (if known) or will be determined by Cufflinks. Since we are using single-end reads, this value should not matter. The output of this run can then be found under my_output_folder/ and includes a total of 4 files:
+* Total Map Mass - a measure for the size of your read library
+* Length distribution - this value measures the distance between mate-paired reads. It can either be specified (if known) or will be determined by Cufflinks. Since we are using single-end reads, this value should not matter. The output of this run can then be found under my_output_folder/ and includes a total of 4 files:
 
 genes.fpkm_tracking
 
