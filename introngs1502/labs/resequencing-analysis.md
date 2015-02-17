@@ -14,6 +14,16 @@ In order to do these exercises, you will need to know a few things.
 
 ## Book a node
 
+```javascript
+var s = "JavaScript syntax highlighting";
+alert(s);
+```
+ 
+```python
+s = "Python syntax highlighting"
+print s
+```
+
 We have reserved half a node for each student during this course. By now, you are probably already familiar with the procedure:
 
 ```bash
