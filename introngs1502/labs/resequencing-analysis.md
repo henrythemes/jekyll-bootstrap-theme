@@ -16,7 +16,7 @@ In order to do these exercises, you will need to know a few things.
 
 We have reserved half a node for each student during this course. By now, you are probably already familiar with the procedure:
 
-```bash
+```shell
 salloc -A g2015005 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2015005_wed &
 ```
 
@@ -26,7 +26,7 @@ Make sure you ony do this once, otherwise you will take away resources from the 
 
 First, we're going to run several programs that are installed under the module system. To access the bioinformatics modules you first need the bioinfo module:
 
-```bash
+```shell
 module load bioinfo-tools
 ```
 
@@ -34,21 +34,21 @@ Throughout these exercises, that preformatted text, like above, will usually ind
 
 Now you can load the individual programs we need:
 
-```bash
+```shell
 module load bwa/0.7.8
 module load samtools/1.1
 ```
 
 We also will use Picard and GATK. There are modules for these, but they are java programs, which means we need to explicitly invoke java each time we run them, and we need to know where the code actually lives. The GATK module tells you this when you use it:
 
-```bash
+```shell
 module load GATK/1.5.21
 You can find all the GATK files in /sw/apps/bioinfo/GATK/1.5.21
 ```
 
 The Picard module does not, but they are in a similar place. For various parts of this exercise, you will need to know:
 
-```bash
+```shell
 /sw/apps/bioinfo/GATK/1.5.21/
 /sw/apps/bioinfo/picard/1.69/kalkyl/
 ```
@@ -61,7 +61,7 @@ You need to know where your input data are and where your output will go.
 
 All of your input data for the first steps of these exercises will be in our course project:
 
-```bash
+```shell
 /proj/g2015005/labs/gatk
 ```
 
@@ -78,7 +78,7 @@ Also, remember that tab completion can be very helpful in typing paths to files,
 
 So that we don't clutter up the top level of our globs and get in the way of later exercises, we will make a subdirectory in there
 
-```bash
+```shell
 mkdir ~/glob2/gatk
 ```
 
@@ -92,19 +92,19 @@ We will align our data to the reference using BWA, a popular aligner based on th
 
 Before we can run BWA at all, we need a reference genome, and we need to perform the Burrows-Wheeler transform on the reference and build the associated files. For our exercises, we'll use only human chromosome 17. You can copy this from the project directory to your workspace. (Normally copying references is a bad thing, but this is so that everyone can see the full BWA process.)
 
-```bash
+```shell
 cp /proj/g2015005/labs/gatk/refs/human_17_v37.fasta ~/glob2/gatk
 ```
 
 Check to see that this worked.
 
-```bash
+```shell
 ls -l ~/glob2/gatk
 ```
 
 should show you:
 
-```bash
+```shell
 total 88812
 -rw-r--r-- 1 mczody uppmax 82548517 Sep 23 21:44 human_17_v37.fasta
 ```
@@ -115,7 +115,7 @@ If your file is not there or if it's the wrong size, something went wrong with y
 
 Now we need to build the Burrows-Wheeler transform
 
-```bash
+```shell
 bwa index -a bwtsw ~/glob2/gatk/human_17_v37.fasta
 ```
 
@@ -125,7 +125,7 @@ This command will take about 2 minutes to run and should create 5 new files in y
 
 While we're doing this, we will also build a sequence dictionary for the reference, which It just lists the names and lengths of all the chromosomesother programs will need as input later. and is used to make sure the headers are correct.
 
-```bash
+```shell
 samtools faidx ~/glob2/gatk/human_17_v37.fasta
 ```
 
@@ -133,7 +133,7 @@ samtools faidx ~/glob2/gatk/human_17_v37.fasta
 
 Running BWA for paired end data is done in multiple steps. First we align each set of reads, then we combine the paired alignments together (which also includes a realignment step using a more sensitive algorithm for unplaced mates). Let's start with one chunk of whole genome shotgun data from individual NA06984.
 
-```bash
+```shell
 bwa aln ~/glob2/gatk/human_17_v37.fasta /proj/g2015005/labs/gatk/fastq/wgs/NA06984.ILLUMINA.low_coverage.17q_1.fq >~/glob2/gatk/NA06984.ILLUMINA.low_coverage.17q_1.sai
 ```
 
@@ -152,7 +152,7 @@ Now we need to do this again for the second read file. Everything is that same e
 
 Before we go on to the next step, take a minute and look at the fastq files. Use
 
-```bash
+```shell
 less
 ```
 
@@ -162,13 +162,13 @@ to read one of those .fq files in the project directory.
 
 The sai files are a binary format internal to BWA. We now need to process those into something we can use. For paired ends, this is done with the sampe function of BWA. (Note that if you ever forget the syntax for a function, you can just type
 
-```bash
+```shell
 bwa <function>
 ```
 
 and it will list the parameters and options. Run it for your files:
 
-```bash
+```shell
 bwa sampe <ref> <sai1> <sai2> <fq1> <fq2> > ~/glob2/gatk/<sample>.sam
 ```
 
@@ -184,7 +184,7 @@ We need to add something called read groups to our BAM file, because GATK is goi
 
 Now, we use the Picard package to add read group information. However, it turns out that Picard is a very smart program, and we can start with the sam file and ask it to simultaneously add read groups, sort the file, and spit it out as BAM. (It does, however, have a very awkward calling syntax.)
 
-```bash
+```shell
 java -Xmx2g -jar /sw/apps/bioinfo/picard/1.69/kalkyl/AddOrReplaceReadGroups.jar INPUT=<sam file> OUTPUT=<bam file> SORT_ORDER=coordinate RGID=<sample>-id RGLB=<sample>-lib RGPL=ILLUMINA RGPU=<sample>-01 RGSM=<sample>
 ```
 
@@ -200,7 +200,7 @@ We specify the input, the output (assumed to be BAM), the SORT_ORDER, meaning we
 
 Lastly, we need to index this BAM, so that programs can randomly access the sorted data without reading the whole file. This creates a file called \<input bam\>.bai, which contains the index. You do not have to specify this because the index file always has the exact same name as the BAM except that it has .bai instead of the .bam extension. This is how programs know to find the index associated with a BAM file. If you manually mix these things up (like you change a BAM without changing its name and do not reindex it), you can cause problems for programs that expect them to be in sync.
 
-```bash
+```shell
 java -Xmx2g -jar /sw/apps/bioinfo/picard/1.69/kalkyl/BuildBamIndex.jar INPUT=<bam file>
 ```
 
@@ -210,7 +210,7 @@ Now, we want to use the Genome Analysis Toolkit (GATK) to perform a couple of al
 
 First, we'll realign locally around potential indels. This is done in two steps. First, we identify possible sites to realign:
 
-```bash
+```shell
 java -Xmx2g -jar /sw/apps/bioinfo/GATK/1.5.21/GenomeAnalysisTK.jar -I <bam file> -R <ref file> -T RealignerTargetCreator -o <intervals file>
 ```
 
@@ -218,7 +218,7 @@ The <bam file> should be your sorted and indexed BAM with read groups added from
 
 Now we feed our intervals file back into GATK with a different argument to actually do the realignments:
 
-```bash
+```shell
 java -Xmx2g -jar /sw/apps/bioinfo/GATK/1.5.21/GenomeAnalysisTK.jar -I <input bam> -R <ref file> -T IndelRealigner -o <realigned bam> -targetIntervals <intervals file>
 ```
 
@@ -226,7 +226,7 @@ Note that we need to give it the intervals file we just made, and also specify a
 
 Next, we're going to go back to Picard and mark duplicate reads:
 
-```bash
+```shell
 java -Xmx2g -jar /sw/apps/bioinfo/picard/1.69/kalkyl/MarkDuplicates.jar INPUT=<input bam> OUTPUT=<marked bam> METRICS_FILE=<metrics file>
 ```
 
@@ -234,31 +234,31 @@ Note that you need to feed it an \<input bam\>, which should be your realigned B
 
 Picard do not automatically index the .bam file so you need to do that before proceeding.
 
-```bash
+```shell
 java -Xmx2g -jar /sw/apps/bioinfo/picard/1.69/kalkyl/BuildBamIndex.jar INPUT=<bam file>
 ```
 
 Now we can look at the duplicates we marked with Picard, using a filter on the bit flag. The mark for duplicates is the bit for 1024, so we can look at only duplicate marked reads with that.
 
-```bash
+```shell
 samtools view -f 1024 <bam file> | less
 ```
 
 If we just want a count of the marked reads, we can use the -c option.
 
-```bash
+```shell
 samtools view -f 1024 -c <bam file>
 ```
 
 Finally, we want to perform quality recalibration with GATK. We do this last, because we want all the data to be as clean as possible when we get here. This also happens in two steps. First, we compute all the covariation of quality with various other factors:
 
-```bash
+```shell
 java -Xmx2g -jar /sw/apps/bioinfo/GATK/1.5.21/GenomeAnalysisTK.jar -T CountCovariates -I <input bam> -R <ref file> -knownSites /proj/g2014207/labs/gatk/ALL.chr17.phase1_integrated_calls.20101123.snps_indels_svs.genotypes.vcf -cov ReadGroupCovariate -cov CycleCovariate -cov DinucCovariate -cov QualityScoreCovariate -recalFile <calibration csv>
 ```
 
 We need to feed it our bam file and our ref file. We also need a list of known sites. Otherwise, GATK will think all the real SNPs in our data are errors. We're using calls from 1000 Genomes, which is a good plan for human (although a bit circular in our case). If you are sequencing an organism with few known sites, you could try calling once and then using the most confident variants as known sites (which should remove most of the non-erroneous bases). Failure to remove real SNPs from the recalibration will result in globally lower quality scores. We also give it the name of a csv file we want it to write out containing the covariation data. We will take a look at this. It will be used in the next step:
 
-```bash
+```shell
 java -Xmx2g -jar /sw/apps/bioinfo/GATK/1.5.21/GenomeAnalysisTK.jar -T TableRecalibration -I <input bam> -R <ref file> -recalFile <calibration csv> -o <output bam>
 ```
 
@@ -270,7 +270,7 @@ Now we are almost ready to call variants. First, though, go back and run at leas
 
 For variant calling, we want to merge the BAMs from multiple samples together. This makes them easier to handle and allows GATK to work on many samples at once. (We could also feed multiple BAMs, but it would potentially become unwieldy.) You can also use this feature if you have multiple runs of a single sample and want all of your data from that sample in one BAM.
 
-```bash
+```shell
 java -Xmx2g -jar /sw/apps/bioinfo/picard/1.69/kalkyl/MergeSamFiles.jar INPUT=<input bam 1> [INPUT=<input bam 2> ... INPUT=<input bam N>] OUTPUT=<output bam>
 ```
 
@@ -282,7 +282,7 @@ The inout should be sorted and you will need to reindex the new version with Pic
 
 Now we'll run the GATK Unified Genotyper on our merged bams.
 
-```bash
+```shell
 java -Xmx2g -jar /sw/apps/bioinfo/GATK/1.5.21/GenomeAnalysisTK.jar -T UnifiedGenotyper -R <ref file> -I <merged bam> -o <filename.vcf> -glm BOTH
 ```
 
@@ -306,7 +306,7 @@ The parameters are slightly different for SNPs and indels, but we have called ou
 
 An example command line is:
 
-```bash
+```shell
 java -Xmx2g -jar /sw/apps/bioinfo/GATK/1.5.21/GenomeAnalysisTK.jar -T VariantFiltration -R <reference> -V <input vcf> -o <output vcf> --filterExpression "QD<2.0" --filterName QDfilter --filterExpression "MQ<40.0" --filterName MQfilter --filterExpression "FS>60.0" --filterName FSfilter --filterExpression "HaplotypeScore>13.0" --filterName HSfilter
 ```
 
@@ -326,7 +326,7 @@ Open a new terminal or xterm _on your local machine_ (i.e., do not log in to upp
 
 We will start with the merged bam files. We want to get both the bams and bais for the low coverage and exome data.
 
-```bash
+```shell
 scp <username>@milou.uppmax.uu.se:/proj/g2015005/labs/gatk/processed/MERGED.illumina.\* ./
 ```
 
@@ -336,7 +336,7 @@ It will prompt you for your uppmax password, then it should download four files.
 
 We will also want to load the vcfs into IGV, so you can look at what calls got made.
 
-```bash
+```shell
 scp <username>@milou.uppmax.uu.se:/proj/g2015005/labs/gatk/vcfs/MERGED.illumina.\* ./
 ```
 
