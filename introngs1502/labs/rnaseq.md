@@ -33,15 +33,16 @@ The main goal goal with this tutorial is to detect differential gene expression 
   * ERR030874: Female ovary
 * human reference genome (or in this lab, for the sake of saving time only chromosome 1 named: rm.chr.1.fa)
 * genome index for aligning reads with Bowtie2
-* reference genome annotation based on the <a href="http://www.ensembl.org/index.html" target="_top">EnsEMBL</a> database named: Homo_sapiens.GRCh38_Chr1.77.gtf
+* reference genome annotation based on the [EnsEMBL](http://www.ensembl.org/index.html) database named: Homo_sapiens.GRCh38_Chr1.77.gtf
 * NB! All intermediate files are available at Uppmax so if any of the steps fails you can pick up the analysis at the next step pf the tutorial
 
 ## Tophat
 
-Tophat is a script pipeline built on-top of the popular read-aligner Bowtie. It is used to align RNA-Seq reads to a genome in order to identify exon-exon splice junctions. More specifically, it produces data that we can use to not only study the expression of genes, but also their different isoforms. You will have a bit of waiting time during the exercises as the more complex analyses are running, so please check out some of the details of tophat here during those times: <a href="http://ccb.jhu.edu/software/tophat/index.shtml" target="_top">here</a>
+Tophat is a script pipeline built on-top of the popular read-aligner Bowtie. It is used to align RNA-Seq reads to a genome in order to identify exon-exon splice junctions. More specifically, it produces data that we can use to not only study the expression of genes, but also their different isoforms. You will have a bit of waiting time during the exercises as the more complex analyses are running, so please check out some of the details of tophat here during those times: [here](http://ccb.jhu.edu/software/tophat/index.shtml)
+
 ## Cufflinks
 
-Cufflinks is a collection of programs that perform different steps in the analysis of aligned RNA-seq reads ( <a href="http://cole-trapnell-lab.github.io/cufflinks/cufflinks/index.html" target="_top">Details</a>). The output is usually a list of transcribed loci (primarily ‘genes’) and their expression levels within and/or between samples. For the analysis of multiple data sets, the general workflow in cufflinks consists of the following steps:
+Cufflinks is a collection of programs that perform different steps in the analysis of aligned RNA-seq reads ([Details](http://cole-trapnell-lab.github.io/cufflinks/cufflinks/index.html)). The output is usually a list of transcribed loci (primarily ‘genes’) and their expression levels within and/or between samples. For the analysis of multiple data sets, the general workflow in cufflinks consists of the following steps:
    * Cufflinks: Assemble the aligned reads of a given sample, identify transcribed loci and determine expression
    * Cuffmerge: Reconcile data on transcribed loci across multiple samples to produce a consensus annotation of loci
    * Cuffdiff: Compare read data across samples, guided by consensus annotation, and determine differential expression of loci, test for significance The main output we are interested in comes from the cuffdiff analysis and consists of differential expression estimates for a set of genes. In the following, we will be going through the necessary steps to accomplish this.
