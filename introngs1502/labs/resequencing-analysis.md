@@ -16,7 +16,7 @@ In order to do these exercises, you will need to know a few things.
 
 We have reserved half a node for each student during this course. By now, you are probably already familiar with the procedure:
 
-```shell
+``` shell
 salloc -A g2015005 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2015005_wed &
 ```
 
@@ -26,7 +26,7 @@ Make sure you ony do this once, otherwise you will take away resources from the 
 
 First, we're going to run several programs that are installed under the module system. To access the bioinformatics modules you first need the bioinfo module:
 
-```shell
+``` shell
 module load bioinfo-tools
 ```
 
@@ -34,7 +34,7 @@ Throughout these exercises, that preformatted text, like above, will usually ind
 
 Now you can load the individual programs we need:
 
-```shell
+``` shell
 module load bwa/0.7.8
 module load samtools/1.1
 ```
