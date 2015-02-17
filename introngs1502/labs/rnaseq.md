@@ -118,8 +118,8 @@ It may be that you need to load a different version.
 What goes in, what comes out:
 
 In:   
-* One or several [FastQ](http://en.wikipedia.org/wiki/FASTQ_format) files (one for single-end reads, two for paired-end)
-* An indexed reference genome (and optional a reference annnotation (eg. a [GTF or GFF file](http://www.ensembl.org/info/website/upload/gff.html)))
+* One or several [FastQ](http://en.wikipedia.org/wiki/FASTQ_format) files (one for single-end reads, two for paired-end)  
+* An indexed reference genome (and optional a reference annnotation (eg. a [GTF or GFF file](http://www.ensembl.org/info/website/upload/gff.html)))  
 
 Out:  
 * A read alignment (BAM)
