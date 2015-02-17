@@ -3,348 +3,233 @@ layout: default
 title:  'RNAseq'
 ---
 
-# Resequencing Analysis
+# Transcriptome Mapping First
 
-The data we will work with comes from the 1000 Genomes Project. Because whole human genomes are very difficult to work with, we will use only a small portion of the human genome, a little over a megabase from chromosome 17. Samtools have been used to extract the data from the 1000 Genomes ftp site for just this region from all of the individuals from the CEU (CEPH Europeans from Utah) population who were low coverage (2-4x average) whole genome shotgun sequenced. We have 81 low coverage Illumina sequences, plus 63 Illumina exomes, and 15 low coverage 454 samples. There are 55 of these samples that were done both ways.
+<font color="red">**Please read everything carefully!**</font>
 
-We will walk through alignment, alignment processing and cleanup, quality recalibration, variant calling, and variant filtering.
+# Reference-genome based: Tophat and Cufflinks
 
-In order to do these exercises, you will need to know a few things.
+A common problem in the analysis of RNA-seq data is to relate it to a known genome sequence and use that information to study the expression of genes - within a sample or across multiple conditions, such as tissues or time points. A popular pipeline to perform such an analysis is the Tuxedo protocol, which consist of set of programs that can be used to go from mapping of short reads to reference genomes all the way to detection of differential gene expression. The two main programs included in package are Tophat - a short read mapper and Cufflinks that performs analysis of the mapped reads. In this exercise you will learn how to use some of these tools to study gene expression differences between different human tissues.
 
-## Book a node
+Note: Do not simply copy the various unix commands quoted throughout this tutorial. Many include placeholders (folder names etc), so make sure you use whatever file names you have created.
+
+## Provided data from [Illumina Bodymap2.0](http://www.ebi.ac.uk/gxa/experiments/E-MTAB-513)
+
+[Illumina Bodymap2.0](http://www.ebi.ac.uk/gxa/experiments/E-MTAB-513) data consists of 16 human tissues that were sequenced using both single-end and pair-end technologies. The mapped reads can also be visualised at the <a href="http://www.ensembl.info/blog/2011/05/24/human-bodymap-2-0-data-from-illumina/" target="_top">Ensembl genome browser</a>   
+
+In this tutorial we will focus on a limited set of tissues and only do the analysis for chromosome 1 of the human genome. The files are in addition just a small subset of the original files as the analysis of them would take too long to fit at a course lab.
+
+The main goal goal with this tutorial is to detect differential gene expression between two different tissues (pick any two tissues that you want to compare) from human. For all included tissues there is one single-end library and one pair-end available. In order to test for significance in gene expression more than one replicate from each tissue is needed. In this lab we will use the two different library types as replicates in the detection of differential gene expression. Below is a summary of the data and tissues available.
+
+   * Single-end reads, 75bp
+      * ERR030888: Female adipose
+      * ERR030890: Female brain
+      * ERR030892: Female colon
+      * ERR030893: Female kidney
+      * ERR030901: Female ovary
+   * Pair-end reads, 2 x 50bp
+      * ERR030880: Female adipose
+      * ERR030882: Female brain
+      * ERR030884: Female colon
+      * ERR030885: Female kidney
+      * ERR030874: Female ovary
+   * human reference genome (or in this lab, for the sake of saving time only chromosome 1 named: rm.chr.1.fa)
+   * genome index for aligning reads with Bowtie2
+   * reference genome annotation based on the <a href="http://www.ensembl.org/index.html" target="_top">EnsEMBL</a> database named: Homo_sapiens.GRCh38_Chr1.77.gtf
+   * NB! All intermediate files are available at Uppmax so if any of the steps fails you can pick up the analysis at the next step pf the tutorial
+
+## Tophat
+
+Tophat is a script pipeline built on-top of the popular read-aligner Bowtie. It is used to align RNA-Seq reads to a genome in order to identify exon-exon splice junctions. More specifically, it produces data that we can use to not only study the expression of genes, but also their different isoforms. You will have a bit of waiting time during the exercises as the more complex analyses are running, so please check out some of the details of tophat here during those times: <a href="http://ccb.jhu.edu/software/tophat/index.shtml" target="_top">here</a>
+## Cufflinks
+
+Cufflinks is a collection of programs that perform different steps in the analysis of aligned RNA-seq reads ( <a href="http://cole-trapnell-lab.github.io/cufflinks/cufflinks/index.html" target="_top">Details</a>). The output is usually a list of transcribed loci (primarily ‘genes’) and their expression levels within and/or between samples. For the analysis of multiple data sets, the general workflow in cufflinks consists of the following steps:
+   * Cufflinks: Assemble the aligned reads of a given sample, identify transcribed loci and determine expression
+   * Cuffmerge: Reconcile data on transcribed loci across multiple samples to produce a consensus annotation of loci
+   * Cuffdiff: Compare read data across samples, guided by consensus annotation, and determine differential expression of loci, test for significance The main output we are interested in comes from the cuffdiff analysis and consists of differential expression estimates for a set of genes. In the following, we will be going through the necessary steps to accomplish this.
+---++ Step-by-Step
+   1 Prepare your data
+   1 Load software
+   1 Run Tophat on individual samples
+   1 Run Cufflinks on individual samples
+   1 Run Cuffmerge merge detected transcript over all samples
+   1 Run Cuffdiff
+## 0) Book a node
 
 We have reserved half a node for each student during this course. By now, you are probably already familiar with the procedure:
 
-```bash
-salloc -A g2015005 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2015005_wed &
-```
+<verbatim>$ salloc -A g2015005 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2015005_thu &</verbatim>
 
 Make sure you ony do this once, otherwise you will take away resources from the other course participants!
+## 1) Prepare your data
 
-## Accessing Programs
+*%RED% Note: It is completely up to your how you organize your data - what follows below is merely a suggestion:%ENDCOLOR%*
 
-First, we're going to run several programs that are installed under the module system. To access the bioinformatics modules you first need the bioinfo module:
+   * create a folder for your project <verbatim>$ cd ~/glob2
+$ mkdir transcriptome
+$ cd transcriptome</verbatim>
 
-```bash
-module load bioinfo-tools
-```
+   * sym-link the required files and folders (this will ceate a symbolic link to the original folders/files and saves you the trouble of always typing the full path - BUT: Do not write into these linked folders, because that data is shared across everyone working with these folders...)
+   <verbatim>ln -s /proj/g2015005/labs/transcriptome_map/reads/PE/</verbatim>
+   <verbatim>ln -s /proj/g2015005/labs/transcriptome_map/reads/SE</verbatim>
+   <verbatim>ln -s /proj/g2015005/labs/transcriptome_map/results</verbatim>
+   <verbatim>ln -s /proj/g2015005/labs/transcriptome_map/reference</verbatim>
 
-Throughout these exercises, that preformatted text, like above, will usually indicate something you can type into the command line.
+Your directory structure should look like this:
 
-Now you can load the individual programs we need:
+   * working directory (your choice)
+      * PE/
+      * SE/
+      * results/
+      * reference/
 
-```bash
-module load bwa
-module load samtools
-```
+We are skipping a few steps here, namely obtaining a reference annotation and genome sequence and preparing the latter for use with the Bowtie2 aligner. We have taken care of that for you (located in the subfolder /reference). This is due to two main factors. First, it takes a lot of CPU hours to convert a genome sequence into a Bowtie index. Second, finding the latest release of a genome sequence free of unmapped fragments and haplotype data as well as a fully Tophat/Cufflinks-compatible annotation of that sequence is an exercise in frustration for beginners. One useful resource here is the FTP server of Illumina <a href="http://support.illumina.com/sequencing/sequencing_software/igenome.html" target="_top">here</a> . Finally, also note that we are providing you with the outputs of the different steps. This is to make sure that if you run into some trouble, like software crashing half-way through analysis, you can still continue with your exercises.
+## 2) Load software
 
-We also will use Picard and GATK. There are modules for these, but they are java programs, which means we need to explicitly invoke java each time we run them, and we need to know where the code actually lives. The GATK module tells you this when you use it:
+You have done this before, but here is a quick reminder:
 
-```bash
-module load GATK
-You can find all the GATK files in /sw/apps/bioinfo/GATK/1.5.21
-```
+<verbatim>$ module load bioinfo-tools samtools/0.1.19 bowtie2/2.2.3 tophat/2.0.12 cufflinks/2.2.1</verbatim>
 
-The Picard module does not, but they are in a similar place. For various parts of this exercise, you will need to know:
+If any of these packages does load as expected, you can check that module names are correct using the command
 
-```bash
-/sw/apps/bioinfo/GATK/1.5.21/
-/sw/apps/bioinfo/picard/1.69/kalkyl/
-```
+<verbatim>$ module avail</verbatim>
 
-For the other programs, you can just type the name of the program and it will run. You can even tab complete the name. This is what the module system does for you.
-## Accessing Data
+It may be that you need to load a different version.
 
-You need to know where your input data are and where your output will go.
+## 3) Run Tophat
 
-All of your input data for the first steps of these exercises will be in our course project:
+What goes in, what comes out:
 
-```bash
-/proj/g2015005/labs/gatk
-```
+In:   
+   * One or several <a href="http://en.wikipedia.org/wiki/FASTQ_format" target="_top">FastQ</a> files (one for single-end reads, two for paired-end)
+   * An indexed reference genome (and optional a reference annnotation (eg. a [[http://www.ensembl.org/info/website/upload/gff.html][GTF or GFF file]]))
 
-Normally, if you were working on your own project, you would want to write your output into your project directory also. However, since we're all sharing the same data, we've made these file read-only so that no one accidentally deletes them or writes over the raw data or someone else's output.
+Out:
+   * A read alignment (BAM)<hr />
 
-Instead, you are going to write your output to the glob2 directory in your home directory. Remember that your home directory can be represented by the '~' character. This may save you a lot of typing. The glob2 space is not backed up and is occasionally deleted, and is meant to be used for temporary storage. (You could also write these files to your regular home directory space, but you may run out of space, and it is not good practice to keep large amounts of data in your home directory, so please do not do that.)
+NOTE: The /reads folder contains a small subset of an actual FASTQ, limited to a specific chromosome. For the next step, please chose two tissues that you want to analyse and make sure to align both a pair-end and a single-end library from you tissues of choice. We do this since the time needed to align an actual read file with data from all human chromosomes can take several hours. With these sub-sampled data sets, it should be possible to align them with tophat in a reasonable time frame. However, if this should still take too long (&gt; 20mins), you may wish to abort this step. You already have the corresponding output the subfolder results/tophat/.
 
-This creates some complexity, because your input data and your output data are not in the same place. This is a common data processing problem, and one you should get used to dealing with. It does mean that you'll need to type a lot. There are a few ways to deal with this.
-   1 Remember where you are (your current working directory, [pwd]) and use relative or absolute paths as necessary to type the least. This is a quick but sloppy solution, and error prone, but if you are doing things one time by hand, it works. We all do it sometimes.
-   1 Use the full paths to everything, regardless of where you are actually working. This is the most time consuming, and requires that you remember where everything is, but it is also the safest, because you always know that you are telling the computer exactly where you want to read and write. This method is not dependent on keeping track of your current directory, because there are no relative paths, and you are much less likely to write data out to the wrong place by mistake. Any time you get to the point of writing code or batch scripts to automate your data processing, you should do this. For purposes of these exercises, it does not really matter which of these you do. This is part of learning to work on the command line. For purposes of example, the full paths will be given, but there will be examples where only the general syntax will be given, and you will have to find your data.
+Tophat will take one or multiple FASTQ files and align the reads therein to a genomic reference. A common command may look like this:
 
-Also, remember that tab completion can be very helpful in typing paths to files, not just because it saves keystrokes but also because it validates that you have typed a valid path (if the file is not there, tab completion will not work).
+<verbatim>$ tophat -o tophat_outputSE30888 --solexa-quals -p 8 --library-type=fr-unstranded reference/rm.chr.1 SE/ERR030888.fq.gz
+$ tophat -o tophat_outputPE30880 --solexa-quals -p 8 -r 200 --mate-std-dev 90 --library-type=fr-unstranded reference/rm.chr.1 PE/ERR030880_1.fq.gz PE/ERR030880_2.fq.gz</verbatim>
 
-So that we don't clutter up the top level of our globs and get in the way of later exercises, we will make a subdirectory in there
+We specify the output location (-o), the number of CPUs to use (-p), which type of sequencing library was used to produce the data (here ‘fr-unstranded’), in which format the quality information was stored (here ‘solexa’, pre 1.3), the location of the reference annotation, the location of the Bowtie2-formatted index file for the genome sequence and finally a FASTQ file. For pair-end data we have two FASTQ files and also define the expected size and variation in size of the fragments sequenced.
 
-```bash
-mkdir ~/glob2/gatk
-```
+While this is running, you may want to head over to the <a href="http://cole-trapnell-lab.github.io/cufflinks/cufflinks/index.html" target="_top">tophat manual</a> and have a look at the available options and technical details.
 
-Throughout the exercises, we will us a common convention that "&lt;parameter&gt;" (or &lt;inputfile&gt;, &lt;outputfile&gt;, &lt;your directory&gt;, etc.) means "type in this space in the command the parameter (input file, output file, directory, etc.) that you will be using", never that you should literally type "&lt;parameter&gt;" into the computer. If you don't know what you should be replacing this with, ask. We do this for two reasons. First, as you all work, not everyone will create files with exactly the same names, so there is no way to make standard instructions for everyone. Second, you need to learn how to figure out what goes into these spaces.
+The aligned reads are found in the output directory *you have chosen*, e.g. accepted_hits.bam. For convenience, you may want to sym-link this file into your main project folder:
 
-That brings us to copying and pasting. It is possible to copy some of the commands out of this wiki and paste them into your terminal and make them work. This is not recommended. First, there can be formatting differences (especially how return characters are handled) between the browser and the terminal that make these commands not work properly. Second, and more important, when you are doing this on your own data, there will be no cutting and pasting. You will learn more by typing. Remember that tab completion will help you with this.
----++ Running BWA
+<verbatim>$ ln -s tophat_outputSE30888/accepted_hits.bam SE30888.bam</verbatim>
+## 4) Cufflinks: Assembly and transcript calling
 
-We will align our data to the reference using BWA, a popular aligner based on the Burrows-Wheeler transform.
+What goes in, what comes out:
 
-Before we can run BWA at all, we need a reference genome, and we need to perform the Burrows-Wheeler transform on the reference and build the associated files. For our exercises, we'll use only human chromosome 17. You can copy this from the project directory to your workspace. (Normally copying references is a bad thing, but this is so that everyone can see the full BWA process.)
+In: A read alignment in BAM format (SAM is also an option, but should not be used due to it being uncrompressed)
 
-```bash
-cp /proj/g2015005/labs/gatk/refs/human_17_v37.fasta ~/glob2/gatk
-```
+Out: A number of files, including a transcriptome annotation reconstructed from the read distribution
+---
 
-Check to see that this worked.
+General command format:
 
-```bash
-ls -l ~/glob2/gatk
-```
+<verbatim>$ cufflinks -o my_output_folder -p 8 -g reference/Homo_sapiens.GRCh38_Chr1.77.gtf my_infile.bam</verbatim>
 
-should show you:
+Note: The Cufflinks step can take a while - so this is now a good time to get a coffee, or read through the available documentation on the Cufflinks website. While we have tried to cover the technical details of these tools to some degree in the lecture, there are a lot of details that will help you use these programs to their greatest effect.
 
-```bash
-total 88812
--rw-r--r-- 1 mczody uppmax 82548517 Sep 23 21:44 human_17_v37.fasta
-```
+Here we specify where to store the output, how many CPUs to use as well as where to find the reference files (genome sequence and annotation). Depending on the size of the BAM/SAM file, this step may require several hours to complete. To make this analysis feasible within the time limits of the course, we have created the chromosome-limited files you have been using.
 
-except with your username.
+The command line output will read something like:
 
-If your file is not there or if it's the wrong size, something went wrong with your copy and you need to figure out what before you move on. Checking the existence and size of files from each step in a process before performing the next step is a good practice that save a lot of time. A common mistake people make is to attempt to load input files that do not exist or create output files that they cannot write.
+&gt; Processed 48858 loci. [* * * * *] 100%
 
-Now we need to build the Burrows-Wheeler transform
+&gt; Map Properties:
 
-```bash
-bwa index -a bwtsw ~/glob2/gatk/human_17_v37.fasta
-```
+&gt; Total Map Mass: 1893657.20
 
-BWA is a single program that takes a series of different commands as the first argument. That command says to index the specified reference and use the bwtsw algorithm (BWA also has another indexing method for small genomes that we will not use).
+&gt; Fragment Length Distribution: Truncated Gaussian (default)
 
-This command will take about 2 minutes to run and should create 5 new files in your gatk directory with the same base name as the reference and different extensions.
+&gt; Default Mean: 200
 
-While we're doing this, we will also build a sequence dictionary for the reference, which It just lists the names and lengths of all the chromosomesother programs will need as input later. and is used to make sure the headers are correct.
+&gt; Default Std Dev: 80
 
-```bash
-samtools faidx ~/glob2/gatk/human_17_v37.fasta
-```
+One important thing that can be noted here:<br /><br />
+   * Processed loci - these are the transcribed regions, or 'genes'. How does this number compare to offical estimates of human gene content?
+   * Total Map Mass - a measure for the size of your read library
+   * Length distribution - this value measures the distance between mate-paired reads. It can either be specified (if known) or will be determined by Cufflinks. Since we are using single-end reads, this value should not matter. The output of this run can then be found under my_output_folder/ and includes a total of 4 files:
 
-## step 2. Mapping - Making Single Read Alignments for each of the reads in the paired end data
+genes.fpkm_tracking
 
-Running BWA for paired end data is done in multiple steps. First we align each set of reads, then we combine the paired alignments together (which also includes a realignment step using a more sensitive algorithm for unplaced mates). Let's start with one chunk of whole genome shotgun data from individual NA06984.
+isoforms.fpkm_tracking
 
-```bash
-bwa aln ~/glob2/gatk/human_17_v37.fasta /proj/g2015005/labs/gatk/fastq/wgs/NA06984.ILLUMINA.low_coverage.17q_1.fq &gt;~/glob2/gatk/NA06984.ILLUMINA.low_coverage.17q_1.sai
-```
+skipped.gtf
 
-Note that if you have to use a file redirect ( &gt;) for your output. Many (but not all!) functions of BWA default to sending their output to stdout (i.e., your screen) if you do not define a specific outputfile using the -f option, which is great if you want to build pipelines that redirect these things but not so useful when you want to write them to disk. Forgetting the redirect can be very disappointing.
+transcripts.gtf
 
-While that's running, take a minute to look at the input file path. This is a fastq file, so I put it in a directory called fastq. It is from whole genome shotgun sequencing, so it is in a subdirectory called wgs. The file name has 6 parts, separated by . or _:
+The first two files contain basic information about expressed genes and transcripts, respectively - those known from the annotation file as well as novel loci identified by cufflinks -and the strength of their expression, given in FPKM. FPKM stands for ‘Fragments Per Kilobase of exon per Million fragments mapped’ and is a normalized measure of transcript abundance. That is the short explanation. The longer version for the more mathematically inclined among us can be found at <a href="http://www.nature.com/nmeth/journal/v5/n7/abs/nmeth.1226.html" target="_top">Mortazavi et al. 2008</a> .
 
-   1 NA06984 - this is the individual name
-   1 ILLUMINA - these reads came from the Illumina platform
-   1 low_coverage - these are low coverage whole genome shotgun reads
-   1 17q - I have sampled these reads from one region of 17q
-   1 1 - these are the first reads in their paired sets
-   1 fq - this is a fastq file
-Now we need to do this again for the second read file. Everything is that same except with 2s instead of 1s. Don't forget to change your output file also!
+These output files are tab-delimited and can e.g. be opened in e.g. Microsoft Excel (or similiar) to be analyzed and/or visualized.
+## 5) Cuffmerge: Reconciling different transcript models
 
-Before we go on to the next step, take a minute and look at the fastq files. Use
+What goes in, what comes out:
 
-```bash
-less
-```
+In: An optional reference annotation and a list of transcript annotations to merge
 
-to read one of those .fq files in the project directory.
+Out: A consensus annotation, taking into account all input annotations
+---
 
-## step 3. Merging Alignments and Making SAM Files
+It is important to keep in mind that reference annotations are very likely incomplete. This is because some genes or individual exons may be expressed at very low levels or under specific conditions, thus having evaded prior detection. Moreover, many vertebrate genomes have only been annotated by reference to other genomes, which themselves may only be poorly characterized. Using the expression data obtained through cufflinks may hence allow us to improve existing annotations. Cuffmerge is a tool that takes cufflinks-derived annotation files (known & ‘novel’ loci) and reconciles them into a consensus annotation, discarding e.g. spuriously transcribed loci and merging overlapping loci into larger transcription units where possible.
 
-The sai files are a binary format internal to BWA. We now need to process those into something we can use. For paired ends, this is done with the sampe function of BWA. (Note that if you ever forget the syntax for a function, you can just type
+Again, the commands below are<b> just examples</b>, your files and folder may be called differently.
 
-```bash
-bwa &lt;function&gt;
-```
+<verbatim>$ cd ~/glob2
+$ mkdir cuffmerge
+$ cd cuffmerge
+$ ln -s ../cufflinks.brainSE/transcripts.gtf brainSE.gtf
+$ ln -s ../cufflinks.kidneyPE/transcripts.gtf kidneyPE.gtf</verbatim>
 
-and it will list the parameters and options. Run it for your files:
+<i> *Note:* If this didn't work (check that the linked files actually exist and have content), then you probably chose a different way of organizing your folders and will have to figure out where your source files are yourself <img alt="wink" border="0" src="http://array.medsci.uu.se/twiki/pub/TWiki/SmiliesPlugin/wink.gif" title="wink" /></i>
 
-```bash
-bwa sampe &lt;ref&gt; &lt;sai1&gt; &lt;sai2&gt; &lt;fq1&gt; &lt;fq2&gt; &gt;~/glob2/gatk/&lt;sample&gt;.sam
-```
+Now that we have both transcript model files in one location, we can attempt to merge them. For this, we first have to create a text file that contains a list of GTF files to merge (quite inconvenient, I know). Use whichever tool you feel comfortable with and write the name of each gtf file in one line, then save it as transcripts.txt.
 
-The sampe function takes a lot of arguments. It needs the reference and the reads, because the sai files just have the definitions of the alignments, not the sequences. It needs the sai files to get the alignments. It outputs a SAM format file. I would suggest that you give it the same name prefix as the others, but if you are getting tired of typing that, pick something shorter. Retain the sample name and the fact that it is the 17q low coverage data.
-## step 4. Creating a BAM File
+<verbatim>$ cuffmerge -o merged -g reference/Homo_sapiens.GRCh38_Chr1.77.gtf -p 8 -s reference/genome.fa transcripts.txt</verbatim>
 
-SAM files are nice, but bulky, so there is a compressed binary format, BAM. We want to convert our SAM into BAM for everything that comes downstream.
+This will save the reconciled annotation file as merged/merged.gtf. Symlink this file into your main project folder.
 
-Typically the BAM has the same name as the SAM but with the .sam extension replaced with .bam.
+<verbatim>$ cd ~/glob2/transcription
+$ ln -s cuffmerge/merged/merged.gtf</verbatim>
 
-We need to add something called read groups to our BAM file, because GATK is going to need this information. Normally, you would do this one sequencing run at a time, but because of the way I downloaded these data from 1000 Genomes, our data are pulled from multiple runs and merged. We will pretend that we just have one run for each sample, but on real data, you should not do this.
+Now we are ready to check for differential expression in our read data from chromosome 1.
+## 6) Cuffdiff: Differential expression analysis
 
-Now, we use the Picard package to add read group information. However, it turns out that Picard is a very smart program, and we can start with the sam file and ask it to simultaneously add read groups, sort the file, and spit it out as BAM. (It does, however, have a very awkward calling syntax.)
+What goes in, what comes out:
 
-```bash
-java -Xmx2g -jar /sw/apps/bioinfo/picard/1.69/kalkyl/AddOrReplaceReadGroups.jar INPUT=&lt;sam file&gt; OUTPUT=&lt;bam file&gt; SORT_ORDER=coordinate RGID=&lt;sample&gt;-id RGLB=&lt;sample&gt;-lib RGPL=ILLUMINA RGPU=&lt;sample&gt;-01 RGSM=&lt;sample&gt;
-```
+In: A consensus annotation (or just the reference annotation), read alignments for all samples that are to be compared and quantified
 
-Note that the arguments to Picard tools are parsed (read by the computer) as single words, so it is important that there is no whitespace between the upper case keyword, the equals, and the value specified, and that you quote ('write like this') any arguments that contain whitespace.
+Out: A number of files, including tests for differential expression for all pairwise comparisons (gene_exp.diff)
+---
 
-We specify the input, the output (assumed to be BAM), the SORT_ORDER, meaning we want Picard to sort the reads according to their genome coordinates, and a lot of sample information. The sample names for each of these 1000 Genomes runs is the Coriell identifier, the two letters and five numbers at the start of the file names (e.g., NA11932). We're going to use this for all our read group information.
-   * RGID is the group ID. This is usually derived from the combination of the sample id and run id, or the SRA/EBI id. We will just add -id to the sample name.
-   * RGLB is the group library. This will come from your library construction process. You may have multiple read groups per library if you did multiple runs, but you should only have one library per read group. We will add -lib the sample name.
-   * RGPL is the platform. It is a restricted vocabulary. These reads are ILLUMINA.
-   * RGPU is the run identifier. It would normally be the barcode of your flowcell. You may have multiple read groups per run, but only one run per read group. We will just fake it as &lt;sample&gt;-01.
-   * RGSM is the sample name. Use the actual sample name. You can have multiple read groups, libraries, runs, and even platforms per sample, but you can only have one sample per read group. (If you are pooling samples without barcoding, there is no way to separate them later, so you should just designate the pool itself as a sample, but downstream analyses like SNP calling will be blind to that knowledge.) One thing to note is that the SAM/BAM header contains a field SO for sort order. Picard modifies this field to coordinate when it sorts BAMs, but samtools actually doesn't (as of this writing). This can create problems, because Picard also validates that BAMs are sorted before performing operations that require a sorted file, while samtools doesn't. To get around this, Picard tools take an optional parameter ASSUME_SORTED which when set true tells Picard to proceed as if the file were sorted even though it does not say so.
-Lastly, we need to index this BAM, so that programs can randomly access the sorted data without reading the whole file. This creates a file called &lt;input bam&gt;.bai, which contains the index. You do not have to specify this because the index file always has the exact same name as the BAM except that it has .bai instead of the .bam extension. This is how programs know to find the index associated with a BAM file. If you manually mix these things up (like you change a BAM without changing its name and do not reindex it), you can cause problems for programs that expect them to be in sync.
+Cuffdiff takes aligned reads from two or more samples, estimates comparable expression values and performs statistical analysis of the resulting data to determine which genes exhibit significantly different activity profiles between any two samples. The nitty-gritty details of the underlying mathematics can be found here: [[http://cole-trapnell-lab.github.io/cufflinks/cuffdiff/index.html][cuffdiff]] .
 
-```bash
-java -Xmx2g -jar /sw/apps/bioinfo/picard/1.69/kalkyl/BuildBamIndex.jar INPUT=&lt;bam file&gt;
-```
-## step 5. Processing Reads with GATK
+For running Cuffdiff, we type something like this (being in the main directory of our project):
 
-Now, we want to use the Genome Analysis Toolkit (GATK) to perform a couple of alignment and quality improvement steps, although on our data, they may not actually do much, due to the nature of the data and some of the shortcuts we have taken in identifying our read groups.
+<verbatim>$ cuffdiff -o cuffdiff.brain_vs_kidney -L brain,kidney -p 8 -u merged.gtf brainPE.bam,brainSE.bam kidneyPE.bam,kidneySE.bam</verbatim>
 
-First, we'll realign locally around potential indels. This is done in two steps. First, we identify possible sites to realign:
+Adopt this to your data - if uncertain, run cuffdiff -h to learn more about the options. Note that the labels you give them are arbitrarily chosen, pick names that make sense to you.
 
-```bash
-java -Xmx2g -jar /sw/apps/bioinfo/GATK/1.5.21/GenomeAnalysisTK.jar -I &lt;bam file&gt; -R &lt;ref file&gt; -T RealignerTargetCreator -o &lt;intervals file&gt;
-```
+This will write the output of the analysis into the subfolder cuffdiff.brain_vs_kidney (or whatever folder name you chose) and do a pairwise comparison of the samples (Note: the order in which you list the labels needs to be the same as the order of SAM/BAM files!). NB! To reduce the computing time we do not use the flag -b that correct for genome sequence (see manual for details), but we resolve issues arising from reads mapping to multiple loci in the genome using the flag -u.
 
-The &lt;bam file&gt; should be your sorted and indexed BAM with read groups added from before. Note that the option flag preceding the input bam is a capital I (as in Input), not a lower case l. The &lt;ref file&gt; is the reference you used for alignment, and the &lt;intervals file&gt; is an output text file that will contain the regions GATK thinks should be realigned. Give it the extension ".intervals". Note that there is an additional option we are not using, which is to specify a list of known indels that might be present in the data (i.e., are known from other sequencing experiments). Using this speeds up the process of identifying potential realignment sites, but because our data set is so small, we won't use that.
+The main file of interest to us is gene_exp.diff. It includes the analysis of differential expression. A quick way to find the cases of interest is to filter the file for genes that show evidence of differential expression (identified by the tag ‘yes’ in the ‘significant’ column).
 
-Now we feed our intervals file back into GATK with a different argument to actually do the realignments:
+<verbatim>$ head -n1 gene_exp.diff > results.txt
+$ grep yes gene_exp.diff >> results.txt</verbatim>
 
-```bash
-java -Xmx2g -jar /sw/apps/bioinfo/GATK/1.5.21/GenomeAnalysisTK.jar -I &lt;input bam&gt; -R &lt;ref file&gt; -T IndelRealigner -o &lt;realigned bam&gt; -targetIntervals &lt;intervals file&gt;
-```
+(This copies the header of the output file as well as all rows tagged as significant into a new text file - open this file in a text editor or spread sheet program).
 
-Note that we need to give it the intervals file we just made, and also specify a new output bam (&lt;realigned bam&gt;). GATK is also clever and automatically indexes that bam for us (you can type ls and look at the list of files to verify this).
+Using their _EnsEMBL_ accession numbers, you can go to <a href="http://www.ensembl.org/" target="_top">http://www.ensembl.org</a> to retrieve information on the function of these genes and see whether you can draw any conclusions as to why these genes would be differentially expressed between samples.
+---++ Where to go next
 
-Next, we're going to go back to Picard and mark duplicate reads:
+So now you have analyzed the expression of genes between two samples. However, usually the work does not end here. For example, you may want to perform a thorough analysis of your output, visualze distributions and obtain statictics. This can be done either through clever scripting in R, or by use of a recently developed software suite called <a href="http://compbio.mit.edu/cummeRbund/" target="_top">CummeRbund</a>. It reads the native output from Cuffdiff, parses it into a database and provide ample options for in-depth analysis of the data. This package offer a lot of efficient parsing of the output files created by cuffdiff, however a recent update to Rsqlite package has broken the procedure whereby this package reads the data into R.
+---++ Closing remarks
 
-```bash
-java -Xmx2g -jar /sw/apps/bioinfo/picard/1.69/kalkyl/MarkDuplicates.jar INPUT=&lt;input bam&gt; OUTPUT=&lt;marked bam&gt; METRICS_FILE=&lt;metrics file&gt;
-```
-
-Note that you need to feed it an &lt;input bam&gt;, which should be your realigned BAM from before, and you need to specify an output, the &lt;marked bam&gt; which will be a new file used in the following steps. There is also a &lt;metrics file&gt;, which is a output text file. We will take a look at that now.
-
-Picard do not automatically index the .bam file so you need to do that before proceeding.
-
-```bash
-java -Xmx2g -jar /sw/apps/bioinfo/picard/1.69/kalkyl/BuildBamIndex.jar INPUT=&lt;bam file&gt;
-```
-
-Now we can look at the duplicates we marked with Picard, using a filter on the bit flag. The mark for duplicates is the bit for 1024, so we can look at only duplicate marked reads with that.
-
-```bash
-samtools view -f 1024 &lt;bam file&gt; | less
-```
-
-If we just want a count of the marked reads, we can use the -c option.
-
-```bash
-samtools view -f 1024 -c &lt;bam file&gt;
-```
-
-Finally, we want to perform quality recalibration with GATK. We do this last, because we want all the data to be as clean as possible when we get here. This also happens in two steps. First, we compute all the covariation of quality with various other factors:
-
-```bash
-java -Xmx2g -jar /sw/apps/bioinfo/GATK/1.5.21/GenomeAnalysisTK.jar -T CountCovariates -I &lt;input bam&gt; -R &lt;ref file&gt; -knownSites /proj/g2014207/labs/gatk/ALL.chr17.phase1_integrated_calls.20101123.snps_indels_svs.genotypes.vcf -cov ReadGroupCovariate -cov CycleCovariate -cov DinucCovariate -cov QualityScoreCovariate -recalFile &lt;calibration csv&gt;
-```
-
-We need to feed it our bam file and our ref file. We also need a list of known sites. Otherwise, GATK will think all the real SNPs in our data are errors. We're using calls from 1000 Genomes, which is a good plan for human (although a bit circular in our case). If you are sequencing an organism with few known sites, you could try calling once and then using the most confident variants as known sites (which should remove most of the non-erroneous bases). Failure to remove real SNPs from the recalibration will result in globally lower quality scores. We also give it the name of a csv file we want it to write out containing the covariation data. We will take a look at this. It will be used in the next step:
-
-```bash
-java -Xmx2g -jar /sw/apps/bioinfo/GATK/1.5.21/GenomeAnalysisTK.jar -T TableRecalibration -I &lt;input bam&gt; -R &lt;ref file&gt; -recalFile &lt;calibration csv&gt; -o &lt;output bam&gt;
-```
-
-The &lt;input bam&gt; in this step is the same as the last step, because we haven't changed it yet, but the &lt;output bam&gt; is new and will have the recalibrated qualities. The &lt;calibration csv&gt; is the file we created in the previous step.
-
-Now we are almost ready to call variants. First, though, go back and run at least one more set of data through this whole process on your own, then we will do one final step.
-## Merging BAMs
-
-For variant calling, we want to merge the BAMs from multiple samples together. This makes them easier to handle and allows GATK to work on many samples at once. (We could also feed multiple BAMs, but it would potentially become unwieldy.) You can also use this feature if you have multiple runs of a single sample and want all of your data from that sample in one BAM.
-
-```bash
-java -Xmx2g -jar /sw/apps/bioinfo/picard/1.69/kalkyl/MergeSamFiles.jar INPUT=&lt;input bam 1&gt; [INPUT=&lt;input bam 2&gt; ... INPUT=&lt;input bam N&gt;] OUTPUT=&lt;output bam&gt;
-```
-
-Note that you can specify the INPUT option multiple times.
-
-The inout should be sorted and you will need to reindex the new version with Picard.
-## step 6. Variant Calling
-
-Now we'll run the GATK Unified Genotyper on our merged bams.
-
-```bash
-java -Xmx2g -jar /sw/apps/bioinfo/GATK/1.5.21/GenomeAnalysisTK.jar -T UnifiedGenotyper -R &lt;ref file&gt; -I &lt;merged bam&gt; -o &lt;filename.vcf&gt; -glm BOTH
-```
-
-The &lt;ref file&gt; is our old reference fasta again. The &lt;merged bam&gt; is what you just created. The output file is &lt;filename.vcf&gt;. It needs to have a .vcf extension because it is a vcf file. The beginning part should be identifiable as associated with your merged file name (like the name root you use before the .bam) so you can tell later which vcf file came from which BAM).
-
-I have also generated some merged BAMs with all 55 samples that have low coverage data and exome data, one file each for low coverage and exome. These are in /proj/g2015005/labs/gatk/processed/MERGED* (remember that the * means every file that matches the rest of this string and then has any other text after that).
-
-Run the unified genotyper on both the exome and the low coverage data. These jobs should each take ~ 20 minutes to run. Because they take a long time and you have 8 cores on your nodes, you should run them in parallel. To do this, put an ampersand (&) at the end of the command line before you hit return. This runs the job in the background, and you get your prompt back immediately. However, the output will still go to your screen. We don't really want that, so we can use the redirect to put the output in a file to read later (e.g., ... &&gt;merged_exome_ug.out&). Remember to give different output file names to your exome job and your low coverage job, unless you're really sure you don't want to be able to figure out what happened (you can send them both to the same file, but the outputs will be mixed up with each other randomly).
-
-Note: we are using the term "output" here for two different things. With the -o option to GATK, we specified the name of the output vcf file for the UnifiedGenotyper. The redirect has no effect on that, because the program isn't writing it to "stdout". However, while it is running GATK writes some information to stdout (usually equal to your screen) telling us what it is doing and whether anything went wrong. That is what we are capturing in a file with the redirect. (Advanced note: in cases where you really do not want to keep the output of a program, but you just do not want it on the screen, you can redirect to /dev/null, which is a special "output device" that is a valid target for writing, but does not exist. It is like sending your output directly and irrevocably into the trash incinerator.)
-
-In practice, you would probably run jobs like this out to the cluster using slurm with the sbatch command, but we already have a whole 8 processors each reserved for our use, so it seems silly to then submit jobs out to the cluster and wait for them to get assigned to other machines. In reality, for applications like this where you are submitting multiple different jobs in parallel, it is usually faster and easier to use a job queueing system like slurm to manage your jobs instead of logging directly on to a multiprocessor machine and trying to manage the CPU usage yourself.
-
-While those are running, we'll skip ahead and start IGV.
----++ Filtering Variants
-
-The last thing we will do is filter variants. We do not have enough data that the VQSR technique for training filter thresholds on our data are likely to work, so instead we're just going to use the "best practices" parameters suggested by the GATK team (http://www.broadinstitute.org/gatk/guide/topic?name=best-practices).
-
-The parameters are slightly different for SNPs and indels, but we have called ours together. I would suggest trying both and seeing what you get. Why do you think that some of these parameters are different between the two types of variants?
-
-An example command line is:
-
-```bash
-java -Xmx2g -jar /sw/apps/bioinfo/GATK/1.5.21/GenomeAnalysisTK.jar -T VariantFiltration -R &lt;reference&gt; -V &lt;input vcf&gt; -o &lt;output vcf&gt; --filterExpression "QD&lt;2.0" --filterName QDfilter --filterExpression "MQ&lt;40.0" --filterName MQfilter --filterExpression "FS&gt;60.0" --filterName FSfilter --filterExpression "HaplotypeScore&gt;13.0" --filterName HSfilter
-```
-
-Note two things about this. First, each filterName option has to immediately follow the filterExpression it matches. This is an exception to the rule that options can come in any order. However, the order of these pairs, or their placement relative to other arguments, can vary. Second, the arguments to filterExpression are in quotation marks ("). Why is that?
-
-If you want to run the indel filtering version, you can look on the web page above and get those value and substitute them.
-
-Once you have the filtered calls, open your filtered VCF with less and page through it. It has all the variant lines, still, but one of the fields that was blank before is now filled in, indicating that the variant on that line either passed filtering or was filtered out, with a list of the filters it failed. Note also that the filters that were run are described in the header section.
-## step 7. Looking at Your Data with IGV
-
-Next, we want to know how to look at these data. For that, we will use IGV (Integrative Genomics Viewer). We will launch IGV from our desktops because it runs faster that way. Go to your browser window and Google search for IGV. Find the downloads page. You will be prompted for an email address. If you have not already downloaded IGV from that email address, it will prompt you to fill in some information and agree to a license. When you go back to your own lab, you can just type in your email and download the software again without agreeing to the license.
-
-Now launch the viewer through webstart. The 1.2 Gb version should be sufficient for our data. It will take a minute or two to download IGV and start it up. While that's going on, we need to download some data to our local machines so the viewer can find it (IGV can also look at web hosted data, but we are not going to set that up for our course data). When it prompts you to save the IGV program, just save it in your home directory (normally we would put this in the Applications folder on a Mac, but we probably can't write to that on these machines).
-
-Open a new terminal or xterm _on your local machine_ (i.e., do not log in to uppmax again). You should be in your home directory. Now we're going to use the command scp (secure copy) to get some data copied down:
-
-We will start with the merged bam files. We want to get both the bams and bais for the low coverage and exome data.
-
-```bash
-scp &lt;username&gt;@milou.uppmax.uu.se:/proj/g2015005/labs/gatk/processed/MERGED.illumina.\* ./
-```
-
-Because your uppmax user name is different than the user name on the local machine, you have to put your uppmax user name in front of the @ in the scp so that it knows you want to log in as your uppmax user, not as macuser. After the colon, we give the path to the files we want. The wildcard (*) character indicates that we want all the files that start with "MERGED.illumina". However, in this case, we need to add a backslash ('\') in front of the wildcard ('*'). This is known as "escaping", because ordinarily your local shell would try to expand the wildcard in your local directory, but we want it expanded on the remote machine. The './' means copy the files to your current directory.
-
-It will prompt you for your uppmax password, then it should download four files.
-
-We will also want to load the vcfs into IGV, so you can look at what calls got made.
-
-```bash
-scp &lt;username&gt;@milou.uppmax.uu.se:/proj/g2015005/labs/gatk/vcfs/MERGED.illumina.\* ./
-```
-
-By now, IGV should be launching. The first thing we want to do is make sure we have the right reference. In IGV, go to the popup menu in the upper left and set it to "Human 1kg (b37+decoy)". This is the latest build of the human genome (also known as GRCh37).
-
-Now, go under the Tools menu and selection "Run igvtools..." Change the command to "Count" and then use the Browse button next to the Input File line to select the bams (not the bai) that you just downloaded. It will autofill the output file. Now hit the Run button. This generates a .tdf file for each bam. This allows us to see the coverage value for our BAM file even at zoomed at views. (We could also do this offline using a standalone version of igvtools.)
-
-Now close the igvtools window and go back to the File menu, select "Load from File..." and select your bams (not the .bai or the .tdf). They should appear in the tracks window. Click on chromosome 17 to zoom in to there. You can now navigate with the browser to look at some actual read data. If you want to jump directly to the region we looked at, you can type MAPT in the text box at the top and hit return. This will jump you to one of the genes in the region.
-
-Let's look at a few features of IGV.
-
-Go under the View menu and select Preferences. Click on the Alignments tab. There are a number of things we can configure. Feel free to play with them. Two important ones for our data are near the top. Because we have multiple samples and the exome coverage is very deep, we want to turn off downsampling (upper left). However, this will cause us to load more reads, so we want to reduce the visible range threshold (top). I would suggest 5 kb.
-
-Next, we want to look at some of the track features. If you control-click (or right click for PCs or multi-button mice on Macs) on the track name at the left, you will get a popup menu with several options. For example, click the gene track and play with the view (collapsed, squished, expanded). I would suggest squished for our purposes.
-
-If you go to a read alignment track, you can control some useful features of the display. One is how you color the reads (by sample is an interesting one here). Another is the grouping. Group by sample is again useful (having grouped by sample, we could then use color for something else).
-
-By now, our variant calls should be done. Let's finish working on those, then come back.
-
-We can also load our variant calls into IGV. Use scp to copy your vcf files (and their idx indices) to your local machine and load them in also.
-
-For the rest of the time, just scroll around in IGV and look at your variant calls. Compare filtered and unfiltered (IGV displays the filtered variant site in lighter shades, so you only need to load the filtered file). Compare calls from the exome versus the low coverage sequencing.
-
-You can look at just the calls you made, or you can look at the calls from the full set, where you may see more of a difference between different types and depths of sequencing and between the calls with and without filtering. You can even load these data all together. Are there calls that were made using only one or two samples that were not made in the full data set or vice versa?
+This tutorial has introduced you to a very straight-forward, but somewhat simplified pipeline for the analysis of RNA-seq data by use of a reference genome to study transcription. Both Cufflinks and Tophat come with additional parameters that we have not touched upon to avoid unnecessary confusion. Likewise, the read data we have used was strand-unspecific. This has certain drawbacks, specifically with respect to accuracy in the isoform analysis. Or perhaps you are not interested in comparing expression between pairs of samples but in a time series. For this reason as well as others, you may need to adjust one or several parameters to get the best results - depending on the nature of your data. We therefore highly recommend you to carefully read both manuals (and possible the original publications) so as to familiarize yourself with these additional options.
+</div>
