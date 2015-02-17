@@ -79,26 +79,21 @@ $ cd transcriptome
 ```
 
    * sym-link the required files and folders (this will ceate a symbolic link to the original folders/files and saves you the trouble of always typing the full path - BUT: Do not write into these linked folders, because that data is shared across everyone working with these folders...)
-   ```bash
+
+```bash
 ln -s /proj/g2015005/labs/transcriptome_map/reads/PE/
-```
-   ```bash
 ln -s /proj/g2015005/labs/transcriptome_map/reads/SE
-```
-   ```bash
 ln -s /proj/g2015005/labs/transcriptome_map/results
-```
-   ```bash
 ln -s /proj/g2015005/labs/transcriptome_map/reference
 ```
 
 Your directory structure should look like this:
 
-   * working directory (your choice)
-      * PE/
-      * SE/
-      * results/
-      * reference/
+* working directory (your choice)
+  * PE/
+  * SE/
+  * results/
+  * reference/
 
 We are skipping a few steps here, namely obtaining a reference annotation and genome sequence and preparing the latter for use with the Bowtie2 aligner. We have taken care of that for you (located in the subfolder /reference). This is due to two main factors. First, it takes a lot of CPU hours to convert a genome sequence into a Bowtie index. Second, finding the latest release of a genome sequence free of unmapped fragments and haplotype data as well as a fully Tophat/Cufflinks-compatible annotation of that sequence is an exercise in frustration for beginners. One useful resource here is the FTP server of Illumina <a href="http://support.illumina.com/sequencing/sequencing_software/igenome.html" target="_top">here</a> . Finally, also note that we are providing you with the outputs of the different steps. This is to make sure that if you run into some trouble, like software crashing half-way through analysis, you can still continue with your exercises.
 ## 2) Load software
