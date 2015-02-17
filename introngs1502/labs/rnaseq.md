@@ -191,9 +191,10 @@ skipped.gtf
 
 transcripts.gtf
 
-The first two files contain basic information about expressed genes and transcripts, respectively - those known from the annotation file as well as novel loci identified by cufflinks -and the strength of their expression, given in FPKM. FPKM stands for ‘Fragments Per Kilobase of exon per Million fragments mapped’ and is a normalized measure of transcript abundance. That is the short explanation. The longer version for the more mathematically inclined among us can be found at <a href="http://www.nature.com/nmeth/journal/v5/n7/abs/nmeth.1226.html" target="_top">Mortazavi et al. 2008</a> .
+The first two files contain basic information about expressed genes and transcripts, respectively - those known from the annotation file as well as novel loci identified by cufflinks -and the strength of their expression, given in FPKM. FPKM stands for ‘Fragments Per Kilobase of exon per Million fragments mapped’ and is a normalized measure of transcript abundance. That is the short explanation. The longer version for the more mathematically inclined among us can be found at [Mortazavi et al. 2008](http://www.nature.com/nmeth/journal/v5/n7/abs/nmeth.1226.html).
 
 These output files are tab-delimited and can e.g. be opened in e.g. Microsoft Excel (or similiar) to be analyzed and/or visualized.
+
 ## 5) Cuffmerge: Reconciling different transcript models
 
 What goes in, what comes out:
