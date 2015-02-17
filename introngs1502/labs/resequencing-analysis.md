@@ -226,7 +226,7 @@ Next, we're going to go back to Picard and mark duplicate reads:
 java -Xmx2g -jar /sw/apps/bioinfo/picard/1.69/kalkyl/MarkDuplicates.jar INPUT=<input bam> OUTPUT=<marked bam> METRICS_FILE=<metrics file>
 ```
 
-Note that you need to feed it an <input bam>, which should be your realigned BAM from before, and you need to specify an output, the <marked bam> which will be a new file used in the following steps. There is also a <metrics file>, which is a output text file. We will take a look at that now.
+Note that you need to feed it an \<input bam\>, which should be your realigned BAM from before, and you need to specify an output, the <marked bam> which will be a new file used in the following steps. There is also a <metrics file>, which is a output text file. We will take a look at that now.
 
 Picard do not automatically index the .bam file so you need to do that before proceeding.
 
@@ -258,7 +258,7 @@ We need to feed it our bam file and our ref file. We also need a list of known s
 java -Xmx2g -jar /sw/apps/bioinfo/GATK/1.5.21/GenomeAnalysisTK.jar -T TableRecalibration -I <input bam> -R <ref file> -recalFile <calibration csv> -o <output bam>
 ```
 
-The <input bam> in this step is the same as the last step, because we haven't changed it yet, but the <output bam> is new and will have the recalibrated qualities. The <calibration csv> is the file we created in the previous step.
+The \<input bam\> in this step is the same as the last step, because we haven't changed it yet, but the <output bam> is new and will have the recalibrated qualities. The <calibration csv> is the file we created in the previous step.
 
 Now we are almost ready to call variants. First, though, go back and run at least one more set of data through this whole process on your own, then we will do one final step.
 ## Merging BAMs
