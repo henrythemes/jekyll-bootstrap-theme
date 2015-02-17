@@ -43,10 +43,11 @@ Tophat is a script pipeline built on-top of the popular read-aligner Bowtie. It 
 ## Cufflinks
 
 Cufflinks is a collection of programs that perform different steps in the analysis of aligned RNA-seq reads ([Details](http://cole-trapnell-lab.github.io/cufflinks/cufflinks/index.html)). The output is usually a list of transcribed loci (primarily ‘genes’) and their expression levels within and/or between samples. For the analysis of multiple data sets, the general workflow in cufflinks consists of the following steps:
-   * Cufflinks: Assemble the aligned reads of a given sample, identify transcribed loci and determine expression
-   * Cuffmerge: Reconcile data on transcribed loci across multiple samples to produce a consensus annotation of loci
-   * Cuffdiff: Compare read data across samples, guided by consensus annotation, and determine differential expression of loci, test for significance The main output we are interested in comes from the cuffdiff analysis and consists of differential expression estimates for a set of genes. In the following, we will be going through the necessary steps to accomplish this.
----++ Step-by-Step
+* Cufflinks: Assemble the aligned reads of a given sample, identify transcribed loci and determine expression
+* Cuffmerge: Reconcile data on transcribed loci across multiple samples to produce a consensus annotation of loci
+* Cuffdiff: Compare read data across samples, guided by consensus annotation, and determine differential expression of loci, test for significance The main output we are interested in comes from the cuffdiff analysis and consists of differential expression estimates for a set of genes. In the following, we will be going through the necessary steps to accomplish this.
+
+### Step-by-Step
    1 Prepare your data
    1 Load software
    1 Run Tophat on individual samples
@@ -225,10 +226,10 @@ $ grep yes gene_exp.diff >> results.txt</verbatim>
 (This copies the header of the output file as well as all rows tagged as significant into a new text file - open this file in a text editor or spread sheet program).
 
 Using their _EnsEMBL_ accession numbers, you can go to <a href="http://www.ensembl.org/" target="_top">http://www.ensembl.org</a> to retrieve information on the function of these genes and see whether you can draw any conclusions as to why these genes would be differentially expressed between samples.
----++ Where to go next
+### Where to go next
 
 So now you have analyzed the expression of genes between two samples. However, usually the work does not end here. For example, you may want to perform a thorough analysis of your output, visualze distributions and obtain statictics. This can be done either through clever scripting in R, or by use of a recently developed software suite called <a href="http://compbio.mit.edu/cummeRbund/" target="_top">CummeRbund</a>. It reads the native output from Cuffdiff, parses it into a database and provide ample options for in-depth analysis of the data. This package offer a lot of efficient parsing of the output files created by cuffdiff, however a recent update to Rsqlite package has broken the procedure whereby this package reads the data into R.
----++ Closing remarks
+### Closing remarks
 
 This tutorial has introduced you to a very straight-forward, but somewhat simplified pipeline for the analysis of RNA-seq data by use of a reference genome to study transcription. Both Cufflinks and Tophat come with additional parameters that we have not touched upon to avoid unnecessary confusion. Likewise, the read data we have used was strand-unspecific. This has certain drawbacks, specifically with respect to accuracy in the isoform analysis. Or perhaps you are not interested in comparing expression between pairs of samples but in a time series. For this reason as well as others, you may need to adjust one or several parameters to get the best results - depending on the nature of your data. We therefore highly recommend you to carefully read both manuals (and possible the original publications) so as to familiarize yourself with these additional options.
 </div>
