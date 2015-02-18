@@ -11,6 +11,7 @@ title:  'Welcome'
 ### Introduction to Bioinformatics Using NGS Data
 
 [2015 February - Uppsala](introngs1502/)  
+[2015 May - Gothenburg](introngs1505/)  
 
 
 
