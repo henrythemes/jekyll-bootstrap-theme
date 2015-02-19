@@ -3,12 +3,6 @@ layout: default
 title:  'Welcome'
 ---
 
-{% highlight ruby %}
-def foo
-  puts 'foo'
-end
-{% endhighlight %} 
-
 ## Courses
 
 [Old courses (2012-2014)](http://uppnex.se/courses)
