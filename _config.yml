@@ -27,3 +27,7 @@ exclude:
 safe: true
 lsi: false
 
+
+syntax-highlighting:
+  enabled : true
+  css: syntax.css
