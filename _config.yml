@@ -1,7 +1,7 @@
 ###########
 # site.url, site.title
 
-url:   'http://dahlo.github.io/courses'
+url:   'http://SciLifeLabCourses.github.io'
 title: 'SciLifeLab Courses'
 google_analytics: 'UA-23985298-11'
 
