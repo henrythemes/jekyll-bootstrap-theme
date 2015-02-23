@@ -9,7 +9,7 @@ title:  'Introduction to Bioinformatics Using NGS Data - May 2015'
 Held in Gothenburg May 18-22, 2015.
 
 ## Important Links
-[Pre-course material](precourse)  
+[Pre-course material](precourse)   
 [Schedule](schedule)  
 
 ## Maps & Travel Info
@@ -27,7 +27,7 @@ Held in Gothenburg May 18-22, 2015.
 [BWA Home](http://bio-bwa.sourceforge.net/)  
 [GATK Home](https://www.broadinstitute.org/gatk/)  
 [SeqAnswers - Next-generation sequencing forum](http://seqanswers.com/)  
-[Biosupport.se - Sweden centered bioinformatics Q&A](https://biosupport.se/)  
+[Biosupport.se - Sweden centered bioinformatics Q&A](https://biosupport.se/)   
 [Trinity](http://trinityrnaseq.github.io/)  
 [Cufflinks](http://cole-trapnell-lab.github.io/cufflinks/)  
 [Allpaths-lg](http://www.broadinstitute.org/software/allpaths-lg/blog/?page_id=12)
