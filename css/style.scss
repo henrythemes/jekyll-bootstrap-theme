@@ -23,7 +23,7 @@ body {
 }
 
 
-// make the page not shift when scrollbar appears
+// permanently show the scrollbar even is page is too short, keeps the page from shifting slightly when a long page is loadedd
 html {
   overflow-y: scroll;
 }
