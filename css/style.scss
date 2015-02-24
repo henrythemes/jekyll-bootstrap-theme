@@ -21,3 +21,9 @@ body {
 .navbar-nav > li > a {
   padding-top: 22px;
 }
+
+
+// make the page not shift when scrollbar appears
+html {
+  overflow-y: scroll;
+}
