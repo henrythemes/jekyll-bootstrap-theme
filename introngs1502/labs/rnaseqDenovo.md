@@ -53,7 +53,7 @@ For strand-specific data, specify the library type.
 There are four library types:
 
 Paired reads:  
-RF: first read (/1) of fragment pair is sequenced as anti-sense (reverse(R)), and second read (/2) is in the sense strand (forward(F)); typical of the dUTP/UDG sequencing method.  
+RF: first read (/1) of fragment pair is sequenced as anti-sense (reverse(R)), and second read (/2) is in the sense strand (forward(F)); typical of the dUTP/UDG sequencing method.
 FR: first read (/1) of fragment pair is sequenced as sense (forward), and second read (/2) is in the antisense strand (reverse)  
 
 Unpaired (single) reads:  
@@ -89,12 +89,12 @@ Count the number of sequences again.
 
 2.4 Align some sequences to a protein database and assess full-lengthness of a couple of sequences (hint: NCBI has an online blast version).
 
-2.5 Find alternatively spliced genes (hint: see above) You can verify alternative splicing by using the UCSC genome browser (do a web search to find it): - Select BLAT from the menu at the top of the page and paste in a mouse transcript sequence from Trinity.fasta.  
-- Select the mouse/mm9 genome and click “submit”.  
+2.5 Find alternatively spliced genes (hint: see above) You can verify alternative splicing by using the UCSC genome browser (do a web search to find it): - Select BLAT from the menu at the top of the page and paste in a mouse transcript sequence from Trinity.fasta.
+- Select the mouse/mm9 genome and click “submit”.
 - Click on the top scoring hit.
 
-Optional: examine the alignments by clicking “details” on the resulting page.  
-- Your sequences will be displayed in the browser.  
+Optional: examine the alignments by clicking “details” on the resulting page.
+- Your sequences will be displayed in the browser.
 - Enable the mouse annotations (ENSEMBL gene build, UCSC genes, human proteins etc.).
 
 Redo above exercises with the whitefly data.

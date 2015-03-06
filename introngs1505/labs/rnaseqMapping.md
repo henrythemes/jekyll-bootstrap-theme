@@ -30,18 +30,18 @@ In this lab we will use the two different library types as replicates in the det
 Below is a summary of the data and tissues available.
 
 * Single-end reads, 75bp
-  * ERR030888: Female adipose
-  * ERR030890: Female brain
-  * ERR030892: Female colon
-  * ERR030893: Female kidney
-  * ERR030901: Female ovary
-  
+    * ERR030888: Female adipose
+    * ERR030890: Female brain
+    * ERR030892: Female colon
+    * ERR030893: Female kidney
+    * ERR030901: Female ovary  
+<br/>
 * Pair-end reads, 2 x 50bp
-  * ERR030880: Female adipose
-  * ERR030882: Female brain
-  * ERR030884: Female colon
-  * ERR030885: Female kidney
-  * ERR030874: Female ovary
+    * ERR030880: Female adipose
+    * ERR030882: Female brain
+    * ERR030884: Female colon
+    * ERR030885: Female kidney
+    * ERR030874: Female ovary
 * human reference genome (or in this lab, for the sake of saving time only chromosome 1 named: rm.chr.1.fa)
 * genome index for aligning reads with Bowtie2
 * reference genome annotation based on the [EnsEMBL](http://www.ensembl.org/index.html) database named: Homo_sapiens.GRCh38_Chr1.77.gtf
@@ -199,9 +199,9 @@ Here we specify where to store the output, how many CPUs to use as well as where
 Depending on the size of the BAM/SAM file, this step may require several hours to complete.
 To make this analysis feasible within the time limits of the course, we have created the chromosome-limited files you have been using.
 
-```bash
 The command line output will read something like:
 
+```bash
 > Processed 48858 loci. [* * * * *] 100%
 
 > Map Properties:
@@ -212,7 +212,7 @@ The command line output will read something like:
 
 > Default Mean: 200
 
-> Default Std Dev: 80`
+> Default Std Dev: 80
 ```
 
 One important thing that can be noted here:
