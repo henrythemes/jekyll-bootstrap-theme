@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Department of Electronic Engineering</title>
+<link href="http://www.ee.surrey.ac.uk/ubercite/css/main2.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="http://www.ee.surrey.ac.uk/ubercite/css/seps.css" rel="stylesheet" type="text/css" />
+<link href="http://www.ee.surrey.ac.uk/ubercite/css/print.css" rel="stylesheet" type="text/css" media="print" />
+<script src="http://www.ee.surrey.ac.uk/ubercite/css/main.js" language="javascript" type="text/javascript"></script>
+<!--style type="text/css" media="all"/>@import "/ubercite/m_ee/css/local-extras.css";</style-->
+<link href="http://www.ee.surrey.ac.uk/ubercite/m_ee/css/local-extras.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<a name="top"></a>
+<div id="skip_nav"><a accesskey="s" href="purplebg.gif#column2" class="hidden">Skip navigation and go directly to page content</a></div>
+
+<!-- This div contains the University logo and the search box -->
+
+  <hr class="access_divider" />
+  <div id="masthead">
+    <div id="logo"><a href="http://www.surrey.ac.uk" title="University of Surrey - Guildford"><img src="http://www.ee.surrey.ac.uk/site_images/surreylogo.gif" alt="University of Surrey - Guildford" style="border:0;" /></a></div>
+	<div id="search">
+	<form name="searchform" method="get" action="http://www.google.com/u/UniversityofSurrey">
+	<input type="text" name="q" value="" id="q" onclick="clearSearch(this);" />
+	<input type="image" src="http://www.ee.surrey.ac.uk/site_images/search.gif" alt="Search" id="search_button" />
+	</form>
+
+	</div>
+  </div>
+
+<!-- This div contains the banner images and the dropdown navigation menus -->
+
+  <hr class="access_divider" />
+  <div id="banner">
+    <div id="banner_container">
+	  
+	  <div id="banner1"><a href="http://www.ee.surrey.ac.uk"><img src="http://www.ee.surrey.ac.uk/m_ee/images/banner/title.png" alt="Department of Electronic Engineering" style="border:0;" /></a></div>
+	  <!-- InstanceBeginEditable name="bannerTwo" --><div id="banner2"><img src="http://www.ee.surrey.ac.uk/m_ee/images/banner/group-image.jpg" alt="Banner image" /></div><!-- InstanceEndEditable -->
+	  
+  	  <hr class="access_divider" />
+
+      <div id="banner3">
+	    <form method="post" onsubmit="return dropdownRedirect(this.url.value)" action="http://www.surrey.ac.uk/assets/php/dropdown_redirect.php" name="information_about">
+		  <select class="menu_dropdown" name="url" onchange="if(dropdownRedirect(this.options[this.selectedIndex].value)){this.form.submit()}">
+		  <option value="">Information about...</option>
+		  <option value="http://portal.surrey.ac.uk/vicechancellor">Vice-Chancellor's Office</option>
+		  <option value="http://portal.surrey.ac.uk/gateway/schools">Academic Schools</option>
+		  <option value="http://portal.surrey.ac.uk/library">The Library</option>
+		  <option value="http://portal.surrey.ac.uk/gateway/administration">Central Services</option>
+		  <option value="http://portal.surrey.ac.uk/gateway/corporate">Corporate matters</option>
+		  <option value="http://www.surrey.ac.uk/professionaltraining">Professional Training</option>
+		  <option value="http://www.surrey.ac.uk/gateway/news">News &amp; Events</option>
+		  <option value="http://www.unisport.co.uk/">Sports</option>
+		  <option value="http://www.ussu.co.uk">Students' Union</option>
+		  </select>
+		  <input type="image" src="http://www.ee.surrey.ac.uk/site_images/go2.gif" class="dropdown_button" value="go" />
+		</form>
+	    <form method="post" onsubmit="return dropdownRedirect(this.url.value)" action="http://www.surrey.ac.uk/assets/php/dropdown_redirect.php" name="information_for">
+		  <select class="menu_dropdown" name="url" onchange="if(dropdownRedirect(this.options[this.selectedIndex].value)){this.form.submit()}">
+          <option value="">Information for...</option>
+          <option value="http://www.surrey.ac.uk/staff">Staff</option>
+          <option value="http://www.surrey.ac.uk/alumni">Alumni</option>
+          <option value="http://portal.surrey.ac.uk/gateway/visitors">Visitors</option>
+          <option value="http://www.surrey.ac.uk/gateway/contact">Enquirers</option>
+          <option value="http://www.surrey.ac.uk/gateway/employers">Employers</option>
+          <option value="http://www.surrey.ac.uk/research">Researchers</option>
+          <option value="http://www.surrey.ac.uk/currentstudents">Current Students</option>
+          <option value="http://www.surrey.ac.uk/prospectivestudents">Prospective Students</option>
+          <option value="http://www.surrey.ac.uk/international">International Students</option>
+          <option value="http://portal.surrey.ac.uk/teachers">Teachers &amp;</option>
+          <option value="http://portal.surrey.ac.uk/teachers">Careers Advisers</option>
+          <option value="http://portal.surrey.ac.uk/admin/press">Media</option>
+		  </select>
+		  <input type="image" src="http://www.ee.surrey.ac.uk/site_images/go2.gif" class="dropdown_button" value="go" />
+		</form>		
+	  </div>
+
+	</div>
+  </div>
+
+<!-- This is the contextual breadcrumb navigation --> 
+
+  <hr class="access_divider" />
+  <div id="breadcrumb">
+    <p><a href="http://www.surrey.ac.uk/" title="Visit the University of Surrey homepage">University of Surrey</a>
+       &gt; <a href="http://www.eps.surrey.ac.uk/">FEPS homepage</a>
+	   &gt; <a href="http://www.ee.surrey.ac.uk/">Electronic Engineering</a>
+
+    </p>
+  </div>   
+
+<!-- This is where the main page content starts -->
+
+<hr class="access_divider" />
+<div id="main_content">
+ 
+<!-- LEFT SIDEBAR [navigation and contact address] -->
+
+<div id="column1">
+    <div class="menu_header">Main Menu:</div>
+	<div id="leftmenu">
+<ul><li class="arrow-end"><a href="http://www.ee.surrey.ac.uk/home"><span>Homepage</span></a>
+</li><li class="arrow-right"><a href="http://www.ee.surrey.ac.uk/news"><span>News, Events & Seminars</span></a>
+</li><li class="arrow-right"><a href="http://www.ee.surrey.ac.uk/undergraduate"><span>Undergraduate</span></a>
+</li><li class="arrow-right"><a href="http://www.ee.surrey.ac.uk/postgraduate"><span>Postgraduate</span></a>
+</li><li class="arrow-right"><a href="http://www.ee.surrey.ac.uk/research"><span>Research</span></a>
+</li><li class="arrow-end"><a href="http://www.ee.surrey.ac.uk/CE"><span>Continuing Education</span></a>
+</li><li class="arrow-end"><a href="http://www.ee.surrey.ac.uk/visit"><span>Visit Us</span></a>
+</li><li class="arrow-end"><a href="http://www.ee.surrey.ac.uk/contacts"><span>Contacts</span></a>
+</li><li class="arrow-right"><a href="http://www.ee.surrey.ac.uk/profiles"><span>People</span></a>
+</li><li class="arrow-right"><a href="http://www.ee.surrey.ac.uk/logos/management"><span>Content Management&nbsp;<i>(restricted)</i></span></a>
+</li></ul>
+	</div>
+
+<p>&nbsp;</p>
+<!--    <div class="menu_header">Contact address:</div>
+        <div id="contactbox">
+Department of Electronic Engineering				<br />
+				Faculty of Engineering & Physical Sciences<br />
+University of Surrey<br />
+Guildford, Surrey, UK<br />
+GU2 7XH<br /><br />
+				Tel:&nbsp;+44 (0) 1483 686100<br />
+				Fax:&nbsp;+44 (0) 1483 534139<br />
+			
+E-mail: <a href="mailto:feps-information@surrey.ac.uk">feps-information<span style="font-size: 0px"> </span>@surrey.ac.uk</a><br />
+
+
+        </div>
+-->
+</div>
+<!-- END LEFT SIDEBAR Lefthand Navigation -->
+
+
+<!-- CONTENT -->
+<div id="column2" class="column2_wide">
+<h1>Our apologies ... the page you requested cannot be found</h1><p>
+<img src="http://www.ee.surrey.ac.uk/site_images/attention.png" alt="" style="float:right; margin-left:10px; height:92px; width:80px;" />
+The requested page address</p>
+<div class="center"><span class="important">http://www.ee.surrey.ac.uk/logos/purplebg.gif</span></div>
+<p>does not exist on this server. Please check the spelling of the page address or use the menu sidebar to the left to navigate through this site. 
+You can also <a href="http://www.ee.surrey.ac.uk/navigate/search/">search our site</a>, or take a look at our
+<a href="http://www.ee.surrey.ac.uk/navigate/sitemap">site map</a> or find out about <a href="http://www.ee.surrey.ac.uk/navigate/accessibility">Accessibility</a> features of this website.
+</p>
+
+
+
+<p>&nbsp;</p>
+</div> <!--column2 -->
+</div> <!--main content -->
+
+<!-- END CONTENT -->
+
+<!-- This is the footer -->
+ <div id="footer">
+    <hr class="access_divider" />
+    <p>The University of Surrey, Guildford, Surrey, GU2 7XH | Tel: +44 (0)1483 300800 | Fax: +44 (0)1483 300803 | <a class="smalllink" title="Contact Us" href="http://www.surrey.ac.uk/gateway/contact">Contact</a></p>
+  </div>
+
+  <div id="footer2"><p><a href="purplebg.gif#top" title="Scroll to top of page">Top of Page</a> | <a href="http://portal.surrey.ac.uk/gateway/disclaimer" class="disclaimer" title="disclaimer">Disclaimer</a> | <a href="http://www.surrey.ac.uk/gateway/accessibility/" class="disclaimer" title="accessibility">Accessibility</a> | <a href="http://portal.surrey.ac.uk/foi" class="disclaimer" title="freedom of information">Freedom of Information</a></p></div>
+  
+  <div id="valid_xhtml"><a href="http://validator.w3.org/check?uri=referer" title="This page has been built using valid XHTML"><img src="http://www.ee.surrey.ac.uk/site_images/w3c.gif" alt="Valid XHTML 1.0 Transitional" border="0" /></a></div>
+
+
+</body>
+
+<!-- InstanceEnd -->
+</html>
+
+                                                                                               

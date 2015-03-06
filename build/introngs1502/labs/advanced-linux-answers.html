@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>Advanced Linux Answers - SciLifeLab Courses</title>
+
+   <link rel="stylesheet" type="text/css" href="http://scilifelab.github.io/courses/css/style.css" >
+   <link rel="stylesheet" type="text/css" href="http://scilifelab.github.io/courses/css/syntax.css" >
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+   <script src="http://scilifelab.github.io/courses/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="https://www.scilifelab.se/"><img src="http://scilifelab.github.io/courses/images/scilife-green_on_black-35px.png"></a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="./">Home</a></li>
+            <li><a href="http://scilifelab.github.io/courses/">Past Courses</a></li>
+            <li><a href="http://www.scilifelab.se/education/courses/">Future Courses</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="content">
+        <h1>Advlinux, cheat sheet</h1>
+
+<h4>Assignment – Ownership and permissions</h4>
+
+<p>Q:<br>
+Change permission from </p>
+
+<h2>```bash</h2>
+
+<p>```</p>
+
+<p>to</p>
+
+<p><code>bash
+-rw-rw—wx
+</code></p>
+
+<p>One answer:</p>
+
+<p><code>bash
+chmod ug+rw filename  
+chmod o+wx filename  
+</code></p>
+
+<h4>Assignment - Symbolic links - files</h4>
+
+<p>Q Did editing the information in the link change the information in the original?<br>
+A: Yes.</p>
+
+<p>Q: what happens to a symbolic link when we move whatever its pointing to?<br>
+A: it breaks.</p>
+
+<p>Q: is the link re-activated?<br>
+A: yes.</p>
+
+<h4>Assignments - Grep</h4>
+
+<p>command to grep all lines with chr1 and send to other file.</p>
+
+<p>ex:</p>
+
+<p><code>bash
+grep &quot;chr1&quot; sample_1.sam &gt; chr1.txt
+</code></p>
+
+<h4>Assignment - WC</h4>
+
+<p><code>bash
+grep &quot;chr1&quot; sample_1.sam | wc -l
+samtools view outbam.bam | grep &quot;CATCATCAT&quot; | wc -l
+</code></p>
+
+<h4>Extra material 1.</h4>
+
+<p>Task1:</p>
+
+<p><code>bash
+grep &quot;^@&quot; sample_1.sam &gt; at.txt
+</code></p>
+
+<p>Task2:</p>
+
+<p><code>bash
+grep &quot;[0-9]\{3\}$&quot; sample_1.sam
+</code></p>
+
+<h4>Extra material 2.</h4>
+
+<p><code>bash
+sed &#39;s/chr1/chr2/&#39; sample_1.sam &gt; sample_2.sam
+</code></p>
+
+<h4>Extra material 3</h4>
+
+<p><code>bash
+for f in *.sam; do mv $f ${f/.sam}.bam; done
+</code></p>
+
+      </div>
+    </div><!-- /.container -->
+
+   
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		
+		ga('create', 'UA-23985298-11', 'auto');
+		ga('send', 'pageview');
+	</script>
+	<!-- End Google Analytics -->
+
+
+
+</body>
+</html>

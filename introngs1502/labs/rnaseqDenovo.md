@@ -1,3 +1,8 @@
+---
+layout: default
+title:  'RNAseq'
+---
+
 # Transcriptome De Novo Assembly
 
 ## Trinity
