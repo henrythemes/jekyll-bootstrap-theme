@@ -25,7 +25,7 @@ The main goal goal with this tutorial is to detect differential gene expression 
   * ERR030892: Female colon
   * ERR030893: Female kidney
   * ERR030901: Female ovary  
-  
+
   
 * Pair-end reads, 2 x 50bp
   * ERR030880: Female adipose
@@ -167,6 +167,7 @@ Here we specify where to store the output, how many CPUs to use as well as where
 
 The command line output will read something like:
 
+```bash
 &gt; Processed 48858 loci. [* * * * *] 100%
 
 &gt; Map Properties:
@@ -178,6 +179,7 @@ The command line output will read something like:
 &gt; Default Mean: 200
 
 &gt; Default Std Dev: 80
+```
 
 One important thing that can be noted here:
 
