@@ -71,7 +71,7 @@ Instead, you are going to write your output to the glob directory in your home d
 
 This creates some complexity, because your input data and your output data are not in the same place. This is a common data processing problem, and one you should get used to dealing with. It does mean that you'll need to type a lot. There are a few ways to deal with this.
 
-1. Remember where you are (your current working directory, [pwd]) and use relative or absolute paths as necessary to type the least. This is a quick but sloppy solution, and error prone, but if you are doing things one time by hand, it works. We all do it sometimes.
+1. Remember where you are (your current working directory, `pwd`) and use relative or absolute paths as necessary to type the least. This is a quick but sloppy solution, and error prone, but if you are doing things one time by hand, it works. We all do it sometimes.
 1. Use the full paths to everything, regardless of where you are actually working. This is the most time consuming, and requires that you remember where everything is, but it is also the safest, because you always know that you are telling the computer exactly where you want to read and write. This method is not dependent on keeping track of your current directory, because there are no relative paths, and you are much less likely to write data out to the wrong place by mistake. Any time you get to the point of writing code or batch scripts to automate your data processing, you should do this. For purposes of these exercises, it does not really matter which of these you do. This is part of learning to work on the command line. For purposes of example, the full paths will be given, but there will be examples where only the general syntax will be given, and you will have to find your data.
 
 Also, remember that tab completion can be very helpful in typing paths to files, not just because it saves keystrokes but also because it validates that you have typed a valid path (if the file is not there, tab completion will not work).
@@ -82,7 +82,7 @@ So that we don't clutter up the top level of our globs and get in the way of lat
 mkdir ~/glob/gatk
 ```
 
-Throughout the exercises, we will us a common convention that "<parameter>" (or <inputfile>, <outputfile>, <your directory>, etc.) means "type in this space in the command the parameter (input file, output file, directory, etc.) that you will be using", never that you should literally type "<parameter>" into the computer. If you don't know what you should be replacing this with, ask. We do this for two reasons. First, as you all work, not everyone will create files with exactly the same names, so there is no way to make standard instructions for everyone. Second, you need to learn how to figure out what goes into these spaces.
+Throughout the exercises, we will us a common convention that "&lt;parameter&gt;" (or &lt;inputfile&gt;, &lt;outputfile&gt;, &lt;your directory&gt;, etc.) means "type in this space in the command the parameter (input file, output file, directory, etc.) that you will be using", never that you should literally type "&lt;parameter&gt;" into the computer. If you don't know what you should be replacing this with, ask. We do this for two reasons. First, as you all work, not everyone will create files with exactly the same names, so there is no way to make standard instructions for everyone. Second, you need to learn how to figure out what goes into these spaces.
 
 That brings us to copying and pasting. It is possible to copy some of the commands out of this wiki and paste them into your terminal and make them work. This is not recommended. First, there can be formatting differences (especially how return characters are handled) between the browser and the terminal that make these commands not work properly. Second, and more important, when you are doing this on your own data, there will be no cutting and pasting. You will learn more by typing. Remember that tab completion will help you with this.
 
@@ -134,12 +134,12 @@ samtools faidx ~/glob/gatk/human_17_v37.fasta
 Running BWA for paired end data is done in multiple steps. First we align each set of reads, then we combine the paired alignments together (which also includes a realignment step using a more sensitive algorithm for unplaced mates). Let's start with one chunk of whole genome shotgun data from individual NA06984.
 
 ```bash
-bwa aln ~/glob/gatk/human_17_v37.fasta /proj/g2015005/labs/gatk/fastq/wgs/NA06984.ILLUMINA.low_coverage.17q_1.fq >~/glob/gatk/NA06984.ILLUMINA.low_coverage.17q_1.sai
+bwa aln ~/glob/gatk/human_17_v37.fasta /proj/g2015005/labs/gatk/fastq/wgs/NA06984.ILLUMINA.low_coverage.17q_1.fq &gt;~/glob/gatk/NA06984.ILLUMINA.low_coverage.17q_1.sai
 ```
 
-Note that if you have to use a file redirect ( >) for your output. Many (but not all!) functions of BWA default to sending their output to stdout (i.e., your screen) if you do not define a specific outputfile using the -f option, which is great if you want to build pipelines that redirect these things but not so useful when you want to write them to disk. Forgetting the redirect can be very disappointing.
+Note that if you have to use a file redirect ( &gt;) for your output. Many (but not all!) functions of BWA default to sending their output to stdout (i.e., your screen) if you do not define a specific outputfile using the -f option, which is great if you want to build pipelines that redirect these things but not so useful when you want to write them to disk. Forgetting the redirect can be very disappointing.
 
-While that's running, take a minute to look at the input file path. This is a fastq file, so I put it in a directory called fastq. It is from whole genome shotgun sequencing, so it is in a subdirectory called wgs. The file name has 6 parts, separated by . or _:
+While that's running, take a minute to look at the input file path. This is a fastq file, so I put it in a directory called fastq. It is from whole genome shotgun sequencing, so it is in a subdirectory called wgs. The file name has 6 parts, separated by . or \_:
 
 1. NA06984 - this is the individual name
 1. ILLUMINA - these reads came from the Illumina platform
@@ -163,13 +163,13 @@ to read one of those .fq files in the project directory.
 The sai files are a binary format internal to BWA. We now need to process those into something we can use. For paired ends, this is done with the sampe function of BWA. (Note that if you ever forget the syntax for a function, you can just type
 
 ```bash
-bwa <function>
+bwa &lt;function&gt;
 ```
 
 and it will list the parameters and options. Run it for your files:
 
 ```bash
-bwa sampe <ref> <sai1> <sai2> <fq1> <fq2> > ~/glob/gatk/<sample>.sam
+bwa sampe &lt;ref&gt; &lt;sai1&gt; &lt;sai2&gt; &lt;fq1&gt; &lt;fq2&gt; &gt; ~/glob/gatk/&lt;sample&gt;.sam
 ```
 
 The sampe function takes a lot of arguments. It needs the reference and the reads, because the sai files just have the definitions of the alignments, not the sequences. It needs the sai files to get the alignments. It outputs a SAM format file. I would suggest that you give it the same name prefix as the others, but if you are getting tired of typing that, pick something shorter. Retain the sample name and the fact that it is the 17q low coverage data.
@@ -185,7 +185,7 @@ We need to add something called read groups to our BAM file, because GATK is goi
 Now, we use the Picard package to add read group information. However, it turns out that Picard is a very smart program, and we can start with the sam file and ask it to simultaneously add read groups, sort the file, and spit it out as BAM. (It does, however, have a very awkward calling syntax.)
 
 ```bash
-java -Xmx2g -jar /sw/apps/bioinfo/picard/1.69/kalkyl/AddOrReplaceReadGroups.jar INPUT=<sam file> OUTPUT=<bam file> SORT_ORDER=coordinate RGID=<sample>-id RGLB=<sample>-lib RGPL=ILLUMINA RGPU=<sample>-01 RGSM=<sample>
+java -Xmx2g -jar /sw/apps/bioinfo/picard/1.69/kalkyl/AddOrReplaceReadGroups.jar INPUT=&lt;sam file&gt; OUTPUT=&lt;bam file&gt; SORT_ORDER=coordinate RGID=&lt;sample&gt;-id RGLB=&lt;sample&gt;-lib RGPL=ILLUMINA RGPU=&lt;sample&gt;-01 RGSM=&lt;sample&gt;
 ```
 
 Note that the arguments to Picard tools are parsed (read by the computer) as single words, so it is important that there is no whitespace between the upper case keyword, the equals, and the value specified, and that you quote ('write like this') any arguments that contain whitespace.
@@ -195,13 +195,13 @@ We specify the input, the output (assumed to be BAM), the SORT_ORDER, meaning we
 * RGID is the group ID. This is usually derived from the combination of the sample id and run id, or the SRA/EBI id. We will just add -id to the sample name.
 * RGLB is the group library. This will come from your library construction process. You may have multiple read groups per library if you did multiple runs, but you should only have one library per read group. We will add -lib the sample name.
 * RGPL is the platform. It is a restricted vocabulary. These reads are ILLUMINA.
-* RGPU is the run identifier. It would normally be the barcode of your flowcell. You may have multiple read groups per run, but only one run per read group. We will just fake it as <sample>-01.
+* RGPU is the run identifier. It would normally be the barcode of your flowcell. You may have multiple read groups per run, but only one run per read group. We will just fake it as &lt;sample&gt;-01.
 * RGSM is the sample name. Use the actual sample name. You can have multiple read groups, libraries, runs, and even platforms per sample, but you can only have one sample per read group. (If you are pooling samples without barcoding, there is no way to separate them later, so you should just designate the pool itself as a sample, but downstream analyses like SNP calling will be blind to that knowledge.) One thing to note is that the SAM/BAM header contains a field SO for sort order. Picard modifies this field to coordinate when it sorts BAMs, but samtools actually doesn't (as of this writing). This can create problems, because Picard also validates that BAMs are sorted before performing operations that require a sorted file, while samtools doesn't. To get around this, Picard tools take an optional parameter ASSUME_SORTED which when set true tells Picard to proceed as if the file were sorted even though it does not say so.
 
-Lastly, we need to index this BAM, so that programs can randomly access the sorted data without reading the whole file. This creates a file called \<input bam\>.bai, which contains the index. You do not have to specify this because the index file always has the exact same name as the BAM except that it has .bai instead of the .bam extension. This is how programs know to find the index associated with a BAM file. If you manually mix these things up (like you change a BAM without changing its name and do not reindex it), you can cause problems for programs that expect them to be in sync.
+Lastly, we need to index this BAM, so that programs can randomly access the sorted data without reading the whole file. This creates a file called \&lt;input bam\&gt;.bai, which contains the index. You do not have to specify this because the index file always has the exact same name as the BAM except that it has .bai instead of the .bam extension. This is how programs know to find the index associated with a BAM file. If you manually mix these things up (like you change a BAM without changing its name and do not reindex it), you can cause problems for programs that expect them to be in sync.
 
 ```bash
-java -Xmx2g -jar /sw/apps/bioinfo/picard/1.69/kalkyl/BuildBamIndex.jar INPUT=<bam file>
+java -Xmx2g -jar /sw/apps/bioinfo/picard/1.69/kalkyl/BuildBamIndex.jar INPUT=&lt;bam file&gt;
 ```
 
 ## Step 5. Processing Reads with GATK
@@ -211,58 +211,58 @@ Now, we want to use the Genome Analysis Toolkit (GATK) to perform a couple of al
 First, we'll realign locally around potential indels. This is done in two steps. First, we identify possible sites to realign:
 
 ```bash
-java -Xmx2g -jar /sw/apps/bioinfo/GATK/1.5.21/GenomeAnalysisTK.jar -I <bam file> -R <ref file> -T RealignerTargetCreator -o <intervals file>
+java -Xmx2g -jar /sw/apps/bioinfo/GATK/1.5.21/GenomeAnalysisTK.jar -I &lt;bam file&gt; -R &lt;ref file&gt; -T RealignerTargetCreator -o &lt;intervals file&gt;
 ```
 
-The <bam file> should be your sorted and indexed BAM with read groups added from before. Note that the option flag preceding the input bam is a capital I (as in Input), not a lower case l. The <ref file> is the reference you used for alignment, and the <intervals file> is an output text file that will contain the regions GATK thinks should be realigned. Give it the extension ".intervals". Note that there is an additional option we are not using, which is to specify a list of known indels that might be present in the data (i.e., are known from other sequencing experiments). Using this speeds up the process of identifying potential realignment sites, but because our data set is so small, we won't use that.
+The &lt;bam file&gt; should be your sorted and indexed BAM with read groups added from before. Note that the option flag preceding the input bam is a capital I (as in Input), not a lower case l. The &lt;ref file&gt; is the reference you used for alignment, and the &lt;intervals file&gt; is an output text file that will contain the regions GATK thinks should be realigned. Give it the extension ".intervals". Note that there is an additional option we are not using, which is to specify a list of known indels that might be present in the data (i.e., are known from other sequencing experiments). Using this speeds up the process of identifying potential realignment sites, but because our data set is so small, we won't use that.
 
 Now we feed our intervals file back into GATK with a different argument to actually do the realignments:
 
 ```bash
-java -Xmx2g -jar /sw/apps/bioinfo/GATK/1.5.21/GenomeAnalysisTK.jar -I <input bam> -R <ref file> -T IndelRealigner -o <realigned bam> -targetIntervals <intervals file>
+java -Xmx2g -jar /sw/apps/bioinfo/GATK/1.5.21/GenomeAnalysisTK.jar -I &lt;input bam&gt; -R &lt;ref file&gt; -T IndelRealigner -o &lt;realigned bam&gt; -targetIntervals &lt;intervals file&gt;
 ```
 
-Note that we need to give it the intervals file we just made, and also specify a new output bam (<realigned bam>). GATK is also clever and automatically indexes that bam for us (you can type ls and look at the list of files to verify this).
+Note that we need to give it the intervals file we just made, and also specify a new output bam (&lt;realigned bam&gt;). GATK is also clever and automatically indexes that bam for us (you can type ls and look at the list of files to verify this).
 
 Next, we're going to go back to Picard and mark duplicate reads:
 
 ```bash
-java -Xmx2g -jar /sw/apps/bioinfo/picard/1.69/kalkyl/MarkDuplicates.jar INPUT=<input bam> OUTPUT=<marked bam> METRICS_FILE=<metrics file>
+java -Xmx2g -jar /sw/apps/bioinfo/picard/1.69/kalkyl/MarkDuplicates.jar INPUT=&lt;input bam&gt; OUTPUT=&lt;marked bam&gt; METRICS_FILE=&lt;metrics file&gt;
 ```
 
-Note that you need to feed it an \<input bam\>, which should be your realigned BAM from before, and you need to specify an output, the <marked bam> which will be a new file used in the following steps. There is also a <metrics file>, which is a output text file. We will take a look at that now.
+Note that you need to feed it an \&lt;input bam\&gt;, which should be your realigned BAM from before, and you need to specify an output, the &lt;marked bam&gt; which will be a new file used in the following steps. There is also a &lt;metrics file&gt;, which is a output text file. We will take a look at that now.
 
 Picard do not automatically index the .bam file so you need to do that before proceeding.
 
 ```bash
-java -Xmx2g -jar /sw/apps/bioinfo/picard/1.69/kalkyl/BuildBamIndex.jar INPUT=<bam file>
+java -Xmx2g -jar /sw/apps/bioinfo/picard/1.69/kalkyl/BuildBamIndex.jar INPUT=&lt;bam file&gt;
 ```
 
 Now we can look at the duplicates we marked with Picard, using a filter on the bit flag. The mark for duplicates is the bit for 1024, so we can look at only duplicate marked reads with that.
 
 ```bash
-samtools view -f 1024 <bam file> | less
+samtools view -f 1024 &lt;bam file&gt; | less
 ```
 
 If we just want a count of the marked reads, we can use the -c option.
 
 ```bash
-samtools view -f 1024 -c <bam file>
+samtools view -f 1024 -c &lt;bam file&gt;
 ```
 
 Finally, we want to perform quality recalibration with GATK. We do this last, because we want all the data to be as clean as possible when we get here. This also happens in two steps. First, we compute all the covariation of quality with various other factors:
 
 ```bash
-java -Xmx2g -jar /sw/apps/bioinfo/GATK/1.5.21/GenomeAnalysisTK.jar -T CountCovariates -I <input bam> -R <ref file> -knownSites /proj/g2014207/labs/gatk/ALL.chr17.phase1_integrated_calls.20101123.snps_indels_svs.genotypes.vcf -cov ReadGroupCovariate -cov CycleCovariate -cov DinucCovariate -cov QualityScoreCovariate -recalFile <calibration csv>
+java -Xmx2g -jar /sw/apps/bioinfo/GATK/1.5.21/GenomeAnalysisTK.jar -T CountCovariates -I &lt;input bam&gt; -R &lt;ref file&gt; -knownSites /proj/g2014207/labs/gatk/ALL.chr17.phase1_integrated_calls.20101123.snps_indels_svs.genotypes.vcf -cov ReadGroupCovariate -cov CycleCovariate -cov DinucCovariate -cov QualityScoreCovariate -recalFile &lt;calibration csv&gt;
 ```
 
 We need to feed it our bam file and our ref file. We also need a list of known sites. Otherwise, GATK will think all the real SNPs in our data are errors. We're using calls from 1000 Genomes, which is a good plan for human (although a bit circular in our case). If you are sequencing an organism with few known sites, you could try calling once and then using the most confident variants as known sites (which should remove most of the non-erroneous bases). Failure to remove real SNPs from the recalibration will result in globally lower quality scores. We also give it the name of a csv file we want it to write out containing the covariation data. We will take a look at this. It will be used in the next step:
 
 ```bash
-java -Xmx2g -jar /sw/apps/bioinfo/GATK/1.5.21/GenomeAnalysisTK.jar -T TableRecalibration -I <input bam> -R <ref file> -recalFile <calibration csv> -o <output bam>
+java -Xmx2g -jar /sw/apps/bioinfo/GATK/1.5.21/GenomeAnalysisTK.jar -T TableRecalibration -I &lt;input bam&gt; -R &lt;ref file&gt; -recalFile &lt;calibration csv&gt; -o &lt;output bam&gt;
 ```
 
-The \<input bam\> in this step is the same as the last step, because we haven't changed it yet, but the <output bam> is new and will have the recalibrated qualities. The <calibration csv> is the file we created in the previous step.
+The \&lt;input bam\&gt; in this step is the same as the last step, because we haven't changed it yet, but the &lt;output bam&gt; is new and will have the recalibrated qualities. The &lt;calibration csv&gt; is the file we created in the previous step.
 
 Now we are almost ready to call variants. First, though, go back and run at least one more set of data through this whole process on your own, then we will do one final step.
 
@@ -271,7 +271,7 @@ Now we are almost ready to call variants. First, though, go back and run at leas
 For variant calling, we want to merge the BAMs from multiple samples together. This makes them easier to handle and allows GATK to work on many samples at once. (We could also feed multiple BAMs, but it would potentially become unwieldy.) You can also use this feature if you have multiple runs of a single sample and want all of your data from that sample in one BAM.
 
 ```bash
-java -Xmx2g -jar /sw/apps/bioinfo/picard/1.69/kalkyl/MergeSamFiles.jar INPUT=<input bam 1> [INPUT=<input bam 2> ... INPUT=<input bam N>] OUTPUT=<output bam>
+java -Xmx2g -jar /sw/apps/bioinfo/picard/1.69/kalkyl/MergeSamFiles.jar INPUT=&lt;input bam 1&gt; [INPUT=&lt;input bam 2&gt; ... INPUT=&lt;input bam N&gt;] OUTPUT=&lt;output bam&gt;
 ```
 
 Note that you can specify the INPUT option multiple times.
@@ -283,14 +283,14 @@ The inout should be sorted and you will need to reindex the new version with Pic
 Now we'll run the GATK Unified Genotyper on our merged bams.
 
 ```bash
-java -Xmx2g -jar /sw/apps/bioinfo/GATK/1.5.21/GenomeAnalysisTK.jar -T UnifiedGenotyper -R <ref file> -I <merged bam> -o <filename.vcf> -glm BOTH
+java -Xmx2g -jar /sw/apps/bioinfo/GATK/1.5.21/GenomeAnalysisTK.jar -T UnifiedGenotyper -R &lt;ref file&gt; -I &lt;merged bam&gt; -o &lt;filename.vcf&gt; -glm BOTH
 ```
 
-The <ref file> is our old reference fasta again. The <merged bam> is what you just created. The output file is <filename.vcf>. It needs to have a .vcf extension because it is a vcf file. The beginning part should be identifiable as associated with your merged file name (like the name root you use before the .bam) so you can tell later which vcf file came from which BAM).
+The &lt;ref file&gt; is our old reference fasta again. The &lt;merged bam&gt; is what you just created. The output file is &lt;filename.vcf&gt;. It needs to have a .vcf extension because it is a vcf file. The beginning part should be identifiable as associated with your merged file name (like the name root you use before the .bam) so you can tell later which vcf file came from which BAM).
 
 I have also generated some merged BAMs with all 55 samples that have low coverage data and exome data, one file each for low coverage and exome. These are in /proj/g2015005/labs/gatk/processed/MERGED* (remember that the * means every file that matches the rest of this string and then has any other text after that).
 
-Run the unified genotyper on both the exome and the low coverage data. These jobs should each take ~ 20 minutes to run. Because they take a long time and you have 8 cores on your nodes, you should run them in parallel. To do this, put an ampersand (&) at the end of the command line before you hit return. This runs the job in the background, and you get your prompt back immediately. However, the output will still go to your screen. We don't really want that, so we can use the redirect to put the output in a file to read later (e.g., ... &>merged_exome_ug.out&). Remember to give different output file names to your exome job and your low coverage job, unless you're really sure you don't want to be able to figure out what happened (you can send them both to the same file, but the outputs will be mixed up with each other randomly).
+Run the unified genotyper on both the exome and the low coverage data. These jobs should each take ~ 20 minutes to run. Because they take a long time and you have 8 cores on your nodes, you should run them in parallel. To do this, put an ampersand (&) at the end of the command line before you hit return. This runs the job in the background, and you get your prompt back immediately. However, the output will still go to your screen. We don't really want that, so we can use the redirect to put the output in a file to read later (e.g., ... &&gt;merged_exome_ug.out&). Remember to give different output file names to your exome job and your low coverage job, unless you're really sure you don't want to be able to figure out what happened (you can send them both to the same file, but the outputs will be mixed up with each other randomly).
 
 Note: we are using the term "output" here for two different things. With the -o option to GATK, we specified the name of the output vcf file for the UnifiedGenotyper. The redirect has no effect on that, because the program isn't writing it to "stdout". However, while it is running GATK writes some information to stdout (usually equal to your screen) telling us what it is doing and whether anything went wrong. That is what we are capturing in a file with the redirect. (Advanced note: in cases where you really do not want to keep the output of a program, but you just do not want it on the screen, you can redirect to /dev/null, which is a special "output device" that is a valid target for writing, but does not exist. It is like sending your output directly and irrevocably into the trash incinerator.)
 
@@ -307,7 +307,7 @@ The parameters are slightly different for SNPs and indels, but we have called ou
 An example command line is:
 
 ```bash
-java -Xmx2g -jar /sw/apps/bioinfo/GATK/1.5.21/GenomeAnalysisTK.jar -T VariantFiltration -R <reference> -V <input vcf> -o <output vcf> --filterExpression "QD<2.0" --filterName QDfilter --filterExpression "MQ<40.0" --filterName MQfilter --filterExpression "FS>60.0" --filterName FSfilter --filterExpression "HaplotypeScore>13.0" --filterName HSfilter
+java -Xmx2g -jar /sw/apps/bioinfo/GATK/1.5.21/GenomeAnalysisTK.jar -T VariantFiltration -R &lt;reference&gt; -V &lt;input vcf&gt; -o &lt;output vcf&gt; --filterExpression "QD&lt;2.0" --filterName QDfilter --filterExpression "MQ&lt;40.0" --filterName MQfilter --filterExpression "FS&gt;60.0" --filterName FSfilter --filterExpression "HaplotypeScore&gt;13.0" --filterName HSfilter
 ```
 
 Note two things about this. First, each filterName option has to immediately follow the filterExpression it matches. This is an exception to the rule that options can come in any order. However, the order of these pairs, or their placement relative to other arguments, can vary. Second, the arguments to filterExpression are in quotation marks ("). Why is that?
@@ -327,7 +327,7 @@ Open a new terminal or xterm _on your local machine_ (i.e., do not log in to upp
 We will start with the merged bam files. We want to get both the bams and bais for the low coverage and exome data.
 
 ```bash
-scp <username>@milou.uppmax.uu.se:/proj/g2015005/labs/gatk/processed/MERGED.illumina.\* ./
+scp &lt;username&gt;@milou.uppmax.uu.se:/proj/g2015005/labs/gatk/processed/MERGED.illumina.\* ./
 ```
 
 Because your uppmax user name is different than the user name on the local machine, you have to put your uppmax user name in front of the @ in the scp so that it knows you want to log in as your uppmax user, not as macuser. After the colon, we give the path to the files we want. The wildcard (*) character indicates that we want all the files that start with "MERGED.illumina". However, in this case, we need to add a backslash ('\') in front of the wildcard ('*'). This is known as "escaping", because ordinarily your local shell would try to expand the wildcard in your local directory, but we want it expanded on the remote machine. The './' means copy the files to your current directory.
@@ -337,7 +337,7 @@ It will prompt you for your uppmax password, then it should download four files.
 We will also want to load the vcfs into IGV, so you can look at what calls got made.
 
 ```bash
-scp <username>@milou.uppmax.uu.se:/proj/g2015005/labs/gatk/vcfs/MERGED.illumina.\* ./
+scp &lt;username&gt;@milou.uppmax.uu.se:/proj/g2015005/labs/gatk/vcfs/MERGED.illumina.\* ./
 ```
 
 By now, IGV should be launching. The first thing we want to do is make sure we have the right reference. In IGV, go to the popup menu in the upper left and set it to "Human 1kg (b37+decoy)". This is the latest build of the human genome (also known as GRCh37).
