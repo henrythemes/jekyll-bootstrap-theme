@@ -168,17 +168,17 @@ Here we specify where to store the output, how many CPUs to use as well as where
 The command line output will read something like:
 
 ```bash
-&gt; Processed 48858 loci. [* * * * *] 100%
+> Processed 48858 loci. [* * * * *] 100%
 
-&gt; Map Properties:
+> Map Properties:
 
-&gt; Total Map Mass: 1893657.20
+> Total Map Mass: 1893657.20
 
-&gt; Fragment Length Distribution: Truncated Gaussian (default)
+> Fragment Length Distribution: Truncated Gaussian (default)
 
-&gt; Default Mean: 200
+> Default Mean: 200
 
-&gt; Default Std Dev: 80
+> Default Std Dev: 80
 ```
 
 One important thing that can be noted here:
