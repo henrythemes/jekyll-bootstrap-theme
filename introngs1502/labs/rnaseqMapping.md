@@ -26,6 +26,7 @@ The main goal goal with this tutorial is to detect differential gene expression 
   * ERR030893: Female kidney
   * ERR030901: Female ovary  
   
+  
 * Pair-end reads, 2 x 50bp
   * ERR030880: Female adipose
   * ERR030882: Female brain
