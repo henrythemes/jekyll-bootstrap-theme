@@ -198,7 +198,8 @@ Here we specify where to store the output, how many CPUs to use as well as where
 Depending on the size of the BAM/SAM file, this step may require several hours to complete.
 To make this analysis feasible within the time limits of the course, we have created the chromosome-limited files you have been using.
 
-`The command line output will read something like:
+```bash
+The command line output will read something like:
 
 > Processed 48858 loci. [* * * * *] 100%
 
@@ -211,6 +212,7 @@ To make this analysis feasible within the time limits of the course, we have cre
 > Default Mean: 200
 
 > Default Std Dev: 80`
+```
 
 One important thing that can be noted here:
 
