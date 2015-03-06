@@ -44,4 +44,4 @@ Room:
 **09:00-11.00** [Exercise: RNA sequencing, transcriptome and expression quantification part II](labs/rnaseqMapping) (Thomas Källman, Manfred Grabherr, Martin Norling, Pall Olason, Henrik Lantz)  
 **11:30-12.00** [Lecture: The Wallenberg Advanced Bioinformatics Initiative (WABI) and the Bioinformatics Infrastructure for Life Sciences (BILS)](slides/BioinfoPresFeb2015.pdf) (Björn Nystedt)  
 **12.00-13.00** Lunch  
-**13:00-15.00** [Exercise: RNA sequencing, transcriptome and expression quantification part III](labs/rnaseqMapping) (Thomas Källman, Martin Norling, Henrik Lantz, Pall Olason)  
+**13:00-15.00** [Exercise: RNA sequencing, transcriptome and expression quantification part III](labs/rnaseqDenovo) (Thomas Källman, Martin Norling, Henrik Lantz, Pall Olason)  
