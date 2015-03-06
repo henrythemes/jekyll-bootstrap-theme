@@ -265,7 +265,15 @@ Using their _EnsEMBL_ accession numbers, you can go to [http://www.ensembl.org](
 
 ### Where to go next
 
-So now you have analyzed the expression of genes between two samples. However, usually the work does not end here. For example, you may want to perform a thorough analysis of your output, visualze distributions and obtain statictics. This can be done either through clever scripting in R, or by use of a recently developed software suite called [CummeRbund](http://compbio.mit.edu/cummeRbund/). It reads the native output from Cuffdiff, parses it into a database and provide ample options for in-depth analysis of the data. This package offer a lot of efficient parsing of the output files created by cuffdiff, however a recent update to Rsqlite package has broken the procedure whereby this package reads the data into R.
+So now you have analyzed the expression of genes between two samples. However, usually the work does not end here. For example, you may want to perform a thorough analysis of your output, visualze distributions and obtain statictics. This can be done either through clever scripting in R, or by use of a recently developed software suite called [CummeRbund](http://compbio.mit.edu/cummeRbund/). It reads the native output from Cuffdiff, parses it into a database and provide ample options for in-depth analysis of the data. This package offer a lot of efficient parsing of the output files created by cuffdiff, however a recent update to Rsqlite package has broken the procedure whereby this package reads the data into R. A workaround to this is to use an older version of R and if you want to test this steps on Uppmax one can just load an older R version via the module system as this:
+
+```R
+$ module load R/3.0.1
+$ R
+> source("http://bioconductor.org/biocLite.R")
+> biocLite("cummeRbund")
+> library("cummeRbund")
+```
 
 ### Closing remarks
 

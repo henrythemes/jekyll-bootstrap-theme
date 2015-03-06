@@ -37,11 +37,11 @@ Room:
 **09:00-12:00** [Exercise: Alignment with BWA; Samtools; Data Processing with Picard; Variant Calling with GATK; SAM/BAM and VCF Formats part III](labs/resequencing-analysis) (Anna Johansson, Martin Dahlö, Johan Reimegård, Manfred Grabherr)  
 **12.00-13.00** Lunch  
 **13:00-14:00** [Lecture: RNA sequencing, transcriptome and expression quantification](slides/RNA-seq.pdf) (Thomas Källman)  
-**14:15-17:00** [Exercise: RNA sequencing, transcriptome and expression quantification part I](labs/rnaseq) (Thomas Källman, Jacques Dainat, Johan Reimegård, Martin Norling)  
+**14:15-17:00** [Exercise: RNA sequencing, transcriptome and expression quantification part I](labs/rnaseqMapping) (Thomas Källman, Jacques Dainat, Johan Reimegård, Martin Norling)  
 
 **Friday 13th**  
 Room:  
-**09:00-11.00** [Exercise: RNA sequencing, transcriptome and expression quantification part II](labs/rnaseq) (Thomas Källman, Manfred Grabherr, Martin Norling, Pall Olason, Henrik Lantz)  
+**09:00-11.00** [Exercise: RNA sequencing, transcriptome and expression quantification part II](labs/rnaseqMapping) (Thomas Källman, Manfred Grabherr, Martin Norling, Pall Olason, Henrik Lantz)  
 **11:30-12.00** [Lecture: The Wallenberg Advanced Bioinformatics Initiative (WABI) and the Bioinformatics Infrastructure for Life Sciences (BILS)](slides/BioinfoPresFeb2015.pdf) (Björn Nystedt)  
 **12.00-13.00** Lunch  
-**13:00-15.00** [Exercise: RNA sequencing, transcriptome and expression quantification part III](labs/rnaseq) (Thomas Källman, Martin Norling, Henrik Lantz, Pall Olason)  
+**13:00-15.00** [Exercise: RNA sequencing, transcriptome and expression quantification part III](labs/rnaseqDenovo) (Thomas Källman, Martin Norling, Henrik Lantz, Pall Olason)  
