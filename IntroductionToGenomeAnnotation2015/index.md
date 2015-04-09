@@ -14,7 +14,7 @@ Held in Uppsala April 27-28, 2015.
 
 ## Maps & Travel Info
 [Map over Uppsala](http://www.uppsalakartan.se/)  
-[Map over Uppsala biomedical center, BMC](http://www.gu.se/kontakt/hitta-pa-gu)  
+[Map over Uppsala biomedical center, BMC](bmc)
 [Travel Info](travel)  
 
 ## Helpful Things
