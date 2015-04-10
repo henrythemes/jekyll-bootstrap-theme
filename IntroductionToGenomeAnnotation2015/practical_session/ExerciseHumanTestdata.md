@@ -12,8 +12,8 @@ The human test data set is located in the folder you symlinked earlier, named 'd
 
 First, we create a new folder in which to store all the configuration and input files. To do so, type:
 
-<i>mkdir maker_human</i>  
-<i>cd maker_human</i>
+<i>mkdir maker\_human</i>  
+<i>cd maker\_human</i>
 
 If you haven't done so already, load the maker module:
 
