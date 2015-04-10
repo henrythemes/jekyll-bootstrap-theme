@@ -9,17 +9,17 @@ title:  'Exercise Gene Building'
 **Maker2** is a computational pipeline to automatically generate annotations from a range of input data - including proteins, ESTs, RNA-seq transcripts and ab-initio gene predictions. During this exercise, you will learn how to use Maker with different forms of input data, and how to judge the quality of the resulting annotations.
 ## Getting the input data
 
-*The Maker pipeline can work with any combination of the following data sets:
+* The Maker pipeline can work with any combination of the following data sets:
 
-*Proteins from the same species or related species
+* Proteins from the same species or related species
 
-*Proteins from more distantly related organisms (e.g. Uniprot/Swissprot)  
+* Proteins from more distantly related organisms (e.g. Uniprot/Swissprot)  
 
-*EST sequences from the same species or very closely related species  
+* EST sequences from the same species or very closely related species  
 
-*RNA-seq data from the same or very closely related species - in the form of splice sites or assembled transcripts  
+* RNA-seq data from the same or very closely related species - in the form of splice sites or assembled transcripts  
 
-*Ab-initio predictions from one or more tools (directly supported are: Augustus, Snap, GeneMark, Fgenesh)  
+* Ab-initio predictions from one or more tools (directly supported are: Augustus, Snap, GeneMark, Fgenesh)  
 
 At minimum, most annotation projects will run with a protein data set, possibly complemented by some RNA-seq data. Popular examples of this are most of the traditional model systems, including human. However, a potential shortcoming of such approaches is that the comprehensiveness of the annotation depends directly on the input data. This can become a problem if our genome of interest is taxonomically distant to well-sequenced taxonomic groups so that only few protein matches can be found. Likewise, not all genes will be expressed at all times, making the generation of a comprehensive RNA-seq data set for annotation challenging.
 
