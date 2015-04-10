@@ -34,13 +34,13 @@ _maker -CTL_
 
 Off these, only maker_opts.ctl is of concern to us. Have a look at the following sections and fill in the information as shown:
 
-#-----Genome (these are always required)  
+\#-----Genome (these are always required)  
 genome=hsap_contig.fasta #genome sequence (fasta file or fasta embeded in GFF3 file)  
 organism_type=eukaryotic #eukaryotic or prokaryotic. Default is eukaryotic
 
 ...
 
-#-----EST Evidence (for best results provide a file for at least one)  
+\#-----EST Evidence (for best results provide a file for at least one)  
 est=hsap_est.fasta #set of ESTs or assembled mRNA-seq in fasta format  
 altest= #EST/cDNA sequence file in fasta format from an alternate organism  
 est_gff= #aligned ESTs or mRNA-seq from an external GFF3 file  
