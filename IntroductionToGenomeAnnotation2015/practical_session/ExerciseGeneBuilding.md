@@ -42,7 +42,7 @@ data/dmel
 
 - chromosome_4/
 
-..- bam/
+  - bam/
 
 -- chromosome/
 
