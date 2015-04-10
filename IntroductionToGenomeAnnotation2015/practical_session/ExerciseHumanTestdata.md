@@ -110,7 +110,7 @@ This meens the contig NT\_010783.15 was started - and finished, with all data (a
 
 If you look into that folder, you will find the finished Maker annotation for this contig.
 
-rw-rw-r- 1 marc b2011210 472193 Mar 24 10:16 'NT\_010783%2E15.gff  
+rw-rw-r- 1 marc b2011210 472193 Mar 24 10:16 NT\_010783%2E15.gff  
 rw-rw-r- 1 marc b2011210 3599 Mar 24 10:16 NT\_010783%2E15.maker.augustus\_masked.proteins.fasta  
 rw-rw-r- 1 marc b2011210 10388 Mar 24 10:16 NT\_010783%2E15.maker.augustus\_masked.transcripts.fasta  
 rw-rw-r- 1 marc b2011210 176 Mar 24 10:16 NT\_010783%2E15.maker.non\_overlapping\_ab\_initio.proteins.fasta  
@@ -137,7 +137,7 @@ annotations.proteins.fa
 
 If you use 'less' to read the annotation file ([GFF3 format](http://www.sequenceontology.org/gff3.shtml)), you will see a range of different features:
 
-##gff-version 3  
+\##gff-version 3  
 NT\_010783.15 . contig 1 201444 . . . ID=NT\_010783.15;Name=NT\_010783.15  
 NT\_010783.15 maker gene 141432 160962 . + . ID=maker-NT\_010783.15-augustus-gene-0.11;Name=maker-NT\_010783.15-augustus-gene-0.11  
 NT\_010783.15 maker mRNA 141432 160962 . + . ID=maker-NT\_010783.15-augustus-gene-0.11-mRNA-1;Parent=maker-NT\_010783.15-augustus-gene-0.11;Name=maker-NT\_010783.15-augustus-gene-0.11-mRNA-1;\_AED=0.00;\_eAED=0.00;\_QI=334|1|1|1|0|0|5|700|112
