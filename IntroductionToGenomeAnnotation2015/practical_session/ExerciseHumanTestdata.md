@@ -93,11 +93,11 @@ This will start Maker on 8 cores, if everything is configured correctly.
 
 By default, Maker will write the output of its different analyses into a folder named:
 
-&lt;name_of_genome_fasta&gt;.maker.output
+&lt;name\_of\_genome\_fasta&gt;.maker.output
 
 In our case:
 
-hsap_contig.maker.output
+hsap\_contig.maker.output
 
 Within the main output directory, Maker keeps a copy of the config files, a database (here: hsap_contig.db), directories for the blast databases created from your evidence data and a file called hsa_contig_master_datastore_index.log.
 
