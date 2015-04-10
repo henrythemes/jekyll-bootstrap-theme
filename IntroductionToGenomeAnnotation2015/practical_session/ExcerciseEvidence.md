@@ -44,11 +44,11 @@ This browser already has a number of tracks preloaded for you, but you can also 
 
 **_Exercise 5_ - Augustus:**
 First load the needed modules using:  
-module load bioinfo-tools  
-module load augustus
+_module load bioinfo-tools_  
+_module load augustus_
 
 Run Augustus on your genome file using:  
-augustus --species=fly 4.fa > augustus_drosophila.gff
+_augustus --species=fly 4.fa > augustus_drosophila.gff_
 
 Take a look at the result file using ‘less augustus_drosophila.gff’. What kinds of features have been annotated? Does it tell you anything about UTRs?
 
@@ -58,7 +58,7 @@ Do this to convert your Augustus-file:
 
 Module load genometools
 
-gt gtf_to_gff3 augustusfile.gff > augustusfile.gff3
+_gt gtf_to_gff3 augustusfile.gff > augustusfile.gff3_
 
 Transfer the augustus_drosophila.gff3 to your computer using scp and view the file in Webapollo. Also load the track ‘EnsEMBLprotein’ by dragging it from the table on the left to the main window. How does the Augustus annotation compare with the Ensembl annotation? Are they identical?
 
@@ -77,7 +77,7 @@ The program Cufflinks can be used to assemble transcripts from mapped rna-seq re
 Load the Cufflinks module using ‘module load cufflinks/2.1.1’. By typing ‘cufflinks’ you will get a list of the parameters you can change and also see the default values for each parameter.
 
 Then run Cufflinks on the supplied BAM-file using:  
-cufflinks -o outdir -p 8 -b 4.fa -u accepted_hits.chr4.bam  
+_cufflinks -o outdir -p 8 -b 4.fa -u accepted_hits.chr4.bam_  
 
 When done you can find your results in the directory ‘outdir’. The file transcripts.gtf includes your assembled transcripts. Transfer the file to your computer and load it into Webapollo. How well does it compare with your Augustus results? Looking at your results, are you happy with the default values of Cufflinks (which we used in this exercise) or is there something you would like to change?
 
@@ -88,7 +88,7 @@ Cegma is a program that includes sequences of 248 core proteins. These proteins 
 **_Exercise 8_ - Cegma:**  
 Here you will try Cegma on Chromosome 4 of Drosophila melanogaster. The problem is that the file ‘4.fa’ has fasta-headers that are only numbers, and Cegma won’t accept that. Can you figure out how to change the fasta header to ‘chr4’ rather than just ‘4’ using the linux command sed? Ask the teachers if you are having problems, or cheat by using the already parsed file 4_parsed.fa. :)
 
-Cegma -g 4.fa -T 8
+_Cegma -g 4.fa -T 8_
 
 When done, check the output.completeness_report. How many proteins are reported as complete? Does this sound reasonable?
 
