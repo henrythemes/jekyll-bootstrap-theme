@@ -44,21 +44,21 @@ data/dmel
 
   - bam/
 
--- chromosome/
+  - chromosome/
 
--- evidence/
+  - evidence/
 
--- maker
+  - maker
 
--- raw_computes
+  - raw_computes
 
 - full_genome
 
--- evidence/
+  - evidence/
 
--- genome/
+  - genome/
 
--- raw/
+  - raw/
 
 blastdb/
 
