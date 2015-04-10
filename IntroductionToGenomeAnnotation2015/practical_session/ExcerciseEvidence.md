@@ -11,7 +11,7 @@ This exercise is meant to get you acquainted with the type of data you would nor
 
 <u>**Swissprot:**</u> Uniprot is an excellent source for high quality protein sequences. The main site can be found at http://www.uniprot.org. This is also the place to find Swissprot, a collection of manually curated non-redundant proteins that cover a wide range of organisms while still being manageable in size.
 
-_Exercise1_ - Swissprot: Navigate the Uniprot site to find the download location for Swissprot in fasta-format. You do not need to download the file, just find it. In what way does Swissprot differ from Uniref (another excellent source of proteins, also available at the same site)?
+**_Exercise1_** - Swissprot: Navigate the Uniprot site to find the download location for Swissprot in fasta-format. You do not need to download the file, just find it. In what way does Swissprot differ from Uniref (another excellent source of proteins, also available at the same site)?
 
 *Uniprot:* Even with Swissprot available, you also often want to include protein sequences from organisms closely related to your study organism. An approach we often use is to concatenate Swissprot with a few protein fasta-files from closely related organisms and use this in our annotation pipeline.
 
