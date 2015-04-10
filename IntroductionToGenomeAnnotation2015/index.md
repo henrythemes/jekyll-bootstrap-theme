@@ -23,7 +23,7 @@ Held in Uppsala April 27-28, 2015.
 [UPPMAX cheat sheet](files/uppmax-cheat-sheet.png)  
 
 ## External Resources
-[Mac keyboard layouts](MacKeyboards)  
+[Mac keyboard layouts](../common/mac-keyboard)  
 [IGV (Integrative Genomics Viewer) Home](https://www.broadinstitute.org/igv/)  
 [Samtools Home](http://www.htslib.org/)  
 [BWA Home](http://bio-bwa.sourceforge.net/)  
