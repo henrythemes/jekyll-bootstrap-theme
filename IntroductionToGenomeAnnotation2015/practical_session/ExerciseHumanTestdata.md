@@ -48,13 +48,13 @@ altest_gff= #aligned ESTs from a closly relate species in GFF3 format
 
 ...
 
-#-----Protein Homology Evidence (for best results provide a file for at least one)  
+\#-----Protein Homology Evidence (for best results provide a file for at least one)  
 protein=hsap_protein.fasta #protein sequence file in fasta format (i.e. from mutiple oransisms)  
 protein_gff= #aligned protein homology evidence from an external GFF3 file
 
 ...
 
-#-----Repeat Masking (leave values blank to skip repeat masking)  
+\#-----Repeat Masking (leave values blank to skip repeat masking)  
 model_org=human #select a model organism for RepBase masking in RepeatMasker  
 rmlib= #provide an organism specific repeat library in fasta format for RepeatMasker   
 repeat_protein=/pica/sw/apps/bioinfo/maker/2.31/milou/data/te_proteins.fasta #provide a fasta file of transposable element proteins for RepeatRunner  
@@ -64,7 +64,7 @@ softmask=1 #use soft-masking rather than hard-masking in BLAST (i.e. seg and dus
 
 ...
 
-#-----Gene Prediction  
+\#-----Gene Prediction  
 snaphmm= #SNAP HMM file  
 gmhmm= #GeneMark HMM file  
 augustus_species=human #Augustus gene prediction species model  
@@ -76,7 +76,8 @@ protein2genome=0 #infer predictions from protein homology, 1 = yes, 0 = no
 trna=0 #find tRNAs with tRNAscan, 1 = yes, 0 = no  
 snoscan_rrna= #rRNA file to have Snoscan find snoRNAs  
 unmask=0 #also run ab-initio prediction programs on unmasked sequence, 1 = yes, 0 = no
----++ Run Maker
+
+## Run Maker
 
 Above, ew have specified to annotate a short piece of the human genome using the augustus gene finder to create ab-initio predictions, combined with evidence alignments from both protein and EST data. To run this configured analysis, just type:
 
