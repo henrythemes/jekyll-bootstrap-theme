@@ -24,16 +24,14 @@ Use Uniprot to find (not download) all protein sequences for all the complete ge
 **_Exercise 3_ - Refseq:**  
 Navigate the Refseq ftp site to find the invertebrate collection of protein sequences. You do not need to download the sequences, just find them. The files are mixed with other types of data, which files include the protein sequences?
 
-<u>**Ensembl:**</u>
-The European Ensembl project makes data available for a number of genome projects, in particular vertebrate animals, through their excellent webinterface. This is a good place to find annotations for model organisms as well as download protein sequences and other types of data. They also supply the Biomart interface, which is excellent if you want to download data for a specific region, a specific gene, or create easily parsable file with gene names etc.
+<u>**Ensembl:**</u> The European Ensembl project makes data available for a number of genome projects, in particular vertebrate animals, through their excellent webinterface. This is a good place to find annotations for model organisms as well as download protein sequences and other types of data. They also supply the Biomart interface, which is excellent if you want to download data for a specific region, a specific gene, or create easily parsable file with gene names etc.
 
 **_Exercise 4_ - Ensembl Biomart:**  
 Go to Biomart at http://www.ensembl.org/biomart/martview and use it to download all protein sequences for chromosome 4 in Drosophila melanogaster. Once you have downloaded the file, use some command line magic to figure out how many sequences are included in the file. Please ask the teachers if you are having problems here.
 
 ##2. Running an ab initio gene finder
 
-<u>**Setup:**</u> 
-For this exercise you need to be logged in to Uppmax. Follow the instructions you can find on the WIKI schedule page.
+<u>**Setup:**</u> For this exercise you need to be logged in to Uppmax. Follow the instructions you can find on the WIKI schedule page.
 
 Before going into the exercises below, create a symbolic link in your home folder to a folder with the course data using ‘ln -s /proj/g2014065/course_data’
 
@@ -42,11 +40,9 @@ When you are done, you should have a folder called course_data in your home fold
 Also, we have made a genome browser called Webapollo available for you on the address http://bils-web.imbim.uu.se/drosophila_melanogaster  
 This browser already has a number of tracks preloaded for you, but you can also load data you have generated yourself using the ‘file” menu and then ‘open’ and ‘local files’. First time you go there you need to log in using your first name as user name and your last name as password.
 
-<u>**Ab initio gene finders:**</u>  
-These methods have been around for a very long time, and there are many different programs to try. We will in this exercise focus on the gene finder Augustus. These gene finders use likelihoods to find the most likely genes in the genome. They are aware of start and stop codons and splice sites, and will only try to predict genes that follow these rules. The most important factor here is that the gene finder needs to be trained on the organism you are running the program on, otherwise the probabilities for introns, exons, etc. will not be correct. Luckily, these training files are available for Drosophila.
+<u>**Ab initio gene finders:**</u> These methods have been around for a very long time, and there are many different programs to try. We will in this exercise focus on the gene finder Augustus. These gene finders use likelihoods to find the most likely genes in the genome. They are aware of start and stop codons and splice sites, and will only try to predict genes that follow these rules. The most important factor here is that the gene finder needs to be trained on the organism you are running the program on, otherwise the probabilities for introns, exons, etc. will not be correct. Luckily, these training files are available for Drosophila.
 
 **_Exercise 5_ - Augustus:**
-
 First load the needed modules using:  
 module load bioinfo-tools  
 module load augustus
