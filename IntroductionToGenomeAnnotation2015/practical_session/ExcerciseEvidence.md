@@ -11,23 +11,23 @@ This exercise is meant to get you acquainted with the type of data you would nor
 
 <u>**Swissprot:**</u> Uniprot is an excellent source for high quality protein sequences. The main site can be found at http://www.uniprot.org. This is also the place to find Swissprot, a collection of manually curated non-redundant proteins that cover a wide range of organisms while still being manageable in size.
 
-**_Exercise1_ - Swissprot:**  
+**_Exercise 1_ - Swissprot:**  
 Navigate the Uniprot site to find the download location for Swissprot in fasta-format. You do not need to download the file, just find it. In what way does Swissprot differ from Uniref (another excellent source of proteins, also available at the same site)?
 
 <u>**Uniprot:**</u> Even with Swissprot available, you also often want to include protein sequences from organisms closely related to your study organism. An approach we often use is to concatenate Swissprot with a few protein fasta-files from closely related organisms and use this in our annotation pipeline.
 
-**_Exercise2_ - Uniprot:**  
+**_Exercise 2_ - Uniprot:**  
 Use Uniprot to find (not download) all protein sequences for all the complete genomes in the family Drosophilidae. How many complete genomes in Drosophilidae do you find?
 
 <u>**Refseq:**</u> Refseq is another good place to find non-redundant protein sequences to use in your project. The sequences are to some extent sorted by organismal group, but only to very large and inclusive groups. The best way to download large datasets from refseq is using their ftp-server at ftp://ftp.ncbi.nlm.nih.gov/refseq/.
 
-**_Exercise3_ - Refseq:**  
+**_Exercise 3_ - Refseq:**  
 Navigate the Refseq ftp site to find the invertebrate collection of protein sequences. You do not need to download the sequences, just find them. The files are mixed with other types of data, which files include the protein sequences?
 
 <u>**Ensembl:**</u>
 The European Ensembl project makes data available for a number of genome projects, in particular vertebrate animals, through their excellent webinterface. This is a good place to find annotations for model organisms as well as download protein sequences and other types of data. They also supply the Biomart interface, which is excellent if you want to download data for a specific region, a specific gene, or create easily parsable file with gene names etc.
 
-**_Exercise4_ - Ensembl Biomart:**  
+**_Exercise 4_ - Ensembl Biomart:**  
 Go to Biomart at http://www.ensembl.org/biomart/martview and use it to download all protein sequences for chromosome 4 in Drosophila melanogaster. Once you have downloaded the file, use some command line magic to figure out how many sequences are included in the file. Please ask the teachers if you are having problems here.
 
 ##2. Running an ab initio gene finder
@@ -45,7 +45,7 @@ This browser already has a number of tracks preloaded for you, but you can also 
 <u>**Ab initio gene finders:**</u>  
 These methods have been around for a very long time, and there are many different programs to try. We will in this exercise focus on the gene finder Augustus. These gene finders use likelihoods to find the most likely genes in the genome. They are aware of start and stop codons and splice sites, and will only try to predict genes that follow these rules. The most important factor here is that the gene finder needs to be trained on the organism you are running the program on, otherwise the probabilities for introns, exons, etc. will not be correct. Luckily, these training files are available for Drosophila.
 
-**_Exercise5_ - Augustus:**
+**_Exercise 5_ - Augustus:**
 
 First load the needed modules using:  
 module load bioinfo-tools  
@@ -66,7 +66,7 @@ gt gtf_to_gff3 augustusfile.gff > augustusfile.gff3
 
 Transfer the augustus_drosophila.gff3 to your computer using scp and view the file in Webapollo. Also load the track ‘EnsEMBLprotein’ by dragging it from the table on the left to the main window. How does the Augustus annotation compare with the Ensembl annotation? Are they identical?
 
-_Exercise6 -_ Augustus with yeast models:  
+**_Exercise 6 -_ Augustus with yeast models:**  
 Run augustus on the same genome file but using settings for yeast instead (change species to Saccharomyces).
 
 Load this result file into Webapollo and compare with your earlier results. Can you based on this draw any conclusions about how a typical yeast gene differs from a typical Drosophila gene?
@@ -77,8 +77,7 @@ Rna-seq data is in general very useful in annotation projects as the data usuall
 
 The program Cufflinks can be used to assemble transcripts from mapped rna-seq reads. First the reads need to be mapped to the genome, and we prefer using the mapper Tophat2 as it belongs to the same family of programs as Cufflinks and is splice-aware. The result from Tophat2 is a BAM-file, a binary file with the coordinates of all mapped reads. We have in this practical already created such a file for you for chromosome 4 of D. melanogaster, and you can find it in data/blabla.
 
-_Exercise7_ - Cufflinks:
-
+**_Exercise 7_ - Cufflinks:**  
 Load the Cufflinks module using ‘module load cufflinks/2.1.1’. By typing ‘cufflinks’ you will get a list of the parameters you can change and also see the default values for each parameter.
 
 Then run Cufflinks on the supplied BAM-file using:  
@@ -90,7 +89,7 @@ When done you can find your results in the directory ‘outdir’. The file tran
 
 Cegma is a program that includes sequences of 248 core proteins. These proteins are conserved and should be present in all eukaryotes. Cegma will try to align these proteins to your genomic sequence and report to you the number of proteins that are successfully aligned. This percentage can be used as a measure of how complete your assembly is.
 
-_Exercise8_ - Cegma:  
+**_Exercise 8_ - Cegma:**  
 Here you will try Cegma on Chromosome 4 of Drosophila melanogaster. The problem is that the file ‘4.fa’ has fasta-headers that are only numbers, and Cegma won’t accept that. Can you figure out how to change the fasta header to ‘chr4’ rather than just ‘4’ using the linux command sed? Ask the teachers if you are having problems, or cheat by using the already parsed file 4_parsed.fa. :)
 
 Cegma -g 4.fa -T 8
