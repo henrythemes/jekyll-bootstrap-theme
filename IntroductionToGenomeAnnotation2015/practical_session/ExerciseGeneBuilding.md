@@ -28,7 +28,7 @@ We will therefore first run our annotation project in the traditional way, with 
 The data for this you have already linked to your folder, but if not - run this command in a folder you have created in your home folder for this course:
 
 *cd ~/*  
-<i>cd \<some_folder\></i>  
+<i>cd \<some\_folder\></i>  
 *ln -s /proj/g2014065/course\_data data*  
 
 This data folder is write-proteced, it is only a resource for you to obtain data from, but not where you are writing your own outputs to!
