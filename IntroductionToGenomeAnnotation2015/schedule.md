@@ -11,13 +11,13 @@ title:  'Schedule'
 
 Room: E10:1309  
 **9.00-9.15** Introduction  
-**9.15-10.00** [Lecture: Understanding Annotation](%ATTACHURL%/Annotation.pdf) - Henrik Lantz  
+**9.15-10.00** [Lecture: Understanding Annotation](files/Annotation.pdf) (Henrik Lantz)  
 **10.00-10.20** Coffee break  
-**10.20-12.00** [[ExcerciseEvidence][Practical: Preparing evidence data for annotation - Henrik Lantz, Jacques Dainat]]  
-[[LoginInstructions][Uppmax login instructions]]  
+**10.20-12.00** [Practical: Preparing evidence data for annotation](ExcerciseEvidence) (Henrik Lantz, Jacques Dainat)  
+[Uppmax login instructions](LoginInstructions)  
 **12.00-12.40** Lunch  
 **12.40-13.40** Lecture: Structural annotation programs and pipelines - Jacques Dainat  
-**13.40-17.00** [[ExerciseGeneBuilding][Practical: Structural annotation of eukaryote genomes (incl. coffee break) - Henrik Lantz, Jacques Dainat]]  
+**13.40-17.00** [Practical: Structural annotation of eukaryote genomes (incl. coffee break)](ExerciseGeneBuilding) (Henrik Lantz, Jacques Dainat)  
 
 **19.00** Course dinner
 
