@@ -58,7 +58,7 @@ Do this to convert your Augustus-file:
 
 Module load genometools
 
-_gt gtf\_to\_gff3 augustusfile.gff > augustusfile.gff3_
+*gt gtf\_to\_gff3 augustusfile.gff > augustusfile.gff3*
 
 Transfer the augustus_drosophila.gff3 to your computer using scp and view the file in Webapollo. Also load the track ‘EnsEMBLprotein’ by dragging it from the table on the left to the main window. How does the Augustus annotation compare with the Ensembl annotation? Are they identical?
 
