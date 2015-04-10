@@ -11,24 +11,24 @@ title:  'Schedule'
 
 Room: E10:1309  
 **9.00-9.15** Introduction  
-**9.15-10.00** [Lecture: Understanding Annotation](%ATTACHURL%/Annotation.pdf) - Henrik Lantz
-**10.00-10.20** Coffee break
-**10.20-12.00** [[ExcerciseEvidence][Practical: Preparing evidence data for annotation - Henrik Lantz, Jacques Dainat]]
-[[LoginInstructions][Uppmax login instructions]]
+**9.15-10.00** [Lecture: Understanding Annotation](%ATTACHURL%/Annotation.pdf) - Henrik Lantz  
+**10.00-10.20** Coffee break  
+**10.20-12.00** [[ExcerciseEvidence][Practical: Preparing evidence data for annotation - Henrik Lantz, Jacques Dainat]]  
+[[LoginInstructions][Uppmax login instructions]]  
 **12.00-12.40** Lunch  
-**12.40-13.40** Lecture: Structural annotation programs and pipelines - Jacques Dainat
-**13.40-17.00** [[ExerciseGeneBuilding][Practical: Structural annotation of eukaryote genomes (incl. coffee break) - Henrik Lantz, Jacques Dainat]]
+**12.40-13.40** Lecture: Structural annotation programs and pipelines - Jacques Dainat  
+**13.40-17.00** [[ExerciseGeneBuilding][Practical: Structural annotation of eukaryote genomes (incl. coffee break) - Henrik Lantz, Jacques Dainat]]  
 
-*19.00-* Course dinner
+**19.00** Course dinner
 
 **Tuesday 28th** 
 
 Room: E10:1309  
-**9.00-10.00* Lecture: Functional annotation - Henrik Lantz
-**10.00-10.20** Coffee break
-**10.20-12.00** [[ExerciseManCuration][Practical: Manual curation - Henrik Lantz, Jacques Dainat]]
-**12.00-12.40** Lunch
-**12.40-17.00** [[ExerciseFuncAnnot][Practical: Functional annotation and annotation analysis contd. (incl. coffee break) - Henrik Lantz, Jacques Dainat]]
+**9.00-10.00* Lecture: Functional annotation - Henrik Lantz  
+**10.00-10.20** Coffee break  
+**10.20-12.00** [[ExerciseManCuration][Practical: Manual curation - Henrik Lantz, Jacques Dainat]]  
+**12.00-12.40** Lunch  
+**12.40-17.00** [[ExerciseFuncAnnot][Practical: Functional annotation and annotation analysis contd. (incl. coffee break) - Henrik Lantz, Jacques Dainat]]  
 
 
 **Monday 9th**  
