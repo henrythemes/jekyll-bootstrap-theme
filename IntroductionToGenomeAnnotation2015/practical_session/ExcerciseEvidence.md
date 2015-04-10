@@ -9,7 +9,7 @@ This exercise is meant to get you acquainted with the type of data you would nor
 
 ##1. Obtaining data
 
-<u>**Swissprot:**</u> Uniprot is an excellent source for high quality protein sequences. The main site can be found at http://www.uniprot.org. This is also the place to find Swissprot, a collection of manually curated non-redundant proteins that cover a wide range of organisms while still being manageable in size.
+<u>**Swissprot:**</u> Uniprot is an excellent source for high quality protein sequences. The main site can be found at [http://www.uniprot.org](http://www.uniprot.org). This is also the place to find Swissprot, a collection of manually curated non-redundant proteins that cover a wide range of organisms while still being manageable in size.
 
 **_Exercise 1_ - Swissprot:**  
 Navigate the Uniprot site to find the download location for Swissprot in fasta-format. You do not need to download the file, just find it. In what way does Swissprot differ from Uniref (another excellent source of proteins, also available at the same site)?
@@ -19,7 +19,7 @@ Navigate the Uniprot site to find the download location for Swissprot in fasta-f
 **_Exercise 2_ - Uniprot:**  
 Use Uniprot to find (not download) all protein sequences for all the complete genomes in the family Drosophilidae. How many complete genomes in Drosophilidae do you find?
 
-<u>**Refseq:**</u> Refseq is another good place to find non-redundant protein sequences to use in your project. The sequences are to some extent sorted by organismal group, but only to very large and inclusive groups. The best way to download large datasets from refseq is using their ftp-server at ftp://ftp.ncbi.nlm.nih.gov/refseq/.
+<u>**Refseq:**</u> Refseq is another good place to find non-redundant protein sequences to use in your project. The sequences are to some extent sorted by organismal group, but only to very large and inclusive groups. The best way to download large datasets from refseq is using their ftp-server at [ftp://ftp.ncbi.nlm.nih.gov/refseq/](ftp://ftp.ncbi.nlm.nih.gov/refseq/).
 
 **_Exercise 3_ - Refseq:**  
 Navigate the Refseq ftp site to find the invertebrate collection of protein sequences. You do not need to download the sequences, just find them. The files are mixed with other types of data, which files include the protein sequences?
@@ -27,7 +27,7 @@ Navigate the Refseq ftp site to find the invertebrate collection of protein sequ
 <u>**Ensembl:**</u> The European Ensembl project makes data available for a number of genome projects, in particular vertebrate animals, through their excellent webinterface. This is a good place to find annotations for model organisms as well as download protein sequences and other types of data. They also supply the Biomart interface, which is excellent if you want to download data for a specific region, a specific gene, or create easily parsable file with gene names etc.
 
 **_Exercise 4_ - Ensembl Biomart:**  
-Go to Biomart at http://www.ensembl.org/biomart/martview and use it to download all protein sequences for chromosome 4 in Drosophila melanogaster. Once you have downloaded the file, use some command line magic to figure out how many sequences are included in the file. Please ask the teachers if you are having problems here.
+Go to Biomart at [http://www.ensembl.org/biomart/martview](http://www.ensembl.org/biomart/martview) and use it to download all protein sequences for chromosome 4 in Drosophila melanogaster. Once you have downloaded the file, use some command line magic to figure out how many sequences are included in the file. Please ask the teachers if you are having problems here.
 
 ##2. Running an ab initio gene finder
 
@@ -37,7 +37,7 @@ Before going into the exercises below, create a symbolic link in your home folde
 
 When you are done, you should have a folder called course_data in your home folder. NOTE! We do not supply full paths in all of the exercises below. You will need to find the files yourself, which will be easy since you are an expert Linux-hacker. :)
 
-Also, we have made a genome browser called Webapollo available for you on the address http://bils-web.imbim.uu.se/drosophila_melanogaster  
+Also, we have made a genome browser called Webapollo available for you on the address [http://bils-web.imbim.uu.se/drosophila_melanogaster](http://bils-web.imbim.uu.se/drosophila_melanogaster)  
 This browser already has a number of tracks preloaded for you, but you can also load data you have generated yourself using the ‘file” menu and then ‘open’ and ‘local files’. First time you go there you need to log in using your first name as user name and your last name as password.
 
 <u>**Ab initio gene finders:**</u> These methods have been around for a very long time, and there are many different programs to try. We will in this exercise focus on the gene finder Augustus. These gene finders use likelihoods to find the most likely genes in the genome. They are aware of start and stop codons and splice sites, and will only try to predict genes that follow these rules. The most important factor here is that the gene finder needs to be trained on the organism you are running the program on, otherwise the probabilities for introns, exons, etc. will not be correct. Luckily, these training files are available for Drosophila.

@@ -1,6 +1,6 @@
 ---
 layout: default
-title:  'Exercise Evidence'
+title:  'Exercise Gene Building'
 ---
 
 #Preparing evidence data for annotation
