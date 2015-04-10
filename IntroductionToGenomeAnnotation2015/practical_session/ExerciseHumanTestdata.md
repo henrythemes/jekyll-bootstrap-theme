@@ -22,9 +22,9 @@ If you haven't done so already, load the maker module:
 
 Next, we create symbolic links to sequence files we wish to use in this exercise (located in data/human):
 
-hsap_contig.fasta - a piece of the human genome  
-hsap_protein.fasta - Proteins that map to the genomic region  
-hsap_est.fasta - EST data that maps to the genomic region
+hsap\_contig.fasta - a piece of the human genome  
+hsap\_protein.fasta - Proteins that map to the genomic region  
+hsap\_est.fasta - EST data that maps to the genomic region
 
 ##Configure your maker project
 
