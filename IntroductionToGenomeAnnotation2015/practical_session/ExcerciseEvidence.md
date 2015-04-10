@@ -3,10 +3,11 @@ layout: default
 title:  'Exercise Evidence'
 ---
 
----+ Preparing evidence data for annotation – Uppsala Mar31 2014
+#Preparing evidence data for annotation
 
 This exercise is meant to get you acquainted with the type of data you would normally encounter in an annotation project. You will get an idea of where to download protein sequences, and also try out some programs that often are used. We will for all exercises use data for the fruit fly, Drosophila melanogaster, as that is one of the currently best annotated organisms and there is plenty of high quality data available.
----++ 1. Obtaining data
+
+##1. Obtaining data
 
 *Swissprot:* Uniprot is an excellent source for high quality protein sequences. The main site can be found at http://www.uniprot.org. This is also the place to find Swissprot, a collection of manually curated non-redundant proteins that cover a wide range of organisms while still being manageable in size.
 
@@ -24,7 +25,8 @@ _Exercise3_ - Refseq: Navigate the Refseq ftp site to find the invertebrate coll
 The European Ensembl project makes data available for a number of genome projects, in particular vertebrate animals, through their excellent webinterface. This is a good place to find annotations for model organisms as well as download protein sequences and other types of data. They also supply the Biomart interface, which is excellent if you want to download data for a specific region, a specific gene, or create easily parsable file with gene names etc.
 
 _Exercise4_ - Ensembl Biomart: Go to Biomart at http://www.ensembl.org/biomart/martview and use it to download all protein sequences for chromosome 4 in Drosophila melanogaster. Once you have downloaded the file, use some command line magic to figure out how many sequences are included in the file. Please ask the teachers if you are having problems here.
----++ 2. Running an ab initio gene finder
+
+##2. Running an ab initio gene finder
 
 Setup:  
 For this exercise you need to be logged in to Uppmax. Follow the instructions you can find on the WIKI schedule page.
@@ -64,7 +66,8 @@ _Exercise6 -_ Augustus with yeast models:
 Run augustus on the same genome file but using settings for yeast instead (change species to Saccharomyces).
 
 Load this result file into Webapollo and compare with your earlier results. Can you based on this draw any conclusions about how a typical yeast gene differs from a typical Drosophila gene?
----++ 3. Assembling transcripts based on rna-seq data
+
+##3. Assembling transcripts based on rna-seq data
 
 Rna-seq data is in general very useful in annotation projects as the data usually comes from the actual organism you study and thus avoids the danger of introducing errors caused by differences in gene structure between your study organism and other species.
 
@@ -78,7 +81,8 @@ Then run Cufflinks on the supplied BAM-file using:
 cufflinks -o outdir -p 8 -b 4.fa -u accepted_hits.chr4.bam  
 
 When done you can find your results in the directory ‘outdir’. The file transcripts.gtf includes your assembled transcripts. Transfer the file to your computer and load it into Webapollo. How well does it compare with your Augustus results? Looking at your results, are you happy with the default values of Cufflinks (which we used in this exercise) or is there something you would like to change?
----++ 4. Checking the gene space of your assembly.
+
+##4. Checking the gene space of your assembly.
 
 Cegma is a program that includes sequences of 248 core proteins. These proteins are conserved and should be present in all eukaryotes. Cegma will try to align these proteins to your genomic sequence and report to you the number of proteins that are successfully aligned. This percentage can be used as a measure of how complete your assembly is.
 
