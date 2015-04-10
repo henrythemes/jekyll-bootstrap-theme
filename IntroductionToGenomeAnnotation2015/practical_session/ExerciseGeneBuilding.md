@@ -14,9 +14,13 @@ The Maker pipeline can work with any combination of the following data sets:
 Proteins from the same species or related species
 
 Proteins from more distantly related organisms (e.g. Uniprot/Swissprot)  
+
 EST sequences from the same species or very closely related species  
+
 RNA-seq data from the same or very closely related species - in the form of splice sites or assembled transcripts  
+
 Ab-initio predictions from one or more tools (directly supported are: Augustus, Snap, GeneMark, Fgenesh)  
+
 At minimum, most annotation projects will run with a protein data set, possibly complemented by some RNA-seq data. Popular examples of this are most of the traditional model systems, including human. However, a potential shortcoming of such approaches is that the comprehensiveness of the annotation depends directly on the input data. This can become a problem if our genome of interest is taxonomically distant to well-sequenced taxonomic groups so that only few protein matches can be found. Likewise, not all genes will be expressed at all times, making the generation of a comprehensive RNA-seq data set for annotation challenging.
 
 We will therefore first run our annotation project in the traditional way, with proteins and ESTs, and then repeat the process with a well-trained ab-initio gene predictor. You can then compare the output to get an idea of how crucial the use of a gene predictor is. However, before we get our hands dirty, we need to understand Maker a little better...
