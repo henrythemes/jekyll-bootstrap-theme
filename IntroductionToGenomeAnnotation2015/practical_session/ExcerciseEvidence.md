@@ -48,7 +48,7 @@ _module load bioinfo-tools_
 _module load augustus_
 
 Run Augustus on your genome file using:  
-_augustus --species=fly 4.fa > augustus\_drosophila.gff_
+*augustus --species=fly 4.fa > augustus\_drosophila.gff*
 
 Take a look at the result file using ‘less augustus_drosophila.gff’. What kinds of features have been annotated? Does it tell you anything about UTRs?
 
@@ -77,7 +77,7 @@ The program Cufflinks can be used to assemble transcripts from mapped rna-seq re
 Load the Cufflinks module using ‘module load cufflinks/2.1.1’. By typing ‘cufflinks’ you will get a list of the parameters you can change and also see the default values for each parameter.
 
 Then run Cufflinks on the supplied BAM-file using:  
-_cufflinks -o outdir -p 8 -b 4.fa -u accepted\_hits.chr4.bam_  
+*cufflinks -o outdir -p 8 -b 4.fa -u accepted\_hits.chr4.bam*  
 
 When done you can find your results in the directory ‘outdir’. The file transcripts.gtf includes your assembled transcripts. Transfer the file to your computer and load it into Webapollo. How well does it compare with your Augustus results? Looking at your results, are you happy with the default values of Cufflinks (which we used in this exercise) or is there something you would like to change?
 
