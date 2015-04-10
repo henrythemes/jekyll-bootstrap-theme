@@ -3,92 +3,115 @@ layout: default
 title:  'Exercise Gene Building'
 ---
 
-#Preparing evidence data for annotation
+# Running the Maker gene build pipeline
+## Overview
 
-This exercise is meant to get you acquainted with the type of data you would normally encounter in an annotation project. You will get an idea of where to download protein sequences, and also try out some programs that often are used. We will for all exercises use data for the fruit fly, Drosophila melanogaster, as that is one of the currently best annotated organisms and there is plenty of high quality data available.
+Maker2 is a computational pipeline to automatically generate annotations from a range of input data - including proteins, ESTs, RNA-seq transcripts and ab-initio gene predictions. During this exercise, you will learn how to use Maker with different forms of input data, and how to judge the quality of the resulting annotations.
+## Getting the input data
 
-##1. Obtaining data
+The Maker pipeline can work with any combination of the following data sets:
 
-<u>**Swissprot:**</u> Uniprot is an excellent source for high quality protein sequences. The main site can be found at http://www.uniprot.org. This is also the place to find Swissprot, a collection of manually curated non-redundant proteins that cover a wide range of organisms while still being manageable in size.
+Proteins from the same species or related species
 
-**_Exercise 1_ - Swissprot:**  
-Navigate the Uniprot site to find the download location for Swissprot in fasta-format. You do not need to download the file, just find it. In what way does Swissprot differ from Uniref (another excellent source of proteins, also available at the same site)?
+Proteins from more distantly related organisms (e.g. Uniprot/Swissprot)  
+EST sequences from the same species or very closely related species  
+RNA-seq data from the same or very closely related species - in the form of splice sites or assembled transcripts  
+Ab-initio predictions from one or more tools (directly supported are: Augustus, Snap, GeneMark, Fgenesh)  
+At minimum, most annotation projects will run with a protein data set, possibly complemented by some RNA-seq data. Popular examples of this are most of the traditional model systems, including human. However, a potential shortcoming of such approaches is that the comprehensiveness of the annotation depends directly on the input data. This can become a problem if our genome of interest is taxonomically distant to well-sequenced taxonomic groups so that only few protein matches can be found. Likewise, not all genes will be expressed at all times, making the generation of a comprehensive RNA-seq data set for annotation challenging.
 
-<u>**Uniprot:**</u> Even with Swissprot available, you also often want to include protein sequences from organisms closely related to your study organism. An approach we often use is to concatenate Swissprot with a few protein fasta-files from closely related organisms and use this in our annotation pipeline.
+We will therefore first run our annotation project in the traditional way, with proteins and ESTs, and then repeat the process with a well-trained ab-initio gene predictor. You can then compare the output to get an idea of how crucial the use of a gene predictor is. However, before we get our hands dirty, we need to understand Maker a little better...
 
-**_Exercise 2_ - Uniprot:**  
-Use Uniprot to find (not download) all protein sequences for all the complete genomes in the family Drosophilidae. How many complete genomes in Drosophilidae do you find?
+The data for this you have already linked to your folder, but if not - run this command in a folder you have created in your home folder for this course:
 
-<u>**Refseq:**</u> Refseq is another good place to find non-redundant protein sequences to use in your project. The sequences are to some extent sorted by organismal group, but only to very large and inclusive groups. The best way to download large datasets from refseq is using their ftp-server at ftp://ftp.ncbi.nlm.nih.gov/refseq/.
+<i>cd ~/</i>  
+<i>cd &lt;some_folder&gt;</i>  
+<i>ln -s </i> _/proj/g2014065/course_data data_
 
-**_Exercise 3_ - Refseq:**  
-Navigate the Refseq ftp site to find the invertebrate collection of protein sequences. You do not need to download the sequences, just find them. The files are mixed with other types of data, which files include the protein sequences?
+This data folder is write-proteced, it is only a resource for you to obtain data from, but not where you are writing your own outputs to!
+## Organizing the data
 
-<u>**Ensembl:**</u> The European Ensembl project makes data available for a number of genome projects, in particular vertebrate animals, through their excellent webinterface. This is a good place to find annotations for model organisms as well as download protein sequences and other types of data. They also supply the Biomart interface, which is excellent if you want to download data for a specific region, a specific gene, or create easily parsable file with gene names etc.
+The data we are providing for the course is organized in the following way (assuming you have sym-linked it to a folder name 'data':
 
-**_Exercise 4_ - Ensembl Biomart:**  
-Go to Biomart at http://www.ensembl.org/biomart/martview and use it to download all protein sequences for chromosome 4 in Drosophila melanogaster. Once you have downloaded the file, use some command line magic to figure out how many sequences are included in the file. Please ask the teachers if you are having problems here.
+data/human
 
-##2. Running an ab initio gene finder
+data/dmel
 
-<u>**Setup:**</u> For this exercise you need to be logged in to Uppmax. Follow the instructions you can find on the WIKI schedule page.
+- chromosome_4/
 
-Before going into the exercises below, create a symbolic link in your home folder to a folder with the course data using ‘ln -s /proj/g2014065/course_data’
+-- bam/
 
-When you are done, you should have a folder called course_data in your home folder. NOTE! We do not supply full paths in all of the exercises below. You will need to find the files yourself, which will be easy since you are an expert Linux-hacker. :)
+-- chromosome/
 
-Also, we have made a genome browser called Webapollo available for you on the address http://bils-web.imbim.uu.se/drosophila_melanogaster  
-This browser already has a number of tracks preloaded for you, but you can also load data you have generated yourself using the ‘file” menu and then ‘open’ and ‘local files’. First time you go there you need to log in using your first name as user name and your last name as password.
+-- evidence/
 
-<u>**Ab initio gene finders:**</u> These methods have been around for a very long time, and there are many different programs to try. We will in this exercise focus on the gene finder Augustus. These gene finders use likelihoods to find the most likely genes in the genome. They are aware of start and stop codons and splice sites, and will only try to predict genes that follow these rules. The most important factor here is that the gene finder needs to be trained on the organism you are running the program on, otherwise the probabilities for introns, exons, etc. will not be correct. Luckily, these training files are available for Drosophila.
+-- maker
 
-**_Exercise 5_ - Augustus:**
-First load the needed modules using:  
-_module load bioinfo-tools_  
-_module load augustus_
+-- raw_computes
 
-Run Augustus on your genome file using:  
-_augustus --species=fly 4.fa > augustus_drosophila.gff_
+- full_genome
 
-Take a look at the result file using ‘less augustus_drosophila.gff’. What kinds of features have been annotated? Does it tell you anything about UTRs?
+-- evidence/
 
-The gff-format of Augustus is non-standard (looks like gtf) so to view it in a genome browser you need to convert it. You can do this using genometools which is available on Uppmax.
+-- genome/
 
-Do this to convert your Augustus-file:
+-- raw/
 
-Module load genometools
+blastdb/
 
-_gt gtf_to_gff3 augustusfile.gff > augustusfile.gff3_
+scripts/
 
-Transfer the augustus_drosophila.gff3 to your computer using scp and view the file in Webapollo. Also load the track ‘EnsEMBLprotein’ by dragging it from the table on the left to the main window. How does the Augustus annotation compare with the Ensembl annotation? Are they identical?
+The folder scripts contains two perl scripts that we will use to format some data (referred to as $SCRIPT_PATH). The Blastdb folder will be used for the functional annotation exercise tomorrow.
+## Loading Maker
 
-**_Exercise 6 -_ Augustus with yeast models:**  
-Run augustus on the same genome file but using settings for yeast instead (change species to Saccharomyces).
+Maker strings together a range of different tools into a complex pipeline (e.g. blast, exonerate, repeatmasker, augustus...). On Uppmax, loading all these tools and Maker into your global PATH is done simply by typing:
 
-Load this result file into Webapollo and compare with your earlier results. Can you based on this draw any conclusions about how a typical yeast gene differs from a typical Drosophila gene?
+<i>module load bioinfo-tools</i>  
+<i>module load maker/2.31</i>
 
-##3. Assembling transcripts based on rna-seq data
+If you are trying to run Maker on your own computer or cluster, make sure that in fact all its various dependencies are loaded.
+## Understanding Makers control files
 
-Rna-seq data is in general very useful in annotation projects as the data usually comes from the actual organism you study and thus avoids the danger of introducing errors caused by differences in gene structure between your study organism and other species.
+Makers behaviour and information on input data are specified in one of three control files. These are:
 
-The program Cufflinks can be used to assemble transcripts from mapped rna-seq reads. First the reads need to be mapped to the genome, and we prefer using the mapper Tophat2 as it belongs to the same family of programs as Cufflinks and is splice-aware. The result from Tophat2 is a BAM-file, a binary file with the coordinates of all mapped reads. We have in this practical already created such a file for you for chromosome 4 of D. melanogaster, and you can find it in data/blabla.
+- maker_opts.ctl  
+- maker_bopts.ctl  
+- maker_exe.ctl
 
-**_Exercise 7_ - Cufflinks:**  
-Load the Cufflinks module using ‘module load cufflinks/2.1.1’. By typing ‘cufflinks’ you will get a list of the parameters you can change and also see the default values for each parameter.
+What are these files for?
 
-Then run Cufflinks on the supplied BAM-file using:  
-_cufflinks -o outdir -p 8 -b 4.fa -u accepted_hits.chr4.bam_  
+'maker_exe.ctl' holds information on the location of the various binaries required by Maker (including Blast, Repeatmasker etc). Normally, all information in this file will be extracted from $PATH, so if everything is set up correctly, you will never have to look into this file.
 
-When done you can find your results in the directory ‘outdir’. The file transcripts.gtf includes your assembled transcripts. Transfer the file to your computer and load it into Webapollo. How well does it compare with your Augustus results? Looking at your results, are you happy with the default values of Cufflinks (which we used in this exercise) or is there something you would like to change?
+Next, 'maker_bopts.ctl' provides access to a number of settings that control the behaviour of evidence aligners (blast, exonerate). The default settings will usually be fine, but if you want to try to annotate species with greater taxonomic distance to well-sequenced species, it may become necessary to decrease stringency of the e.g. blast alignments.
 
-##4. Checking the gene space of your assembly.
+Finally, 'maker_opts.ctl' holds information on the location of input files and some of the parameters controlling the decision making during the gene building.
+## Running Maker - Human contig
 
-Cegma is a program that includes sequences of 248 core proteins. These proteins are conserved and should be present in all eukaryotes. Cegma will try to align these proteins to your genomic sequence and report to you the number of proteins that are successfully aligned. This percentage can be used as a measure of how complete your assembly is.
+The first exercise will be a very short one in which you will create a gene build for a small piece of the human genome. This is to familiarize yourself with all the settings available in Maker. In the next exercise, the heavy-lifting of generating the protein alignments etc will already been done by us.
 
-**_Exercise 8_ - Cegma:**  
-Here you will try Cegma on Chromosome 4 of Drosophila melanogaster. The problem is that the file ‘4.fa’ has fasta-headers that are only numbers, and Cegma won’t accept that. Can you figure out how to change the fasta header to ‘chr4’ rather than just ‘4’ using the linux command sed? Ask the teachers if you are having problems, or cheat by using the already parsed file 4_parsed.fa. :)
+[Using the included test data](ExerciseHumanTestdata)
+## Running Maker - Drosophila genome
+### Getting the pre-computes
 
-_Cegma -g 4.fa -T 8_
+Running Maker on a full genome, even of an invertebrate, can take a considerable amount of time - especially if only few processing cores are available. We have therefore generate the genome-wide raw computes prior to the course. You can find the in the folder you have symlinked earlier under
 
-When done, check the output.completeness_report. How many proteins are reported as complete? Does this sound reasonable?
+_ln -s data/dmel/raw_
 
+Ab-initio guided or evidence-based
+
+Next, we will annotate the genome of the fruit fly _Drosophila melanogaster_. First without ab-initio predictions to guide the gene build, and afterwards with. Make sure you work with the sample data stored in the sub-folder '<b>chromosome_4</b>'. Even a small genome like Drosophila would take to long to run within the time we have for this course.
+
+[Running Maker without ab-initio predictions](ExcerciseMakerNoAbinit)
+
+[Running Maker with ab-initio predictions](ExcerciseMakerAbinit)
+### Inspecting the output
+
+The running of an annotation pipeline like Maker is not actually very hard. But the complicated work is only beginning. How to we best inspect the gene builds? Count features? Visualize it? Most importantly, what steps do we need to take to create a 'finished' annotation that we can use for scientific analyses?
+
+[Comparing and evaluating annotations](ExcerciseMakerCompareAnnot)
+## Closing remarks
+
+This concludes the gene building part. We have learned how to use the Maker annotation pipeline and have created gene builds with and without ab-initio predictions. Moreover, we have employed some measures to describe and judge these annotations. An essential part that we decided to leave out is the training of ab-initio gene finders. The reason for this omission was that there isn't really any one best way to do this and your mileage may vary a lot based on your organism and input data. Perhaps the most direct approach available at the moment is a combination of evidence-based annotation with Maker and to use the resulting, crude gene models to train SNAP. Since Maker can improve ab-initio predictions 'on the fly', it can tolerate a bit of noise from a less-than-perfect ab-initio profile. If you are setting out on an annotation project, the BILS annotation platform would be happy to discuss the best approach for your data with you.
+
+With that being said, generating a gene build is only one part of an annotation project. Next, we will inspect the annotation in genome browser and make an attempt at functional inference for the predicted gene models.
+
+-- %USERSIG{IntroGenAnno1403Teacher - 2014-03-27}%
