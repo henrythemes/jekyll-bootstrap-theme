@@ -102,7 +102,7 @@ _ln -s data/dmel/raw_
 
 Ab-initio guided or evidence-based
 
-Next, we will annotate the genome of the fruit fly _Drosophila melanogaster_. First without ab-initio predictions to guide the gene build, and afterwards with. Make sure you work with the sample data stored in the sub-folder '<b>chromosome_4</b>'. Even a small genome like Drosophila would take to long to run within the time we have for this course.
+Next, we will annotate the genome of the fruit fly _Drosophila melanogaster_. First without ab-initio predictions to guide the gene build, and afterwards with. Make sure you work with the sample data stored in the sub-folder '<b>chromosome_4</b>'. Even a small genome like Drosophila would take too long to run within the time we have for this course.
 
 [Running Maker without ab-initio predictions](ExcerciseMakerNoAbinit)
 
