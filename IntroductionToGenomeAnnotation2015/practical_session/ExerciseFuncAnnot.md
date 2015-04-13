@@ -21,9 +21,9 @@ Since we do not wish to spend too much time on this, we will again limit our ana
 Copy the file to your computer and load it in Blast2Go.
 ### Loading sequences
 
-\_File-&gt;Load Sequences\_
+*File-&gt;Load Sequences*
 
-\_Specify 'Protein' as sequence type.\_
+*Specify 'Protein' as sequence type.*
 
 This will add all the protein sequences from the Fasta file to your Blast2Go analysis.
 ### Perform Blast searches
