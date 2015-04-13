@@ -39,6 +39,6 @@ $ ssh -X q34
 
 **Note**: there is a uppmax specific tool called jobinfo that supplies the same kind of information as squeue that you can use as well ( *$ jobinfo -u username*).
 
-You are now logged in to your reserved node, and there is no need for you to use the SLURM queuing system. You can now continue with the specific exercise instructions, but please remember to never use more than 8 cores as you will be sharing a node (i.e., a single computer) with someone else in the course and there are only 16 cores available in total per node.
+You are now logged in to your reserved node, and there is no need for you to use the SLURM queuing system. You can now continue with the specific exercise instructions, but **please remember to never use more than 8 cores** as you will be sharing a node (i.e., a single computer) with someone else in the course and there are only 16 cores available in total per node.
 
 By Martin Dahlö, revised by Henrik Lantz.
