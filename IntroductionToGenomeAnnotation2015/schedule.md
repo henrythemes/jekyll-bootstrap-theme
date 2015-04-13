@@ -19,7 +19,7 @@ Room: E10:1309
 **12.40-13.40** Lecture: Structural annotation programs and pipelines (Jacques Dainat)  
 **13.40-17.00** [Practical: Structural annotation of eukaryote genomes (incl. coffee break)](practical_session/ExerciseGeneBuilding) (Henrik Lantz, Jacques Dainat)  
 
-**19.00** Course dinner
+**19.00** Course dinner at Lingon [restaurant](http://restauranglingon.com)
 
 **Tuesday 28th** 
 

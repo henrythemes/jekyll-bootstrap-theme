@@ -170,7 +170,3 @@ And run its counting method on the gene models:
 _gt stat maker.gff_
 
 We could now also visualise all this information using a genome browser, such as [IGV](http://www.broadinstitute.org/igv/home). IGV requires a genome fasta file and any number of annotation files in GTF or GFF3 format (note that GFF3 formatted file tend to look a bit weird in IGV sometimes).
-
--- %USERSIG{IntroGenAnno1403Teacher - 2014-03-27}%
-
----++
