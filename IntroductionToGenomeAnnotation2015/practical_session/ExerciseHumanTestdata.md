@@ -132,9 +132,9 @@ $SCRIPT\_PATH/maker\_merge\_outputs.pl
 
 This will create:
 
- annotations.gff  
- annotations.proteins.fa
- annotationByType/
+\-annotations.gff  
+\-annotations.proteins.fa  
+\-annotationByType/
 
 ### annotations.gff file
 If you use 'less' to read the annotation file *annotations.gff* ([GFF3 format](http://www.sequenceontology.org/gff3.shtml)), you will see a range of different features:
