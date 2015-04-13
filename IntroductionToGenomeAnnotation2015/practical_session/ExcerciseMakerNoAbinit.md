@@ -41,11 +41,11 @@ Why are we not providing you with pre-computed protein alignments? Well, since w
 
 This time, we do not specify a reference species to be used by augustus, which will disable ab-initio gene finding. Instead we set:
 
-<i>protein2genome=1</i>  
-<i>est2genome=1</i>
+  <i>protein2genome=1</i>  
+  <i>est2genome=1</i>
 
 This will enable gene building directly from the evidence alignments.
----++ Run Maker
+## Run Maker
 
 If your maker\_opts.ctl is configured correctly, you should be able to run maker as you did before:
 
