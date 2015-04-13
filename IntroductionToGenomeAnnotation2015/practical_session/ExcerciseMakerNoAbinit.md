@@ -35,7 +35,7 @@ You should now have 3 raw computes and the genome sequence in the working direct
 - name of the 'EST' alignment file(s) (est\_gff=)
 - name of the repeatmasker and repeatrunner files (repeatgff=)
 
-You can list multiple files in one field by separating their names by ','.
+You can list multiple files in one field by separating their names by a **comma** ','.
 
 Why are we not providing you with pre-computed protein alignments? Well, since we want Maker to build gene models off of protein evidence, we actually need more than just the coordinates of protein alignments. First of all, Maker can't be sure how the protein alignments were generated - maybe they weren't done in a splice-aware manner. That, together with some additional data that can be generated when actually aligning proteins for real, is the reason why building gene models from GFF protein\_matches doesn't work.
 
