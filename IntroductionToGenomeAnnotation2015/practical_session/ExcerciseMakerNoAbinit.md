@@ -23,7 +23,7 @@ Now link the raw computes you want to use into your folder. The files you will n
 - repeatmasker.chr4.gff (coordinates of repeatmasked regions)
 - cufflinks2genome.chr4.gff (EST hints created from assembled transcripts)
 
-<span style="background-color: transparent;">In addition, you will also need the genome sequence and a protein set. Sym-link it from the the data directory created earlier:</span>
+In addition, you will also need the genome sequence and a protein set. Sym-link it from the the data directory created earlier:
 
 *ln -s /path/to/chromosome\_4/chromosome/4.fa*
 
