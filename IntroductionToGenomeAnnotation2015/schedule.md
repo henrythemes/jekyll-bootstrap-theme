@@ -26,7 +26,7 @@ Room: E10:1309
 Room: E10:1309  
 **09.00-10.00** Lecture: Functional annotation (Henrik Lantz)  
 **10.00-10.20** Coffee break  
-**10.20-12.00** [Practical: Manual curation](ExerciseManCuration) (Henrik Lantz, Jacques Dainat)  
+**10.20-12.00** [Practical: Manual curation](practical_session/ExerciseManCuration) (Henrik Lantz, Jacques Dainat)  
 **12.00-12.40** Lunch  
 **12.40-17.00** [Practical: Functional annotation and annotation analysis contd. (incl. coffee break)](practical_session/ExerciseFuncAnnot) (Henrik Lantz, Jacques Dainat)  
 
