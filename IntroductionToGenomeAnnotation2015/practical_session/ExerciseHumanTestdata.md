@@ -136,7 +136,7 @@ This will create:
 \-annotations.proteins.fa  
 \-annotationByType/
 
-### annotations.gff file
+ -annotations.gff file
 If you use 'less' to read the annotation file *annotations.gff* ([GFF3 format](http://www.sequenceontology.org/gff3.shtml)), you will see a range of different features:
 
 \##gff-version 3  
@@ -154,15 +154,15 @@ On this contig, belonging to the gene, is located a transcript from position 141
 
 And so on.
 
-### annotations.proteins.fa
+ -annotations.proteins.fa
 
-### annotationByType directory
+ -annotationByType directory
 The different types of information present in the annotation file (annotations.gff) are separated into independent file into the "annotationByType" directory. This is useful for a number of applications, like visualizing it as separate tracks in a genome browser. Or to compute some intersting numbers from the gene models.
 
 
 This should contains a bunch of files, including 'maker.gff' - which contains the actual gene models.
 
-## Inspect the gene models
+### Inspect the gene models
 
 Next, we load the GenomeTools package:
 
