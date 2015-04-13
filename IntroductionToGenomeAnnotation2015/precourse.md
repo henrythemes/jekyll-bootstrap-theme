@@ -6,9 +6,9 @@ title:  'Precourse Material'
 # Pre-course Material
 
 **The three first part from the [UNIX Tutorial for Beginners](http://uppnex.se/unixtut/)**  
- -[**Introduction**](http://uppnex.se/unixtut/unixintro.html)  
- -[**chapter 1**](http://uppnex.se/unixtut/unix1.html)  
- -[**chapter 2**](http://uppnex.se/unixtut/unix2.html)  
+ *[**Introduction**](http://uppnex.se/unixtut/unixintro.html)  
+ *[**chapter 1**](http://uppnex.se/unixtut/unix1.html)  
+ *[**chapter 2**](http://uppnex.se/unixtut/unix2.html)  
 
 You must use [http://bellard.org/jslinux/](http://bellard.org/jslinux/) to try the commands in the tutorial, otherwise the commands will not work. If you any questions regarding this tutorial contact: martin.dahlo@scilifelab.uu.se
 
