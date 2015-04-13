@@ -56,15 +56,10 @@ This will take a little while and process a lot of output to the screen. Luckily
 
 Once Maker is finished, compile the annotation:
 
-*$SCRIPT\_PATH/maker\_merge\_outputs.pl --outfile maker\_no\_abinitio.gff*
+*$SCRIPT\_PATH/maker\_merge\_outputs.pl --outdir maker\_no\_abinitio*
 
-This should create a maker annotation file and the matching protein predictions. We have specified a name for the output file - unlike before - since we will be creating more than one annotation and need to be able to tell them apart.
+We have specified a name for the output directory - unlike before - since we will be creating more than one annotation and need to be able to tell them apart.  
 
-Next, we should separate the annotation file to extract the gene models:
+This should create a "maker\_no\_abinitio" directory containing a maker annotation file, a the matching protein predictions and a sub-directory containing different annotation files incliding the **maker.gff** which is the result to keep from this analysis. 
 
-<i>mkdir annotations</i>  
-<i>$SCRIPT\_PATH/split\_gff\_by\_source.pl --input maker\_no\_abinitio.gff -d annotations</i>
-
-<u>Result to keep from this analysis:</u>  **maker.gff**  
-
-=> You could sym-link this to another folder called e.g. results, so everything is in the same place in the end. Just make sure to call the link something other than maker.gff, since any maker output will be called that.
+=> You could sym-link the maker.gff file to another folder called e.g. results, so everything is in the same place in the end. Just make sure to call the link something other than maker.gff, since any maker output will be called that.

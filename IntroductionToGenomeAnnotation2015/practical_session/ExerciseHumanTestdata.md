@@ -130,7 +130,7 @@ From your Maker folder, run the script called 'maker\_merge\_outputs.pl' to crea
 
 $SCRIPT\_PATH/maker\_merge\_outputs.pl
 
-This will create:
+This will create a directory called "annotations" containing:
 
 \-annotations.gff  
 \-annotations.proteins.fa  
@@ -162,7 +162,7 @@ This file contains the proteins translated from the CDS of gene models.
 The different types of information present in the annotation file (annotations.gff) are separated into independent file into the "annotationByType" directory. This is useful for a number of applications, like visualizing it as separate tracks in a genome browser. Or to compute some intersting numbers from the gene models.
 
 
-This should contains a bunch of files, including 'maker.gff' - which contains the actual gene models.
+This should contains a bunch of files, including '**maker.gff**' - which contains the actual gene models.
 
 ### Inspect the gene models
 
