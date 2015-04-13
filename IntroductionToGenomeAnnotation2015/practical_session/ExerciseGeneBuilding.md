@@ -11,7 +11,7 @@ title:  'Exercise Gene Building'
 
 The Maker pipeline can work with any combination of the following data sets:
 
-* Proteins from the same species or related species
+* Proteins from the same species or related species  
 
 * Proteins from more distantly related organisms (e.g. Uniprot/Swissprot)  
 
