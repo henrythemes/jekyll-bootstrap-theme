@@ -52,7 +52,7 @@ If your maker\_opts.ctl is configured correctly, you should be able to run maker
 *maker -c 8*
 
 This will take a little while and process a lot of output to the screen. Luckily, much of the heavy lifting - such as EST alignments - are already done, so the total running time is quite manageable, even on a small number of cores.
----++ Compile the output
+## Compile the output
 
 Once Maker is finished, compile the annotation:
 
