@@ -33,7 +33,7 @@ Go to Biomart at [http://www.ensembl.org/biomart/martview](http://www.ensembl.or
 
 <u>**Setup:**</u> For this exercise you need to be logged in to Uppmax. Follow the [UPPMAX login instructions](LoginInstructions).
 
-Before going into the exercises below, create a symbolic link in your home folder to a folder with the course data using ‘ln -s /proj/g2014065/course_data’
+Before going into the exercises below, create a symbolic link in your home folder to a folder with the course data using ‘ln -s /proj/g2015008/course_data’
 
 When you are done, you should have a folder called course_data in your home folder. NOTE! We do not supply full paths in all of the exercises below. You will need to find the files yourself, which will be easy since you are an expert Linux-hacker. :)
 
