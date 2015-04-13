@@ -44,6 +44,8 @@ With everything configured, run Maker as you did for the previous analysis:
 
 We probably expect this to take a little bit longer than before, since we have added another step to our analysis.
 
+## Compile the output
+
 When Maker has finished, compile the output:
 
 <i>$SCRIPT\_PATH/maker\_merge\_outputs.pl --outfile maker\_a1\_p0\_c0.gff</i>  
