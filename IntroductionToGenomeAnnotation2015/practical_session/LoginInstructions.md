@@ -4,7 +4,7 @@ title:  'Login instructions'
 ---
 
 # Login instructions
-## 1. Connecting to UPPMAX [[MacOSX][<br />]]
+## 1. Connecting to UPPMAX
 
 The first step of this lab is to open a ssh connection to UPPMAX. To do this you need to start a terminal program on your computer. Which program is used depends on the system of your computer (MacOSX, Windows or Linux). On MacOSX you should use Terminal (icon looks like a black screen), on Windows you should use MobaXterm (can be downloaded from http://mobaxterm.mobatek.net). For Linux it depends on which version of Linux you are running, but it should be fairly obvious which program to use.
 
@@ -15,7 +15,7 @@ $ ssh -X username@milou.uppmax.uu.se
 and give your password when prompted. As you type the password, nothing will show on screen. No stars, no dots. It is supposed to be that way. Just type the password and press enter, it will be fine.
 
 You should now get a welcoming message from Uppmax to show that you have successfully logged in.
----++ 2. Logging into the reserved node
+## 2. Logging into the reserved node
 
 For this course, we have arranged for you to have one half of a node (=8 cores) each. To get this reservation you need to use the salloc command like this:
 
@@ -37,7 +37,7 @@ Connect to the node you were dealt like this:
 
 $ ssh -X q34
 
-*Note*: there is a uppmax specific tool called jobinfo that supplies the same kind of information as squeue that you can use as well ( *$ jobinfo -u username*).
+**Note**: there is a uppmax specific tool called jobinfo that supplies the same kind of information as squeue that you can use as well ( *$ jobinfo -u username*).
 
 You are now logged in to your reserved node, and there is no need for you to use the SLURM queuing system. You can now continue with the specific exercise instructions, but please remember to never use more than 8 cores as you will be sharing a node (i.e., a single computer) with someone else in the course and there are only 16 cores available in total per node.
 
