@@ -130,12 +130,14 @@ From your Maker folder, run the script called 'maker\_merge\_outputs.pl' to crea
 
 $SCRIPT\_PATH/maker\_merge\_outputs.pl
 
-This will create two files:
+This will create:
 
-annotations.gff  
-annotations.proteins.fa
+ annotations.gff  
+ annotations.proteins.fa
+ annotationByType/
 
-If you use 'less' to read the annotation file ([GFF3 format](http://www.sequenceontology.org/gff3.shtml)), you will see a range of different features:
+### annotations.gff file
+If you use 'less' to read the annotation file *annotations.gff* ([GFF3 format](http://www.sequenceontology.org/gff3.shtml)), you will see a range of different features:
 
 \##gff-version 3  
 NT\_010783.15 . contig 1 201444 . . . ID=NT\_010783.15;Name=NT\_010783.15  
@@ -152,14 +154,15 @@ On this contig, belonging to the gene, is located a transcript from position 141
 
 And so on.
 
-Next, we want to separate the annotation file into it's different types of information. This is useful for a number of applications, like visualizing it as separate tracks in a genome browser. Or to compute some intersting numbers from the gene models.
+### annotations.proteins.fa
 
-First, lets split the annotation file:
+### annotationByType directory
+The different types of information present in the annotation file (annotations.gff) are separated into independent file into the "annotationByType" directory. This is useful for a number of applications, like visualizing it as separate tracks in a genome browser. Or to compute some intersting numbers from the gene models.
 
-<i>mkdir -p annotations</i>  
-<i style="background-color: transparent;">$SCRIPT\_PATH/split\_gff\_by\_source.pl --input annotations.gff -d annotations</i>
 
-This should create a bunch of files, including 'maker.gff' - which contains the actual gene models.
+This should contains a bunch of files, including 'maker.gff' - which contains the actual gene models.
+
+## Inspect the gene models
 
 Next, we load the GenomeTools package:
 
