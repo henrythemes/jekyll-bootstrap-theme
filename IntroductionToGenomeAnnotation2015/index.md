@@ -9,8 +9,9 @@ title:  'Introduction to Genome Annotation - April 2015'
 Held in Uppsala April 27-28, 2015.
 
 ## Important Links
-[Pre-course material](precourse)   
-[Schedule](schedule)  
+[Pre-course material](precourse)  
+[Uppmax login instructions](practical_session/LoginInstructions)  
+[Schedule](schedule)
 
 ## Maps & Travel Info
 [Map over Uppsala](http://www.uppsalakartan.se/)  
