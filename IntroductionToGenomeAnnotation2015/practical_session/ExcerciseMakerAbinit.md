@@ -3,7 +3,7 @@ layout: default
 title:  'Exercise - Running Maker with ab-initio predictions'
 ---
 
-## Running Maker with ab-initio predictions
+# Running Maker with ab-initio predictions
 
 The recommended way of running Maker is in combination with one or more ab-initio profile models. Maker natively supports input from several tools, including augustus, snap and genemark. The choice of tool depends a bit on the organism that you are annotating - for example, GeneMark -ES is mostly recommended for fungi, whereas augustus and snap have a more general use.
 
