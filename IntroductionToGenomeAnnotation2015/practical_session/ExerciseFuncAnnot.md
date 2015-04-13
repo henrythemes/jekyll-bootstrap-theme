@@ -29,7 +29,7 @@ This will add all the protein sequences from the Fasta file to your Blast2Go ana
 ### Perform Blast searches
 
 Next we will run all proteins against the SwissProt database (other data bases are also available of course). There are two strategies to do this:
-### From within the GUI:
+#### From within the GUI:
 
 This procedure is generally not recommend, since it is very very very very slow - use the command-line blast option discussed below. However, for completeness:
 
