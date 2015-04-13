@@ -65,7 +65,8 @@ Next, we should separate the annotation file to extract the gene models:
 <i>mkdir annotations</i>  
 <i>$SCRIPT\_PATH/split\_gff\_by\_source.pl --input maker\_no\_abinitio.gff -d annotations</i>
 
-Result to keep from this analysis:
+<u>Result to keep from this analysis:</u>
 
-maker.gff  
-- You could sym-link this to another folder called e.g. results, so everything is in the same place in the end. Just make sure to call the link something other than maker.gff, since any maker output will be called that.
+**maker.gff**  
+
+=> You could sym-link this to another folder called e.g. results, so everything is in the same place in the end. Just make sure to call the link something other than maker.gff, since any maker output will be called that.
