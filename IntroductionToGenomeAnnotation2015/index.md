@@ -16,7 +16,7 @@ Held in Uppsala April 27-28, 2015.
 [Map over Uppsala](http://www.uppsalakartan.se/)  
 [Map over Uppsala biomedical center, BMC](bmc)  
 [Travel Info](travel) 
-[Restaurant Lingon](http://www.restauranglingon.com/)
+[Restaurant Lingon](http://www.restauranglingon.com/)  
 [TO DO AND EAT in Uppsala](http://www.destinationuppsala.se/en/)
 
 ## Helpful Things
