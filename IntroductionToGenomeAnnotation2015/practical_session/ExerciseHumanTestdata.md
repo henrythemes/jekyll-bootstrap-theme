@@ -136,7 +136,7 @@ This will create:
 \-annotations.proteins.fa  
 \-annotationByType/  
 
- - **annotations.gff file**  
+ - ***annotations.gff* file**  
 
 If you use 'less' to read the annotation file *annotations.gff* ([GFF3 format](http://www.sequenceontology.org/gff3.shtml)), you will see a range of different features:
 
@@ -155,9 +155,10 @@ On this contig, belonging to the gene, is located a transcript from position 141
 
 And so on.
 
- - **annotations.proteins.fa file**  
+ - ***annotations.proteins.fa* file**  
+This file contains the proteins translated from the CDS of gene models.
 
- - **annotationByType directory**  
+ - ***annotationByType* directory**  
 The different types of information present in the annotation file (annotations.gff) are separated into independent file into the "annotationByType" directory. This is useful for a number of applications, like visualizing it as separate tracks in a genome browser. Or to compute some intersting numbers from the gene models.
 
 
