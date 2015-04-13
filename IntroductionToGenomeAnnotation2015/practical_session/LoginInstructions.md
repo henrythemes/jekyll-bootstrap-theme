@@ -6,7 +6,7 @@ title:  'Login instructions'
 # Login instructions
 ## 1. Connecting to UPPMAX
 
-The first step of this lab is to open a ssh connection to UPPMAX. To do this you need to start a terminal program on your computer. Which program is used depends on the system of your computer (MacOSX, Windows or Linux). On MacOSX you should use Terminal (icon looks like a black screen), on Windows you should use MobaXterm (can be downloaded from http://mobaxterm.mobatek.net). For Linux it depends on which version of Linux you are running, but it should be fairly obvious which program to use.
+The first step of this lab is to open a ssh connection to UPPMAX. To do this you need to start a terminal program on your computer. Which program is used depends on the system of your computer (MacOSX, Windows or Linux). On MacOSX you should use Terminal (icon looks like a black screen), on Windows you should use [MobaXterm](http://mobaxterm.mobatek.net). For Linux it depends on which version of Linux you are running, but it should be fairly obvious which program to use.
 
 Once you have started your terminal program, type in (change username to your own username):
 
