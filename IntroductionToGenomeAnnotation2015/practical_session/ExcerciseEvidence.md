@@ -31,7 +31,7 @@ Go to Biomart at [http://www.ensembl.org/biomart/martview](http://www.ensembl.or
 
 ##2. Running an ab initio gene finder
 
-<u>**Setup:**</u> For this exercise you need to be logged in to Uppmax. Follow the instructions you can find on the WIKI schedule page.
+<u>**Setup:**</u> For this exercise you need to be logged in to Uppmax. Follow the [UPPMAX login instructions](LoginInstructions).
 
 Before going into the exercises below, create a symbolic link in your home folder to a folder with the course data using ‘ln -s /proj/g2014065/course_data’
 
