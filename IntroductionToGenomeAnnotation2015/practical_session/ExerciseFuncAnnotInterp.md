@@ -71,13 +71,13 @@ The Blast outputs must be processed to retrieve the information of the closest p
 First download annie:  
 *git clone https://github.com/genomeannotation/Annie.git*  
 
-then you should load python:  
+Then you should load python:  
 *module load python/2.7.6*  
 
-now launch annie:  
+Now launch annie:  
 *annie.py sprot blast.out maker.gff /path/to/blastdb maker_annotation.annie*  
 
-you can have a look to this file.  
+You can have a look to this file.  
 *head maker_annotation*  
 
 ### load the retrieved information in your annotation file:  

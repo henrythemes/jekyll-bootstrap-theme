@@ -64,7 +64,7 @@ blastdb/
 
 scripts/
 
-The folder scripts contains two perl scripts that we will use to format some data (referred to as $SCRIPT_PATH). The Blastdb folder will be used for the functional annotation exercise tomorrow.
+The folder scripts contains perl scripts that we will use to format some data (referred to as **$SCRIPT_PATH**). The Blastdb folder will be used for the functional annotation exercise tomorrow.
 ## Loading Maker
 
 Maker strings together a range of different tools into a complex pipeline (e.g. blast, exonerate, repeatmasker, augustus...). On Uppmax, loading all these tools and Maker into your global PATH is done simply by typing:
