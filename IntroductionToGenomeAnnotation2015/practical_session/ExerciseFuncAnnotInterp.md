@@ -25,8 +25,10 @@ Now link the annotations.proteins.fa file you want to use into your folder.
 InterproScan can be run through a website or from the command line on a linux server. Here we are interested in the command line approach.
 <u>Interproscan allows to look up pathways, families, domains, sites, repeats, structural domains and other sequence features.</u> Launch Interproscan without any option if you want have a look about all the parameters.
 
-Here we will use the PfamA,ProDom,SuperFamily and PIRSF databases.
-Interproscan uses an internal database that related entries in public databases to established GO terms. By running the '-goterms' option, we can add this information to our data set. If you enable the InterPro lookup ('-iprlookup'), you can also get the InterPro identifier corresponding to each motif retrieved: for example, the same motif is known as PF01623 in Pfam and as IPR002568 in InterPro. The option '-pa' provides mappings from matches to pathway information (MetaCyc,UniPathway,KEGG,Reactome).
+- The '-app' option allows defining the database used. Here we will use the PfamA,ProDom,SuperFamily and PIRSF databases.  
+- Interproscan uses an internal database that related entries in public databases to established GO terms. By running the '-goterms' option, we can add this information to our data set.
+- If you enable the InterPro lookup ('-iprlookup'), you can also get the InterPro identifier corresponding to each motif retrieved: for example, the same motif is known as PF01623 in Pfam and as IPR002568 in InterPro. 
+- The option '-pa' provides mappings from matches to pathway information (MetaCyc,UniPathway,KEGG,Reactome).
 
 *module load InterProScan/5.10-50.0*
 *interproscan.sh --input annotations.proteins.fa --seqtype p -dp -pa -appl PfamA-27.0,ProDom-2006.1,SuperFamily-1.75,PIRSF-3.01 -goterms -iprlookup*
