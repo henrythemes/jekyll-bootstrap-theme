@@ -20,16 +20,16 @@ Now link the annotations.proteins.fa file you want to use into your folder.
 
 ## BLAST approach
 
-A 'full' Blast analysis can run for several days and consume several GB of Ram. This is because all your proteins (or transcripts) needs to be submited to NCBI for blasting - and it can only do that in very small chunks - as well as run them against InterProscan, which in turn needs to launch a large number of queries against other databases.
+A 'full' Blast analysis can run for several days and consume several GB of Ram. Consequently, for a huge amount of data it is recommended to parallelize this step doing analysis of chunks of tens or hundreds proteins.
 
 ### Perform Blast searches from the command line on Uppmax:
 
 To run Blast on your data, use the Ncbi Blast+ package against a Drosophila-specific database (included in the folder we have provided for you, under blastdb/blastplus) - of course, any other NCBI database would also work:
 
-*module load blast+/2.2.28*
+*module load blast/2.2.29+*
 *blastp -db /path/to/blastdb -query annotations.proteins.fa -outfmt 6 -out blast.out -num_threads 8*
 
-The blast search takes about 20-25secs per protein request - depending on how many sequences you have submitted, you can make a fairly educted guess regarding the running time.
+Agains the Drosophila-specific database, the blast search takes about 5secs per protein request - depending on how many sequences you have submitted, you can make a fairly educted guess regarding the running time.
 
 ### Process the blast outout with Annie
 The Blast outputs must be processed by [annie](http://genomeannotation.github.io/Annie/).
@@ -43,7 +43,7 @@ Annie is a convenient way to attach information to newly annotated transcripts. 
 
 
 ## Interproscan approach
-Blast searches provide an indication about potential homology to known proteins. Interproscan, on the otherhand, combines a number of searches for conserved motifs and curated data sets of protein clusters etc.
+Blast searches provide an indication about potential homology to known proteins. Interproscan, on the otherhand, combines a number of searches for conserved motifs and curated data sets of protein clusters etc. This step may also take fairly long time. It is recommended to paralellize it for huge amount of data by doing analysis of chunks of tens or hundreds proteins.
 
 ### Perform InterproScan analysis
 InterproScan can be run through a website or from the command line on a linux server. Here we are interested in the command line approach:
