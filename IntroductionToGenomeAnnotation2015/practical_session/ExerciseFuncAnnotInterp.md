@@ -67,19 +67,22 @@ Agains the Drosophila-specific database, the blast search takes about 5secs per 
 
 ### Process the blast outout with Annie
 The Blast outputs must be processed to retrieve the information of the closest protein (best e-value) found by Blast. This work will be dobe using [annie](http://genomeannotation.github.io/Annie/).  
+
 First download annie:  
-*git clone https://github.com/genomeannotation/Annie.git*
+*git clone https://github.com/genomeannotation/Annie.git*  
 
-then you should load python:
-*module load python/2.7.6*
+then you should load python:  
+*module load python/2.7.6*  
 
-now launch annie:
-*annie.py sprot blast.out maker.gff /path/to/blastdb maker_annotation.annie*
+now launch annie:  
+*annie.py sprot blast.out maker.gff /path/to/blastdb maker_annotation.annie*  
 
-you can have a look to this file. 
-*head maker_annotation*
+you can have a look to this file.  
+*head maker_annotation*  
 
-### load the retrieved information in your annotation file:
+### load the retrieved information in your annotation file:  
+
+maker_gff3manager_JD_V6.pl
 
 ## What's next?
 
