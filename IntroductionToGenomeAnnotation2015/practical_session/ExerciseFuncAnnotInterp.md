@@ -41,6 +41,7 @@ You will obtain 3 result files with the following extension '.gff3', '.tsv' and 
 
 ### load the retrieved functional information in your annotation file:
 Next, you could write scripts of your own to merge interproscan output into your annotation. Incidentially, Maker comes with utility scripts that can take InterProscan output and add it to a Maker annotation file.  
+
 - ipr_update_gff: adds searchable tags to the gene and mRNA features in the GFF3 files.  
 - iprscan2gff3: adds physical viewable features for daomains that can be displayed in JBrowse, Gbrowse, and Web Apollo.
 
