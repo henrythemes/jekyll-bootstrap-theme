@@ -8,9 +8,6 @@ title:  'Exercise - Functional annotation'
 Functional annotation is the process during which we try to put names to faces - what do the genes do that we have annotated and curated? Basically all existing approaches accomplish this by means of similarity. If a translation product has strong similarity to a protein that has previously been assigned a function, the rationale is that the function in this newly annotated transcript is probably the same. Of course, this thinking is a bit problematic (where do other functional annotations come from...?) and the method will break down the more distant a newly annotated genome is to existing reference data. A complementary strategy is to scan for more limited similarity - specifically to look for the motifs of functionally characterized protein domains. It doesn't directy tell you what the protein is doing exactly, but it can provide some first indication.
 
 In this exercise we will use an approach that combines the search for full-sequence simliarity by means of 'Blast' against large public databases with more targeted characterization of functional elements through the InterproScan pipeline. Interproscan is a meta-search engine that can compare protein queries against numerous databases, including the protein family databases PFam and ProDom. The output from Blast2Go can then be used to add some information to our annotation.
-## Runnig Blast
-
-A 'full' Blast analysis can run for several days and consume several GB of Ram. This is because all your proteins (or transcripts) needs to be submited to NCBI for blasting - and it can only do that in very small chunks - as well as run them against InterProscan, which in turn needs to launch a large number of queries against other databases.
 
 ##Prepare the input data
 Since we do not wish to spend too much time on this, we will again limit our analysis to chromosome 4. It is also robably best to choose the analysis with ab-initio predictions enabled (unless you found the other build to be more convincing). Maker produces a protein fasta file (called "annotations.proteins.fa") together with the annotation and this file should be located in your maker directory.
@@ -22,6 +19,9 @@ cd functional\_annotation
 Now link the annotations.proteins.fa file you want to use into your folder.
 
 ## BLAST approach
+
+A 'full' Blast analysis can run for several days and consume several GB of Ram. This is because all your proteins (or transcripts) needs to be submited to NCBI for blasting - and it can only do that in very small chunks - as well as run them against InterProscan, which in turn needs to launch a large number of queries against other databases.
+
 ### Perform Blast searches from the command line on Uppmax:
 
 To run Blast on your data, use the Ncbi Blast+ package against a Drosophila-specific database (included in the folder we have provided for you, under blastdb/blastplus) - of course, any other NCBI database would also work:
