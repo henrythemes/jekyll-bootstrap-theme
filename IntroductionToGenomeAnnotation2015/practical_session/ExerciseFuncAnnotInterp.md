@@ -7,13 +7,13 @@ title:  'Exercise - Functional annotation'
 
 Functional annotation is the process during which we try to put names to faces - what do the genes do that we have annotated and curated? Basically all existing approaches accomplish this by means of similarity. If a translation product has strong similarity to a protein that has previously been assigned a function, the rationale is that the function in this newly annotated transcript is probably the same. Of course, this thinking is a bit problematic (where do other functional annotations come from...?) and the method will break down the more distant a newly annotated genome is to existing reference data. A complementary strategy is to scan for more limited similarity - specifically to look for the motifs of functionally characterized protein domains. It doesn't directy tell you what the protein is doing exactly, but it can provide some first indication.
 
-In this exercise we will use an approach that combines the search for full-sequence simliarity by means of 'Blast' against large public databases with more targeted characterization of functional elements through the InterproScan pipeline. Interproscan is a meta-search engine that can compare protein queries against numerous databases, including the protein family databases PFam and ProDom. The output from Blast2Go can then be used to add some information to our annotation.
+In this exercise we will use an approach that combines the search for full-sequence simliarity by means of 'Blast' against large public databases with more targeted characterization of functional elements through the InterproScan pipeline. Interproscan is a meta-search engine that can compare protein queries against numerous databases, including the protein family databases PFam and ProDom. The output from Blast and Interproscan can then be used to add some information to our annotation.
 
 ##Prepare the input data
 Since we do not wish to spend too much time on this, we will again limit our analysis to chromosome 4. It is also robably best to choose the analysis with ab-initio predictions enabled (unless you found the other build to be more convincing). Maker produces a protein fasta file (called "annotations.proteins.fa") together with the annotation and this file should be located in your maker directory.
 
 create a new folder for the functional annotation:  
-mkdir functional\_annotation
+mkdir functional\_annotation  
 cd functional\_annotation
 
 Now link the annotations.proteins.fa file you want to use into your folder.
@@ -31,7 +31,7 @@ To run Blast on your data, use the Ncbi Blast+ package against a Drosophila-spec
 
 The blast search takes about 20-25secs per protein request - depending on how many sequences you have submitted, you can make a fairly educted guess regarding the running time.
 
-### process the blast outout with Annie
+### Process the blast outout with Annie
 The Blast outputs must be processed by [annie](http://genomeannotation.github.io/Annie/).
 First download annie:  
 *git clone https://github.com/genomeannotation/Annie.git*
@@ -43,11 +43,10 @@ Annie is a convenient way to attach information to newly annotated transcripts. 
 
 
 ## Interproscan approach
-### Perform InterproScan analysis
-
 Blast searches provide an indication about potential homology to known proteins. Interproscan, on the otherhand, combines a number of searches for conserved motifs and curated data sets of protein clusters etc.
 
-InterproScan can be run through a website or from the command line on a linux server:
+### Perform InterproScan analysis
+InterproScan can be run through a website or from the command line on a linux server. Here we are interested in the command line approach:
 
 Annotation -&gt; Interproscan - &gt; Run Interproscan
 
