@@ -42,7 +42,7 @@ You will obtain 3 result files with the following extension '.gff3', '.tsv' and 
 ### load the retrieved functional information in your annotation file:
 Next, you could write scripts of your own to merge interproscan output into your annotation. Incidentially, Maker comes with utility scripts that can take InterProscan output and add it to a Maker annotation file.  
 
-- ipr_update_gff: adds searchable tags to the gene and mRNA features in the GFF3 files.  
+- ipr\_update\_gff: adds searchable tags to the gene and mRNA features in the GFF3 files.  
 - iprscan2gff3: adds physical viewable features for daomains that can be displayed in JBrowse, Gbrowse, and Web Apollo.
 
 If you now copy the .tsv file into the same folder where the corresponding Maker gene annotation lives:
@@ -54,7 +54,7 @@ Where a match is found, the new file will now include features called Dbxref and
 
 ## BLAST approach
 Blast searches provide an indication about potential homology to known proteins.
-A 'full' Blast analysis can run for several days and consume several GB of Ram. Consequently, for a huge amount of data it is recommended to parallelize this step doing analysis of chunks of tens or hundreds proteins. This approach can be usedd to give a name to the genes and a function and transcripts.
+A 'full' Blast analysis can run for several days and consume several GB of Ram. Consequently, for a huge amount of data it is recommended to parallelize this step doing analysis of chunks of tens or hundreds proteins. This approach can be used to give a name to the genes and a function to the transcripts.
 
 ### Perform Blast searches from the command line on Uppmax:
 
@@ -73,7 +73,13 @@ First download annie:
 then you should load python:
 *module load python/2.7.6*
 
+now launch annie:
+*annie.py sprot blast.out maker.gff /path/to/blastdb maker_annotation.annie*
 
+you can have a look to this file. 
+*head maker_annotation*
+
+### load the retrieved information in your annotation file:
 
 ## What's next?
 
