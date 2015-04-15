@@ -79,7 +79,7 @@ unmask=0 #also run ab-initio prediction programs on unmasked sequence, 1 = yes, 
 
 ## Run Maker
 
-Above, ew have specified to annotate a short piece of the human genome using the augustus gene finder to create ab-initio predictions, combined with evidence alignments from both protein and EST data. To run this configured analysis, just type:
+Above, we have specified to annotate a short piece of the human genome using the augustus gene finder to create ab-initio predictions, combined with evidence alignments from both protein and EST data. To run this configured analysis, just type:
 
 _maker -c 8_
 
@@ -168,7 +168,9 @@ This should contains a bunch of files, including '**maker.gff**' - which contain
 
 Next, we load the GenomeTools package:
 
-_module load genometools/1.5.3_
+_module load genometools/1.3.5_  
+(In the case where you have a conflict with another module. Unload the problematic one. Don't forget to reload the inactivated module once you finished with genometools)
+
 
 And run its counting method on the gene models:
 

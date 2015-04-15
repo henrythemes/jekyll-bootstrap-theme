@@ -66,7 +66,7 @@ To run Blast on your data, use the Ncbi Blast+ package against a Drosophila-spec
 Agains the Drosophila-specific database, the blast search takes about 5secs per protein request - depending on how many sequences you have submitted, you can make a fairly educted guess regarding the running time.
 
 ### Process the blast outout with Annie
-The Blast outputs must be processed to retrieve the information of the closest protein (best e-value) found by Blast. This work will be dobe using [annie](http://genomeannotation.github.io/Annie/).  
+The Blast outputs must be processed to retrieve the information of the closest protein (best e-value) found by Blast. This work will be done using [annie](http://genomeannotation.github.io/Annie/).  
 
 First download annie:  
 *git clone https://github.com/genomeannotation/Annie.git*  
