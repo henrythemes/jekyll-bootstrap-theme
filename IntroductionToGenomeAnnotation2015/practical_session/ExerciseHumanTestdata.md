@@ -18,7 +18,7 @@ First, we create a new folder in which to store all the configuration and input 
 If you haven't done so already, load the maker module:
 
 <i>module load bioinfo-tools</i>  
-<i>module load maker/2.31</i>
+<i>module load maker/2.31.6</i>
 
 Next, we create symbolic links to sequence files we wish to use in this exercise (located in data/human):
 
@@ -169,7 +169,7 @@ This should contains a bunch of files, including '**maker.gff**' - which contain
 Next, we load the GenomeTools package:
 
 _module load genometools/1.3.5_  
-(In the case where you have a conflict with another module. Unload the problematic one. Don't forget to reload the inactivated module once you finished with genometools)
+(In the case which you have a conflict with another module. Unload the problematic one. Don't forget to reload the inactivated module once you finished with GenomeTools)
 
 
 And run its counting method on the gene models:
