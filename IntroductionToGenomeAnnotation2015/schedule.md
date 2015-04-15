@@ -13,10 +13,10 @@ Room: E10:1309
 **09.00-9.15** Introduction  
 **09.15-10.00** [Lecture: Understanding Annotation](files/Annotation.pdf) (Henrik Lantz)  
 **10.00-10.20** Coffee break  
-**10.20-12.00** [Practical: Preparing evidence data for annotation](practical_session/ExcerciseEvidence) (Henrik Lantz, Jacques Dainat)  
+**10.20-12.00** [Practical: Preparing evidence data for annotation](practical_session/ExcerciseEvidence) (Henrik Lantz, Jacques Dainat, Martin Norling, Mahesh Panchal)  
 **12.00-12.40** Lunch  
 **12.40-13.40** Lecture: Structural annotation programs and pipelines (Jacques Dainat)  
-**13.40-17.00** [Practical: Structural annotation of eukaryote genomes (incl. coffee break)](practical_session/ExerciseGeneBuilding) (Henrik Lantz, Jacques Dainat)  
+**13.40-17.00** [Practical: Structural annotation of eukaryote genomes (incl. coffee break)](practical_session/ExerciseGeneBuilding) (Henrik Lantz, Jacques Dainat, Martin Norling, Mahesh Panchal)  
 
 **19.00** Course dinner at [Lingon](http://restauranglingon.com) restaurant
 
@@ -25,9 +25,9 @@ Room: E10:1309
 Room: E10:1309  
 **09.00-10.00** Lecture: Functional annotation (Henrik Lantz)  
 **10.00-10.20** Coffee break  
-**10.20-12.00** [Practical: Manual curation](practical_session/ExerciseManCuration) (Henrik Lantz, Jacques Dainat)  
+**10.20-12.00** [Practical: Manual curation](practical_session/ExerciseManCuration) (Henrik Lantz, Jacques Dainat, Martin Norling, Mahesh Panchal)  
 **12.00-12.40** Lunch  
-**12.40-17.00** [Practical: Functional annotation and annotation analysis contd. (incl. coffee break)](practical_session/ExerciseFuncAnnotInterp) (Henrik Lantz, Jacques Dainat)  
+**12.40-17.00** [Practical: Functional annotation and annotation analysis contd. (incl. coffee break)](practical_session/ExerciseFuncAnnotInterp) (Henrik Lantz, Jacques Dainat, Martin Norling, Mahesh Panchal)  
 
 
 <br/>
