@@ -12,12 +12,12 @@ In this exercise we will use an approach that combines the search for full-seque
 ##Prepare the input data
 Since we do not wish to spend too much time on this, we will again limit our analysis to chromosome 4. It is also probably best to choose the analysis with ab-initio predictions enabled (unless you found the other build to be more convincing). Maker produces a protein fasta file (called "annotations.proteins.fa") together with the annotation and this file should be located in your maker directory.
 
-create a new folder for the functional annotation:  
+create a new folder for this exercise:  
 *cd ~/*  
 *mkdir practical4*  
 *cd practical4*  
 
-Now link the annotations.proteins.fa file you want to use into your folder. The command will looks like:
+Now link the annotation folder you choose to work with. The command will looks like:
 *ln -s ../practical2/maker_with_abinitio/annotations/*  
 
 ## Interproscan approach
@@ -35,7 +35,7 @@ Launch Interproscan without any option if you want have a look about all the par
 - The option '-pa' provides mappings from matches to pathway information (MetaCyc,UniPathway,KEGG,Reactome).
 
 *module load InterProScan/5.10-50.0*  
-*interproscan.sh --input annotations.proteins.fa --seqtype p -dp -pa -appl PfamA-27.0,ProDom-2006.1,SuperFamily-1.75,PIRSF-3.01 -goterms -iprlookup*
+*interproscan.sh --input annotations/annotations.proteins.fa --seqtype p -dp -pa -appl PfamA-27.0,ProDom-2006.1,SuperFamily-1.75,PIRSF-3.01 -goterms -iprlookup*
 
 The analysis shoud take 2-3 secs per protein request - depending on how many sequences you have submitted, you can make a fairly educted guess regarding the running time.  
 You will obtain 3 result files with the following extension '.gff3', '.tsv' and '.xml'. Explanation of these output are availabke [>>here<<](https://code.google.com/p/interproscan/wiki/OutputFormats).
@@ -63,7 +63,7 @@ A 'full' Blast analysis can run for several days and consume several GB of Ram. 
 To run Blast on your data, use the Ncbi Blast+ package against a Drosophila-specific database (included in the folder we have provided for you, under **blastdb/uniprot\_dmel/uniprot\_dmel.fa**) - of course, any other NCBI database would also work:
 
 *module load blast/2.2.29+*  
-*blastp -db /path/to/blastdb -query annotations.proteins.fa -outfmt 6 -out blast.out -num_threads 8*
+*blastp -db /path/to/blastdb -query annotations/annotations.proteins.fa -outfmt 6 -out blast.out -num_threads 8*
 
 Agains the Drosophila-specific database, the blast search takes about 2 secs per protein request - depending on how many sequences you have submitted, you can make a fairly educted guess regarding the running time.
 
