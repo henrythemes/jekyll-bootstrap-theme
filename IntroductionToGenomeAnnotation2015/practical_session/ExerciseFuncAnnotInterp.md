@@ -10,13 +10,15 @@ Functional annotation is the process during which we try to put names to faces -
 In this exercise we will use an approach that combines the search for full-sequence simliarity by means of 'Blast' against large public databases with more targeted characterization of functional elements through the InterproScan pipeline. Interproscan is a meta-search engine that can compare protein queries against numerous databases. The output from Blast and Interproscan can then be used to add some information to our annotation.
 
 ##Prepare the input data
-Since we do not wish to spend too much time on this, we will again limit our analysis to chromosome 4. It is also robably best to choose the analysis with ab-initio predictions enabled (unless you found the other build to be more convincing). Maker produces a protein fasta file (called "annotations.proteins.fa") together with the annotation and this file should be located in your maker directory.
+Since we do not wish to spend too much time on this, we will again limit our analysis to chromosome 4. It is also probably best to choose the analysis with ab-initio predictions enabled (unless you found the other build to be more convincing). Maker produces a protein fasta file (called "annotations.proteins.fa") together with the annotation and this file should be located in your maker directory.
 
 create a new folder for the functional annotation:  
-mkdir functional\_annotation  
-cd functional\_annotation
+*cd ~/*  
+*mkdir practical4*  
+*cd practical4*  
 
-Now link the annotations.proteins.fa file you want to use into your folder.
+Now link the annotations.proteins.fa file you want to use into your folder. The command will looks like:
+*ln -s ../practical2/maker_with_abinitio/annotations/*  
 
 ## Interproscan approach
  Interproscan combines a number of searches for conserved motifs and curated data sets of protein clusters etc. This step may take fairly long time. It is recommended to paralellize it for huge amount of data by doing analysis of chunks of tens or hundreds proteins.
