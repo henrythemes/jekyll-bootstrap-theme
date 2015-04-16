@@ -47,7 +47,7 @@ Next, you could write scripts of your own to merge interproscan output into your
 
 If you now copy the .tsv file into the same folder where the corresponding Maker gene annotation lives:
 
-*ipr\_update\_gff maker.gff interproscan.tsv &gt; maker.with\_interpro.gff*
+*$SCRIPT\_PATH/ipr\_update\_gff maker.gff interproscan.tsv &gt; maker.with\_interpro.gff*
 
 Where a match is found, the new file will now include features called Dbxref and/or Ontology_term in the gene and transcript feature field (9th column).
 
@@ -63,7 +63,7 @@ To run Blast on your data, use the Ncbi Blast+ package against a Drosophila-spec
 *module load blast/2.2.29+*  
 *blastp -db /path/to/blastdb -query annotations.proteins.fa -outfmt 6 -out blast.out -num_threads 8*
 
-Agains the Drosophila-specific database, the blast search takes about 5secs per protein request - depending on how many sequences you have submitted, you can make a fairly educted guess regarding the running time.
+Agains the Drosophila-specific database, the blast search takes about 2 secs per protein request - depending on how many sequences you have submitted, you can make a fairly educted guess regarding the running time.
 
 ### Process the blast outout with Annie
 The Blast outputs must be processed to retrieve the information of the closest protein (best e-value) found by Blast. This work will be done using [annie](http://genomeannotation.github.io/Annie/).  
@@ -75,14 +75,23 @@ Then you should load python:
 *module load python/2.7.6*  
 
 Now launch annie:  
-*annie.py sprot blast.out maker.gff /path/to/blastdb maker_annotation.annie*  
+*Annie/annie.py sprot blast.out maker.gff /path/to/blastdb maker_annotation.annie*  
 
-You can have a look to this file.  
-*head maker_annotation*  
+Annie writes in a 3-column table format file, providing gene name and mRNA product information. The purpose of annie is relatively simple. It recovers the information in the sequence header of the uniprot fasta file, from the best sequence found by Blast (the lowest e-value).
 
 ### load the retrieved information in your annotation file:  
 
-maker_gff3manager_JD_V6.pl
+Before to use the script allowing to load the information from Annie output to your annotation file you have to load some PATH to your profile. To do that just launch the following script:
+**$SCRIPT\_PATH/install\_perllib\_missing.sh**
+**source ~/.bash_profile**
+
+Now you should be able to use the following script:
+**$SCRIPT\_PATH/maker\_gff3manager\_JD\_V6.pl -f maker.with\_interpro.gff -b maker_annotation.annie -o finalOutputDir**
+
+That will add the name attribute to the "gene" feature and the description attribute (correspond to product inforamtion) to the "mRNA" feature into you annotation file. This script may be used for other purpose like to modify the ID value by something more conveniant (i.e FLYG00000001 instead of maker-4-exonerate_protein2genome-gene-8.41)
+The improved annotation is a file named "AllFeatures.gff" inside the finalOutputDir.
+
+
 
 ## What's next?
 
