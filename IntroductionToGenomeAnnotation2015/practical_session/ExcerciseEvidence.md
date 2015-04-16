@@ -79,7 +79,7 @@ Load this result file into Webapollo and compare with your earlier results. Can 
 
 Rna-seq data is in general very useful in annotation projects as the data usually comes from the actual organism you study and thus avoids the danger of introducing errors caused by differences in gene structure between your study organism and other species.
 
-The program Cufflinks can be used to assemble transcripts from mapped rna-seq reads. First the reads need to be mapped to the genome, and we prefer using the mapper Tophat2 as it belongs to the same family of programs as Cufflinks and is splice-aware. The result from Tophat2 is a BAM-file, a binary file with the coordinates of all mapped reads. We have in this practical already created such a file for you for chromosome 4 of D. melanogaster, and you can find it in data/blabla.
+The program Cufflinks can be used to assemble transcripts from mapped rna-seq reads. First the reads need to be mapped to the genome, and we prefer using the mapper Tophat2 as it belongs to the same family of programs as Cufflinks and is splice-aware. The result from Tophat2 is a BAM-file, a binary file with the coordinates of all mapped reads. We have in this practical already created such a file for you for chromosome 4 of D. melanogaster, and you can find it in course_data/dmel/chromosome_4/bam/.
 
 **_Exercise 7_ - Cufflinks:**  
 Load the Cufflinks module using ‘module load cufflinks/2.1.1’. By typing ‘cufflinks’ you will get a list of the parameters you can change and also see the default values for each parameter.
@@ -87,7 +87,8 @@ Load the Cufflinks module using ‘module load cufflinks/2.1.1’. By typing ‘
 Then run Cufflinks on the supplied BAM-file using:  
 *cufflinks -o outdir -p 8 -b 4.fa -u accepted\_hits.chr4.bam*  
 
-When done you can find your results in the directory ‘outdir’. The file transcripts.gtf includes your assembled transcripts. Transfer the file to your computer and load it into Webapollo. How well does it compare with your Augustus results? Looking at your results, are you happy with the default values of Cufflinks (which we used in this exercise) or is there something you would like to change?
+When done you can find your results in the directory ‘outdir’. The file transcripts.gtf includes your assembled transcripts.
+As Webapollo doesn't like the gtf format file you should convert it in gff3 format (cf. Exercise 5). Then, transfer the gff3 file to your computer and load it into Webapollo. How well does it compare with your Augustus results? Looking at your results, are you happy with the default values of Cufflinks (which we used in this exercise) or is there something you would like to change?
 
 ##4. Checking the gene space of your assembly.
 
