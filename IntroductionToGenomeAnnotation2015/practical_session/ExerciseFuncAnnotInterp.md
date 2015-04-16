@@ -88,7 +88,7 @@ Before to use the script allowing to load the information from Annie output to y
 Now you should be able to use the following script:  
 *$SCRIPT\_PATH/maker\_gff3manager\_JD\_V6.pl -f maker.with\_interpro.gff -b maker_annotation.annie -o finalOutputDir*  
 
-That will add the name attribute to the "gene" feature and the description attribute (correspond to product inforamtion) to the "mRNA" feature into you annotation file. This script may be used for other purpose like to modify the ID value by something more conveniant (i.e FLYG00000001 instead of maker-4-exonerate_protein2genome-gene-8.41)
+That will add the name attribute to the "gene" feature and the description attribute (corresponding to the product information) to the "mRNA" feature into you annotation file. This script may be used for other purpose like to modify the ID value by something more conveniant (i.e FLYG00000001 instead of maker-4-exonerate_protein2genome-gene-8.41).  
 The improved annotation is a file named "AllFeatures.gff" inside the finalOutputDir.
 
 
