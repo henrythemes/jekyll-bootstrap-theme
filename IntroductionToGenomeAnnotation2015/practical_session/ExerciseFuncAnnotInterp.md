@@ -58,9 +58,9 @@ A 'full' Blast analysis can run for several days and consume several GB of Ram. 
 
 ### Perform Blast searches from the command line on Uppmax:
 
-To run Blast on your data, use the Ncbi Blast+ package against a Drosophila-specific database (included in the folder we have provided for you, under blastdb/blastplus) - of course, any other NCBI database would also work:
+To run Blast on your data, use the Ncbi Blast+ package against a Drosophila-specific database (included in the folder we have provided for you, under **blastdb/uniprot_dmel/**) - of course, any other NCBI database would also work:
 
-*module load blast/2.2.29+*
+*module load blast/2.2.29+*  
 *blastp -db /path/to/blastdb -query annotations.proteins.fa -outfmt 6 -out blast.out -num_threads 8*
 
 Agains the Drosophila-specific database, the blast search takes about 5secs per protein request - depending on how many sequences you have submitted, you can make a fairly educted guess regarding the running time.
