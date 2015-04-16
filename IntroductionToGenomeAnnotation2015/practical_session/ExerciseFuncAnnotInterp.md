@@ -58,7 +58,7 @@ A 'full' Blast analysis can run for several days and consume several GB of Ram. 
 
 ### Perform Blast searches from the command line on Uppmax:
 
-To run Blast on your data, use the Ncbi Blast+ package against a Drosophila-specific database (included in the folder we have provided for you, under **blastdb/uniprot_dmel/**) - of course, any other NCBI database would also work:
+To run Blast on your data, use the Ncbi Blast+ package against a Drosophila-specific database (included in the folder we have provided for you, under **blastdb/uniprot_dmel/uniprot_dmel.fa**) - of course, any other NCBI database would also work:
 
 *module load blast/2.2.29+*  
 *blastp -db /path/to/blastdb -query annotations.proteins.fa -outfmt 6 -out blast.out -num_threads 8*
@@ -75,7 +75,7 @@ Then you should load python:
 *module load python/2.7.6*  
 
 Now launch annie:  
-*Annie/annie.py sprot blast.out maker.gff /path/to/blastdb maker_annotation.annie*  
+*Annie/annie.py sprot blast.out maker.gff /path/to/blastdb/ maker_annotation.annie*  
 
 Annie writes in a 3-column table format file, providing gene name and mRNA product information. The purpose of annie is relatively simple. It recovers the information in the sequence header of the uniprot fasta file, from the best sequence found by Blast (the lowest e-value).
 
