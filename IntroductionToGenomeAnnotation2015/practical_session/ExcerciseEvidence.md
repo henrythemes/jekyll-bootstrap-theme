@@ -62,13 +62,13 @@ The gff-format of Augustus is non-standard (looks like gtf) so to view it in a g
 
 Do this to convert your Augustus-file:
 
-*Module load genometools*
+*Module load genometools*  
 *gt gtf\_to\_gff3 augustus\_drosophila.gff > augustus\_drosophila.gff3*
 
-Transfer the augustus_drosophila.gff3 to your computer using scp and view the file in Webapollo.
+Transfer the augustus_drosophila.gff3 to your computer using scp:    
 *scp **login**@milou.uppmax.uu.se:/home/**login**/practical1/augustus\_drosophila.gff3 .*  
 
-From Webapollo, also load the track ‘EnsEMBLprotein’ by dragging it from the table on the left to the main window. How does the Augustus annotation compare with the Ensembl annotation? Are they identical?
+Load the file in [Webapollo](http://bils-web.imbim.uu.se/drosophila_melanogaster), also load the track ‘EnsEMBLprotein’ by dragging it from the table on the left to the main window. How does the Augustus annotation compare with the Ensembl annotation? Are they identical?
 
 **_Exercise 6 -_ Augustus with yeast models:**  
 Run augustus on the same genome file but using settings for yeast instead (change species to Saccharomyces).
