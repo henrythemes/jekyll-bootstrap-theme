@@ -35,11 +35,13 @@ Go to Biomart at [http://www.ensembl.org/biomart/martview](http://www.ensembl.or
 
 Before going into the exercises below, you should create in your home folder a specific folder for this practical session and add a symbolic link to a folder with the course data using:  
 
+*cd ~/*  
 *mkdir practical1*  
 *cd practical1*  
 *ln -s /proj/g2015008/course\_data*  
 
-When you are done, you should have a folder called course_data in your *practical1* folder. NOTE! We do not supply full paths in all of the exercises below. You will need to find the files yourself, which will be easy since you are an expert Linux-hacker. :)
+When you are done, you should have a folder called course_data in your *practical1* folder. This course\_data folder is write-proteced, it is only a resource for you to obtain data from, but not where you are writing your own outputs to!  
+NOTE! We do not supply full paths in all of the exercises below. You will need to find the files yourself, which will be easy since you are an expert Linux-hacker. :)
 
 Also, we have made a genome browser called Webapollo available for you on the address [http://bils-web.imbim.uu.se/drosophila_melanogaster](http://bils-web.imbim.uu.se/drosophila_melanogaster)  
 This browser already has a number of tracks preloaded for you, but you can also load data you have generated yourself using the ‘file” menu and then ‘open’ and ‘local files’. First time you go there you need to log in using your first name as user name and your last name as password.

@@ -11,9 +11,12 @@ title:  'Exercise Gene Building'
 ## First of all
 Before going into the exercises below, you should create in your home folder a specific folder for this practical session and add a symbolic link to a folder with the course data using:  
 
+*cd ~/*  
 *mkdir practical2*  
 *cd practical2*  
 *ln -s /proj/g2015008/course\_data*  
+
+This course\_data folder is write-proteced, it is only a resource for you to obtain data from, but not where you are writing your own outputs to!
 
 ## Getting the input data
 
@@ -33,13 +36,6 @@ At minimum, most annotation projects will run with a protein data set, possibly 
 
 We will therefore first run our annotation project in the traditional way, with proteins and ESTs, and then repeat the process with a well-trained ab-initio gene predictor. You can then compare the output to get an idea of how crucial the use of a gene predictor is. However, before we get our hands dirty, we need to understand Maker a little better...
 
-The data for this you have already linked to your folder, but if not - run this command in a folder you have created in your home folder for this course:
-
-*cd ~/*  
-<i>cd \<some\_folder\></i>  
-*ln -s /proj/g2015008/course\_data data*  
-
-This data folder is write-proteced, it is only a resource for you to obtain data from, but not where you are writing your own outputs to!
 ## Organizing the data
 
 The data we are providing for the course is organized in the following way (assuming you have sym-linked it to a folder name 'data':
