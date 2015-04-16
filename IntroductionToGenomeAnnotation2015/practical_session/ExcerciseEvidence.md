@@ -33,9 +33,12 @@ Go to Biomart at [http://www.ensembl.org/biomart/martview](http://www.ensembl.or
 
 <u>**Setup:**</u> For this exercise you need to be logged in to Uppmax. Follow the [UPPMAX login instructions](LoginInstructions).
 
-Before going into the exercises below, create a symbolic link in your home folder to a folder with the course data using ‘ln -s /proj/g2015008/course_data’
+Before going into the exercises below, you should create in your home folder a specific folder for this practical session and add a symbolic link to a folder with the course data using:  
+*mkdir practical1*  
+*cd practical1*  
+*ln -s /proj/g2015008/course\_data*  
 
-When you are done, you should have a folder called course_data in your home folder. NOTE! We do not supply full paths in all of the exercises below. You will need to find the files yourself, which will be easy since you are an expert Linux-hacker. :)
+When you are done, you should have a folder called course_data in your *practical1* folder. NOTE! We do not supply full paths in all of the exercises below. You will need to find the files yourself, which will be easy since you are an expert Linux-hacker. :)
 
 Also, we have made a genome browser called Webapollo available for you on the address [http://bils-web.imbim.uu.se/drosophila_melanogaster](http://bils-web.imbim.uu.se/drosophila_melanogaster)  
 This browser already has a number of tracks preloaded for you, but you can also load data you have generated yourself using the ‘file” menu and then ‘open’ and ‘local files’. First time you go there you need to log in using your first name as user name and your last name as password.
@@ -48,9 +51,9 @@ _module load bioinfo-tools_
 _module load augustus_
 
 Run Augustus on your genome file using:  
-*augustus --species=fly 4.fa > augustus\_drosophila.gff*
+*augustus --species=fly course\_data/dmel/chromosome\_4/chromosome/4.fa > augustus\_drosophila.gff*
 
-Take a look at the result file using ‘less augustus_drosophila.gff’. What kinds of features have been annotated? Does it tell you anything about UTRs?
+Take a look at the result file using ‘less augustus\_drosophila.gff’. What kinds of features have been annotated? Does it tell you anything about UTRs?
 
 The gff-format of Augustus is non-standard (looks like gtf) so to view it in a genome browser you need to convert it. You can do this using genometools which is available on Uppmax.
 
