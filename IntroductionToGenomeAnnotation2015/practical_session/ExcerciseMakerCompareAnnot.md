@@ -70,7 +70,7 @@ Next, upload the annotations you have created to the web portal. To do that, fol
 
 This should upload your annotation track to the page. However, remember that tracks added in this way are only temporary and will disappear if you log out or lose connection to the server.
 
-Along with your own gene builds, there are a number of other tracks already available - including a BAM track obtained from an RNA-seq sample as well as the reference annotation from FlyBase /EnsEMBL. You can now copmare your gene builds against this reference. Some questions to ask yourself:
+Along with your own gene builds, there are a number of other tracks already available - including a BAM track obtained from an RNA-seq sample as well as the reference annotation from FlyBase /EnsEMBL. You can now compare your gene builds against this reference. Some questions to ask yourself:
 
 - Do my gene builds recover all the genes found in the reference?  
 - What sort of differences are most common?  
