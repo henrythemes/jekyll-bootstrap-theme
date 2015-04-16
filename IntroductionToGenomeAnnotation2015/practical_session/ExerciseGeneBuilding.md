@@ -7,6 +7,13 @@ title:  'Exercise Gene Building'
 ## Overview
 
 **Maker2** is a computational pipeline to automatically generate annotations from a range of input data - including proteins, ESTs, RNA-seq transcripts and ab-initio gene predictions. During this exercise, you will learn how to use Maker with different forms of input data, and how to judge the quality of the resulting annotations.
+
+## First of all
+Before going into the exercises below, you should create in your home folder a specific folder for this practical session and add a symbolic link to a folder with the course data using:
+*mkdir practical2*
+*cd practical2*
+*ln -s /proj/g2015008/course\_data*
+
 ## Getting the input data
 
 The Maker pipeline can work with any combination of the following data sets:
