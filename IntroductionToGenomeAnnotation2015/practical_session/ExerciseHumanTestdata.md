@@ -25,7 +25,7 @@ Next, we create symbolic links to sequence files we wish to use in this exercise
 hsap\_contig.fasta - a piece of the human genome  
 *ln -s ../course\_data/human/hsap\_contig.fasta*  
 hsap\_protein.fasta - Proteins that map to the genomic region  
-*ln -s ../course\_data/human/hsap\_protein.fasta* 
+*ln -s ../course\_data/human/hsap\_protein.fasta*  
 hsap\_est.fasta - EST data that maps to the genomic region  
 *ln -s ../course\_data/human/hsap\_est.fasta*  
 
