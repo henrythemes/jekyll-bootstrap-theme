@@ -22,11 +22,11 @@ If you haven't done so already, load the maker module:
 
 Next, we create symbolic links to sequence files we wish to use in this exercise (located in course\_data/human):
 
-hsap\_contig.fasta - a piece of the human genome  
+-hsap\_contig.fasta - a piece of the human genome  
 *ln -s ../course\_data/human/hsap\_contig.fasta*  
-hsap\_protein.fasta - Proteins that map to the genomic region  
+-hsap\_protein.fasta - Proteins that map to the genomic region  
 *ln -s ../course\_data/human/hsap\_protein.fasta*  
-hsap\_est.fasta - EST data that maps to the genomic region  
+-hsap\_est.fasta - EST data that maps to the genomic region  
 *ln -s ../course\_data/human/hsap\_est.fasta*  
 
 ##Configure your maker project
@@ -38,13 +38,13 @@ _maker -CTL_
 Off these, only maker_opts.ctl is of concern to us. Have a look at the following sections and fill in the information as shown:
 
 \#-----Genome (these are always required)  
-genome=hsap\_contig.fasta #genome sequence (fasta file or fasta embeded in GFF3 file)  
+genome=**hsap\_contig.fasta** #genome sequence (fasta file or fasta embeded in GFF3 file)  
 organism\_type=eukaryotic #eukaryotic or prokaryotic. Default is eukaryotic
 
 ...
 
 \#-----EST Evidence (for best results provide a file for at least one)  
-est=hsap\_est.fasta #set of ESTs or assembled mRNA-seq in fasta format  
+est=**hsap\_est.fasta** #set of ESTs or assembled mRNA-seq in fasta format  
 altest= #EST/cDNA sequence file in fasta format from an alternate organism  
 est\_gff= #aligned ESTs or mRNA-seq from an external GFF3 file  
 altest\_gff= #aligned ESTs from a closly relate species in GFF3 format
@@ -52,7 +52,7 @@ altest\_gff= #aligned ESTs from a closly relate species in GFF3 format
 ...
 
 \#-----Protein Homology Evidence (for best results provide a file for at least one)  
-protein=hsap\_protein.fasta #protein sequence file in fasta format (i.e. from mutiple oransisms)  
+protein=**hsap\_protein.fasta** #protein sequence file in fasta format (i.e. from mutiple oransisms)  
 protein\_gff= #aligned protein homology evidence from an external GFF3 file
 
 ...
@@ -70,7 +70,7 @@ softmask=1 #use soft-masking rather than hard-masking in BLAST (i.e. seg and dus
 \#-----Gene Prediction  
 snaphmm= #SNAP HMM file  
 gmhmm= #GeneMark HMM file  
-augustus\_species=human #Augustus gene prediction species model  
+augustus\_species=**human** #Augustus gene prediction species model  
 fgenesh\_par\_file= #FGENESH parameter file  
 pred\_gff= #ab-initio predictions from an external GFF3 file  
 model\_gff= #annotated gene models from an external GFF3 file (annotation pass-through)  
