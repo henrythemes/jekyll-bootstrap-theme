@@ -45,32 +45,21 @@ This will create a long list of measures for all relevant sequence features with
 
 Note that the measures employed by genometools function in a all-or-nothing fashion. If the overlap is not 100%, it doesn't count (which is why you are unlikely to find gene-level congruencies between your gene builds and the reference annotation).  
 
-From the comparison of your annotations to the Ensembl annotation, which one seems to be the most comprehensive to you ?
+From the comparison of your annotations to the Ensembl annotation, which one **seems** to be the most comprehensive to you ?
 
 ## Visualising annotations
 
 **Note:** The following section overlaps with some of the exercises you have done earlier (comparing augustus predictions against the reference annotation).
 
-In the previous tasks, we have looked at the overlap between different gene builds. While this gives us an indication of how similar two annotations are, it doesn't really allow us to judge the overall quality and similarity of annotations. Remember, sensitivity and specificity are 'all-or-nothing' - two annotations may be considered very different, but provide similar information, biologically. By that, we mean that two gene models don't need to be 100% identical in their coordinates to tell the scientist that a gene indeed exists in a given location and what it's product looks like.
+In the previous tasks, we have looked at the overlap between different gene builds. While this gives us an indication of how similar two annotations are, **it doesn't really allow us to judge the overall quality and similarity of annotations**. Remember, sensitivity and specificity are 'all-or-nothing' - two annotations may be considered very different, but provide similar information, biologically. By that, we mean that two gene models don't need to be 100% identical in their coordinates to tell the scientist that a gene indeed exists in a given location and what it's product looks like.
 
 We therefore need to visually inspect and compare the gene builds. This is a crucial step in any annotation project - gene build pipelines use a set of defined rules, but human pattern recognition is needed to spot potential systematic errors. For example, a pipeline like Maker will simply take all your input and try to synthesize it into an annotation, but it doesn't do too much checks on the data itself. What if you RNA-seq data is messier than you thought? What if your protein data set includes to many 'predicted' proteins that are in clear conflict with the other data?
 
 There exist a number of 'annotation viewers' - IGV, Argo and Apollo, to name a few. A common choice for annotators is the web-based version of Apollo, WebApollo, mostly for its curation capabilities.
 
-For this course, we have set up a WebApollo installation - as a reminder, the url is [http://bils-web.imbim.uu.se/drosophila\_melanogaster](http://bils-web.imbim.uu.se/drosophila_melanogaster) and the login information are your first and last name, the way you provided them during registration to the course.
 ### Using WebApollo to view annotations
 
-When logged in to the page, select the chromosome you have been working on from the list - this will open another page that provides access to the actual genome viewer.
-
-Next, upload the annotations you have created to the web portal. To do that, follow these instructions:
-
-- Click on 'File' in the top left corner of the page  
-- Select 'Open'  
-- Click in 'Select Files' from the 'Local Files' section  
-- Select the file you wish to upload, and leave all settings at their defaults (you may wish to specify a more informative name for the new track though).
-
-This should upload your annotation track to the page. However, remember that tracks added in this way are only temporary and will disappear if you log out or lose connection to the server.
-
+So, jump to [WebApollo](http://bils-web.imbim.uu.se/drosophila_melanogaster) and upload your annotation track. [Here find the WebApollo instruction](UsingWebapollo)  
 Along with your own gene builds, there are a number of other tracks already available - including a BAM track obtained from an RNA-seq sample as well as the reference annotation from FlyBase /EnsEMBL. You can now compare your gene builds against this reference. Some questions to ask yourself:
 
 - Do my gene builds recover all the genes found in the reference?  
