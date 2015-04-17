@@ -58,8 +58,8 @@ We therefore need to visually inspect and compare the gene builds. This is a cru
 There exist a number of 'annotation viewers' - IGV, Argo and Apollo, to name a few. A common choice for annotators is the web-based version of Apollo, WebApollo, mostly for its curation capabilities.
 
 ### Using WebApollo to view annotations
-
-So, jump to [WebApollo](http://bils-web.imbim.uu.se/drosophila_melanogaster) and upload your annotation track. [Here find the WebApollo instruction](UsingWebapollo)  
+Transfer your maker annotation files to your computer using the scp command.  
+Then, jump to [WebApollo](http://bils-web.imbim.uu.se/drosophila_melanogaster) and upload your annotation track. [Here find the WebApollo instruction](UsingWebapollo)  
 Along with your own gene builds, there are a number of other tracks already available - including a BAM track obtained from an RNA-seq sample as well as the reference annotation from FlyBase /EnsEMBL. You can now compare your gene builds against this reference. Some questions to ask yourself:
 
 - Do my gene builds recover all the genes found in the reference?  
