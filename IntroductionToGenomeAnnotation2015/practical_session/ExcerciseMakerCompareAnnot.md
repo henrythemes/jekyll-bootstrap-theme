@@ -40,7 +40,6 @@ But feature counts alone can't really give you a clear measure of overlap/differ
 With the sorted files, we can now perform a comparison:
 
 *gt eval drosophila\_melanogaster.sorted.gff maker\_without\_abinitio.sorted.gff*  
-*gt eval drosophila\_melanogaster.sorted.gff maker\_with\_abinitio.sorted.gff*  
 
 This will create a long list of measures for all relevant sequence features with respect to both the 'sensitivity' and 'specificity' - as a measure of how close the annotation comes to a reference. As a reminder, 'specificity' measures the fraction of a reference overlapping a prediction whereas 'sensitivity' measures the fraction of a prediction overlapping a reference.
 
