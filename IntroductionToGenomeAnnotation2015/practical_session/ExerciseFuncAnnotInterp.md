@@ -16,6 +16,7 @@ create a new folder for this exercise:
 *cd ~/*  
 *mkdir practical4*  
 *cd practical4*  
+*ln -s /proj/g2015008/course\_data*
 
 Now link the annotation folder you choose to work with. The command will looks like:
 *ln -s ../practical2/maker_with_abinitio/annotations/*  
@@ -60,7 +61,7 @@ A 'full' Blast analysis can run for several days and consume several GB of Ram. 
 
 ### Perform Blast searches from the command line on Uppmax:
 
-To run Blast on your data, use the Ncbi Blast+ package against a Drosophila-specific database (included in the folder we have provided for you, under **blastdb/uniprot\_dmel/uniprot\_dmel.fa**) - of course, any other NCBI database would also work:
+To run Blast on your data, use the Ncbi Blast+ package against a Drosophila-specific database (included in the folder we have provided for you, under **course\_data/blastdb/uniprot\_dmel/uniprot\_dmel.fa**) - of course, any other NCBI database would also work:
 
 *module load blast/2.2.29+*  
 *blastp -db /path/to/blastdb -query annotations/annotations.proteins.fa -outfmt 6 -out blast.out -num_threads 8*
@@ -84,7 +85,7 @@ Annie writes in a 3-column table format file, providing gene name and mRNA produ
 ### load the retrieved information in your annotation file:  
 
 Before to use the script allowing to load the information from Annie output to your annotation file you have to load some PATH to your profile. To do that just launch the following script:  
-*$SCRIPT\_PATH/install\_perllib\_missing.sh*  
+*./$SCRIPT\_PATH/install\_perllib\_missing.sh*  
 *source ~/.bash_profile*  
 
 Now you should be able to use the following script:  

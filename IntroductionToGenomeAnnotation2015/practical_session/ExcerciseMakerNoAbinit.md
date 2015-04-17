@@ -13,8 +13,9 @@ Let's do this step-by-step:
 
 Create a new folder for the first Maker run:
 
-<i>mkdir maker\_no\_abinitio</i>  
-<i>cd maker\_no\_abinitio</i>
+*cd ~/practical2/*  
+<i>mkdir maker\_dmel\_no\_abinitio</i>  
+<i>cd maker\_dmel\_no\_abinitio</i>
 
 If you have previously loaded genometools, you may have to unload it first since it can cause conflicts with some of Makers' dependencies.
 

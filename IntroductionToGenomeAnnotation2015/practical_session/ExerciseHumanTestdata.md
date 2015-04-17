@@ -7,7 +7,7 @@ title:  'Exercise Using Human test data'
 
 Maker comes with some test data to try out the pipeline. This test set is sufficiently small that we can run all the alignment steps without having to worry about the runtime too much.
 
-The human test data set is located in the folder you symlinked earlier, named 'data/human'.
+The human test data set is located in the folder you symlinked earlier, named 'course\_data/human'.
 ## Create project folder
 
 First, we create a new folder in which to store all the configuration and input files. To do so, type:
@@ -20,14 +20,14 @@ If you haven't done so already, load the maker module:
 <i>module load bioinfo-tools</i>  
 <i>module load maker/2.31.6</i>
 
-Next, we create symbolic links to sequence files we wish to use in this exercise (located in data/human):
+Next, we create symbolic links to sequence files we wish to use in this exercise (located in course\_data/human):
 
 hsap\_contig.fasta - a piece of the human genome  
-*ln -s ../data/human/hsap\_contig.fasta*  
+*ln -s ../course\_data/human/hsap\_contig.fasta*  
 hsap\_protein.fasta - Proteins that map to the genomic region  
-*ln -s ../data/human/hsap\_protein.fasta* 
+*ln -s ../course\_data/human/hsap\_protein.fasta* 
 hsap\_est.fasta - EST data that maps to the genomic region  
-*ln -s ../data/human/hsap\_est.fasta*  
+*ln -s ../course\_data/human/hsap\_est.fasta*  
 
 ##Configure your maker project
 

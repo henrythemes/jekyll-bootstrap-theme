@@ -16,8 +16,8 @@ In order to compare the performance of Maker with and without ab-initio predicti
 
 Create a new folder for this Maker run:
 
-<i>mkdir maker\_with\_abinitio</i>  
-<i>cd maker\_with\_abinitio</i>
+<i>mkdir maker\_dmel\_with\_abinitio</i>  
+<i>cd maker\_dmel\_with\_abinitio</i>
 
 Now link the raw computes you want to use into your folder:
 

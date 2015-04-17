@@ -40,9 +40,9 @@ We will therefore first run our annotation project in the traditional way, with 
 
 The data we are providing for the course is organized in the following way (assuming you have sym-linked it to a folder name 'data':
 
-data/human
+course\_data/human
 
-data/dmel
+course\_data/dmel
 
 - chromosome_4/
 
@@ -64,9 +64,9 @@ data/dmel
 
   - raw/
 
-blastdb/
+course\_data/blastdb/
 
-scripts/
+course\_data/scripts/
 
 The folder scripts contains perl scripts that we will use to format some data (referred to as **$SCRIPT_PATH**). The Blastdb folder will be used for the functional annotation exercise tomorrow.
 ## Loading Maker
@@ -92,6 +92,7 @@ What are these files for?
 Next, 'maker_bopts.ctl' provides access to a number of settings that control the behaviour of evidence aligners (blast, exonerate). The default settings will usually be fine, but if you want to try to annotate species with greater taxonomic distance to well-sequenced species, it may become necessary to decrease stringency of the e.g. blast alignments.
 
 Finally, 'maker_opts.ctl' holds information on the location of input files and some of the parameters controlling the decision making during the gene building.
+
 ## Running Maker - Human contig
 
 The first exercise will be a very short one in which you will create a gene build for a small piece of the human genome. This is to familiarize yourself with all the settings available in Maker. In the next exercise, the heavy-lifting of generating the protein alignments etc will already been done by us.
@@ -102,7 +103,7 @@ The first exercise will be a very short one in which you will create a gene buil
 
 Running Maker on a full genome, even of an invertebrate, can take a considerable amount of time - especially if only few processing cores are available. We have therefore generate the genome-wide raw computes prior to the course. You can find the in the folder you have symlinked earlier under
 
-_ln -s data/dmel/raw_
+_ln -s course\_data/dmel/raw_
 
 Ab-initio guided or evidence-based
 
