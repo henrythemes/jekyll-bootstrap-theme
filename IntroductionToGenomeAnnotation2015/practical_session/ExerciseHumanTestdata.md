@@ -88,7 +88,7 @@ _maker -c 8_
 
 This will start Maker on 8 cores, if everything is configured correctly.
 
-*In a real-world scenario, executing maker in this way will not be the preferred option. Instead of using Makers' powerful parallelization via MPI, we are simply telling it to run on one node with 8 cores. This works fine for a small test data set, but will be insufficient for a large genome. Unfortunately, the MPI mode of Maker doesn't currently work on Milou.
+**Note:** In a real-world scenario, executing maker in this way will not be the preferred option. Instead of using Makers' powerful parallelization via MPI, we are simply telling it to run on one node with 8 cores. This works fine for a small test data set, but will be insufficient for a large genome. Unfortunately, the MPI mode of Maker doesn't currently work on Milou.
 
 ## Inspect the output
 
