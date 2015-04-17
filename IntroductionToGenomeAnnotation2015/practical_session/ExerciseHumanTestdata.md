@@ -71,7 +71,7 @@ softmask=1 #use soft-masking rather than hard-masking in BLAST (i.e. seg and dus
 snaphmm= #SNAP HMM file  
 gmhmm= #GeneMark HMM file  
 augustus\_species=human #Augustus gene prediction species model  
-fgenesh\_par_file= #FGENESH parameter file  
+fgenesh\_par\_file= #FGENESH parameter file  
 pred\_gff= #ab-initio predictions from an external GFF3 file  
 model\_gff= #annotated gene models from an external GFF3 file (annotation pass-through)  
 est2genome=0 #infer gene predictions directly from ESTs, 1 = yes, 0 = no  
@@ -88,7 +88,7 @@ _maker -c 8_
 
 This will start Maker on 8 cores, if everything is configured correctly.
 
-**Note:** In a real-world scenario, executing maker in this way will not be the preferred option. Instead of using Makers' powerful parallelization via MPI, we are simply telling it to run on one node with 8 cores. This works fine for a small test data set, but will be insufficient for a large genome. Unfortunately, the MPI mode of Maker doesn't currently work on Milou.
+***Note:*** In a real-world scenario, executing maker in this way will not be the preferred option. Instead of using Makers' powerful parallelization via MPI, we are simply telling it to run on one node with 8 cores. This works fine for a small test data set, but will be insufficient for a large genome. Unfortunately, the MPI mode of Maker doesn't currently work on Milou.
 
 ## Inspect the output
 
