@@ -17,20 +17,19 @@ As with many tasks within bioinformatics, it is always a great idea to first loo
 
 If it isn't loaded anymore, reload it:
 
-*module load genometools/1.3.5*
+*module load genometools*
 
 ## Preparing the input files
+First you have to be situated in a folder containing the two maker annotations (with and without ab initio). Then, copy or sym-link the EnsEMBL reference annotation that we provided you. Hint: The EnsEMBL annotation for chromosome 4 should be located in the folder course\_data/dmel/chromosome\_4/annotation.  
+Now we have to do a couple of things: convert the EnsEMBL reference annotation from GTF format to GFF3 and then sort any GFF3-formatted annotation in a way that genometools accepts.  
+*gt gtf\_to\_gff3 drosophila\_melanogaster.gtf &gt; drosophila\_melanogaster.gff*
 
-Now we have to do a couple of things: convert the EnsEMBL reference annotation from GTF format to GFF3 and then sort any GFF3-formatted annotation in a way that genometools accepts. Hint: The EnsEMBL annotation for chromosome 4 should be located in the folder $DATA/dmel/chromosome\_4/annotation.
-
-*gt gtf\_to\_gff3 drosophila\_melanogaster.gtf &gt; drosophila\_melanogaster.gff3*
-
-*gt gff3 -sort maker\_a1\_p0\_c0.gff &gt; maker\_a1\_p0\_c0.sorted.gff* (repeat for the other files)
+*gt gff3 -sort maker\_without\_abinitio.gff &gt; maker\_without\_abinitio.sorted.gff* (repeat for the other files)
 ### Counting features
 
 Next, we get the feature counts for both annotations and the reference from EnsEMBL:
 
-*gt stat maker\_a1\_p0\_c0.gff* (or whatever you decided to name the file(s))
+*gt stat maker\_without\_abinitio.gff* (or whatever you decided to name the file(s). The use of the sorted file or the original one changes nothing here)
 
 As you will note, there are some differences - and of course, this is expected, since we used quite different approaches to generate the two gene builds. EnsEMBL on the other hand is originally imported from FlyBase. Obviously, a lot of manual labor and much more data has been put into the FlyBase annotation - and this highlights a common limitation of any computational pipeline. You will simply never reach the same level of quality and detail as seen in a manually curated reference annotation.
 
@@ -40,15 +39,18 @@ But feature counts alone can't really give you a clear measure of overlap/differ
 
 With the sorted files, we can now perform a comparison:
 
-*gt eval maker\_a1\_p0\_c0.sorted.gff maker\_a0\_p1\_c1.sorted.gff*
+*gt eval drosophila\_melanogaster.sorted.gff maker\_without\_abinitio.sorted.gff*  
+*gt eval drosophila\_melanogaster.sorted.gff maker\_with\_abinitio.sorted.gff*  
 
 This will create a long list of measures for all relevant sequence features with respect to both the 'sensitivity' and 'specificity' - as a measure of how close the annotation comes to a reference. As a reminder, 'specificity' measures the fraction of a reference overlapping a prediction whereas 'sensitivity' measures the fraction of a prediction overlapping a reference.
 
-Note that the measures employed by genometools function in a all-or-nothing fashion. If the overlap is not 100%, it doesn't count (which is why you are unlikely to find gene-level congruencies between your gene builds and the reference annotation).
+Note that the measures employed by genometools function in a all-or-nothing fashion. If the overlap is not 100%, it doesn't count (which is why you are unlikely to find gene-level congruencies between your gene builds and the reference annotation).  
+
+From the comparison of your annotations to the Ensembl annotation, which one seems to be the most comprehensive to you ?
 
 ## Visualising annotations
 
-Note: The following section overlaps with some of the exercises you have done earlier (comparing augustus predictions against the reference annotation).
+**Note:** The following section overlaps with some of the exercises you have done earlier (comparing augustus predictions against the reference annotation).
 
 In the previous tasks, we have looked at the overlap between different gene builds. While this gives us an indication of how similar two annotations are, it doesn't really allow us to judge the overall quality and similarity of annotations. Remember, sensitivity and specificity are 'all-or-nothing' - two annotations may be considered very different, but provide similar information, biologically. By that, we mean that two gene models don't need to be 100% identical in their coordinates to tell the scientist that a gene indeed exists in a given location and what it's product looks like.
 

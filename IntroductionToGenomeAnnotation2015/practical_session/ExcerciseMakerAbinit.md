@@ -48,6 +48,6 @@ We probably expect this to take a little bit longer than before, since we have a
 
 When Maker has finished, compile the output:
 
-<i>$SCRIPT\_PATH/maker\_merge\_outputs.pl --outdir maker\_a1\_p0\_c0</i>  
+<i>$SCRIPT\_PATH/maker\_merge\_outputs.pl --outdir maker\_abinitio</i>  
 
-And again, it is probably best to link the resulting output (maker.gff) to a result folder, under a descriptive name.
+And again, it is probably best to link the resulting output (maker.gff) to a result folder (the same as defined in the previous exercise e.g. dmel\_results), under a descriptive name.
