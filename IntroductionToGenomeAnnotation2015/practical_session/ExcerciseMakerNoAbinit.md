@@ -63,4 +63,4 @@ We have specified a name for the output directory - unlike before - since we wil
 
 This should create a "maker\_no\_abinitio" directory containing a maker annotation file together with the matching protein predictions file and a sub-directory containing different annotation files including the **maker.gff** which is the result to keep from this analysis. 
 
-=> You could sym-link the maker.gff file to another folder called e.g. results, so everything is in the same place in the end. Just make sure to call the link something other than maker.gff, since any maker output will be called that.
+=> You could sym-link the maker.gff file to another folder called e.g. dmel\_results, so everything is in the same place in the end. Just make sure to call the link something other than maker.gff, since any maker output will be called that.
