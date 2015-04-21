@@ -28,18 +28,17 @@ The aim of manual curation is to compare a gene model against existing evidence 
 
 ## Jamboree
 
-For this exercise, we have set up a specific [Webapollo](http://bils-web.imbim.uu.se/drosophila_melanogaster_jamboree_exercise/selectTrack.jsp) instance of a drosophila melanogaster annotation we done using maker.
+For this exercise, we have set up a specific [Webapollo](http://bils-web.imbim.uu.se/drosophila_melanogaster_jamboree_exercise/selectTrack.jsp) instance of a drosophila melanogaster annotation we done using maker.  
 
-The tracks available are:
-- userTrack
-- augustus_abinitio : an annotation ourely abinitio done with augustus
-- maker_abinitio_model_cufflinks_protein_hints
-- maker_abinitio_cufflinks_protein_model
-- protein2genome : protein aligned by maker during the annotation process
-- cufflinks2genome : cufflinks transcript aligned by maker during the annotation process
-- dmel_larva3.chr4 : A bam file of reads aligned using tophat. These reads have been used to perform the cufflinks assembly
+The tracks available are:  
+- augustus\_abinitio : an annotation ourely abinitio done with augustus  
+- maker\_abinitio\_model\_cufflinks\_protein\_hints  
+- maker\_abinitio\_cufflinks\_protein\_model  
+- protein2genome : protein aligned by maker during the annotation process  
+- cufflinks2genome : cufflinks transcript aligned by maker during the annotation process  
+- dmel\_larva3.chr4 : A bam file of reads aligned using tophat. These reads have been used to perform the cufflinks assembly  
 
-We loaded the XXXXXX annotation as user track annotation. We judge the quality of this annotation against the Ensembl annotation using genometools. Here is the result:
+We loaded the XXXXXX annotation as "user-created Annotations" track (top track). We judged the quality of this annotation against the Ensembl annotation using genometools. Here is the result:
 -
 -
 -
