@@ -25,3 +25,29 @@ Complex, non-systematic errors are harder to rectify by just rerunning the pipel
 Manual curation is an integral part of any annotation project. It irons out issues that exist in the gene build and can be used to add further detail - like references to external data sources, or isoforms etc.
 
 The aim of manual curation is to compare a gene model against existing evidence from sources such as ab-initio predictions, protein alignments, RNA-seq as well as related species and fix those parts that are in clear conflict with the evidence. During the course, we will present a few basic features of WebApollo - but there is also a fairly comprehensive handbook available here: [http://icebox.lbl.gov/webapollo/docs/webapollo_user_guide.pdf](http://icebox.lbl.gov/webapollo/docs/webapollo_user_guide.pdf)
+
+## Jamboree
+
+For this exercise, we have set up a specific [Webapollo](http://bils-web.imbim.uu.se/drosophila_melanogaster_jamboree_exercise/selectTrack.jsp) instance of a drosophila melanogaster annotation we done using maker.
+
+The tracks available are:
+- userTrack
+- augustus_abinitio : an annotation ourely abinitio done with augustus
+- maker_abinitio_model_cufflinks_protein_hints
+- maker_abinitio_cufflinks_protein_model
+- protein2genome : protein aligned by maker during the annotation process
+- cufflinks2genome : cufflinks transcript aligned by maker during the annotation process
+- dmel_larva3.chr4 : A bam file of reads aligned using tophat. These reads have been used to perform the cufflinks assembly
+
+We loaded the XXXXXX annotation as user track annotation. We judge the quality of this annotation against the Ensembl annotation using genometools. Here is the result:
+-
+-
+-
+-
+-
+
+
+Your aim is to improve this annotaion by manualy curation using the all the evidence available. At the end of this practical session we will compare again the annotation against the Ensembl annotation. It will allow to judje the work done during the time you had.
+
+
+The work you performed was only on small genome portion (1,3 Mbp). That gives you a flavour of the time cost to do a manual curation on a small genome. Do you imagine the amount of work needed to curate manualy a big genome (>1 Gbp) ?
