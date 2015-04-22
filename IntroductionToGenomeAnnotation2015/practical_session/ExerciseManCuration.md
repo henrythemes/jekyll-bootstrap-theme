@@ -32,11 +32,11 @@ For this exercise, we have set up a specific [Webapollo](http://bils-web.imbim.u
 
 The tracks available are:  
 
- - augustus\_abinitio : an annotation ourely abinitio done with augustus  
+- augustus\_abinitio : an annotation ourely abinitio done with augustus  
 - maker\_abinitio\_model\_cufflinks\_protein\_hints  
- - maker\_abinitio\_cufflinks\_protein\_model  
+- maker\_abinitio\_cufflinks\_protein\_model  
 - protein2genome : protein aligned by maker during the annotation process  
- - cufflinks2genome : cufflinks transcript aligned by maker during the annotation process  
+- cufflinks2genome : cufflinks transcript aligned by maker during the annotation process  
 - dmel\_larva3.chr4 : A bam file of reads aligned using tophat. These reads have been used to perform the cufflinks assembly  
 
 We loaded the XXXXXX annotation as "user-created Annotations" track (top track). We judged the quality of this annotation against the Ensembl annotation using genometools. Here is the result:
