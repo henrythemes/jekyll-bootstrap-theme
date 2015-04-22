@@ -38,7 +38,7 @@ The tracks available are:
 - protein2genome : protein aligned by maker during the annotation process  
 - cufflinks2genome : cufflinks transcript aligned by maker during the annotation process  
 - dmel\_larva3.chr4 : A bam file of reads aligned using tophat. These reads have been used to perform the cufflinks assembly  
-
+  
 We loaded the bb annotation as "user-created Annotations" track (top track). We judged the quality of this annotation against the Ensembl annotation using genometools. Here is the result:
 -
 -
