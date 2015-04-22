@@ -44,9 +44,8 @@ We loaded the bb annotation as "user-created Annotations" track (top track). We 
 -
 -
 -
--
-
-
+-  
+  
 Your aim is to improve this annotaion by manualy curation using the all the evidence available. At the end of this practical session we will compare again the annotation against the Ensembl annotation. It will allow to judje the work done during the time you had.
 
 
