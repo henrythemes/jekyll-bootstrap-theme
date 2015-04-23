@@ -54,7 +54,7 @@ _module load bioinfo-tools_
 _module load augustus_
 
 Run Augustus on your genome file using:  
-*augustus --species=fly course\_data/dmel/chromosome\_4/chromosome/4.fa > augustus\_drosophila.gff*
+*augustus --species=fly course\_data/dmel/chromosome\_4/chromosome/4.fa > augustus\_drosophila.gtf*
 
 Take a look at the result file using ‘less augustus\_drosophila.gff’. What kinds of features have been annotated? Does it tell you anything about UTRs?
 

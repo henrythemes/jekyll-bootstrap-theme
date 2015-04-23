@@ -28,25 +28,40 @@ The aim of manual curation is to compare a gene model against existing evidence 
 
 ## Jamboree
 
-For this exercise, we have set up a specific [Webapollo](http://bils-web.imbim.uu.se/drosophila_melanogaster_jamboree_exercise/selectTrack.jsp) instance of a drosophila melanogaster annotation of the chromosome 4 we done using maker.  
+For this exercise, we have set up a specific [Webapollo](http://bils-web.imbim.uu.se/drosophila_melanogaster_jamboree_exercise/selectTrack.jsp) instance of a drosophila melanogaster annotation of the chromosome 4.  
 
 The tracks available are:  
 
-- augustus\_abinitio : an annotation ourely abinitio done with augustus  
-- maker\_abinitio\_model\_cufflinks\_protein\_hints  
-- maker\_abinitio\_cufflinks\_protein\_model  
-- protein2genome : protein aligned by maker during the annotation process  
-- cufflinks2genome : cufflinks transcript aligned by maker during the annotation process  
-- dmel\_larva3.chr4 : A bam file of reads aligned using tophat. These reads have been used to perform the cufflinks assembly  
-  
-We loaded the bb annotation as "user-created Annotations" track (top track). We judged the quality of this annotation against the Ensembl annotation using genometools. Here is the result:
--
--
--
--
--  
-  
-Your aim is to improve this annotaion by manualy curation using the all the evidence available. At the end of this practical session we will compare again the annotation against the Ensembl annotation. It will allow to judje the work done during the time you had.
+- Augustus : a pure ab initio annotation using Augustus.
+- maker\_Cuff\_Prot\_Abinit : A maker annotation using Ab initio and Evidence-based approach.  
+- uniprot_swissprot : track of reviewed proteins aligned by Maker (Swissprot 01/2015). 
+- dmel_larva3.chr4 : RNAseq data (bam file) aligned to the genome by tophat.  
+- cufflinks_larva4 : A cufflinks transcript assembly aligned by maker during the annotation process  
 
+A genomic region of the chrosmosome is assigned to each of you. Your aim is to manualy annotate your assigned part using all the information available in the different tracks. Genomic region has been assigned without any biological consideratio. So, if genes straddle two regions don't stop you at the end of yours :).  
 
-The work you performed was only on small genome portion (1,3 Mbp). That gives you a flavour of the time cost to do a manual curation on a small genome. Do you imagine the amount of work needed to curate manualy a big genome (>1 Gbp) ?
+NOTES: Isoforms are allowed. Start each gene annotation by dragging-and-dropping the gene model that you think be the best. 
+
+Sanea			50 000 - 108 000
+Linnéa  		108 000 - 166 000
+Ahmed Sayadi	166 000 - 224 000
+Marcela			224 000 - 282 000
+Per 			282 000 - 340 000
+Ramesh 			340 000 - 398 000
+Ahmed Elewa		398 000 - 456 000
+Nima 			456 000 - 514 000
+Sangeet 		514 000 - 572 000
+Juan			572 000 - 630 000
+Guilherme 		630 000 - 688 000
+Voichita 		688 000 - 746 000
+Amna 			746 000 - 804 000
+Hafdis  		804 000 - 862 000
+Daniil 			862 000 - 920 000
+Hector 			920 000 - 978 000
+kun 			978 000 - 1 036 000
+Shady 			1 036 000 - 1 094 000
+Natalia V 		1 094 000 - 1 152 000
+Yao 			1 152 000 - 1 210 000
+Enrichetta 		1 210 000 - 1 268 000
+
+The work you performed was only on small genome portion (1,3 Mbp). That gives you a flavour of the time cost to do a manual curation on a small genome, and an idea of the amount of work needed to manually curate a big genome (>1 Gbp).
