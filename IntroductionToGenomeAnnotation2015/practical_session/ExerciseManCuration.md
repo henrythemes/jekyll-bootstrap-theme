@@ -42,27 +42,27 @@ A genomic region of the chrosmosome is assigned to each of you. Your aim is to m
 
 NOTES: Isoforms are allowed. Start each gene annotation by dragging-and-dropping the gene model that you think be the best. 
 
-Sanea			50 000 - 108 000
-Linnéa  		108 000 - 166 000
-Ahmed Sayadi	166 000 - 224 000
-Marcela			224 000 - 282 000
-Per 			282 000 - 340 000
-Ramesh 			340 000 - 398 000
-Ahmed Elewa		398 000 - 456 000
-Nima 			456 000 - 514 000
-Sangeet 		514 000 - 572 000
-Juan			572 000 - 630 000
-Guilherme 		630 000 - 688 000
-Voichita 		688 000 - 746 000
-Amna 			746 000 - 804 000
-Hafdis  		804 000 - 862 000
-Daniil 			862 000 - 920 000
-Hector 			920 000 - 978 000
-kun 			978 000 - 1 036 000
-Shady 			1 036 000 - 1 094 000
-Natalia V 		1 094 000 - 1 152 000
-Yao 			1 152 000 - 1 210 000
-Enrichetta 		1 210 000 - 1 268 000
+Sanea			50 000 - 108 000  
+Linnéa  		108 000 - 166 000  
+Ahmed Sayadi	166 000 - 224 000  
+Marcela			224 000 - 282 000  
+Per 			282 000 - 340 000  
+Ramesh 			340 000 - 398 000  
+Ahmed Elewa		398 000 - 456 000  
+Nima 			456 000 - 514 000  
+Sangeet 		514 000 - 572 000  
+Juan			572 000 - 630 000  
+Guilherme 		630 000 - 688 000  
+Voichita 		688 000 - 746 000  
+Amna 			746 000 - 804 000  
+Hafdis  		804 000 - 862 000  
+Daniil 			862 000 - 920 000  
+Hector 			920 000 - 978 000  
+kun 			978 000 - 1 036 000  
+Shady 			1 036 000 - 1 094 000  
+Natalia V 		1 094 000 - 1 152 000  
+Yao 			1 152 000 - 1 210 000  
+Enrichetta 		1 210 000 - 1 268 000  
 
 The work you performed was only on small genome portion (1,3 Mbp). That gives you a flavour of the time cost to do a manual curation on a small genome, and an idea of the amount of work needed to manually curate a big genome (>1 Gbp).
 
