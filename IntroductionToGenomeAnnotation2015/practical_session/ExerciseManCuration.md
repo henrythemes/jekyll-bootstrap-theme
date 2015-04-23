@@ -65,3 +65,8 @@ Yao 			1 152 000 - 1 210 000
 Enrichetta 		1 210 000 - 1 268 000
 
 The work you performed was only on small genome portion (1,3 Mbp). That gives you a flavour of the time cost to do a manual curation on a small genome, and an idea of the amount of work needed to manually curate a big genome (>1 Gbp).
+
+## Check
+
+Before the end of this practical session we will load the reference annotation of drosophila melanogaster allowing you to check your gene manually curated. You should just refresh your web page to display this new track.  
+Do not be disappointed if your annotation differs a lot from the reference one. Keep in mind that the reference annotation has been curated by experienced experts, and that have used more complete evidence.
