@@ -22,19 +22,21 @@ If you have previously loaded genometools, you may have to unload it first since
 Now link the raw computes you want to use into your folder. The files you will need are:
 
 - repeatmasker.chr4.gff (coordinates of repeatmasked regions)
-- cufflinks2genome.chr4.gff (EST hints created from assembled transcripts)
 
-In addition, you will also need the genome sequence and a protein set. Sym-link it from the the data directory created earlier:
+In addition, you will also need the genome sequence. Sym-link it from the the data directory created earlier:
 
 *ln -s /path/to/chromosome\_4/chromosome/4.fa*
 
-(probably something like $HOME/annotation/data/dmel/chromosome\_4/raw\_computes)
+To finish, you will also need EST set file and a protein set file:  
+* ln -s course\_data/dmel/chromosome\_4/evidence/est.chr4.fa*   
+* ln -s course\_data/dmel/chromosome\_4/evidence/protein.chr4.fa *  
 
-You should now have 3 raw computes and the genome sequence in the working directory. For Maker to use this information, we need create the three config files, as discussed above. You can leave the two files controlling external software behavious untouched. In the actual maker options file, we need to provide:
+You should now have 1 raw compute, 1 EST file, 1 protein file and the genome sequence in the working directory. For Maker to use this information, we need create the three config files, as discussed above (maker -CTL). You can leave the two files controlling external software behavious untouched. In the actual maker options file, we need to provide:
 
 - name of the genome sequence (genome=)
-- name of the 'EST' alignment file(s) (est\_gff=)
-- name of the repeatmasker and repeatrunner files (repeatgff=)
+- name of the 'EST' set file(s) (est=)
+- name of the 'Protein' set file(s) (protein=)
+- name of the repeatmasker and repeatrunner files (rm_gff=) 
 
 You can list multiple files in one field by separating their names by a **comma** ','.
 
