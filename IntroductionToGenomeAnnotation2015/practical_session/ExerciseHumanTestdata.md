@@ -131,7 +131,7 @@ You have two options now for gathering the output in some usable form - copy sel
 
 From your Maker folder, run the script called 'maker\_merge\_outputs.pl' to create an output file for all annotations and protein files:
 
-$SCRIPT\_PATH/maker\_merge\_outputs.pl
+$SCRIPT\_PATH/maker\_merge\_outputs2.pl -indir hsap_contig.maker.output
 
 This will create a directory called "annotations" containing:
 
