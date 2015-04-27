@@ -103,7 +103,7 @@ The first exercise will be a very short one in which you will create a gene buil
 
 Running Maker on a full genome, even of an invertebrate, can take a considerable amount of time - especially if only few processing cores are available. We have therefore generate the genome-wide raw computes prior to the course. You can find the in the folder you have symlinked earlier under
 
-_ln -s course\_data/dmel/raw_
+*ln -s course\_data/dmel/chromosome_4/raw*
 
 Ab-initio guided or evidence-based
 
