@@ -3,6 +3,8 @@ layout: default
 title:  'Travel'
 ---
 
+**(UPDATE IN PROGRESS)**
+
 # Travel Information
 
 **Travel with Uppsala city buses:**  
