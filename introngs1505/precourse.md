@@ -5,7 +5,7 @@ title:  'Precourse Material'
 
 # Pre-course Material
 
-**Introduction and chapter 1 + 2** from [http://uppnex.se/unixtut/](http://uppnex.se/unixtut/)
+**Introduction and chapter 1 + 2** from [this unix tutorial.](../common/unixtut/)
 
 You must use [http://bellard.org/jslinux/](http://bellard.org/jslinux/) to try the commands in the tutorial, otherwise the commands will not work.
 If you any questions regarding this tutorial contact: [martin.dahlo@scilifelab.uu.se](mailto:martin.dahlo@scilifelab.uu.se)
