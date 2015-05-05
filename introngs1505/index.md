@@ -19,7 +19,7 @@ Held in Gothenburg May 18-22, 2015.
 
 ## Helpful Things
 [Linux cheat sheet](files/linux-cheat-sheet.pdf)  
-[UPPMAX cheat sheet](files/uppmax-cheat-sheet.png) 
+[UPPMAX cheat sheet](files/uppmax-cheat-sheet.png)  
 [Mac keyboard layout](../common/mac-keyboard)  
 
 ## External Resources
