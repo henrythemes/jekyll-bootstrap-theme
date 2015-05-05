@@ -7,14 +7,14 @@ title:  'Schedule'
 
 ####This course is given at the University of Gothenburg. The lecture slides and lab instructions will be uploaded when the material is finalized by the responsible teacher.
 
-**Monday 18th**  
+### Monday 18th**  
 Room:  Folke Andreasson, Medicinareg. 11  
 **12.30-14.00** Lecture: Next Generation Sequencing Overview (Olga Vinnere Pettersson)  
 **14.00-15.00** Lecture: NGS and bioinformatics analysis pipelines (Adam Ameur)  
 **15.30-17:00** Project discussion - (Adam Ameur, Olga Vinnere Pettersson)  
 
 
-**Tuesday 19th**  
+### Tuesday 19th**  
 Room:  Ingegerd Eriksson	Medicinareg. 1, Academicum  
 **09.00-10.00** Lecture: Introduction to Linux (Martin Dahlö)  
 **10.00-12.00** Exercise: Introduction to Linux (Martin Dahlö, Marcela Dávila, Mats Töpel, Magnus Alm Rosenblad)  
@@ -25,7 +25,7 @@ Room:  Ingegerd Eriksson	Medicinareg. 1, Academicum
 **16.20-17.15** Exercise: Introduction to File Types in Bioinformatics (Martin Dahlö, Marcela Dávila, Mats Töpel, Magnus Alm Rosenblad)  
 
 
-**Wednesday 20th**  
+### Wednesday 20th**  
 Room:  Ingegerd Eriksson	Medicinareg. 1, Academicum  
 **09.00-10.00** Lecture: Alignment with BWA; Samtools; Data Processing with Picard; Variant Calling with GATK; SAM/BAM and VCF Formats (Anna Johansson)  
 **10:15-12:00** Exercise: Alignment with BWA; Samtools; Data Processing with Picard; Variant Calling with GATK; SAM/BAM and VCF Formats part I (Anna Johansson, Katarina Truvé, Agata Smialowska,  Mats Töpel, Magnus Alm Rosenblad)  
