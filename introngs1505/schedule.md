@@ -8,7 +8,7 @@ title:  'Schedule'
 This course is given at the University of Gothenburg. The lecture slides and lab instructions will be uploaded when the material is finalized by the responsible teacher.  
 <br><br>
 
-#### Monday 18th  
+#### **Monday 18th**  
 Room:  Folke Andreasson, Medicinareg. 11  
 **12.30-14.00** Lecture: Next Generation Sequencing Overview (Olga Vinnere Pettersson)  
 **14.00-15.00** Lecture: NGS and bioinformatics analysis pipelines (Adam Ameur)  
