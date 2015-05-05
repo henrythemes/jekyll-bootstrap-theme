@@ -45,7 +45,7 @@ Room: Ingegerd Eriksson	Medicinareg. 1, Academicum
 **18:00-20:00** Dinner at [Incontro](http://incontro.se/?lang=en)
 <br>
 
-#### **Friday 22nd**  
+#### Friday 22nd  
 Room:  	Ingegerd Eriksson	Medicinareg. 1, Academicum  
 **09:00-11.00** Exercise: RNA sequencing, transcriptome and expression quantification part II (Thomas Källman, Katarina Truvé, Agata Smialowska,  Mats Töpel)  
 **11:30-12.00** Lecture: The Wallenberg Advanced Bioinformatics Initiative (WABI) and the Bioinformatics Infrastructure for Life Sciences (BILS) (Björn Nystedt)  
