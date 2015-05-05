@@ -6,6 +6,7 @@ title:  'Schedule'
 # Schedule
 
 This course is given at the University of Gothenburg. The lecture slides and lab instructions will be uploaded when the material is finalized by the responsible teacher.
+<br>
 
 #### Monday 18th  
 Room:  Folke Andreasson, Medicinareg. 11  
