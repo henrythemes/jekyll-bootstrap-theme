@@ -5,7 +5,7 @@ title:  'Schedule'
 
 # Schedule
 
-####This course is given at the University of Gothenburg. Click the heading of a topic to see the lecture slides or lab instructions.
+####This course is given at the University of Gothenburg. The lecture slides and lab instructions will be uploaded when the material is finalized by the responsible teacher.
 
 **Monday 18th**  
 Room:  Folke Andreasson, Medicinareg. 11  
