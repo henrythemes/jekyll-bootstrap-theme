@@ -18,8 +18,8 @@ Held in Gothenburg May 18-22, 2015.
 [Travel Info](travel)  
 
 ## Helpful Things
-[Linux cheat sheet](files/linux-cheat-sheet.pdf)  
-[UPPMAX cheat sheet](files/uppmax-cheat-sheet.png)  
+[Linux cheat sheet](../common/images/linux-cheat-sheet.pdf)  
+[UPPMAX cheat sheet](../common/images/uppmax-cheat-sheet.png)  
 [Mac keyboard layout](../common/mac-keyboard)  
 
 ## External Resources
