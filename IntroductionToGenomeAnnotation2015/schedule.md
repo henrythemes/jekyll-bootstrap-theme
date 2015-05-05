@@ -23,7 +23,7 @@ Room: E10:1309
 **Tuesday 28th** 
 
 Room: E10:1309  
-**09.00-10.00** [Lecture: Functional annotation](Functional_annotation_Apr2015.pdf) (Henrik Lantz)  
+**09.00-10.00** [Lecture: Functional annotation](files/Functional_annotation_Apr2015.pdf) (Henrik Lantz)  
 **10.00-10.20** Coffee break  
 **10.20-12.00** [Practical 3: Manual curation](practical_session/ExerciseManCuration) (Henrik Lantz, Jacques Dainat, Martin Norling, Mahesh Panchal)  
 **12.00-12.40** Lunch  
