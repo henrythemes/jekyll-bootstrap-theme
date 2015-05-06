@@ -23,6 +23,7 @@ Held in Uppsala April 27-28, 2015.
 ## Helpful Things
 [Linux cheat sheet](files/linux-cheat-sheet.pdf)  
 [UPPMAX cheat sheet](files/uppmax-cheat-sheet.png)  
+[Mac keyboard layout](../common/mac-keyboard)  
 
 ## External Resources
 [Mac keyboard layouts](../common/mac-keyboard)  
