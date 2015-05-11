@@ -3,9 +3,7 @@ layout: default
 title:  'Travel'
 ---
 
-# Travel Information
-
-## Travel with Göteborg city buses and trams:
+# Travel with Göteborg city buses and trams:
 **Tourist and visitor cards:** [http://www.vasttrafik.se/#!/en/tickets-and-prices/6/](http://www.vasttrafik.se/#!/en/tickets-and-prices/6/)
 
 **NOTE:** To pay your ticket with your mobile phone you need to register your phone and chose payment alternative: [http://www.vasttrafik.se/#!/en/tickets-and-prices/3/to-buy-sms-tickets-from-february-1/2/](http://www.vasttrafik.se/#!/en/tickets-and-prices/3/to-buy-sms-tickets-from-february-1/2/)
