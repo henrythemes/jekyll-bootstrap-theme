@@ -3,19 +3,16 @@ layout: default
 title:  'Travel'
 ---
 
-**NGS 18-22 May 2015, Göteborg **
-
 # Travel Information
 
-**Travel with Göteborg city buses and trams:**  
-Tourist and visitor cards:
-http://www.vasttrafik.se/#!/en/tickets-and-prices/6/
+## Travel with Göteborg city buses and trams:
+**Tourist and visitor cards:** [http://www.vasttrafik.se/#!/en/tickets-and-prices/6/](http://www.vasttrafik.se/#!/en/tickets-and-prices/6/)
 
-NOTE: To pay your ticket with your mobile phone you need to register your phone and chose payment alternative: http://www.vasttrafik.se/#!/en/tickets-and-prices/3/to-buy-sms-tickets-from-february-1/2/ .
+**NOTE:** To pay your ticket with your mobile phone you need to register your phone and chose payment alternative: [http://www.vasttrafik.se/#!/en/tickets-and-prices/3/to-buy-sms-tickets-from-february-1/2/](http://www.vasttrafik.se/#!/en/tickets-and-prices/3/to-buy-sms-tickets-from-february-1/2/)
 
 Single tickets are possible to buy at trams (but not from driver).
 
-Please see www.vasttrafik.se for times of departures/arrivals. 
+Please see [www.vasttrafik.se](www.vasttrafik.se) for times of departures/arrivals. 
 
 All lectures and exercises are at Medicinarberget close to Sahlgrenska Hospital. (Restaurant In Contro is located at Svenska Mässan at Korsvägen.) Depending on where you live you may be in walking distance.
 
