@@ -17,13 +17,14 @@ Room:  Folke Andreasson, Medicinareg. 11
 
 #### Tuesday 19th  
 Room:  Ingegerd Eriksson	Medicinareg. 1, Academicum  
-**09.00-10.00** Lecture: Introduction to Linux (Martin Dahlö)  
-**10.00-12.00** Exercise: Introduction to Linux (Martin Dahlö, Marcela Dávila, Mats Töpel, Magnus Alm Rosenblad)  
+**09.00-09.10** Lecture: Introduction to SciLifeLab (Eva Molin)  
+**09.10-10.00** [Lecture: Introduction to Linux](slides/dahlo-linux.pdf) (Martin Dahlö)  
+**10.00-12.00** [Exercise: Introduction to Linux](labs/linux-intro) (Martin Dahlö, Marcela Dávila, Mats Töpel, Magnus Alm Rosenblad)  
 **12.00-13.00** Lunch  
-**13.00-14.00** Lecture: Introduction to UPPMAX/UPPNEX (Martin Dahlö)  
-**14.00-16.00** Exercise: Introduction to UPPMAX/UPPNEX (Martin Dahlö, Marcela Dávila, Mats Töpel, Magnus Alm Rosenblad)  
-**16.00-16.20** Lecture: Introduction to File Types in Bioiformatics (Martin Dahlö)  
-**16.20-17.15** Exercise: Introduction to File Types in Bioinformatics (Martin Dahlö, Marcela Dávila, Mats Töpel, Magnus Alm Rosenblad)  
+**13.00-14.00** [Lecture: Introduction to UPPMAX/UPPNEX](slides/dahlo-uppmax.pdf) (Martin Dahlö)  
+**14.00-16.00** [Exercise: Introduction to UPPMAX/UPPNEX](labs/uppmax-intro) (Martin Dahlö, Marcela Dávila, Mats Töpel, Magnus Alm Rosenblad)  
+**16.00-16.20** [Lecture: Introduction to File Types in Bioiformatics](slides/dahlo-filetypes.pdf) (Martin Dahlö)  
+**16.20-17.15** [Exercise: Introduction to File Types in Bioinformatics](labs/filetypes) (Martin Dahlö, Marcela Dávila, Mats Töpel, Magnus Alm Rosenblad)  
 <br>
 
 #### Wednesday 20th  
