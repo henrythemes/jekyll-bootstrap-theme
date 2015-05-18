@@ -39,7 +39,7 @@ Room:  Birgit Thilander	Medicinareg. 1, Academicum
 #### Thursday 21st  
 Room:  Folke Andreasson	Medicinareg. 11  
 **09:00-11:30** Exercise: Alignment with BWA; Samtools; Data Processing with Picard; Variant Calling with GATK; SAM/BAM and VCF Formats part III (Anna Johansson, Katarina Truvé, Agata Smialowska,  Mats Töpel)
-**11:30-12.00** Lecture: The Wallenberg Advanced Bioinformatics Initiative (WABI) and the Bioinformatics Infrastructure for Life Sciences (BILS) (Anna Johansson)  
+**11:30-12.00** Lecture: The Wallenberg Advanced Bioinformatics Initiative (WABI) and the Bioinformatics Infrastructure for Life Sciences (BILS) (Anna Johansson)
 **12.00-13.00** Lunch  
 **13:00-14:00** Lecture: RNA sequencing, transcriptome and expression quantification (Thomas Källman)  
 Room: Ingegerd Eriksson	Medicinareg. 1, Academicum  
