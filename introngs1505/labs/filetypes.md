@@ -38,11 +38,13 @@ Now your screen should look something like this:
 
 ## 2. Getting a node of your own
 
+()
+
 Usually you would do most of the work in this lab directly on one of the login nodes at uppmax, but we have arranged for you to have one core each to avoid disturbances.
 This was covered briefly in the lecture notes.
 
 ```bash
-$ salloc -A g2015006 -t 07:00:00 -p core -n 1 --no-shell --reservation=g2015006_tue &
+$ salloc -A g2015006 -t 07:00:00 -p core -n 1 --no-shell --reservation=g2015006_19 &
 ```
 
 check which node you got (replace **username** with your uppmax user name)

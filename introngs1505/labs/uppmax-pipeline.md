@@ -35,7 +35,7 @@ Usually you would do most of the work in this lab directly on one of the login n
 (We only have 20 reserved cores, so if someone has two, someone else will not get one..)
 
 ```bash
-$ salloc -A g2015006 -t 04:30:00 -p core -n 1 --no-shell --reservation=g2015006_tue &
+$ salloc -A g2015006 -t 04:30:00 -p core -n 1 --no-shell --reservation=g2015006_19 &
 ```
 
 check which node you got (replace **username** with your uppmax user name)

@@ -56,7 +56,7 @@ Directory: Whether the directory can be entered through "cd".
 Start your terminal, log onto UPPMAX (check with squeue which core you had and ssh onto it, if for some reason your core is gone :
 
 ```bash
-$ salloc -A g2015006 -t 04:30:00 -p core --no-shell --reservation=g2015006_tue &
+$ salloc -A g2015006 -t 04:30:00 -p core --no-shell --reservation=g2015006_19 &
 
 ```
 
