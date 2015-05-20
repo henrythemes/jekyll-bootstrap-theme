@@ -167,7 +167,7 @@ First, go to the exome directory in the lab directory that you copied to your gl
 $ cd ~/glob/ngs-intro/uppmax_pipeline_exercise/exomeSeq
 ```
 
-In there you will find a folder called raw_data, containing a fastq file: **my_reads.rawdata.fastq** . This file contains the raw data that you will analyse.
+In there you will find a folder **called** raw_data, containing a fastq file: **my_reads.rawdata.fastq** . This file contains the raw data that you will analyse.
 
 * Filter the raw data using the program filter_reads, to get rid of low quality reads.
 * Align the filtered reads with the program align_reads, to the human reference genome located here: /sw/data/uppnex/reference/Homo_sapiens/hg19/concat_rm/Homo_sapiens.GRCh37.57.dna_rm.concat.fa
