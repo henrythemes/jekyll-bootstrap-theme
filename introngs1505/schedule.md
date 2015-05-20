@@ -51,7 +51,7 @@ Room: Ingegerd Eriksson	Medicinareg. 1, Academicum
 
 #### Friday 22nd  
 Room:  	Ingegerd Eriksson	Medicinareg. 1, Academicum  
-**09:00-12.00** Exercise: RNA sequencing, transcriptome and expression quantification part II (Thomas Källman, Katarina Truvé, Agata Smialowska,  Mats Töpel)  
+**09:00-12.00** [Exercise: RNA sequencing, transcriptome and expression quantification part I](labs/rnaseqMapping) (Thomas Källman, Katarina Truvé, Agata Smialowska,  Mats Töpel)  
 **12.00-13.00** Lunch  
-**13:00-15.00** Exercise: RNA sequencing, transcriptome and expression quantification part III (Thomas Källman, Katarina Truvé, Agata Smialowska,  Mats Töpel)  
+**13:00-15.00** [Exercise: RNA sequencing, transcriptome and expression quantification part II](labs/rnaseqDenovo) (Thomas Källman, Katarina Truvé, Agata Smialowska,  Mats Töpel)  
 
