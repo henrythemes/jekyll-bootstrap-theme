@@ -20,13 +20,13 @@ Many include placeholders (folder names etc), so make sure you use whatever file
 [Illumina Bodymap2.0](http://www.ebi.ac.uk/gxa/experiments/E-MTAB-513) data consists of 16 human tissues that were sequenced using both single-end and pair-end technologies.
 The mapped reads can also be visualised at the [Ensembl genome browser](http://www.ensembl.info/blog/2011/05/24/human-bodymap-2-0-data-from-illumina/)   
 
-In this tutorial we will focus on a limited set of tissues and only do the analysis for chromosome 1 of the human genome.
-The files are in addition just a small subset of the original files as the analysis of them would take too long to fit at a course lab.
+In this tutorial we will due to time constraints focus on a limited set of tissues and only do the analysis for chromosome 1 of the human genome.
+In addition, the files we use are just subsets of the original files as the analysis of the full files unfeasible  for a course lab.
 
-The main goal goal with this tutorial is to detect differential gene expression between two different tissues (pick any two tissues that you want to compare) from human.
-For all included tissues there is one single-end library and one pair-end available.
-In order to test for significance in gene expression more than one replicate from each tissue is needed.
-In this lab we will use the two different library types as replicates in the detection of differential gene expression.
+The main goal goal with this tutorial is to detect differential gene expression between two different tissues (pick any two tissues that you want to compare).
+For all included tissues there is one single-end library and one pair-end library available.
+In order to test for significance in gene expression more than one replicate from each tissue is needed and we will 
+in this lab use the two different library types as replicates in the detection of differential gene expression.
 Below is a summary of the data and tissues available.
 
 * Single-end reads, 75bp
@@ -42,17 +42,17 @@ Below is a summary of the data and tissues available.
     * ERR030884: Female colon
     * ERR030885: Female kidney
     * ERR030874: Female ovary
-* human reference genome (or in this lab, for the sake of saving time only chromosome 1 named: rm.chr.1.fa)
+* human reference genome (or in this lab, only chromosome 1 named: rm.chr.1.fa)
 * genome index for aligning reads with Bowtie2
 * reference genome annotation based on the [EnsEMBL](http://www.ensembl.org/index.html) database named: Homo_sapiens.GRCh38_Chr1.77.gtf
 * NB! All intermediate files are available at Uppmax so if any of the steps fails you can pick up the analysis at the next step pf the tutorial
 
 ## Tophat
 
-Tophat is a script pipeline built on-top of the popular read-aligner Bowtie.
-It is used to align RNA-Seq reads to a genome in order to identify exon-exon splice junctions.
+Tophat is a script pipeline built on-top of the popular short-read aligner Bowtie.
+It is used for aligning RNA-Seq reads to a reference genome and can identify exon-exon splice junctions.
 More specifically, it produces data that we can use to not only study the expression of genes, but also their different isoforms.
-You will have a bit of waiting time during the exercises as the more complex analyses are running, so please check out some of the details of tophat here during those times: [here](http://ccb.jhu.edu/software/tophat/index.shtml)
+You will have a bit of waiting time during the exercises as the more complex analyses are running, so please check out some of the details of [tophat](http://ccb.jhu.edu/software/tophat/index.shtml) when waiting. 
 
 ## Cufflinks
 
@@ -61,7 +61,7 @@ The output is usually a list of transcribed loci (primarily ‘genes’) and the
 For the analysis of multiple data sets, the general workflow in cufflinks consists of the following steps:
 * Cufflinks: Assemble the aligned reads of a given sample, identify transcribed loci and determine expression
 * Cuffmerge: Reconcile data on transcribed loci across multiple samples to produce a consensus annotation of loci
-* Cuffdiff: Compare read data across samples, guided by consensus annotation, and determine differential expression of loci, test for significance The main output we are interested in comes from the cuffdiff analysis and consists of differential expression estimates for a set of genes.
+* Cuffdiff: Compare read data across samples, guided by consensus annotation, and determine differential expression of loci, test for significance. The main output we are interested in comes from the cuffdiff analysis and consists of differential expression estimates for a set of genes.
 In the following, we will be going through the necessary steps to accomplish this.
 
 ### Step-by-Step
@@ -79,7 +79,7 @@ We have reserved half a node for each student during this course.
 By now, you are probably already familiar with the procedure:
 
 ```bash
-$ salloc -A g2015005 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2015005_thu &
+$ salloc -A g2015006 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2015006_21 &
 ```
 
 Make sure you ony do this once, otherwise you will take away resources from the other course participants!
