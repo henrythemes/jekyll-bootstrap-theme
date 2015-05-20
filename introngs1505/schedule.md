@@ -45,7 +45,7 @@ Room:  Folke Andreasson	Medicinareg. 11
 **12.00-13.00** Lunch  
 **13:00-14:00** [Lecture: RNA sequencing, transcriptome and expression quantification](slides/RNA-seq.pdf) (Thomas Källman)  
 Room: Ingegerd Eriksson	Medicinareg. 1, Academicum  
-**14:15-17:00** Exercise: RNA sequencing, transcriptome and expression quantification part I (Thomas Källman, Katarina Truvé, Agata Smialowska,  Mats Töpel)  
+**14:15-17:00** [Exercise: RNA sequencing, transcriptome and expression quantification part I](labs/rnaseqMapping) (Thomas Källman, Katarina Truvé, Agata Smialowska,  Mats Töpel)  
 **18:00-20:00** Dinner at [Incontro](http://incontro.se/?lang=en)  
 <br>
 
