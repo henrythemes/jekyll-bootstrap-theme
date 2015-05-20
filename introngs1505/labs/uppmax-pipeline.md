@@ -169,7 +169,7 @@ $ cd ~/glob/ngs-intro/uppmax_pipeline_exercise/exomeSeq
 
 In there you will find a folder called raw_data, containing a fastq file: **my_reads.rawdata.fastq** . This file contains the raw data that you will analyse.
 
-If you want to know how your jobs are doing in the queue, you can check their status with ```$ squeue -u username /sw/data/uppnex/reference/Homo_sapiens/hg19/concat_rm/Homo_sapiens.GRCh37.57.dna_rm.concat.fa``` or ```$ jobinfo -u username```.
+If you want to know how your jobs are doing in the queue, you can check their status with ```username /sw/data/uppnex/reference/Homo_sapiens/hg19/concat_rm/Homo_sapiens.GRCh37.57.dna_rm.concat.fa``` or ```$ jobinfo -u username```.
 
 * Filter the raw data using the program filter_reads, to get rid of low quality reads.
 * Align the filtered reads with the program align_reads, to the human reference genome located here: ```/sw/data/uppnex/reference/Homo_sapiens/hg19/concat_rm/Homo_sapiens.GRCh37.57.dna_rm.concat.fa```  
