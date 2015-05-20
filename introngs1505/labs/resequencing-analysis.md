@@ -444,6 +444,8 @@ Once you have the filtered calls, open your filtered VCF with less and page thro
 It has all the variant lines, still, but one of the fields that was blank before is now filled in, indicating that the variant on that line either passed filtering or was filtered out, with a list of the filters it failed.
 Note also that the filters that were run are described in the header section.
 
+If you have enough time, this can be a good opportunity to try out other programs to manipulate your vcd files in different manners. Both BEDTools and vcftools are available as modules on uppmax (module add BEDTools vcftools). BEDTools includes a large number of different commands, but a good point to start is intersectBed. To learn more about this and other commands use either the flag -h or google. In the course directory there is a file /proj/g2015006/labs/gatk/other/RefSeq_genes.bed containing the coordinates for the genes within the region on chr17 that you have been working on. This can be used to extract only variants located within genes. Or variants not located in genes if you prefer that.
+
 ## Step 7. Looking at Your Data with IGV
 
 Next, we want to know how to look at these data.
