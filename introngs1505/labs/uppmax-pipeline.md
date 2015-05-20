@@ -169,6 +169,8 @@ $ cd ~/glob/ngs-intro/uppmax_pipeline_exercise/exomeSeq
 
 In there you will find a folder called raw_data, containing a fastq file: **my_reads.rawdata.fastq** . This file contains the raw data that you will analyse.
 
+If you want to know how your jobs are doing in the queue, you can check their status with ```$ squeue -u username``` or ```$ jobinfo -u username```.
+
 * Filter the raw data using the program filter_reads, to get rid of low quality reads.
 * Align the filtered reads with the program align_reads, to the human reference genome located here: ```bash /sw/data/uppnex/reference/Homo_sapiens/hg19/concat_rm/Homo_sapiens.GRCh37.57.dna_rm.concat.fa```  
 * Find SNPs in your aligned data with the program find_snps. To find SNPs we have to have a reference to compare our data with. The same reference genome as you aligned to is the one to use.
