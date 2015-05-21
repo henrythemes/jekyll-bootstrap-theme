@@ -29,7 +29,7 @@ Room:  Ingegerd Eriksson	Medicinareg. 1, Academicum
 
 #### Wednesday 20th  
 Room:  Ingegerd Eriksson	Medicinareg. 1, Academicum  
-**09.00-10.00** Lecture: Alignment with BWA; Samtools; Data Processing with Picard; Variant Calling with GATK; SAM/BAM and VCF Formats (Anna Johansson)  
+**09.00-10.00** [Lecture: Alignment with BWA; Samtools; Data Processing with Picard; Variant Calling with GATK; SAM/BAM and VCF Formats](slides/NGS_course_AJ_201505.pdf) (Anna Johansson)  
 **10:15-12:00** [Exercise: Alignment with BWA; Samtools; Data Processing with Picard; Variant Calling with GATK; SAM/BAM and VCF Formats part I](labs/resequencing-analysis) (Anna Johansson, Katarina Truvé, Agata Smialowska,  Mats Töpel, Magnus Alm Rosenblad)  
 **12.00-13.00** Lunch  
 Room:  Birgit Thilander	Medicinareg. 1, Academicum  
