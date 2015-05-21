@@ -17,7 +17,7 @@ Room:  Folke Andreasson, Medicinareg. 11
 
 #### Tuesday 19th  
 Room:  Ingegerd Eriksson	Medicinareg. 1, Academicum  
-**09.00-09.10** Lecture: Introduction to SciLifeLab (Eva Molin)  
+**09.00-09.10** [Lecture: Introduction to SciLifeLab](slides/150518_SciLifeLab_presentation_NGS data_Gbg.pptx) (Eva Molin)  
 **09.10-10.00** [Lecture: Introduction to Linux](slides/dahlo-linux.pdf) (Martin Dahlö)  
 **10.00-12.00** [Exercise: Introduction to Linux](labs/linux-intro) (Martin Dahlö, Marcela Dávila, Mats Töpel, Magnus Alm Rosenblad)  
 **12.00-13.00** Lunch  
