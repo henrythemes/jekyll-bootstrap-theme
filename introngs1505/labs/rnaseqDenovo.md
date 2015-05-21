@@ -47,7 +47,7 @@ $ Trinity --seqType (fq for fastq or fa for fast) --left ~/path/to/reads_1.fq --
 Get yourself familiar with Trinity by having a look at the manual: http://trinityrnaseq.sourceforge.net/
 
 Have a look at the example data used in this exercise.
-The data is obtained from mouse dendritic cells (mouse_left.fasta and mouse_right.fasta and) and a whitefly (whitefly_both.fasta), and the files are located in `/proj/g2015005/labs/transcriptome_assembly/`.
+The data is obtained from mouse dendritic cells (mouse_left.fasta and mouse_right.fasta and) and a whitefly (whitefly_both.fasta), and the files are located in `/proj/g2015006/nobackup/transcriptome_assembly/`.
 The mouse data is strand-specific (RF), the whitefly data is unstranded.
 For strand-specific data, specify the library type.
 There are four library types:
