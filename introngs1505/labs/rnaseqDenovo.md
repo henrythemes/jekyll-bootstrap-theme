@@ -66,7 +66,7 @@ By default, reads are treated as not strand-specific.
 ### Trinity on Uppmax example command line:
 ```bash
 $ module load bioinfo-tools java/sun_jdk1.7.0_25 bowtie/1.1.0 samtools/0.1.19 trinity/2014-07-17
-$ Trinity --seqType fa --left /proj/g2015005/labs/transcriptome_assembly/mouse_left.fasta --right /proj/g2015005/labs/transcriptome_assembly/mouse_right.fasta --SS_lib_type RF --CPU 8 --max_memory 16G --output trinity_out/
+$ Trinity --seqType fa --left /proj/g2015006/nobackup/transcriptome_assembly/mouse_left.fasta --right /proj/g2015006/nobackup/transcriptome_assembly/mouse_right.fasta --SS_lib_type RF --CPU 8 --max_memory 16G --output trinity_out/
 ```
 
 NB! -It is recommended to use fully specified paths for sequence files with Trinity.
