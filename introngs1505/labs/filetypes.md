@@ -73,7 +73,7 @@ $ ssh -X q34
 
 To be able to do parts of this lab, you will need some files.
 To avoid all the course participants editing the same file all at once, undoing each other's edits, each participant will get their own copy of the needed files.
-The files are located in the folder **/proj/g2015006/labs/filetypes**
+The files are located in the folder `/proj/g2015006/labs/filetypes`
 
 Next, copy the lab files from this folder.
 -r means recursively, which means all the files including sub-folders of the source folder.
