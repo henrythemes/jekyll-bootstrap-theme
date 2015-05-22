@@ -263,7 +263,7 @@ Fun things to look for in this information is **jobstate** which will tell you i
 
 Other good things to look for could be:
 
-* **maxmemory\__in\__GiB**: tells you how much memory the program used at most.
+* **maxmemory\_in\_GiB**: tells you how much memory the program used at most.
 * **runtime**: tells you how long time the program ran before it finished/failed
 
 ### Time and space
