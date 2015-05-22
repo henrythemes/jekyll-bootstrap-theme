@@ -7,14 +7,14 @@ title:  'Advanced Linux'
 **NOTE:** in syntax examples, the dollar sign ($) is not to be printed.
 The dollar sign is usually an indicator that the text following it should be typed in a terminal window.
 
-[Answers:](advanced-linux-answers) If you did not finish the lab and you get stuck on any of the questions, here are the solutuions.
+[Answers:](advanced-linux-answers) If you did not finish the lab and you get stuck on any of the questions, here are the solutions.
 No cheating though, try until you cry first.
 
 ## Ownership & Permissions
 As Linux can be a multi-user environment it is important that files and directories can have different owners and permissions to keep people from editing or executing your files.
 
 ## Owners
-The permissions are defined seperately for **users**, **groups** and **others**.
+The permissions are defined separately for **users**, **groups** and **others**.
 
 The **user** is the username of the person who owns the file.
 By default the user who creates a file will become its owner.
@@ -27,7 +27,7 @@ The **others** is quite simply everyone else's permissions.
 
 ## Permissions
 There are four permissions that a file or directory can have.
-Note the one character designations/flags, **r**,**w**,**x** and **-**.
+Note the one character designations/flags, **r**,**w**,**x**  and  **-**.
 
 In all cases, if the file or directory has the flag it means that it is enabled.
 
@@ -154,7 +154,7 @@ $ chmod a+w directoryname
 ### Assignment
 The assignments do not have to be handed in in any form.
 Just complete them for your own sake, to make sure that you have understood the material.
-If you need help or further explanations to complete any assignments, please do not hesistate to contact us, it is what we are here for =).
+If you need help or further explanations to complete any assignments, please do not hesitate to contact us, it is what we are here for =).
 
 In no more than two commands, get the file permissions from
 
@@ -279,7 +279,7 @@ Moving, deleting or renaming the directory would, just like in the case with the
 
 ## Grep - Searching for text
 If you have a very large file, perhaps so large that opening it in program would be very hard on your computer.
-It could be a file containing biological data, it could be a loggfile of a transfer where we want check for any errors.
+It could be a file containing biological data, it could be a logfile of a transfer where we want check for any errors.
 No matter the reason a handy tool to know the existence of is the "grep" command.
 
 What grep does is search for a specific string in one or many files.
@@ -376,8 +376,8 @@ command 1 | command 2
 The "|" is the pipe symbol(on mac keyboard alt+7), signifying that whatever output usually comes out of command 1 should instead be directly sent to command 2 and output in the manner that command 2 outputs.
 
 In a hypothetical situation you have a folder with hundreds of files and you know the file you are looking for is very large but you can't remember its name.
-Lets do a ls -lh and pipe the output to be sorted by filesize.
--n means we are sorting numerically and not alfabetically, -k 5 says "look at the fifth column of output", which happens to be the filesize of ls command.
+Lets do a ls -lh and pipe the output to be sorted by file size.
+-n means we are sorting numerically and not alphabetically, -k 5 says "look at the fifth column of output", which happens to be the file size of ls command.
 
 ```bash
 $ ls -lh | sort -k 5 -n
@@ -405,7 +405,7 @@ This should have generated a file called "outbam.bam" in your current folder.
 We will have some more examples of pipes in the next section.
 
 ## Word Count
-Word count, or wc, is a useful command for counting the number of occurances of a word in a file.
+Word count, or wc, is a useful command for counting the number of occurrences of a word in a file.
 This is easiest explained with an example.
 Lets return to our sample_1.sam.
 
@@ -450,7 +450,7 @@ Lets look at grep and use some regular expressions http://www.cheatography.com/d
 ## Extra material 2
 Sed is a handy tool to replace strings in files http://www.grymoire.com/Unix/Sed.html
 
-**Task:** You have realized that all the chromosomes have been missnamed as "chr3" when they should be "chr4".
+**Task:** You have realized that all the chromosomes have been misnamed as "chr3" when they should be "chr4".
 Use sed to replace "chr3" with "chr4" in sample_1.sam and output it to sample_2.sam.
 
 Some food for though: The solution to this replaces the first instance on each line of chr3, what if we have multiple instances? What if we had wanted to replace "chr1", this would effect chr10-19 as well! There are many things to consider :).

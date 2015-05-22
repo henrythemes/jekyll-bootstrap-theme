@@ -105,7 +105,7 @@ In **0_seq** you have a fastq file containing the reads we will align.
 
 The best way to see all the different file formats is to run a small pipeline and see which files we encounter along the way.
 The pipeline is roughly the same steps you'll do in the resequencing part of the course, so the focus now is not to learn how the programs work.
-The data is from a sequencing of the adenovirus genome, which is tiny compared to the human genom (36kb vs 3gb).
+The data is from a sequencing of the adenovirus genome, which is tiny compared to the human genome (36kb vs 3gb).
 
 The starting point of the pipeline is reads fresh from the sequencing machine in fastq format, and a reference genome in fasta format.
 The goal of the exercise is to look at our aligned reads in a genome viewer together with the annotations of the adenovirus genome.
@@ -213,7 +213,7 @@ Have a look at it with less.
 1. Index the BAM file.
 1. View the aligned data together with the annotations.
 
-The next step is to conver the SAM file to a BAM file.
+The next step is to convert the SAM file to a BAM file.
 This is more or less just compressing the file, like creating a zip file.
 To do that we will use **samtools**, telling it that the input is in SAM format (**-S**), and that it should output in BAM format (**-b**).
 
@@ -240,8 +240,8 @@ The created BAM file is an exact copy of the SAM file, but stored in a much more
 1. **Index the BAM file.**
 1. View the aligned data together with the annotations.
 
-A BAM file is taking up much less space than the SAM file, but we can still improve performace.
-An indexed BAM file is infinitely faster for programs to work with, but before we can index it, we have to sort it since it's impossible (no gains performace wise) to index an unsorted file.
+A BAM file is taking up much less space than the SAM file, but we can still improve performance.
+An indexed BAM file is infinitely faster for programs to work with, but before we can index it, we have to sort it since it's impossible (no gains performance wise) to index an unsorted file.
 
 To sort the BAMf file use the following command:
 
@@ -264,7 +264,7 @@ $ samtools index 3_sorted/ad2.sorted.bam
 ```
 
 This will create an index named **ad2.sorted.bam.bai** .
-It's nicer to have the .bam and .bai named to samt "prefix", so rename the .bai file to not have the .bam in its name.
+It's nicer to have the .bam and .bai named to the same "prefix", so rename the .bai file to not have the .bam in its name.
 
 ```bash
 $ mv 3_sorted/ad2.sorted.bam.bai 3_sorted/ad2.sorted.bai
@@ -287,8 +287,8 @@ $ less -S 0_ref/ad2.gtf
 ```
 
 The **-S** will tell less to not wrap the lines, and instead show one line per line.
-If the line is longer than the window, you can user the left and right arraow to scroll to the left and right.
-Many tabular files are extemely more readable when using the -S option.
+If the line is longer than the window, you can user the left and right arrow to scroll to the left and right.
+Many tabular files are extremely more readable when using the -S option.
 Try viewing the file without it and see the difference.
 
 To view the file, we will use the program **IGV** (Integrated Genome Viewer).

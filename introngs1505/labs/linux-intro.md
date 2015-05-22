@@ -129,7 +129,7 @@ If you look closely, you'll see that I did not write **ls -l**, but used **ll** 
 Typing ls -l all the time is.. more annoying than one would think, so someone came up with the good idea to add a shortcut here.
 If you type **ll**, it is the same as typing **ls -l** Use it from now on.
 
-Now we have practised moving around and looking at what we have in folders.
+Now we have practiced moving around and looking at what we have in folders.
 The next step will show you how to do the same thing, but without the moving around part.
 If we want to look at what we have in our home folder, while standing in the course's project folder, we type ```$ ll /home/<username>/``` and remember to substitute **\<username\>** with your own user name.
 
@@ -239,13 +239,13 @@ Look in the folder again and see what we just unpacked:
 ## 6. Copying and Moving Files
 Let's move some files.
 Moving files might be one of the more common things you do, after cd and ls.
-You might want to organise your files in a better way, or move important result files to the project folder, who knows?
+You might want to organize your files in a better way, or move important result files to the project folder, who knows?
 
 We will start with moving our important result to a backed up folder.
 When months of analysis is done, that last thing you want is to lose your files.
 Typically this would mean that you move the final results to your project folder.
 
-In this example we want to move the result file only, located in the folder important_results, to our fake project folder, called backed_up_proj_folder.
+In this example we want to move the result file only, located in the folder `important_results`, to our fake project folder, called `backed_up_proj_folder`.
 The syntax for the move command is:
 
 ```bash
@@ -281,7 +281,7 @@ Another use for the move command is to rename things.
 When you think of it, renaming is just a special case of moving.
 You move the file to a location and give the file a new name in the process.
 The location you move the file **to** can of very well be the same folder the file already is in.
-To give this a try, we will rename the folder **a_strange_name** to a better name.
+To give this a try, we will rename the folder `a_strange_name` to a better name.
 
 ```bash
 $ mv a_strange_name a_better_name
@@ -299,7 +299,7 @@ Sometimes you don't want to move things, you want to copy them.
 Moving a file will remove the original file, whereas copying the file will leave the original untouched.
 An example when you want to do this could be that you want to give a copy of a file to a friend.
 Imagine that you have a external hard drive that you want to place the file on.
-The file you want to give to your friend is data from last years project, which is located in your backed_up project folder, **backed_up_proj_folder/last_years_data**
+The file you want to give to your friend is data from last years project, which is located in your backed_up_project_folder`, `backed_up_proj_folder/last_years_data`
 
 As with the move command, the syntax is
 
@@ -348,7 +348,7 @@ Its not only files you can remove.
 Folders can be removed too.
 There is even a special command for removing folders, **rmdir**.
 They work similar to **rm**, except that they can't remove files.
-There are two folders, **this_is_empty** and **this_has_a_file**, that we now will delete.
+There are two folders, `this_is_empty` and `this_has_a_file`, that we now will delete.
 
 ```bash
 $ rmdir this_is_empty
@@ -356,12 +356,12 @@ $ rmdir this_is_empty
 $ rmdir this_has_a_file
 ```
 
-If you look inside **this_has_a_file**:
+If you look inside `this_has_a_file`:
 
 ![](files/linux-intro/this_has_a_file.jpg)
 
 you will see there is a file in there! Only directories that are completely empty can be deleted using rmdir.
-To be able to delete **this_has_a_file**, either delete the file manually and then remove the folder
+To be able to delete `this_has_a_file`, either delete the file manually and then remove the folder
 
 ```bash
 $ rm this_has_a_file/file
@@ -369,7 +369,7 @@ $ rm this_has_a_file/file
 $ rmdir this_has_a_file
 ```
 
-or delete the directory recursively, which will remove this_has_a_file and everything inside:
+or delete the directory recursively, which will remove `this_has_a_file` and everything inside:
 
 ```bash
 $ rm -r this_has_a_file
@@ -377,7 +377,7 @@ $ rm -r this_has_a_file
 
 ## 8. Open files
 So what happens if you give your files bad names like 'file1' or 'results'? You take a break in a project and return to it 4 months later, and all those short names you gave your files doesn't tell you at all what the files actually contain.
-Of course, this should never happend, because you should **ALWAYS** name your files so that you definetly know what they contain.
+Of course, this should never happened, because you should **ALWAYS** name your files so that you definetly know what they contain.
 But lets say it did happen.
 Then the only way out is to look at the contents of the files and try to figure out if it is the file you are looking for.
 
@@ -409,7 +409,7 @@ Have a look at the file **a** instead.
 That's more like it!
 
 Now imagine that you had 100s of files with weird names, and you really needed to find it..
-Lesson learned: name your files so that you know what they are! And don't be afraid to create folders to organise files.
+Lesson learned: name your files so that you know what they are! And don't be afraid to create folders to organize files.
 
 Another thing to think about when opening files in Linux is which program should you open the file in? The programs we covered during the lectures are **nano** and **less**.
 The main difference between these programs in that **less can't edit files**, only view them.
@@ -497,19 +497,20 @@ $ mv part_2/*.txt part_1/
 
 The wildcard works with most, if not all, Linux commands.
 We can try using wildcards with **ls**.
-Look in the folder **many_files**.
+Look in the folder `many_files`.
 Yes, there are ~1000 .docx files in there.
 But not only .docx files..
 There are a couple of **.txt** files in there as well.
 Find out which numbers they have.
 Try to figure out the solution on your own.
 I have written the answer below, with white text.
-Mark the text with the mouse, or press cmd+a to mark everything on the page to see the answer.
+Mark the text with the mouse, or press **ctrl+a** (cmd+a for the fruitarians) to mark everything on the page to see the answer.
 
 <font color='white'>$ ll many_files/*.txt</font>
 
 ## 10. Utility Commands
 Ok, the last 2 commands now.
+
 **top** and **man**.
 
 Top can be useful when you want to look at which programs are being run on the computer, and how hard the computer is working.

@@ -90,7 +90,7 @@ $ less data.bam
 
 ![](files/uppmax-intro/bam_binary.png)
 
-Not so pretty.. Luckily for us, there is a program called **samtools** (http://sourceforge.net/apps/mediawiki/samtools/index.php?title=SAM_FAQ) that is made for reading bam files.
+Not so pretty.. Luckily for us, there is a program called **samtools**  (http://sourceforge.net/apps/mediawiki/samtools/index.php?title=SAM_FAQ) that is made for reading bam files.
 
 To use it on uppmax we must first load the module for **samtools**. Try starting samtools before loading the module:
 
@@ -129,7 +129,7 @@ Ex.
 $ programname arguments > outfile
 ```
 
-which will launch a program named **programname**, supply it with the argument **argumets**, and write any output that would have been printed to the screen to the file **outfile** instead.
+which will launch a program named **programname**, supply it with the argument **arguments**, and write any output that would have been printed to the screen to the file **outfile** instead.
 
 To use this on samtools:
 
@@ -198,7 +198,7 @@ $ less job_template.txt
 
 ![](files/uppmax-intro/job_template.png)
 
-Edit this file to make the job convert **data.bam** to a sam file named **jobData.sam**. Remember how the queue works? Try to approximate the runtime of the job (almost instant in this case) and increase it by ~50%, and use that time approximation when writing your script file. Longer jobs will wait longer in the queue because it is harder to fit them into gaps in the queue! Also remember to change the project ID to match this course occation.
+Edit this file to make the job convert **data.bam** to a sam file named **jobData.sam**. Remember how the queue works? Try to approximate the runtime of the job (almost instant in this case) and increase it by ~50%, and use that time approximation when writing your script file. Longer jobs will wait longer in the queue because it is harder to fit them into gaps in the queue! Also remember to change the project ID to match this course occasion.
 
 Remember, just write the command you would run if you were sitting by the computer, i.e. load the correct modules, go to the correct folder, and run samtools the right way.
 
@@ -263,7 +263,7 @@ Fun things to look for in this information is **jobstate** which will tell you i
 
 Other good things to look for could be:
 
-* **maxmemory_in_GiB**: tells you how much memory the program used at most.
+* **maxmemory__in__GiB**: tells you how much memory the program used at most.
 * **runtime**: tells you how long time the program ran before it finished/failed
 
 ### Time and space
