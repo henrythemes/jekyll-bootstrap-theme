@@ -219,7 +219,7 @@ For paired ends, this is done with the sampe function of BWA.
 (Note that if you ever forget the syntax for a function, you can just type
 
 ```bash
-bwa <function>;
+bwa <function>
 ```
 
 and it will list the parameters and options.
@@ -274,7 +274,7 @@ This is how programs know to find the index associated with a BAM file.
 If you manually mix these things up (like you change a BAM without changing its name and do not reindex it), you can cause problems for programs that expect them to be in sync.
 
 ```bash
-java -Xmx2g -jar /sw/apps/bioinfo/picard/1.69/kalkyl/BuildBamIndex.jar INPUT=<bam file>;
+java -Xmx2g -jar /sw/apps/bioinfo/picard/1.69/kalkyl/BuildBamIndex.jar INPUT=<bam file>
 ```
 
 ## Step 5. Processing Reads with GATK
@@ -370,7 +370,7 @@ This makes them easier to handle and allows GATK to work on many samples at once
 (We could also feed multiple BAMs, but it would potentially become unwieldy.) You can also use this feature if you have multiple runs of a single sample and want all of your data from that sample in one BAM.
 
 ```bash
-java -Xmx2g -jar /sw/apps/bioinfo/picard/1.69/kalkyl/MergeSamFiles.jar INPUT=<input bam 1> [INPUT=<input bam 2> ... INPUT=<input bam N&>] OUTPUT=<output bam>
+java -Xmx2g -jar /sw/apps/bioinfo/picard/1.69/kalkyl/MergeSamFiles.jar INPUT=<input bam 1> [INPUT=<input bam 2> ... INPUT=<input bam N>] OUTPUT=<output bam>
 ```
 
 Note that you can specify the INPUT option multiple times.
