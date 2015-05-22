@@ -57,7 +57,7 @@ $ ssh -X q34
 **Note:** there is a uppmax specific tool called jobinfo that supplies the same kind of information as squeue that you can use as well (```$ jobinfo -u username```).
 
 ## 3. Copying files needed for laboratory
-To be able to do parts of this lab, you will need some files. To avoid all the course participants editing the same file all at once, undoing each other's edits, each participant will get their own copy of the needed files. The files are located in the folder **/proj/g2015006/labs/uppmax_pipeline_exercise**
+To be able to do parts of this lab, you will need some files. To avoid all the course participants editing the same file all at once, undoing each other's edits, each participant will get their own copy of the needed files. The files are located in the folder `/proj/g2015006/labs/uppmax_pipeline_exercise`
 
 Next, copy the lab files from this folder. -r means recursively, which means all the files including sub-folders of the source folder. Without it, only files directly in the source folder would be copied, NOT sub-folders and files in sub-folders.
 
@@ -71,7 +71,7 @@ $ cp -r <source> <destination>
 $ cp -r /proj/g2015006/labs/uppmax_pipeline_exercise ~/glob/ngs-intro/
 ```
 
-Have a look in **~/glob/ngs-intro/uppmax_pipeline_exercise**:
+Have a look in `~/glob/ngs-intro/uppmax_pipeline_exercise`:
 
 ```bash
 $ cd ~/glob/ngs-intro/uppmax_pipeline_exercise
@@ -94,7 +94,7 @@ The $PATH variable specifies directories where the computer should look for prog
 $ nano
 ```
 
-how does the computer know which program to start? You gave it the name 'nano', but that could refer to any file named nano in the computer, yet it starts the correct one everytime. The answer is that it looks in the directories stored in the $PATH variable. 
+how does the computer know which program to start? You gave it the name 'nano', but that could refer to any file named nano in the computer, yet it starts the correct one every time. The answer is that it looks in the directories stored in the $PATH variable. 
 
 To see which directories that are available by default, type
 
@@ -121,7 +121,7 @@ To pretend that we are loading a module, we will just add a the directory contai
 $ export PATH=$PATH:/proj/g2015006/labs/uppmax_pipeline_exercise/dummy_scripts
 ```
 
-This will set the $PATH variable to whatever it is at the moment, and add a directory at the end of it. Note the lack of a dollar sign infront of the variable name directly after "export". You don't use dollar signs when **assigning** values to variables, and you always use dollar signs when **getting** values from variables.
+This will set the $PATH variable to whatever it is at the moment, and add a directory at the end of it. Note the lack of a dollar sign infront of the variable name directly after "export". You don't use dollar signs when  **assigning**  values to variables, and you always use dollar signs when **getting** values from variables.
 
 **IMPORTANT:** The export command affects only the terminal you type it in. If you have 2 terminals open, only the terminal you typed it in will have a modified path. If you close that terminal and open a new one, it will not have the modified path.
 
