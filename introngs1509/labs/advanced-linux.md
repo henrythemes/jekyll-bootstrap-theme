@@ -445,7 +445,7 @@ Lets look at grep and use some regular expressions http://www.cheatography.com/d
 **Task1:** Using sample_1.sam find all lines that start with "@" and put them in a file called "at.txt".
 
 **Task2:** Find all the lines that end with at least 3 numbers from at.txt.
-(hint: remember to escape {} with \{\})
+(hint: remember, *sometimes* you have to escape {} with \{\})
 
 ## Extra material 2
 Sed is a handy tool to replace strings in files http://www.grymoire.com/Unix/Sed.html
