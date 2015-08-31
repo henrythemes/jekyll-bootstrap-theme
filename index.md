@@ -5,7 +5,7 @@ title:  'Welcome'
 
 ## Courses
 
-[Old courses (2012-2014)](http://uppnex.se/courses)
+[Old courses (2012-2014)](http://uppnex.se/twiki/bin/view/Courses/)
 
 ### Introduction to Bioinformatics Using NGS Data 
 [2015 February - Uppsala](introngs1502/)   
