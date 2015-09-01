@@ -7,7 +7,7 @@ title:  'Travel'
 
 **Travel with Uppsala city buses:**  
 Pay your bus ticket with your mobile phone: send a text message, **UV** to **72472** (25 SEK)
-Please see www.ul.se for timetables. Use the UL journey planner and search the addresses as written below.
+Please see [www.ul.se](www.ul.se) for timetables. Use the UL journey planner and search the addresses as written below.
 
 From **Uppsala central station** (Bus B3) to **Uppsala Science Park** (BMC) [~10 min](https://www.google.se/maps/dir/Uppsala+Centralstation,+Uppsala/59.8419003,17.6364859/@59.8497883,17.6282717,15z/data=!3m1!4b1!4m9!4m8!1m5!1m1!1s0x465fcbf9a0d697b1:0x1901cc46b512aff6!2m2!1d17.6460864!2d59.8585338!1m0!3e3)  
 From **Akademihotellet** – **Uppsala Science Park** (BMC) [~13 min](https://www.google.se/maps/dir/Akademihotellet,+Uppsala/59.8419003,17.6364859/@59.8487143,17.6309212,15.75z/data=!4m9!4m8!1m5!1m1!1s0x465fcbf17a719c15:0xebebee5d1f67c334!2m2!1d17.6306462!2d59.8563615!1m0!3e3)  
