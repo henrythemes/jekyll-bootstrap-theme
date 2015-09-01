@@ -25,7 +25,7 @@ Room: Trippelrummet, E10, ground floor
 **13.00-14.00** Lecture: NGS and bioinformatics analysis pipelines (Adam Ameur)  
 **14.30-17:00** Project discussion - (Adam Ameur, Olga Vinnere Pettersson, Henrik Lantz, Thomas Källman)  
 
-**18:00-** Course dinner at [Koh Phangan](https://www.google.se/maps/place/Restaurang+Koh+Phangan/@59.856845,17.629343,17z/data=!3m1!4b1!4m2!3m1!1s0x465fcbf3d83e6711:0x4b004e395b108348)
+**18:00-** Course dinner at [Koh Phangan](https://www.google.se/maps/place/Restaurang+Koh+Phangan/@59.856845,17.629343,17z/data=!3m1!4b1!4m2!3m1!1s0x465fcbf3d83e6711:0x4b004e395b108348)  
 
 **Wednesday**  
 Room: Trippelrummet, E10, ground floor  
