@@ -13,7 +13,7 @@ Held in Uppsala September 14-18, 2015.
 [Schedule](schedule)  
 
 ## Maps & Travel Info
-[Map over Uppsala](https://www.google.se/maps/place/Uppsala/@59.8332794,17.6584471,12z/data=!3m1!4b1!4m2!3m1!1s0x465fcbfb8532ab8d:0xaa4fe90a85820807)  
+[Map over Uppsala](https://www.google.se/maps/@59.8557755,17.6369985,13.5z)  
 [Map over Uppsala Biomedical Centre (BMC)](http://www.bmc.uu.se/digitalAssets/205/205659_3bmc-2014-810x374.jpg)  
 [Travel Info](travel)   
 
