@@ -24,7 +24,7 @@ Room: Trippelrummet, E10, ground floor
 **12.00-13.00** Lunch   
 **13:00-17:00** Exercise: Alignment with BWA; Samtools; Data Processing with Picard; Variant Calling with GATK; SAM/BAM and VCF Formats part I (Anna Johansson, Sebastian DiLorenzo, Jacques Dainat, Åsa Björklund)  
 
-**18:00->** Course dinner at Koh Phangan  
+**18:00->** Course dinner at [Koh Phangan](https://www.google.se/maps/place/Restaurang+Koh+Phangan/@59.856845,17.629343,17z/data=!3m1!4b1!4m2!3m1!1s0x465fcbf3d83e6711:0x4b004e395b108348)   
 
 **Wednesday**  
 Room: Trippelrummet, E10, ground floor  
