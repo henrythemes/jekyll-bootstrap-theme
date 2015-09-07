@@ -5,7 +5,7 @@ title:  'Schedule'
 
 # Schedule
 
-####This course is given at Navet (E10) at BMC. Click the heading of a topic to see the lecture slides or lab instructions.
+####This course is given at Navet (E10) at BMC. Click the heading of a topic to see the lecture slides or lab instructions. Slides are added as the course progresses.
 
 **Monday**  
 Room: Trippelrummet, E10, ground floor  
