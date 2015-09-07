@@ -11,7 +11,7 @@ You must use [http://uppnex.se/emu/](http://uppnex.se/emu/) to try the commands 
 If you any questions regarding this tutorial contact: [martin.dahlo@scilifelab.uu.se](mailto:martin.dahlo@scilifelab.uu.se)
 
 Using Linux is often the hardest part of the course, so being familiar with writing things on a command-line will help.
-**You should at least go through the exercises in the tutorial, no need to know it by heart.**
+**You should at least go through the exercises (1+2) in the tutorial, no need to know it by heart.**
 
 Here are links to some manuals.
 You don't have to read through all of it, but you should get a glimps of what it will be like to use the software.
