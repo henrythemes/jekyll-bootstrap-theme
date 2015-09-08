@@ -24,8 +24,6 @@ Room: Trippelrummet, E10, ground floor
 **12.00-13.00** Lunch   
 **13:00-17:00** Exercise: Alignment with BWA; Samtools; Data Processing with Picard; Variant Calling with GATK; SAM/BAM and VCF Formats part I (Anna Johansson, Sebastian DiLorenzo, Jacques Dainat, Åsa Björklund)  
 
-**18:00->** Course dinner at [Koh Phangan](https://www.google.se/maps/place/Restaurang+Koh+Phangan/@59.856845,17.629343,17z/data=!3m1!4b1!4m2!3m1!1s0x465fcbf3d83e6711:0x4b004e395b108348)   
-
 **Wednesday**  
 Room: Trippelrummet, E10, ground floor  
 **09:00-12:00** Exercise: Alignment with BWA; Samtools; Data Processing with Picard; Variant Calling with GATK; SAM/BAM and VCF Formats part II (Anna Johansson, Martin Dahlö, Jacques Dainat, Åsa Björklund)   
@@ -33,6 +31,8 @@ Room: Trippelrummet, E10, ground floor
 **13.30-14.30** Lecture: Next Generation Sequencing Overview (Olga Vinnere Pettersson)  
 **14.45-15.45** Lecture: NGS and bioinformatics analysis pipelines (Adam Ameur)  
 **16.00-17:00** Project discussion workshop - (Adam Ameur, Olga Vinnere Pettersson, Henrik Lantz, Thomas Källman)   
+
+**18:00->** Course dinner at [Koh Phangan](https://www.google.se/maps/place/Restaurang+Koh+Phangan/@59.856845,17.629343,17z/data=!3m1!4b1!4m2!3m1!1s0x465fcbf3d83e6711:0x4b004e395b108348) 
 
 **Thursday**  
 Room: Trippelrummet, E10, ground floor  
