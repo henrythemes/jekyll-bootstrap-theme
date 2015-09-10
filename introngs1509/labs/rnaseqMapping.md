@@ -11,22 +11,29 @@ title:  'RNAseq'
 
 A common problem in the analysis of RNA-seq data is to relate it to a known genome sequence and use that information to study the expression of genes - within a sample or across multiple conditions, such as tissues or time points.
 A popular pipeline to perform such an analysis is the Tuxedo protocol, which consist of set of programs that can be used to go from mapping of short reads to reference genomes all the way to detection of differential gene expression.
-The two main programs included in package are Tophat - a short read mapper and Cufflinks that performs analysis of the mapped reads.
+The two main programs included in the package are Tophat - a short read mapper and Cufflinks that performs analysis of the mapped reads.
 In this exercise you will learn how to use some of these tools to study gene expression differences between different human tissues.
 
 Note: Do not simply copy the various unix commands quoted throughout this tutorial.
-Many include placeholders (folder names etc), so make sure you use whatever file names you have created.
+Many include placeholders (folder names etc), so make sure you alter
+the command to actually reflect whatever file names you have created.
 
 [Illumina Bodymap2.0](http://www.ebi.ac.uk/gxa/experiments/E-MTAB-513) data consists of 16 human tissues that were sequenced using both single-end and pair-end technologies.
-The mapped reads can also be visualised at the [Ensembl genome browser](http://www.ensembl.info/blog/2011/05/24/human-bodymap-2-0-data-from-illumina/)   
+The mapped reads can be visualised at the [Ensembl genome browser](http://www.ensembl.info/blog/2011/05/24/human-bodymap-2-0-data-from-illumina/)   
 
 In this tutorial we will due to time constraints focus on a limited set of tissues and only do the analysis for chromosome 1 of the human genome.
-In addition, the files we use are just subsets of the original files as the analysis of the full files unfeasible  for a course lab.
+In addition, the files we use are just subsets of the original files
+as the analysis of the full files undoable within the time frame of a course lab.
 
 The main goal goal with this tutorial is to detect differential gene expression between two different tissues (pick any two tissues that you want to compare).
 For all included tissues there is one single-end library and one pair-end library available.
 In order to test for significance in gene expression more than one replicate from each tissue is needed and we will 
-in this lab use the two different library types as replicates in the detection of differential gene expression.
+in this lab use the two different library types as replicates in the
+detection of differential gene expression. So if you choose to compare
+brain and kidney, you will have to the analysis for both single-end (ERR030890)
+and pair-end (ERR030882) libraries for brain and compare to
+single-end (ERR030893) and pair-end (ERR030885) libraries for kidney.
+
 Below is a summary of the data and tissues available.
 
 * Single-end reads, 75bp
@@ -34,7 +41,7 @@ Below is a summary of the data and tissues available.
     * ERR030890: Female brain
     * ERR030892: Female colon
     * ERR030893: Female kidney
-    * ERR030901: Female ovary  
+    * ERR030901: Female ovary
 <br/>
 * Pair-end reads, 2 x 50bp
     * ERR030880: Female adipose
@@ -45,7 +52,6 @@ Below is a summary of the data and tissues available.
 * human reference genome (or in this lab, only chromosome 1 named: rm.chr.1.fa)
 * genome index for aligning reads with Bowtie2
 * reference genome annotation based on the [EnsEMBL](http://www.ensembl.org/index.html) database named: Homo_sapiens.GRCh38_Chr1.77.gtf
-* NB! All intermediate files are available at Uppmax so if any of the steps fails you can pick up the analysis at the next step pf the tutorial
 
 ## Tophat
 
@@ -60,8 +66,12 @@ Cufflinks is a collection of programs that perform different steps in the analys
 The output is usually a list of transcribed loci (primarily ‘genes’) and their expression levels within and/or between samples.
 For the analysis of multiple data sets, the general workflow in cufflinks consists of the following steps:
 * Cufflinks: Assemble the aligned reads of a given sample, identify transcribed loci and determine expression
-* Cuffmerge: Reconcile data on transcribed loci across multiple samples to produce a consensus annotation of loci
+* Cuffmerge: Reconcile data on transcribed loci across multiple
+  samples to produce a consensus annotation of loci (Note that if one
+  has an annotion that one is happy omit this step and
+  cuffdiff using the Homo_sapiens.GRCh38_Chr1.77.gtf instead)
 * Cuffdiff: Compare read data across samples, guided by consensus annotation, and determine differential expression of loci, test for significance. The main output we are interested in comes from the cuffdiff analysis and consists of differential expression estimates for a set of genes.
+
 In the following, we will be going through the necessary steps to accomplish this.
 
 ### Step-by-Step
@@ -73,18 +83,20 @@ In the following, we will be going through the necessary steps to accomplish thi
 1. Run Cuffmerge merge detected transcript over all samples
 1. Run Cuffdiff
 
-#### 0) Book a node
+#### 1) Book a node
 
 We have reserved half a node for each student during this course.
 By now, you are probably already familiar with the procedure:
 
+<font color="red">**NB! Do this only once and make sure you do not have multiple
+reservations running at the same time, otherwise you will take away resources from the other course participants!**</font>
+
+
 ```bash
-$ salloc -A g2015006 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2015006_21 &
+$ salloc -A g2015031 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2015031_21 &
 ```
 
-Make sure you ony do this once, otherwise you will take away resources from the other course participants!
-
-#### 1) Prepare your data
+#### 2) Prepare your data
 
 <font color="red">**Note: It is completely up to your how you organize your data - what follows below is merely a suggestion:**</font>
 
@@ -94,15 +106,15 @@ Make sure you ony do this once, otherwise you will take away resources from the 
 $ cd ~/glob
 $ mkdir transcriptome
 $ cd transcriptome
+$ mkdir results
 ```
 
-   * sym-link the required files and folders (this will ceate a symbolic link to the original folders/files and saves you the trouble of always typing the full path - BUT: Do not write into these linked folders, because that data is shared across everyone working with these folders...)
+* sym-link the required files and folders (this will create a symbolic link to the original folders/files and saves you the trouble of always typing the full path - BUT: Do not write into these linked folders, because that data is shared across everyone working with these folders...)
 
 ```bash
-ln -s /proj/g2015005/labs/transcriptome_map/reads/PE/
-ln -s /proj/g2015005/labs/transcriptome_map/reads/SE
-ln -s /proj/g2015005/labs/transcriptome_map/results
-ln -s /proj/g2015005/labs/transcriptome_map/reference
+ln -s /proj/g2015031/labs/transcriptome_map/reads/PE/
+ln -s /proj/g2015031/labs/transcriptome_map/reads/SE
+ln -s /proj/g2015031/labs/transcriptome_map/reference
 ```
 
 Your directory structure should look like this:
@@ -122,7 +134,7 @@ One useful resource here is the FTP server of Illumina [here](http://support.ill
 Finally, also note that we are providing you with the outputs of the different steps.
 This is to make sure that if you run into some trouble, like software crashing half-way through analysis, you can still continue with your exercises.
 
-#### 2) Load software
+#### 3) Load software
 
 You have done this before, but here is a quick reminder:
 
@@ -138,7 +150,7 @@ $ module avail
 
 It may be that you need to load a different version.
 
-#### 3) Run Tophat
+#### 4) Run Tophat
 
 What goes in, what comes out:
 
@@ -162,23 +174,29 @@ Tophat will take one or multiple FASTQ files and align the reads therein to a ge
 A common command may look like this:
 
 ```bash
-$ tophat -o tophat_outputSE30888 --solexa-quals -p 8 --library-type=fr-unstranded reference/rm.chr.1 SE/ERR030888.fq.gz
+$ tophat -o results/tophat_outputSE30888 --solexa-quals -p 8 --library-type=fr-unstranded reference/rm.chr.1 SE/ERR030888.fq.gz
 
-$ tophat -o tophat_outputPE30880 --solexa-quals -p 8 -r 200 --mate-std-dev 90 --library-type=fr-unstranded reference/rm.chr.1 PE/ERR030880_1.fq.gz PE/ERR030880_2.fq.gz
+$ tophat -o results/tophat_outputPE30880 --solexa-quals -p 8 -r 200 --mate-std-dev 90 --library-type=fr-unstranded reference/rm.chr.1 PE/ERR030880_1.fq.gz PE/ERR030880_2.fq.gz
 ```
 
-We specify the output location (-o), the number of CPUs to use (-p), which type of sequencing library was used to produce the data (here ‘fr-unstranded’), in which format the quality information was stored (here ‘solexa’, pre 1.3), the location of the reference annotation, the location of the Bowtie2-formatted index file for the genome sequence and finally a FASTQ file.
-For pair-end data we have two FASTQ files and also define the expected size and variation in size of the fragments sequenced.
+We specify the output location (-o), the number of CPUs to use (-p),
+which type of sequencing library was used to produce the data (here
+‘fr-unstranded’), in which format the quality information was stored
+(here ‘solexa’, pre 1.3), the location of the reference annotation,
+the location of the Bowtie2-formatted index file for the genome sequence and finally a FASTQ file. For pair-end data we have two FASTQ files and also define the expected size and variation in size of the fragments sequenced.
 
 While this is running, you may want to head over to the [tophat manual](http://cole-trapnell-lab.github.io/cufflinks/cufflinks/index.html) and have a look at the available options and technical details.
 
 The aligned reads are found in the output directory **you have chosen**, e.g. accepted_hits.bam.
-For convenience, you may want to sym-link this file into your main project folder:
+For convenience, you may want to sym-link this file into your main
+project folder. This links the accepted_hits.bam in the folder
+results/tophat_outputSE30888 to results/SE30888.bam making it easier
+to refer to the correct bam file in later steps.
 
 ```bash
-$ ln -s tophat_outputSE30888/accepted_hits.bam SE30888.bam
+$ ln -s results/tophat_outputSE30888/accepted_hits.bam results/SE30888.bam
 ```
-#### 4) Cufflinks: Assembly and transcript calling
+#### 5) Cufflinks: Assembly and transcript calling
 
 What goes in, what comes out:
 
@@ -240,7 +258,7 @@ The longer version for the more mathematically inclined among us can be found at
 
 These output files are tab-delimited and can e.g. be opened in e.g. Microsoft Excel (or similiar) to be analyzed and/or visualized.
 
-#### 5) Cuffmerge: Reconciling different transcript models
+#### 6) Cuffmerge: Reconciling different transcript models
 
 What goes in, what comes out:
 
@@ -268,7 +286,8 @@ $ ln -s ../cufflinks.kidneyPE/transcripts.gtf kidneyPE.gtf
 
 Now that we have both transcript model files in one location, we can attempt to merge them.
 For this, we first have to create a text file that contains a list of GTF files to merge (quite inconvenient, I know).
-Use whichever tool you feel comfortable with and write the name of each gtf file in one line, then save it as transcripts.txt.
+Use whichever tool you feel comfortable with and write the name of
+each gtf file line by line, then save it as transcripts.txt.
 
 ```bash
 $ cuffmerge -o merged -g reference/Homo_sapiens.GRCh38_Chr1.77.gtf -p 8 -s reference/genome.fa transcripts.txt
@@ -284,7 +303,7 @@ $ ln -s cuffmerge/merged/merged.gtf
 
 Now we are ready to check for differential expression in our read data from chromosome 1.
 
-#### 6) Cuffdiff: Differential expression analysis
+#### 7) Cuffdiff: Differential expression analysis
 
 What goes in, what comes out:
 
@@ -347,3 +366,33 @@ This has certain drawbacks, specifically with respect to accuracy in the isoform
 Or perhaps you are not interested in comparing expression between pairs of samples but in a time series.
 For this reason as well as others, you may need to adjust one or several parameters to get the best results - depending on the nature of your data.
 We therefore highly recommend you to carefully read both manuals (and possible the original publications) so as to familiarize yourself with these additional options.
+
+### Other alternatives
+
+There are several different tools available that have the ability to
+do many of the steps described above with the Tuxedo pipeline. Here
+are a few options for the different steps
+
+#### Short read mappers that suitable for RNA-seq data
+
+* [Star](https://github.com/alexdobin/STAR)
+* [Subread](http://subread.sourceforge.net)
+* [Gsnap](http://research-pub.gene.com/gmap/) 
+
+#### Counting reads from mapped data (bam files) and a annotation file
+     (GTF/GFF file)
+
+* [HTseq](http://www-huber.embl.de/users/anders/HTSeq/doc/count.html#count)
+* [Featurecounts](http://bioinf.wehi.edu.au/featureCounts/)
+
+#### Detect differential gene expression
+
+Most software suitable for detection of differential gene expression
+are developed in R and available as add-on packages to R at
+[bioconductor](http:/www.bioconductor.org)
+
+* edgeR
+* DEseq2
+* Limma
+* DEXseq, specifically made for detection of differential usage of
+exons
