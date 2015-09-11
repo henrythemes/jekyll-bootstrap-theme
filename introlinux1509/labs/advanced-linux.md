@@ -56,7 +56,7 @@ Directory: Whether the directory can be entered through "cd".
 Start your terminal, log onto UPPMAX (check with squeue which core you had and ssh onto it, if for some reason your core is gone :
 
 ```bash
-$ salloc -A g2015006 -t 04:30:00 -p core --no-shell --reservation=g2015006_19 &
+$ salloc -A g2015037 -t 04:30:00 -p core --no-shell --reservation=g2015037_17 &
 
 ```
 
@@ -340,7 +340,7 @@ This example would perhaps be more real if we had several text files with differ
 Copy the file sample_1.sam to your folder using the command below
 
 ```bash
-$ cp /proj/g2015006/labs/linux_additional-files/sample_1.sam .
+$ cp /proj/g2015037/labs/linux_additional-files/sample_1.sam .
 ```
 
 Use grep to search in the file for a specific string of nucleotides, for example:
