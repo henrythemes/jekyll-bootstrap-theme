@@ -6,6 +6,8 @@ title:  'Resequencing Extra'
 
 # Extra
 
+Except for Extra 2 and Extra 3 that need to be run in that order, the different parts are independent and can be run in any order you want. 
+
 ##Extra1: View data in the UCSC browser, extract interesting annotation tracks
 
 The UCSC browser is a collection of tools for viewing and manipulating genomic data. Here we will only use a very limited set of all the functionalities, but there is extensive documentation that allows you to find all the possibilities. So while you have the data loaded into the UCSC browser, take the opportunity to look around and explore. 
