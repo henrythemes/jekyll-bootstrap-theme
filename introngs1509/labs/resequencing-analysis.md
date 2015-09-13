@@ -22,7 +22,7 @@ We have reserved half a node for each student during this course.
 By now, you are probably already familiar with the procedure:
 
 ```bash
-salloc -A g2015006 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2015006_20 &
+salloc -A g2015031 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2015031_15 &
 ```
 
 Make sure you ony do this once, otherwise you will take away resources from the other course participants!
@@ -73,7 +73,7 @@ You need to know where your input data are and where your output will go.
 All of your input data for the first steps of these exercises will be in our course project:
 
 ```bash
-/proj/g2015006/labs/gatk
+/proj/g2015031/labs/gatk
 ```
 
 Normally, if you were working on your own project, you would want to write your output into your project directory also.
@@ -133,7 +133,7 @@ You can copy this from the project directory to your workspace.
 (Normally copying references is a bad thing, but this is so that everyone can see the full BWA process.)
 
 ```bash
-cp /proj/g2015006/labs/gatk/refs/human_17_v37.fasta ~/glob/gatk
+cp /proj/g2015031/labs/gatk/refs/human_17_v37.fasta ~/glob/gatk
 ```
 
 Check to see that this worked.
@@ -148,7 +148,7 @@ should show you:
 -rw-r--r-- 1 mczody uppmax 82548517 Sep 23 21:44 human_17_v37.fasta
 ```
 
-except with your username.
+except with your username. The size of the file in bytes is the number showing after your username. 
 
 If your file is not there or if it's the wrong size, something went wrong with your copy and you need to figure out what before you move on.
 Checking the existence and size of files from each step in a process before performing the next step is a good practice that save a lot of time.
@@ -179,7 +179,7 @@ First we align each set of reads, then we combine the paired alignments together
 Let's start with one chunk of whole genome shotgun data from individual NA06984.
 
 ```bash
-bwa aln ~/glob/gatk/human_17_v37.fasta /proj/g2015006/labs/gatk/fastq/wgs/NA06984.ILLUMINA.low_coverage.17q_1.fq > ~/glob/gatk/NA06984.ILLUMINA.low_coverage.17q_1.sai
+bwa aln ~/glob/gatk/human_17_v37.fasta /proj/g2015031/labs/gatk/fastq/wgs/NA06984.ILLUMINA.low_coverage.17q_1.fq > ~/glob/gatk/NA06984.ILLUMINA.low_coverage.17q_1.sai
 ```
 
 Note that if you have to use a file redirect ( &gt;) for your output.
@@ -202,7 +202,7 @@ Now we need to do this again for the second read file.
 Everything is that same except with 2s instead of 1s.
 Don't forget to change your output file also!
 
-Before we go on to the next step, take a minute and look at the fastq files.
+Before we go on to the next step, take a minute and look at the fastq files and understand the format and contents of these files.
 Use
 
 ```bash
@@ -243,7 +243,7 @@ We want to convert our SAM into BAM for everything that comes downstream.
 
 Typically the BAM has the same name as the SAM but with the .sam extension replaced with .bam.
 
-We need to add something called read groups to our BAM file, because GATK is going to need this information.
+We need to add something called read groups which defines information about the sequencing run to our BAM file, because GATK is going to need this information.
 Normally, you would do this one sequencing run at a time, but because of the way I downloaded these data from 1000 Genomes, our data are pulled from multiple runs and merged.
 We will pretend that we just have one run for each sample, but on real data, you should not do this.
 
@@ -265,10 +265,10 @@ We're going to use this for all our read group information.
 * RGLB is the group library. This will come from your library construction process. You may have multiple read groups per library if you did multiple runs, but you should only have one library per read group. We will add -lib the sample name.
 * RGPL is the platform. It is a restricted vocabulary. These reads are ILLUMINA.
 * RGPU is the run identifier. It would normally be the barcode of your flowcell. You may have multiple read groups per run, but only one run per read group. We will just fake it as &lt;sample&gt;-01.
-* RGSM is the sample name. Use the actual sample name. You can have multiple read groups, libraries, runs, and even platforms per sample, but you can only have one sample per read group. (If you are pooling samples without barcoding, there is no way to separate them later, so you should just designate the pool itself as a sample, but downstream analyses like SNP calling will be blind to that knowledge.) One thing to note is that the SAM/BAM header contains a field SO for sort order. Picard modifies this field to coordinate when it sorts BAMs, but samtools actually doesn't (as of this writing). This can create problems, because Picard also validates that BAMs are sorted before performing operations that require a sorted file, while samtools doesn't. To get around this, Picard tools take an optional parameter ASSUME_SORTED which when set true tells Picard to proceed as if the file were sorted even though it does not say so.
+* RGSM is the sample name. Use the actual sample name. You can have multiple read groups, libraries, runs, and even platforms per sample, but you can only have one sample per read group. (If you are pooling samples without barcoding, there is no way to separate them later, so you should just designate the pool itself as a sample, but downstream analyses like SNP calling will be blind to that knowledge.) 
 
 Lastly, we need to index this BAM, so that programs can randomly access the sorted data without reading the whole file.
-This creates a file called \&lt;input bam\&gt;.bai, which contains the index.
+This creates a file called &lt;input bam&gt;.bai, which contains the index.
 You do not have to specify this because the index file always has the exact same name as the BAM except that it has .bai instead of the .bam extension.
 This is how programs know to find the index associated with a BAM file.
 If you manually mix these things up (like you change a BAM without changing its name and do not reindex it), you can cause problems for programs that expect them to be in sync.
@@ -311,7 +311,7 @@ Next, we're going to go back to Picard and mark duplicate reads:
 java -Xmx2g -jar /sw/apps/bioinfo/picard/1.69/kalkyl/MarkDuplicates.jar INPUT=<input bam> OUTPUT=<marked bam> METRICS_FILE=<metrics file>
 ```
 
-Note that you need to feed it an \&lt;input bam\&gt;, which should be your realigned BAM from before, and you need to specify an output, the &lt;marked bam&gt; which will be a new file used in the following steps.
+Note that you need to feed it an &lt;input bam&gt;, which should be your realigned BAM from before, and you need to specify an output, the &lt;marked bam&gt; which will be a new file used in the following steps.
 There is also a &lt;metrics file&gt;, which is a output text file.
 We will take a look at that now.
 
@@ -340,7 +340,7 @@ This also happens in two steps.
 First, we compute all the covariation of quality with various other factors:
 
 ```bash
-java -Xmx2g -jar /sw/apps/bioinfo/GATK/1.5.21/GenomeAnalysisTK.jar -T CountCovariates -I <input bam> -R <ref file> -knownSites /proj/g2015006/labs/gatk/ALL.chr17.phase1_integrated_calls.20101123.snps_indels_svs.genotypes.vcf -cov ReadGroupCovariate -cov CycleCovariate -cov DinucCovariate -cov QualityScoreCovariate -recalFile <calibration csv>
+java -Xmx2g -jar /sw/apps/bioinfo/GATK/1.5.21/GenomeAnalysisTK.jar -T CountCovariates -I <input bam> -R <ref file> -knownSites /proj/g2015031/labs/gatk/ALL.chr17.phase1_integrated_calls.20101123.snps_indels_svs.genotypes.vcf -cov ReadGroupCovariate -cov CycleCovariate -cov DinucCovariate -cov QualityScoreCovariate -recalFile <calibration csv>
 ```
 
 We need to feed it our bam file and our ref file.
@@ -392,7 +392,7 @@ It needs to have a .vcf extension because it is a vcf file.
 The beginning part should be identifiable as associated with your merged file name (like the name root you use before the .bam) so you can tell later which vcf file came from which BAM).
 
 I have also generated some merged BAMs with all 55 samples that have low coverage data and exome data, one file each for low coverage and exome.
-These are in /proj/g2015005/labs/gatk/processed/MERGED* (remember that the * means every file that matches the rest of this string and then has any other text after that).
+These are in /proj/g2015031/labs/gatk/processed/MERGED* (remember that the * means every file that matches the rest of this string and then has any other text after that).
 
 Run the unified genotyper on both the exome and the low coverage data.
 These jobs should each take ~ 20 minutes to run.
@@ -471,7 +471,7 @@ We will start with the merged bam files.
 We want to get both the bams and bais for the low coverage and exome data.
 
 ```bash
-scp <username>@milou.uppmax.uu.se:/proj/g2015006/labs/gatk/processed/MERGED.illumina.\* ./
+scp <username>@milou.uppmax.uu.se:/proj/g2015031/labs/gatk/processed/MERGED.illumina.\* ./
 ```
 
 Because your uppmax user name is different than the user name on the local machine, you have to put your uppmax user name in front of the @ in the scp so that it knows you want to log in as your uppmax user, not as macuser.
@@ -486,7 +486,7 @@ It will prompt you for your uppmax password, then it should download four files.
 We will also want to load the vcfs into IGV, so you can look at what calls got made.
 
 ```bash
-scp <username>@milou.uppmax.uu.se:/proj/g2015006/labs/gatk/vcfs/MERGED.illumina.\* ./
+scp <username>@milou.uppmax.uu.se:/proj/g2015031/labs/gatk/vcfs/MERGED.illumina.\* ./
 ```
 
 By now, IGV should be launching.
@@ -542,3 +542,7 @@ Compare calls from the exome versus the low coverage sequencing.
 You can look at just the calls you made, or you can look at the calls from the full set, where you may see more of a difference between different types and depths of sequencing and between the calls with and without filtering.
 You can even load these data all together.
 Are there calls that were made using only one or two samples that were not made in the full data set or vice versa?
+
+## [Extra labs](labs/resequencing-extra.md)
+
+If you have more time there are a couple of extra excersices where you will perform downstream analysis of the called variants in your .vcf file. 
