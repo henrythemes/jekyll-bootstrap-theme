@@ -6,7 +6,7 @@ title:  'Resequencing Extra'
 
 # Extra
 
-Except for Extra 2 and Extra 3 that need to be run in that order, the different parts are independent and can be run in any order you want. 
+Except for Extra 1 and Extra 2 that need to be run in that order, the different parts are independent and can be run in any order you want. 
 
 ##Extra1: View data in the UCSC browser, extract interesting annotation tracks
 
@@ -35,13 +35,13 @@ Step 6: Use the zoom in/out buttons to get the optimal view of your data. 
 
 Step 7: Click the home-button. On the left choose Table browser. 
 
-Step 8: Choose genome and assembly and the position you are interested in. Also choose which track you are interested in ( one option Group: Genes and gene prediction, track RefSeq Genes). Chose output format BED, supply a file name and press get output. Save the file and use it in Extra 1. Do it again if you are interested in other annotation tracks. 
+Step 8: Choose genome and assembly and the position you are interested in. Also choose which track you are interested in ( one option - Group: Genes and gene prediction, track RefSeq Genes). Chose output format BED, supply a file name and press get output. Save the file and use it in Extra 2. Do it again if you are interested in other annotation tracks. 
 
 ## Extra 2: Select subsets with bedTools
 
 Originally BEDTools was written to handle the tab delimited .bed format where each line describes a feature. The three first columns are required and are chromosome - start coord - end coord. The are 9 additional optional columns for more information about the feature. The format is more closely described in http://genome.ucsc.edu/FAQ/FAQformat. Currently BEDTools supports input data in more formats including .bam, .bed, .gff or vcf. The BEDTools suite includes a large number of different commands, but a good point to start is intersectBed that can be used to find the common regions between two files. To learn more about this and other commands use either the flag -h or read more on the online documentation http://bedtools.readthedocs.org/en/latest/.
 
-Task: As input use the .vcf file with your variants and the annotation track from the UCSC browser you downloaded in Extra 2. Or use the bed- file with RefSeq gene annotation in /proj/g2015006/labs/gatk/other/RefSeq_genes.bed. Play around the different options and try to answer some questions. How many variants are located within genes? How many variants are not located within genes? How many genes have variants within them?  
+Task: As input use the .vcf file with your variants and the annotation track from the UCSC browser you downloaded in Extra 1. Or use the bed- file with RefSeq gene annotation in /proj/g2015031/labs/gatk/other/RefSeq_genes.bed. Play around the different options and try to answer some questions. How many variants are located within genes? How many variants are not located within genes? How many genes have variants within them?  
 
 Useful hints:
 
@@ -53,7 +53,7 @@ The command wc -l filename will give you the number of lines in a file
 
 "ANNOVAR is an efficient software tool to utilize update-to-date information to functionally annotate genetic variants detected from diverse genomes"
 
-Annovar have a extensive online documentation (http://annovar.openbioinformatics.org/en/latest/). In this exercis you will use the program to annotate the variants in you .vcf file with gene annotation - is the variant located within a gene? What is the potential effect of the variant on that gene? The program also supplies additional annotation tracks that can be used according to your preferences.
+Annovar have a extensive online documentation (http://annovar.openbioinformatics.org/en/latest/). In this exercise you will use this program to annotate the variants in your .vcf file with gene annotation. Is the variant located within a gene? What is the potential effect of the variant on that gene? The program also supplies additional annotation tracks that can be used according to your preferences.
 
 Step 1: Annovar is available as a module on uppmax with bioinfo-tools. Load this module ( module add bioinfo-tools annovar)
 
