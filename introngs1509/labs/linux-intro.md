@@ -194,7 +194,7 @@ Without it, only files directly in the source folder would be copied, NOT sub-fo
 ```bash
 Ex: cp -r <source folder> <destination folder>
 
-$ cp -r /proj/g2015031/labs/linux_tutorial/* ~/glob/ngs-intro/linux_tutorial
+$ cp -r /proj/g2015031/labs/linux_tutorial/ ~/glob/ngs-intro/linux_tutorial
 ```
 
 If you are unable to copy the files on uppmax, you can download the files instead of copying them.
