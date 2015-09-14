@@ -19,7 +19,7 @@ Fire up the available ssh program and enter the following (replace **username** 
 
 ```bash
 $ ssh -X username@milou.uppmax.uu.se
-```
+```l
 
 and give your password when prompted. As you type, nothing will show on screen. No stars, no dots. It is supposed to be that way. Just type the password and press enter, it will be fine.
 
@@ -185,7 +185,7 @@ $ module unload <module name>
 
 Look in the list from ```$ module list``` to see the name of the module you want to unload.
 
-When the old module is unloaded, load the latest samtools module (samtools/0.1.18).
+When the old module is unloaded, load samtools/0.1.18 (or try with the latest samtools module!).
 
 ## 6. Submitting a job
 Not all jobs are as small as converting this tiny bam file to a sam file. Usually the bam files are several gigabytes, and can take hours to convert to sam files. You will not have reserved nodes waiting for you to do something either, so running programs is done by submitting a job to the queue system. What you submit to the queue system is a script file that will be executed as soon as it reaches the front of the queue. The scripting language used in these scripts is **bash**, which is the same language as you usually use in a terminal i.e. everything so far in the lecture and lab has been in the bash language (cd, ls, cp, mv, etc.).
