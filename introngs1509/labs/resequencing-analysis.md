@@ -382,10 +382,16 @@ Rerun the mapping and variant calling steps for at least one more sample before 
 
 # Joint genotyping
 
-Now you will call variants on all the gvcf-files produced in the previous step jointly by using the GenotypeGVCFs. This takes the output from the Haplotypecaller that was run on each sample to create raw SNP and indel VCFs.
+Now you will call variants on all the gvcf-files produced in the previous step by using the GenotypeGVCFs. This takes the output from the Haplotypecaller that was run on each sample to create raw SNP and indel VCFs.
 
 ```bash
 java -Xmx2g -jar /sw/apps/bioinfo/GATK/3.4-46/GenomeAnalysisTK.jar -T GenotypeGVCFs -R <ref file> --variant <sample1>.g.vcf --variant <sample2>.g.vcf ... -o <output>
+```
+
+As an alternative try also to run the same thing but with all the gvcf for all low_coverage files in the course directory. A gvcf file where these have been merged can be found in the course directory, /proj/g2015031/labs/gatk/vcfs/MERGED.illumina.low_coverage.17q.g.vcf. In the next step when viewing the data in IGV, look at both and try to see if there is a difference for a your sample. 
+
+```bash
+java -Xmx2g -jar /sw/apps/bioinfo/GATK/3.4-46/GenomeAnalysisTK.jar -T GenotypeGVCFs -R <ref file> --variant /proj/g2015031/labs/gatk/vcfs/MERGED.illumina.low_coverage.17q.g.vcf -o <output>
 ```
 
 ## Filtering Variants
@@ -400,7 +406,7 @@ Why do you think that some of these parameters are different between the two typ
 An example command line is:
 
 ```bash
-java -Xmx2g -jar /sw/apps/bioinfo/GATK/3.4-46/GenomeAnalysisTK.jar -T VariantFiltration -R <reference> -V <input vcf> -o <output vcf> --filterExpression "QD>2.0" --filterName QDfilter --filterExpression "MQ>40.0" --filterName MQfilter --filterExpression "FS>60.0" --filterName FSfilter --filterExpression "HaplotypeScore>13.0" --filterName HSfilter
+java -Xmx2g -jar /sw/apps/bioinfo/GATK/3.4-46/GenomeAnalysisTK.jar -T VariantFiltration -R <reference> -V <input vcf> -o <output vcf> --filterExpression "QD>2.0" --filterName QDfilter --filterExpression "MQ>40.0" --filterName MQfilter --filterExpression "FS>60.0" --filterName FSfilter
 ```
 
 Note two things about this.
@@ -414,9 +420,7 @@ If you want to run the indel filtering version, you can look on the web page abo
 
 Once you have the filtered calls, open your filtered VCF with less and page through it.
 It has all the variant lines, still, but one of the fields that was blank before is now filled in, indicating that the variant on that line either passed filtering or was filtered out, with a list of the filters it failed.
-Note also that the filters that were run are described in the header section.
-
-If you have enough time, this can be a good opportunity to try out other programs to manipulate your vcd files in different manners. Both BEDTools and vcftools are available as modules on uppmax (module add BEDTools vcftools). BEDTools includes a large number of different commands, but a good point to start is intersectBed. To learn more about this and other commands use either the flag -h or google. In the course directory there is a file /proj/g2015006/labs/gatk/other/RefSeq_genes.bed containing the coordinates for the genes within the region on chr17 that you have been working on. This can be used to extract only variants located within genes. Or variants not located in genes if you prefer that.
+Note also that the filters that were run are described in the header section.t
 
 ## Step 7. Looking at Your Data with IGV
 
@@ -433,7 +437,7 @@ Now launch the viewer through webstart.
 The 1.2 Gb version should be sufficient for our data.
 It will take a minute or two to download IGV and start it up.
 While that's going on, we need to download some data to our local machines so the viewer can find it (IGV can also look at web hosted data, but we are not going to set that up for our course data).
-When it prompts you to save the IGV program, just save it in your home directory (normally we would put this in the Applications folder on a Mac, but we probably can't write to that on these machines).
+When it prompts you to save the IGV program, if you are working on a Mac put it in the Applications folder, otherwise just save it in your home directory. 
 
 Open a new terminal or xterm _on your local machine_ (i.e., do not log in to uppmax again).
 You should be in your home directory.
@@ -460,6 +464,8 @@ We will also want to load the vcfs into IGV, so you can look at what calls got m
 ```bash
 scp <username>@milou.uppmax.uu.se:/proj/g2015031/labs/gatk/vcfs/MERGED.illumina.\* ./
 ```
+
+Do the same thing for the vcf that you have created in your home directory. 
 
 By now, IGV should be launching.
 The first thing we want to do is make sure we have the right reference.
@@ -501,20 +507,10 @@ One is how you color the reads (by sample is an interesting one here).
 Another is the grouping.
 Group by sample is again useful (having grouped by sample, we could then use color for something else).
 
-By now, our variant calls should be done.
-Let's finish working on those, then come back.
-
-We can also load our variant calls into IGV.
-Use scp to copy your vcf files (and their idx indices) to your local machine and load them in also.
-
-For the rest of the time, just scroll around in IGV and look at your variant calls.
-Compare filtered and unfiltered (IGV displays the filtered variant site in lighter shades, so you only need to load the filtered file).
-Compare calls from the exome versus the low coverage sequencing.
-
-You can look at just the calls you made, or you can look at the calls from the full set, where you may see more of a difference between different types and depths of sequencing and between the calls with and without filtering.
+You can look at just the calls you made, or you can look at the calls from the full set, where you may see more of a difference between different types and depths of sequencing and between the calls with and without filtering. (IGV displays the filtered variant site in lighter shades, so you only need to load the filtered file).
 You can even load these data all together.
 Are there calls that were made using only one or two samples that were not made in the full data set or vice versa?
 
 ## [Extra labs](labs/resequencing-extra.md)
 
-If you have more time there are a couple of extra exercises where you will perform downstream analysis of the called variants in your .vcf file. 
+If you have more time there are a couple of extra exercises where you will perform downstream analysis of the called variants in your .vcf file. [Extra labs](labs/resequencing-extra.md)
