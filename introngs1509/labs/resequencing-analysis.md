@@ -41,8 +41,8 @@ Throughout these exercises, that preformatted text, like above, will usually ind
 Now you can load the individual programs we need:
 
 ```bash
-module load bwa/0.7.8
-module load samtools/1.1
+module load bwa
+module load samtools
 ```
 
 We also will use Picard and GATK.
@@ -50,15 +50,15 @@ There are modules for these, but they are java programs, which means we need to 
 The GATK module tells you this when you use it:
 
 ```bash
-module load GATK/1.5.21
-You can find all the GATK files in /sw/apps/bioinfo/GATK/1.5.21
+module load GATK/3.4-46
+You can find all the GATK files in /sw/apps/bioinfo/GATK/3.4-46
 ```
 
 The Picard module does not, but they are in a similar place.
 For various parts of this exercise, you will need to know:
 
 ```bash
-/sw/apps/bioinfo/GATK/1.5.21/
+/sw/apps/bioinfo/GATK/3.4-46/
 /sw/apps/bioinfo/picard/1.69/kalkyl/
 ```
 
@@ -165,11 +165,15 @@ That command says to index the specified reference and use the bwtsw algorithm (
 
 This command will take about 2 minutes to run and should create 5 new files in your gatk directory with the same base name as the reference and different extensions.
 
-While we're doing this, we will also build a sequence dictionary for the reference, which just lists the names and lengths of all the chromosomes.
-Other programs will need as input later and is used to make sure the headers are correct.
+While we're doing this, we will also build two different sequence dictionaries for the reference, which just lists the names and lengths of all the chromosomes.
+Other programs will need these as input later and they are used to make sure the headers are correct.
 
 ```bash
 samtools faidx ~/glob/gatk/human_17_v37.fasta
+```
+
+```bash
+java -jar /sw/apps/bioinfo/picard/1.69/kalkyl/CreateSequenceDictionary.jar R=human_17_v37.fasta O=human_17_v37.dict
 ```
 
 ## Step 2. Mapping - Making Single Read Alignments for Each of the Reads in the Paired End Data
@@ -286,7 +290,7 @@ This is done in two steps.
 First, we identify possible sites to realign:
 
 ```bash
-java -Xmx2g -jar /sw/apps/bioinfo/GATK/1.5.21/GenomeAnalysisTK.jar -I <bam file> -R <ref file> -T RealignerTargetCreator -o <intervals file>
+java -Xmx2g -jar /sw/apps/bioinfo/GATK/3.4-46/GenomeAnalysisTK.jar -I <bam file> -R <ref file> -T RealignerTargetCreator -o <intervals file>
 ```
 
 The &lt;bam file&gt; should be your sorted and indexed BAM with read groups added from before.
@@ -299,7 +303,7 @@ Using this speeds up the process of identifying potential realignment sites, but
 Now we feed our intervals file back into GATK with a different argument to actually do the realignments:
 
 ```bash
-java -Xmx2g -jar /sw/apps/bioinfo/GATK/1.5.21/GenomeAnalysisTK.jar -I <input bam> -R <ref file> -T IndelRealigner -o <realigned bam> -targetIntervals <intervals file>
+java -Xmx2g -jar /sw/apps/bioinfo/GATK/3.4-46/GenomeAnalysisTK.jar -I <input bam> -R <ref file> -T IndelRealigner -o <realigned bam> -targetIntervals <intervals file>
 ```
 
 Note that we need to give it the intervals file we just made, and also specify a new output bam (&lt;realigned bam&gt;).
@@ -340,7 +344,7 @@ This also happens in two steps.
 First, we compute all the covariation of quality with various other factors:
 
 ```bash
-java -Xmx2g -jar /sw/apps/bioinfo/GATK/1.5.21/GenomeAnalysisTK.jar -T CountCovariates -I <input bam> -R <ref file> -knownSites /proj/g2015031/labs/gatk/ALL.chr17.phase1_integrated_calls.20101123.snps_indels_svs.genotypes.vcf -cov ReadGroupCovariate -cov CycleCovariate -cov DinucCovariate -cov QualityScoreCovariate -recalFile <calibration csv>
+java -Xmx4g -jar /sw/apps/bioinfo/GATK/3.4-46/GenomeAnalysisTK.jar -T BaseRecalibrator -I <input bam> -R <ref file> -knownSites /proj/g2015006/labs/gatk/ALL.chr17.phase1_integrated_calls.20101123.snps_indels_svs.genotypes.vcf -cov ReadGroupCovariate -cov CycleCovariate -cov ContextCovariate -cov QualityScoreCovariate -o <calibration table>
 ```
 
 We need to feed it our bam file and our ref file.
@@ -349,72 +353,40 @@ Otherwise, GATK will think all the real SNPs in our data are errors.
 We're using calls from 1000 Genomes, which is a good plan for human (although a bit circular in our case).
 If you are sequencing an organism with few known sites, you could try calling once and then using the most confident variants as known sites (which should remove most of the non-erroneous bases).
 Failure to remove real SNPs from the recalibration will result in globally lower quality scores.
-We also give it the name of a csv file we want it to write out containing the covariation data.
+We also give it the name of a table file we want it to write out containing the covariation data.
 We will take a look at this.
 It will be used in the next step:
 
 ```bash
-java -Xmx2g -jar /sw/apps/bioinfo/GATK/1.5.21/GenomeAnalysisTK.jar -T TableRecalibration -I <input bam> -R <ref file> -recalFile <calibration csv> -o <output bam>
+java -Xmx2g -jar /sw/apps/bioinfo/GATK/3.4-46/GenomeAnalysisTK.jar -T PrintReads -BQSR <calibration table> -I <input bam> -R <ref file> -o <output bam>
 ```
 
 The &lt;input bam&gt; in this step is the same as the last step, because we haven't changed it yet, but the &lt;output bam&gt; is new and will have the recalibrated qualities.
-The &lt;calibration csv&gt; is the file we created in the previous step.
-
-Now we are almost ready to call variants.
-First, though, go back and run at least one more set of data through this whole process on your own, then we will do one final step.
-
-## Merging BAMs
-
-For variant calling, we want to merge the BAMs from multiple samples together.
-This makes them easier to handle and allows GATK to work on many samples at once.
-(We could also feed multiple BAMs, but it would potentially become unwieldy.) You can also use this feature if you have multiple runs of a single sample and want all of your data from that sample in one BAM.
-
-```bash
-java -Xmx2g -jar /sw/apps/bioinfo/picard/1.69/kalkyl/MergeSamFiles.jar INPUT=<input bam 1> [INPUT=<input bam 2> ... INPUT=<input bam N>] OUTPUT=<output bam>
-```
-
-Note that you can specify the INPUT option multiple times.
-
-The inout should be sorted and you will need to reindex the new version with Picard.
+The &lt;calibration table&gt; is the file we created in the previous step.
 
 ## Step 6. Variant Calling
 
-Now we'll run the GATK Unified Genotyper on our merged bams.
+Now we'll run the GATK HaplotypeCaller on our bam and output a gVCF file that will later be used for joint genotyping.
 
 ```bash
-java -Xmx2g -jar /sw/apps/bioinfo/GATK/1.5.21/GenomeAnalysisTK.jar -T UnifiedGenotyper -R <ref file> -I <merged bam> -o <filename.vcf> -glm BOTH
+java -Xmx2g -jar /sw/apps/bioinfo/GATK/3.4-46/GenomeAnalysisTK.jar -T HaplotypeCaller -R <ref file> -I <input bam> --emitRefConfidence GVCF --variant_index_type LINEAR --variant_index_parameter 128000 -o <output>
 ```
 
 The &lt;ref file&gt; is our old reference fasta again.
-The &lt;merged bam&gt; is what you just created.
-The output file is &lt;filename.vcf&gt;.
-It needs to have a .vcf extension because it is a vcf file.
-The beginning part should be identifiable as associated with your merged file name (like the name root you use before the .bam) so you can tell later which vcf file came from which BAM).
+The &lt;input bam&gt; is the output from the recalibration step.
+The output file is &lt;filename.g.vcf&gt;.
+It needs to have a .g.vcf extension because it is a gvcf file.
+The beginning part should be identifiable as associated with your bam file name (like the name root you use before the .bam) so you can tell later which vcf file came from which BAM). The --variant_index_type LINEAR --variant_index_parameter 128000 to set the correct index strategy for the output gVCF.
 
-I have also generated some merged BAMs with all 55 samples that have low coverage data and exome data, one file each for low coverage and exome.
-These are in /proj/g2015031/labs/gatk/processed/MERGED* (remember that the * means every file that matches the rest of this string and then has any other text after that).
+Rerun the mapping and variant calling steps for at least one more sample before continuing with the next step. 
 
-Run the unified genotyper on both the exome and the low coverage data.
-These jobs should each take ~ 20 minutes to run.
-Because they take a long time and you have 8 cores on your nodes, you should run them in parallel.
-To do this, put an ampersand (&) at the end of the command line before you hit return.
-This runs the job in the background, and you get your prompt back immediately.
-However, the output will still go to your screen.
-We don't really want that, so we can use the redirect to put the output in a file to read later (e.g., ... &&gt;merged_exome_ug.out&).
-Remember to give different output file names to your exome job and your low coverage job, unless you're really sure you don't want to be able to figure out what happened (you can send them both to the same file, but the outputs will be mixed up with each other randomly).
+# Joint genotyping
 
-Note: we are using the term "output" here for two different things.
-With the -o option to GATK, we specified the name of the output vcf file for the UnifiedGenotyper.
-The redirect has no effect on that, because the program isn't writing it to "stdout".
-However, while it is running GATK writes some information to stdout (usually equal to your screen) telling us what it is doing and whether anything went wrong.
-That is what we are capturing in a file with the redirect.
-(Advanced note: in cases where you really do not want to keep the output of a program, but you just do not want it on the screen, you can redirect to /dev/null, which is a special "output device" that is a valid target for writing, but does not exist.
-It is like sending your output directly and irrevocably into the trash incinerator.)
+Now you will call variants on all the gvcf-files produced in the previous step jointly by using the GenotypeGVCFs. This takes the output from the Haplotypecaller that was run on each sample to create raw SNP and indel VCFs.
 
-In practice, you would probably run jobs like this out to the cluster using slurm with the sbatch command, but we already have a whole 8 processors each reserved for our use, so it seems silly to then submit jobs out to the cluster and wait for them to get assigned to other machines.
-In reality, for applications like this where you are submitting multiple different jobs in parallel, it is usually faster and easier to use a job queueing system like slurm to manage your jobs instead of logging directly on to a multiprocessor machine and trying to manage the CPU usage yourself.
-
-While those are running, we'll skip ahead and start IGV.
+```bash
+java -Xmx2g -jar /sw/apps/bioinfo/GATK/3.4-46/GenomeAnalysisTK.jar -T GenotypeGVCFs -R <ref file> --variant <sample1>.g.vcf --variant <sample2>.g.vcf ... -o <output>
+```
 
 ## Filtering Variants
 
@@ -428,7 +400,7 @@ Why do you think that some of these parameters are different between the two typ
 An example command line is:
 
 ```bash
-java -Xmx2g -jar /sw/apps/bioinfo/GATK/1.5.21/GenomeAnalysisTK.jar -T VariantFiltration -R <reference> -V <input vcf> -o <output vcf> --filterExpression "QD>2.0" --filterName QDfilter --filterExpression "MQ>40.0" --filterName MQfilter --filterExpression "FS>60.0" --filterName FSfilter --filterExpression "HaplotypeScore>13.0" --filterName HSfilter
+java -Xmx2g -jar /sw/apps/bioinfo/GATK/3.4-46/GenomeAnalysisTK.jar -T VariantFiltration -R <reference> -V <input vcf> -o <output vcf> --filterExpression "QD>2.0" --filterName QDfilter --filterExpression "MQ>40.0" --filterName MQfilter --filterExpression "FS>60.0" --filterName FSfilter --filterExpression "HaplotypeScore>13.0" --filterName HSfilter
 ```
 
 Note two things about this.
