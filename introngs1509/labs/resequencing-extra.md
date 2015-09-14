@@ -12,7 +12,7 @@ Except for Extra 1 and Extra 2 that need to be run in that order, the different 
 
 The UCSC browser is a collection of tools for viewing and manipulating genomic data. Here we will only use a very limited set of all the functionalities, but there is extensive documentation that allows you to find all the possibilities. So while you have the data loaded into the UCSC browser, take the opportunity to look around and explore. 
 
-Browser: https://genome.ucsc.edu
+Browser: https://genome-euro.ucsc.edu/
 
 Examples of documentation :
 
@@ -41,7 +41,7 @@ Step 8: Choose genome and assembly and the position you are interested in. Also
 
 Originally BEDTools was written to handle the tab delimited .bed format where each line describes a feature. The three first columns are required and are chromosome - start coord - end coord. The are 9 additional optional columns for more information about the feature. The format is more closely described in http://genome.ucsc.edu/FAQ/FAQformat. Currently BEDTools supports input data in more formats including .bam, .bed, .gff or vcf. The BEDTools suite includes a large number of different commands, but a good point to start is intersectBed that can be used to find the common regions between two files. To learn more about this and other commands use either the flag -h or read more on the online documentation http://bedtools.readthedocs.org/en/latest/.
 
-Task: As input use the .vcf file with your variants and the annotation track from the UCSC browser you downloaded in Extra 1. Or use the bed- file with RefSeq gene annotation in /proj/g2015031/labs/gatk/other/RefSeq_genes.bed. Play around the different options and try to answer some questions. How many variants are located within genes? How many variants are not located within genes? How many genes have variants within them?  
+Task: As input use the .vcf file with your variants and the annotation track from the UCSC browser you downloaded in Extra 1. Or use the bed- file with RefSeq gene annotation in /proj/g2015031/labs/gatk/other/RefSeq_genes.bed. Play around with the different options and try to answer some questions. How many variants are located within genes? How many variants are not located within genes? How many genes have variants within them?  
 
 Useful hints:
 
@@ -75,4 +75,4 @@ Instead of running interactively on just on sample at a time, the common workflo
 
 http://www.uppmax.uu.se/slurm-user-guide
 
-If you have just one samples, you could write the commands by hand in the run script. If you would like to automate it and be able to run the same thing for a large number of samples you can use different scripting languages to do this. A simple option is to write it in bash, perl och python. Try for your self and think about different ways to make it efficient.
+If you have just one sample, you could write the commands by hand in the run script. If you would like to automate it and be able to run the same thing for a large number of samples you can use different scripting languages to do this. A simple option is to write it in bash, perl och python. Try for your self and think about different ways to make it efficient.
