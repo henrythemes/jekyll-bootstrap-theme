@@ -173,7 +173,7 @@ samtools faidx ~/glob/gatk/human_17_v37.fasta
 ```
 
 ```bash
-java -jar /sw/apps/bioinfo/picard/1.69/kalkyl/CreateSequenceDictionary.jar R=human_17_v37.fasta O=human_17_v37.dict
+java -jar /sw/apps/bioinfo/picard/1.69/kalkyl/CreateSequenceDictionary.jar R=~/glob/gatk/human_17_v37.fasta O=~/glob/gatk/human_17_v37.dict
 ```
 
 ## Step 2. Mapping - Making Single Read Alignments for Each of the Reads in the Paired End Data
