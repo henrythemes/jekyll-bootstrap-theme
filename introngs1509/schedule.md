@@ -20,13 +20,13 @@ Room: Trippelrummet, E10, ground floor
 Room: Trippelrummet, E10, ground floor  
 **09.00-09.20** [Lecture: Introduction to File Types in Bioinformatics](slides/dahlo-filetypes.pdf) (Martin Dahlö)  
 **09.20-11.00** [Exercise: Introduction to File Types in Bioinformatics](labs/filetypes) (Martin Dahlö, Åsa Björklund, Martin Norling, Manfred Grabherr)  
-**11.00-12.00** Lecture: Alignment with BWA; Samtools; Data Processing with Picard; Variant Calling with GATK; SAM/BAM and VCF Formats (Anna Johansson)  
+**11.00-12.00** [Lecture: Alignment with BWA; Samtools; Data Processing with Picard; Variant Calling with GATK; SAM/BAM and VCF Formats](slides/NGS_AJ.pdf) (Anna Johansson)  
 **12.00-13.00** Lunch   
-**13:00-17:00** Exercise: Alignment with BWA; Samtools; Data Processing with Picard; Variant Calling with GATK; SAM/BAM and VCF Formats part I (Anna Johansson, Jacques Dainat, Johan Reimegård)  
+**13:00-17:00** [Exercise: Alignment with BWA; Samtools; Data Processing with Picard; Variant Calling with GATK; SAM/BAM and VCF Formats part I](labs/resequencing-analysis.md) (Anna Johansson, Jacques Dainat, Johan Reimegård)  
 
 **Wednesday**  
 Room: Trippelrummet, E10, ground floor  
-**09:00-12:00** Exercise: Alignment with BWA; Samtools; Data Processing with Picard; Variant Calling with GATK; SAM/BAM and VCF Formats part II (Anna Johansson, Martin Dahlö, Pall Olason)   
+**09:00-12:00** [Exercise: Alignment with BWA; Samtools; Data Processing with Picard; Variant Calling with GATK; SAM/BAM and VCF Formats part II](labs/resequencing-analysis.md) (Anna Johansson, Martin Dahlö, Pall Olason)   
 **12.00-13.00** Lunch  
 **13.30-14.30** Lecture: Next Generation Sequencing Overview (Olga Vinnere Pettersson)  
 **14.45-15.45** Lecture: NGS and bioinformatics analysis pipelines (Adam Ameur)  
