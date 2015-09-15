@@ -388,7 +388,7 @@ Now you will call variants on all the gvcf-files produced in the previous step b
 java -Xmx2g -jar /sw/apps/bioinfo/GATK/3.4-46/GenomeAnalysisTK.jar -T GenotypeGVCFs -R <ref file> --variant <sample1>.g.vcf --variant <sample2>.g.vcf ... -o <output>.vcf
 ```
 
-As an alternative try also to run the same thing but with all the gvcf for all low_coverage files in the course directory. A gvcf file where these have been merged can be found in the course directory, /proj/g2015031/labs/gatk/vcfs/MERGED.illumina.low_coverage.17q.g.vcf. In the next step when viewing the data in IGV, look at both and try to see if there is a difference for a your sample. 
+As an alternative try also to run the same thing but with all the gvcf for all low_coverage files in the course directory. A gvcf file where these have been merged can be found in the course directory, /proj/g2015031/labs/gatk/vcfs/ILLUMINA.low_coverage.17q.g.vcf. In the next step when viewing the data in IGV, look at both and try to see if there is a difference for a your sample. 
 
 ```bash
 java -Xmx2g -jar /sw/apps/bioinfo/GATK/3.4-46/GenomeAnalysisTK.jar -T GenotypeGVCFs -R <ref file> --variant /proj/g2015031/labs/gatk/vcfs/ILLUMINA.low_coverage.17q.g.vcf -o <output>
