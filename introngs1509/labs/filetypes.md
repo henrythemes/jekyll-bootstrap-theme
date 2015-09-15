@@ -298,7 +298,7 @@ You have already loaded the module for this program at the start of the lab, so 
 $ igv.sh
 ```
 
-If you notice that IGV over Xforwarding is excrutiatingly slow, you can try to use tha web based ThinLinc client instead. Go to the address [https://milou-gui.uppmax.uu.se](https://milou-gui.uppmax.uu.se) and login with your normal UPPMAX username and password. This will get you a remote desktop on one of the login nodes, and you can open a terminal and run IGV there instead.
+If you notice that IGV over Xforwarding is excruciatingly slow, you can try to use tha web based ThinLinc client instead. Go to the address [https://milou-gui.uppmax.uu.se](https://milou-gui.uppmax.uu.se) and login with your normal UPPMAX username and password. This will get you a remote desktop on one of the login nodes, and you can open a terminal and run IGV there instead.
 
 This will start IGV.
 There are 3 files we have to load in IGV.
