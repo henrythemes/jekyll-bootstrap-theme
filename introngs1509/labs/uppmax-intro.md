@@ -19,7 +19,7 @@ Fire up the available ssh program and enter the following (replace **username** 
 
 ```bash
 $ ssh -X username@milou.uppmax.uu.se
-```l
+```
 
 and give your password when prompted. As you type, nothing will show on screen. No stars, no dots. It is supposed to be that way. Just type the password and press enter, it will be fine.
 
