@@ -18,10 +18,10 @@ On OSX: it is included by default, named **Terminal**.
 On Windows: [Google MobaXterm](http://bit.ly/19yaQOM) and download it.
 
 Fire up the available ssh program and enter the following (replace **username** with your uppmax user name).
--X means that X-forwarding is activated on the connection, which means graphical data can be transmitted if a program requests it, i.e. programs can use a graphical user interface (GUI) if they want to.
+-Y means that X-forwarding is activated on the connection, which means graphical data can be transmitted if a program requests it, i.e. programs can use a graphical user interface (GUI) if they want to.
 
 ```bash
-$ ssh -X username@milou.uppmax.uu.se
+$ ssh -Y username@milou.uppmax.uu.se
 ```
 
 and give your password when prompted.
@@ -59,7 +59,7 @@ When it reaches the time limit you requested (3 hours in this case) the session 
 Connect to this node from within uppmax.
 
 ```bash
-$ ssh -X q34 
+$ ssh -Y q34 
 ```
 
 **Note:** there is a uppmax specific tool called jobinfo that supplies the same kind of information as squeue that you can use as well (```$ jobinfo -u username```).

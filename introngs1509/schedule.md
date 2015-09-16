@@ -28,7 +28,7 @@ Room: Trippelrummet, E10, ground floor
 Room: Trippelrummet, E10, ground floor  
 **09:00-12:00** [Exercise: Alignment with BWA; Samtools; Data Processing with Picard; Variant Calling with GATK; SAM/BAM and VCF Formats part II](labs/resequencing-analysis) (Anna Johansson, Martin Dahlö, Pall Olason)   
 **12.00-13.00** Lunch  
-**13.30-14.30** Lecture: Next Generation Sequencing Overview (Olga Vinnere Pettersson)  
+**13.00-14.30** [Lecture: Next Generation Sequencing Overview](slides/Sequencing_OVP 2014_e.pptx) (Olga Vinnere Pettersson)  
 **14.45-15.45** Lecture: NGS and bioinformatics analysis pipelines (Adam Ameur)  
 **16.00-17:00** Project discussion workshop - (Adam Ameur, Olga Vinnere Pettersson, Henrik Lantz, Thomas Källman)   
 
