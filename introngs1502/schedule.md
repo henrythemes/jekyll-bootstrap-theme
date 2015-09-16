@@ -11,7 +11,7 @@ title:  'Schedule'
 Room:  
 **09.00-09.15** [Registration and Welcome](slides/150209_SciLifeLab_presentation.pdf) (Eva Molin)  
 **09.15-10.30** [Lecture: Introduction to Linux](slides/dahlo-linux.pdf) (Martin Dahlö)  
-**11.00-12.00** [Exercise: Introduction to Linux](labs/linux-intro.md) (Martin Dahlö, Jacques Dainat, Alvaro Martinez Barrio, Manfred Grabherr)  
+**11.00-12.00** [Exercise: Introduction to Linux](labs/linux-intro) (Martin Dahlö, Jacques Dainat, Alvaro Martinez Barrio, Manfred Grabherr)  
 **12.00-13.00** Lunch  
 **13.00-13.45** [Lecture: Introduction to UPPMAX/UPPNEX](slides/dahlo-uppmax.pdf) (Martin Dahlö)  
 **13.45-17.00** [Exercise: Introduction to UPPMAX/UPPNEX](labs/uppmax-intro) (Martin Dahlö, Sebastian DiLorenzo, Alvaro Martinez Barrio, Martin Norling)  
