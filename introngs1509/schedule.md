@@ -37,13 +37,13 @@ Room: Trippelrummet, E10, ground floor
 **Thursday**  
 Room: Trippelrummet, E10, ground floor  
 **09:00-09.30** Lecture: The National Bioinformatics Infrastructure Sweden (Björn Nystedt)  
-**09:45-10:45** Lecture: RNA sequencing, transcriptome and expression quantification (Thomas Källman)  
-**10:45-12:00** Exercise: RNA sequencing, transcriptome and expression quantification part I (Thomas Källman, Jacques Dainat, Manfred Grabherr)   
+**09:45-10:45** [Lecture: RNA sequencing, transcriptome and expression quantification](slides/RNAseq.pdf) (Thomas Källman)  
+**10:45-12:00** [Exercise: RNA sequencing, transcriptome and expression quantification part I](labs/rnaseqMapping) (Thomas Källman, Jacques Dainat, Manfred Grabherr)   
 **12.00-13.00** Lunch  
-**13:00-17:00** Exercise: RNA sequencing, transcriptome and expression quantification part II (Thomas Källman, Martin Norling)   
+**13:00-17:00** [Exercise: RNA sequencing, transcriptome and expression quantification part II](labs/rnaseqMapping) (Thomas Källman, Martin Norling)   
 
 **Friday**  
 Room: Trippelrummet, E10, ground floor  
-**09:00-12.00** Exercise: RNA sequencing, transcriptome and expression quantification part III (Thomas Källman, Manfred Grabherr, Pall Olason, Henrik Lantz)  
+**09:00-12.00** [Exercise: RNA sequencing, transcriptome and expression quantification part III](labs/rnaseqDenovo) (Thomas Källman, Manfred Grabherr, Pall Olason, Henrik Lantz)  
 **12.00-13.00** Lunch  
 **13:00-15.00** Project discussion (Thomas Källman, Henrik Lantz, Adam Ameur, Olga Vinnere Pettersson, Anna Johansson, Pall Olasson, Manfred Grabherr)   
