@@ -1,7 +1,4 @@
----
-layout: default
-title:  'RNAseq'
----
+--- layout: default title: 'RNAseq' ---
 
 # Transcriptome Mapping First
 
@@ -19,7 +16,7 @@ Many include placeholders (folder names etc), so make sure you alter
 the command to actually reflect whatever file names you have created.
 
 [Illumina Bodymap2.0](http://www.ebi.ac.uk/gxa/experiments/E-MTAB-513) data consists of 16 human tissues that were sequenced using both single-end and pair-end technologies.
-The mapped reads can be visualised at the [Ensembl genome browser](http://www.ensembl.info/blog/2011/05/24/human-bodymap-2-0-data-from-illumina/)   
+The mapped reads can be visualised at the [Ensembl genome browser](http://www.ensembl.info/blog/2011/05/24/human-bodymap-2-0-data-from-illumina/)
 
 In this tutorial we will due to time constraints focus on a limited set of tissues and only do the analysis for chromosome 1 of the human genome.
 In addition, the files we use are just subsets of the original files
@@ -27,7 +24,7 @@ as the analysis of the full files undoable within the time frame of a course lab
 
 The main goal goal with this tutorial is to detect differential gene expression between two different tissues (pick any two tissues that you want to compare).
 For all included tissues there is one single-end library and one pair-end library available.
-In order to test for significance in gene expression more than one replicate from each tissue is needed and we will 
+In order to test for significance in gene expression more than one replicate from each tissue is needed and we will
 in this lab use the two different library types as replicates in the
 detection of differential gene expression. So if you choose to compare
 brain and kidney, you will have to the analysis for both single-end (ERR030890)
@@ -58,7 +55,7 @@ Below is a summary of the data and tissues available.
 Tophat is a script pipeline built on-top of the popular short-read aligner Bowtie.
 It is used for aligning RNA-Seq reads to a reference genome and can identify exon-exon splice junctions.
 More specifically, it produces data that we can use to not only study the expression of genes, but also their different isoforms.
-You will have a bit of waiting time during the exercises as the more complex analyses are running, so please check out some of the details of [tophat](http://ccb.jhu.edu/software/tophat/index.shtml) when waiting. 
+You will have a bit of waiting time during the exercises as the more complex analyses are running, so please check out some of the details of [tophat](http://ccb.jhu.edu/software/tophat/index.shtml) when waiting.
 
 ## Cufflinks
 
@@ -154,12 +151,12 @@ It may be that you need to load a different version.
 
 What goes in, what comes out:
 
-In:  
+In:
 
-* One or several [FastQ](http://en.wikipedia.org/wiki/FASTQ_format) files (one for single-end reads, two for paired-end)  
-* An indexed reference genome (and optional a reference annnotation (eg. a [GTF or GFF file](http://www.ensembl.org/info/website/upload/gff.html)))  
+* One or several [FastQ](http://en.wikipedia.org/wiki/FASTQ_format) files (one for single-end reads, two for paired-end)
+* An indexed reference genome (and optional a reference annnotation (eg. a [GTF or GFF file](http://www.ensembl.org/info/website/upload/gff.html)))
 
-Out:  
+Out:
 
 * A read alignment (BAM)
 
@@ -187,14 +184,15 @@ the location of the Bowtie2-formatted index file for the genome sequence and fin
 
 While this is running, you may want to head over to the [tophat manual](http://cole-trapnell-lab.github.io/cufflinks/cufflinks/index.html) and have a look at the available options and technical details.
 
-The aligned reads are found in the output directory **you have chosen**, e.g. accepted_hits.bam.
+The aligned reads are found in the output directory **you have chosen**, and named accepted_hits.bam.
 For convenience, you may want to sym-link this file into your main
 project folder. This links the accepted_hits.bam in the folder
 results/tophat_outputSE30888 to results/SE30888.bam making it easier
 to refer to the correct bam file in later steps.
 
 ```bash
-$ ln -s results/tophat_outputSE30888/accepted_hits.bam results/SE30888.bam
+$ cd results
+$ ln -s tophat_outputSE30888/accepted_hits.bam SE30888.bam
 ```
 #### 5) Cufflinks: Assembly and transcript calling
 
@@ -377,10 +375,9 @@ are a few options for the different steps
 
 * [Star](https://github.com/alexdobin/STAR)
 * [Subread](http://subread.sourceforge.net)
-* [Gsnap](http://research-pub.gene.com/gmap/) 
+* [Gsnap](http://research-pub.gene.com/gmap/)
 
-#### Counting reads from mapped data (bam files) and a annotation file
-     (GTF/GFF file)
+#### Counting reads from mapped data (bam files) and a annotation file (GTF/GFF file)
 
 * [HTseq](http://www-huber.embl.de/users/anders/HTSeq/doc/count.html#count)
 * [Featurecounts](http://bioinf.wehi.edu.au/featureCounts/)
