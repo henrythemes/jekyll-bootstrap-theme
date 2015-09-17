@@ -63,6 +63,7 @@ $ salloc -A g2015037 -t 04:30:00 -p core --no-shell --reservation=g2015037_17 &
 make an empty directory we can work in and make a file.
 
 ```bash
+$ cd ~/glob/ngs-intro
 $ mkdir advlinux
 $ cd advlinux
 $ touch  filename
