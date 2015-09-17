@@ -291,7 +291,7 @@ Use whichever tool you feel comfortable with and write the name of
 each gtf file line by line, then save it as transcripts.txt.
 
 ```bash
-$ cuffmerge -o merged -g reference/Homo_sapiens.GRCh38_Chr1.77.gtf -p 8 -s reference/genome.fa transcripts.txt
+$ cuffmerge -o merged -g reference/Homo_sapiens.GRCh38_Chr1.77.gtf -p 8 -s reference/rm.chr.1.fa transcripts.txt
 ```
 
 This will save the reconciled annotation file as merged/merged.gtf.
