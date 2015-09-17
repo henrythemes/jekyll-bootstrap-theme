@@ -1,6 +1,6 @@
---- 
-layout: default 
-title: 'RNAseq' 
+---
+layout: default
+title:  'RNAseq'
 ---
 
 # Transcriptome Mapping First
