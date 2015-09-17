@@ -55,7 +55,7 @@ should look something like this
 where **q34** is the name of the node I got (yours will probably be different).
 Note the numbers in the Time column.
 They show for how long the job has been running.
-When it reaches the time limit you requested (3 hours in this case) the session will shut down, and you will lose all unsaved data.
+When it reaches the time limit you requested (7 hours in this case) the session will shut down, and you will lose all unsaved data.
 Connect to this node from within uppmax.
 
 ```bash
