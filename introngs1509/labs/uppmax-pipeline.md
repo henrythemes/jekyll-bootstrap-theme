@@ -107,7 +107,7 @@ Then we'll start writing scripts for it!
 
 ### Load the module
 In this exercise, we'll pretend that we are running analyses.
-This will give you a peek at what running programs in linux is like, and get you ready for the real stuff next week!
+This will give you a peek at what running programs in linux is like, and get you ready for the real stuff during the week!
 
 The first thing you usually do is to load the modules for the programs you want to run.
 During this exercise we'll only run my dummy scripts that don't actually do any analysis, so they don't have a module of their own.
