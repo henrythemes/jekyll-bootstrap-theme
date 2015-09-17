@@ -47,7 +47,7 @@ $ Trinity --seqType (fq for fastq or fa for fast) --left ~/path/to/reads_1.fq --
 Get yourself familiar with Trinity by having a look at the manual: http://trinityrnaseq.sourceforge.net/
 
 Have a look at the example data used in this exercise.
-The data is obtained from mouse dendritic cells (mouse_left.fasta and mouse_right.fasta and) and a whitefly (whitefly_both.fasta), and the files are located in `/proj/g2015006/nobackup/transcriptome_assembly/`.
+The data is obtained from mouse dendritic cells (mouse_left.fasta and mouse_right.fasta and) and a whitefly (whitefly_both.fasta), and the files are located in `/proj/g2015031/labs/transcriptome_assembly/`.
 The mouse data is strand-specific (RF), the whitefly data is unstranded.
 For strand-specific data, specify the library type.
 There are four library types:
@@ -65,9 +65,9 @@ By default, reads are treated as not strand-specific.
 
 ### Trinity on Uppmax example command line:
 ```bash
-$ salloc -A g2015006 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2015006_22 &
+$ salloc -A g2015031 -t 04:00:00 -p core -n 8 --no-shell --reservation=g2015031_18 &
 $ module load bioinfo-tools java/sun_jdk1.7.0_25 bowtie/1.1.0 samtools/0.1.19 trinity/2014-07-17
-$ Trinity --seqType fa --left /proj/g2015006/nobackup/transcriptome_assembly/mouse_left.fasta --right /proj/g2015006/nobackup/transcriptome_assembly/mouse_right.fasta --SS_lib_type RF --CPU 8 --max_memory 16G --output trinity_out/
+$ Trinity --seqType fa --left /proj/g2015031/labs/transcriptome_assembly/mouse_left.fasta --right /proj/g2015031/labs/transcriptome_assembly/mouse_right.fasta --SS_lib_type RF --CPU 8 --max_memory 16G --output trinity_out/
 ```
 
 NB! -It is recommended to use fully specified paths for sequence files with Trinity.
