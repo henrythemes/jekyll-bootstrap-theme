@@ -9,7 +9,7 @@ title:  'Schedule'
 
 **Monday**  
 Room: Trippelrummet, E10, ground floor  
-**09.00-09.15** Registration and Welcome (Eva Molin)  
+**09.00-09.15** [Registration and Welcome](slides/150914_SciLifeLab presentation_NGS data Ua.pptx) (Eva Molin)  
 **09.15-10.15** [Lecture: Introduction to Linux](slides/dahlo-linux.pdf) (Martin Dahlö)  
 **10.15-12.00** [Exercise: Introduction to Linux](labs/linux-intro) (Martin Dahlö, Jacques Dainat, Sebastian DiLorenzo, Manfred Grabherr)  
 **12.00-13.00** Lunch  
