@@ -14,7 +14,7 @@ Room:
 **11.00-12.00** [Lecture: Short read assembly](slides/not_yet_available.pdf) (Estelle Proux-Wéra)  
 **12.00-13.00** Lunch  
 **13.00-17.00** [Exercise: Mapping reads to reference](labs/) (Johan Reimegård,Estelle Proux-Wéra)  
-**13.00-17.00** [Exercise: Assembling transcripts with and without references ](labs/) (Johan Reimegård,Estelle Proux-Wéra)  
+**13.00-17.00** [Exercise: Assembling transcripts with and without references ](labs/test) (Johan Reimegård,Estelle Proux-Wéra)  
 
 
 **Wednesday 21st**  
