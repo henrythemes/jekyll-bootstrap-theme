@@ -21,4 +21,4 @@ title:  'Welcome'
 ### RNA-seq course ###
 
 [2015 October - Uppsala](RNAseq1510/)
-
+[RNAseq tutorials](RNAseqLabs)
