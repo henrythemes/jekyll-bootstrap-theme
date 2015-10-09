@@ -1,14 +1,11 @@
-================================================
-Differential expression analysis of RNA-seq data
-================================================
+###Differential expression analysis of RNA-seq data
 
-Overview
-========
+##Overview
 
 
 There are many software packages for differential
 expression analysis of RNA-seq data. We will first look at
-Cuffdiff/CummeRbund and then try the alternative method DESeq.
+**Cuffdiff/CummeRbund** and then try the alternative method **DESeq**.
 
 Several tools, such as DESeq and edgeR, start from read counts per
 gene and use the discrete nature of the data to do statistical tests
@@ -20,8 +17,7 @@ testing into one framework and claim that they achieve better results
 because they are able to take into account the uncertainty of isoform
 quantification.
 
-Data set
-========
+##Data set
 
 In this exercise we are going to look at RNA-seq data from the A431
 cell line. A431 is an epidermoid carcinoma cell line which is often
@@ -46,8 +42,7 @@ we used to generate the files, so that you should be able to reproduce
 the results on your own.
 
 
-CuffDiff and cummeRbund
-=======================
+##CuffDiff and cummeRbund
 
 **ATTENTION!!** 
 **Some of the steps do not work on uppmax **
@@ -220,8 +215,7 @@ manual. ::
 
     csDistHeat(genes(cuff)) 
 
-DESeq
-======
+##DESeq
 
 As mentioned above, the DESeq approach identifies differentially
 expressed genes based on counts of the number of reads mapped to each
@@ -496,8 +490,7 @@ through it now, try these commands and admire the resulting plots::
 You may also want to try some of the examples from the cummeRbund
 manual.
 
-Further reading
-===============
+##Further reading
 
 The algorithms used by Cuffdiff and DESeq are described in the papers by
 `Trapnell et al. (2013) <http://www.ncbi.nlm.nih.gov/pubmed/23222703>`_,
