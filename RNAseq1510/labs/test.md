@@ -1,3 +1,8 @@
+---
+layout: default
+title:  'TestPage'
+---
+
 #Welcome to WABI RNA-seq tutorial packages
 
 This page contains links to different tutorials that are used in the RNA-seq course. Some of the tutorials 
