@@ -10,7 +10,7 @@ Held in Uppsala Oct 20-22, 2015.
 
 ## Important Links
 [Pre-course material](precourse)  
-[Schedule](schedule)
+[Schedule](schedule)  
 [RNAseq exercises](../RNAseqLabs/index)  
   
 
