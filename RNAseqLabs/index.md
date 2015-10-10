@@ -19,6 +19,7 @@ from the user and may contain errors.
 *	[Tutorial for de novo assembly](isoform-denovo)
 *	[Tutorial for small RNA analysis](smallRNA-lab)
 *	[Tutorial for differential expression analysis](diffexp-lab)
+*	[Tutorial for multi variate analysis](Simca_tutorial)
  
 ## Beta labs 
 *	[Differential expression analysis using calisto](calisto)
