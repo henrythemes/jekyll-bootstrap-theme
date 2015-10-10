@@ -1,3 +1,9 @@
+---
+layout: default
+title:  'Multivariate analysis'
+---
+
+
 #Multivariate analysis cookbook
 
 This is a cookbook for handling multivariate analysis using SIMCA. 
