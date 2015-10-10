@@ -16,7 +16,7 @@ https://export.uppmax.uu.se/b2013006/downloads/courses/RNAseqWorkshop/QC/data
 
 This folder contains:
 
-* Two FASTQ files, with mate pair libraries for sample 1 that is used in several of the other exercises (see `data set summary page <intro.html>`_).
+* Two FASTQ files, with mate pair libraries for sample 1 that is used in several of the other exercises (see [data set summary page](intro)).
 * BAM file and BAM-file index (bam.bai) for that sample mapped to the human genome using STAR
 * count_table.txt - a table with number of reads per gene, using Ensembl annotations, created with HTseq-count
 

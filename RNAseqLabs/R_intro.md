@@ -3,9 +3,7 @@ layout: default
 title:  'R-intro'
 ---
 
-============================
-Very quick introduction to R
-============================
+#Very quick introduction to R
 
 In several exercises in this course, we use the statistical
 programming environment R. Here follows a very quick introduction,
@@ -18,11 +16,11 @@ typically execute the command ``R`` at the shell prompt.
 
 In this course, we are running R on a Linux server. If you would like
 to install R on your own computer, you can find the appropriate
-download for your system `here <http://ftp.sunet.se/pub/lang/CRAN/>`_.
+download for your system [here](http://ftp.sunet.se/pub/lang/CRAN/).
 
 When R starts, you should see a text message stating the version of
 R you are running and some further information, followed by a
-command-line “prompt” ( >, a greater-than sign). The prompt means that
+command-line “prompt” ( ``>``, a greater-than sign). The prompt means that
 R is waiting for you to type a command. To get a feel for how this
 works, try out some arithmetic::
 

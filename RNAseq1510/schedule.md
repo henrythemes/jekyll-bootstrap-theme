@@ -13,8 +13,8 @@ Room:
 **10.15-11.00** [Lecture: Short read mapping programs](slides/not_yet_available.pdf) (Johan Reimegård)  
 **11.00-12.00** [Lecture: Short read assembly](slides/not_yet_available.pdf) (Estelle Proux-Wéra)  
 **12.00-13.00** Lunch  
-**13.00-17.00** [Exercise: Mapping reads to reference](labs/) (Johan Reimegård,Estelle Proux-Wéra)  
-**13.00-17.00** [Exercise: Assembling transcripts with and without references ](labs/test) (Johan Reimegård,Estelle Proux-Wéra)  
+**13.00-17.00** [Exercise: ](../RNAseqLabs/index) (Johan Reimegård,Estelle Proux-Wéra)  
+  
 
 
 **Wednesday 21st**  
@@ -24,8 +24,7 @@ Room:
 **11:00-12:00** [Lecture: Differential expression analysis](slides/not_yet_available.pdf) (Jakub Westholm)  
 **12.00-13.00** Lunch  
 **13.00-17.00** [Exercise: RNA-seq Quality control ](labs/) (Åsa Björklund, Jakub Westholm)  
-**13.00-17.00** [Exercise: miRNA analysis ](labs/) (Åsa Björklund, Jakub Westholm)  
-**13.00-17.00** [Exercise: Differential expression analysis ](labs/) (Åsa Björklund, Jakub Westholm)  
+**13.00-17.00** [Exercise: ](../RNAseqLabs/index)(Åsa Björklund, Jakub Westholm)  
 
 
 **Thursday 22nd**  
