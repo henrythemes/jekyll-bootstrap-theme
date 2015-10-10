@@ -1,3 +1,8 @@
+---
+layout: default
+title:  'Differential Expression'
+---
+
 ###Differential expression analysis of RNA-seq data
 
 ##Overview

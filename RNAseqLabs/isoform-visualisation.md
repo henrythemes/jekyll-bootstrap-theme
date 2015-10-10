@@ -1,3 +1,8 @@
+---
+layout: default
+title:  'Isoform Visualisation'
+---
+
 ====================================
 Identifying isoforms in RNA-seq data
 ====================================

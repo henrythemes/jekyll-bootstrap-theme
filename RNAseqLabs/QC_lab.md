@@ -1,3 +1,8 @@
+---
+layout: default
+title:  'Quality Control'
+---
+
 #Quality control
 
 In this tutorial we will go through some of the key steps in performing a quality control on your samples. We will start with the read based quality control, using FastQC, and continue with mapping based QC using RseqQC.  

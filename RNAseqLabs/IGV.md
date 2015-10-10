@@ -1,3 +1,8 @@
+---
+layout: default
+title:  'Integrated Genomics Viewer'
+---
+
 ====================================================
 Viewing data in the Integrated Genomics Viewer (IGV)
 ====================================================

@@ -1,3 +1,8 @@
+---
+layout: default
+title:  'Intro'
+---
+
 #Short summary of the datasets
 
 For the tutorials we have set up multiple data sets:

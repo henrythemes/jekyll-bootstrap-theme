@@ -1,3 +1,8 @@
+---
+layout: default
+title:  'Isoform de Novo'
+---
+
 ==================================================
 Isoform detection using RNA seq *de novo* Assembly 
 ==================================================

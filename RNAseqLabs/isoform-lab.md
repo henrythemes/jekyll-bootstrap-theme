@@ -1,3 +1,8 @@
+---
+layout: default
+title:  'Isoform Reference'
+---
+
 =========================================
 Reference guided assembly using Cufflinks
 =========================================
