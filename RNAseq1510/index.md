@@ -10,7 +10,9 @@ Held in Uppsala Oct 20-22, 2015.
 
 ## Important Links
 [Pre-course material](precourse)  
-[Schedule](schedule)  
+[Schedule](schedule)
+[RNAseq exercises](../RNAseqLabs/index)  
+  
 
 ## Maps & Travel Info
 [Map over Uppsala](https://www.google.se/maps/place/Uppsala/@59.8332794,17.6584471,12z/data=!3m1!4b1!4m2!3m1!1s0x465fcbfb8532ab8d:0xaa4fe90a85820807)  
