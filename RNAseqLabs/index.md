@@ -22,7 +22,7 @@ from the user and may contain errors.
 *	[Tutorial for multi variate analysis](Simca_tutorial)
  
 ## Beta labs 
-*	[Differential expression analysis using calisto](calisto)
+*	[Differential expression analysis using kallisto](kallisto)
  
 We will try to keep these tutorials up to date. If you find any errors or things that you think should be updated please contact Johan (johan.reimegard@scilifelab.se) 
   		

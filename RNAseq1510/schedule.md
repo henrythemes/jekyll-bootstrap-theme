@@ -23,16 +23,15 @@ Room:
 **10:15-11:00** [Lecture: RNA-seq Quality Control](slides/not_yet_available.pdf) (Åsa Björklund)  
 **11:00-12:00** [Lecture: Differential expression analysis](slides/not_yet_available.pdf) (Jakub Westholm)  
 **12.00-13.00** Lunch  
-**13.00-17.00** [Exercise: RNA-seq Quality control ](labs/) (Åsa Björklund, Jakub Westholm)  
 **13.00-17.00** [Exercise: ](../RNAseqLabs/index)(Åsa Björklund, Jakub Westholm)  
 
 
 **Thursday 22nd**  
 Room:  
-**09.00-10.00** [Lecture: Long read Assembly](slides/not_yet_available.pdf) (Adam/Ignas? )  
-**10:15-11:00** [Lecture: RNA single cell analysis](slides/not_yet_available.pdf) (Johan Reimegård)  
-**11:00-12:00** [Lecture: Multi variate analysis](slides/not_yet_available.pdf) (Sanela Kjellqvist)  
+**09.00-10.00** [Lecture: Genome annotation](slides/not_yet_available.pdf) (Henrik Lantz)  
+**10:15-11:00** [Lecture: Multi variate analysis](slides/not_yet_available.pdf) (Sanela Kjellqvist)  
+**11:00-12:00** [Lecture: RNA long reads analysis](slides/not_yet_available.pdf) (Adam Ameur)  
 **12.00-13.00** Lunch  
-**13.00-16.00** [Exercise: Multivariate analysis ](labs/) (Sanela Kjellqvist, Johan Reimegård)  
+**13.00-17.00** [Exercise: ](../RNAseqLabs/index) (Johan Reimegård,Estelle Proux-Wéra)  
 **16.00-17.00** [Lecture: Summary of the week ](labs/) (Johan Reimegård)  
 
