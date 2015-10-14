@@ -5,23 +5,23 @@ title:  'Kallisto'
 
 #Kallisto and Sleuth (Beta format)
 
-## Transcript-level quantification wit Kallisto
+## Transcript-level quantification with Kallisto
 
-*Kallisto* is an "alignment free" RNAseq quantification method that runs very fast with a small memory footprint, so that it can be run on most laptops. It is a command-line program that can be downloaded as binary executables for Linux or Mac, or in source code format. For a first insight in the program, read [here](https://liorpachter.wordpress.com/2015/05/10/near-optimal-rna-seq-quantification-with-kallisto/) and for the preprint article, see [here](https://www.dropbox.com/s/5hyprffkhgm7ia3/kallisto_paper.pdf?dl=0).
+*Kallisto* is an "alignment free" RNA-seq quantification method that runs very fast with a small memory footprint, so that it can be run on most laptops. It is a command-line program that can be downloaded as binary executables for Linux or Mac, or in source code format. For a first insight in the program, read [here](https://liorpachter.wordpress.com/2015/05/10/near-optimal-rna-seq-quantification-with-kallisto/) and for the preprint article, see [here](http://arxiv.org/abs/1505.02710).
 
-Kallisto is geared towards quantification on the transcript (isoform) level, rather than the gene level (although the latter can also be done by post-processing Kallisto output.) However, read assignment to transcript isoforms cannot (in general) be done unambiguiously, so there is an intrinsic "quantification noise" or variability in this process. Kallisto can thus be run either in a single step (which is very fast) or in "bootstrap" mode (which takes longer, but can be done on several processors in parallel) in order to get uncertainty estimates for the expression levels - a kind of error bars for the quantification process. Running with bootstraps is mandatory if you want to perform differential expression analysis of isoforms with Sleuth (see below). 
+Kallisto is geared towards quantification on the transcript (isoform) level, rather than the gene level (although the latter can also be done by post-processing Kallisto output.) However, read assignment to transcript isoforms cannot (in general) be done unambiguously, so there is an intrinsic "quantification noise" or variability in this process. Kallisto can thus be run either in a single step (which is very fast) or in "bootstrap" mode (which takes longer, but can be done on several processors in parallel) in order to get uncertainty estimates for the expression levels - a kind of error bars for the quantification process. Running with bootstraps is mandatory if you want to perform differential expression analysis of isoforms with Sleuth (see below). 
 
-Kallisto is also primarily meant for quantification of an existing set of FASTA sequences, that is, it does not perform transcript assembly and it cannot quantify the expression of novel transcripts that are not in the transcript index that you provide to it. With that said, you can of course use contigs from an assembly that you have produced in some other program in your Kallisto index. It would also be possible to use the software for e g metagenomics or metatranscriptomics quantification.
+Kallisto is primarily meant for quantification of an existing set of FASTA sequences, that is, it does not perform transcript assembly and it cannot quantify the expression of novel transcripts that are not in the transcript index that you provide to it. With that said, you can of course use contigs from an assembly that you have produced in some other program in your Kallisto index. It would also be possible to use the software for e g metagenomics or metatranscriptomics quantification.
 
 ## Differential expression with Sleuth
 
-*Sleuth* is a companion package for Kallisto which is used for differential expression analysis of transcript quantifications from Kallisto. While you could use other differential expression packages such as limma or DESeq2 to analyze your Kallisto output, Sleuth also takes into consideration the inherent variability in transcript quantification. Sleuth also allows the modeling of covariates such as batch, individual, tissue type etc. in the same way as DESeq2/edgeR/limma, which is useful for experimental designs with multiple varying factors. 
+*Sleuth* is a companion package for Kallisto which is used for differential expression analysis of transcript quantifications from Kallisto. While you could use other differential expression packages such as limma or DESeq2 to analyze your Kallisto output, Sleuth also takes into consideration the inherent variability in transcript quantification as explained above. Sleuth also allows the modeling of covariates such as batch, individual, tissue type etc. in the same way as DESeq2/edgeR/limma, which is useful for experimental designs with multiple varying factors. 
 
 Unlike Kallisto, Sleuth is an R package. At the end of a Sleuth analysis, it is possible to view a dynamical graphical presentation of the results where you can explore the differentially expressed transcripts in an intuitive way.
 
 ## Example commands for running Kallisto
 
-This is just showing you a suggestion for steps for to run Kallisto. More documentation will probably be added later when we know for sure this is a good method for RNA-seq downstream analysis. (We are currently benchmarking both Kallisto and Sleuth!)
+This is just showing you a suggestion for steps to run Kallisto. More documentation will probably be added later when we know for sure this is a good method for RNA-seq downstream analysis. (We are currently benchmarking both Kallisto and Sleuth!)
 
 These steps are all done at the command-line.
 
@@ -94,7 +94,7 @@ The actual Sleuth analysis starts by defining the path to the directory where yo
 
 Now fill in metadata about the samples. In this case pretend we just know it, rather than fetching metadata from SRA, which is also possible in principle.
 
-		s2c <- data.frame(sample=samples,individual=as.factor(rep(c(2,3,6),2)), condition=c(rep("tumor",		3),rep("normal",3)))
+		s2c <- data.frame(sample=samples,individual=as.factor(rep(c(2,3,6),2)), condition=c(rep("tumor",3),rep("normal",3)))
 		
 
 The next command will read the Kallisto output files, connect them with metadata, and set up a linear model for analyzing the expression data.
