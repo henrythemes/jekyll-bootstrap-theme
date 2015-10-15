@@ -16,7 +16,7 @@ In this exercise we will analyze a few small RNA libraries, from *Drosophila mel
 
 These data sets are described more in [this paper](http://genome.cshlp.org/content/24/7/1236.full)
 
-The aim of the exercise is to show a simple way to process small RNA data and to quantify the expression of microRNAs, and to make some plots of global expression patterns in R. The exercise consists of two parts: First you will use a genome browser to get a feeling for what the small RNA reads mapped to the genome look like. Next, you will preprocess the small RNA reads, map them to the known microRNA loci, and quantify the expression of the microRNAs.
+The aim of the exercise is to show a simple way to process small RNA data and to quantify the expression of microRNAs, and to make some plots of global expression patterns in R. First, you will preprocess the small RNA reads, map them to the genome, and browse the results. Then you will quantify the expression of the microRNAs, and make some plots of microRNA expression profiles.
 
 
 
@@ -42,13 +42,11 @@ This includes:
 
 - 6 fastq files with the raw reads from the small RNA sequencing (in the subdirectory fastq).
  
-- A fasta file with the sequence of all microRNA loci and a gff file with the coordinates of all microRNA loci in the Drosophila genome (in in the subdirectory mirbase).
- 
-- A script, "sam2expTable.pl" (in the subdirectory scripts), to count the reads mapping to each microRNA.
- 
 - Precomputed bam files with the sequencing data mapped to the entire Drosophila genome, which can be used for browsing in IGV (in the subdirectory mapped_to_genome).
 
-Copy these files in the directory you will use for this exercise. On UPPMAX you can use the following command :: 
+- A gff file with the coordiates of all mircoRNAs on the Drosophila genome. (Use the file dme_mirbase_FORMAT.gff3 in the subdirectory mirbase).
+
+Copy these files in the directory you will use for this exercise. On UPPMAX you can use the following command:
 
 	cp -r /proj/b2013006/webexport/downloads/courses/RNAseqWorkshop/smallRNA dest
 
@@ -65,7 +63,7 @@ Look at any fastq file, e.g. using less:
 
 Just by looking the nucleotide sequence, can you guess what the adaptor is? (This is actually a useful exercise. Many datasets are poorly annotated, and no information is given about the adaptor sequence.  When analyzing such data the only option is to infer the adaptor from the sequence data.)
 
-There are many programs available for trimming adaptors. We will use a program called [cutadapt](https://cutadapt.readthedocs.org/en/stable/). You can run it with the following command: ::
+There are many programs available for trimming adaptors. We will use a program called [cutadapt](https://cutadapt.readthedocs.org/en/stable/). You can run it with the following command:
 
 	cutadapt -a adaptor --trimmed-only in.fastq --minimum-length=17 > trimmed.fastq
 
@@ -89,7 +87,7 @@ Here, index.name is the bowtie index above, small_rna.fastq is the file with the
 Browse small RNA reads 
 ======================
 
-We will start by browsing how the small RNA reads look when mapped to the *Drosophila* genome. For this we will use pre-computed bam files, which can be viewed with IGV or some other genome browser. These are basically the same as the sam files created by bowtie, but converted to a compressed binary format and sorted. (Here only instructions for IGV are given.) Start IGV and load the files emb_0_1.sorted.bam and ml-DmD32_r2.sorted.bam. Also load the file with all microRNA annotations, dme_mirbase.gff3.
+It is often informative to just browse the reads once they have been mapped to genome. For this we will use pre-computed bam files, which can be viewed with IGV or some other genome browser. These are basically the same as the sam files created by bowtie, but converted to a compressed binary format and sorted. (Here only instructions for IGV are given.) Start IGV and load the files emb_0_1.sorted.bam and ml-DmD32_r2.sorted.bam. Also load the file with all microRNA annotations, dme_mirbase.gff3.
 
 To load a file you first select the correct genome ("D. melanogaster r5.22") in the top left menu. Then go to the File menu, and select "Load from file", and select the files described above.
 
@@ -109,11 +107,11 @@ We can now summarize the mapped reads to see which microRNAs are expressed in th
 
 Press space to scroll down into the file and q to exit the viewer. 
 
-We are only interested in the reads mapping to known microRNA loci in [mirBase](http://www.mirbase.org), which is "the official" data base of microRNAs in many different species. The file ``/proj/b2013006/webexport/downloads/courses/RNAseqWorkshop/smallRNA/mirbase/dme_mirbase_FORMAT.gff3`` contains the locations of all microRNAs on the fly genome. Use ``less`` to have a look at this file. [htseq-count](http://www-huber.embl.de/users/anders/HTSeq/doc/count.html) is a useful program for counting reads mapping to different genomic regions. Run it like this, for every sam file:
+We are only interested in the reads mapping to known microRNA loci in [mirBase](http://www.mirbase.org), which is the "official" data base of microRNAs in many different species. The file ``/proj/b2013006/webexport/downloads/courses/RNAseqWorkshop/smallRNA/mirbase/dme_mirbase_FORMAT.gff3`` contains the locations of all microRNAs on the fly genome. Use ``less`` to have a look at this file. [htseq-count](http://www-huber.embl.de/users/anders/HTSeq/doc/count.html) is a useful program for counting reads mapping to different genomic regions. Run it like this, for every sam file:
 
 	htseq-count --type=miRNA --idattr=Name sam.file gff3.file > out.file
 
-Here we only look at loci that are "miRNA", and we use the "Name" attribute to name the loci. To make the next step of the analysis easier, it is convenient to create a new directory to which these files are printed. ``htseq-count`` takes around 5 mins for each data set. When the program has finished, look at the results with ``less``. 
+Here we only look at loci that are "miRNA", and we use the "Name" attribute to name the loci. The output will be a list with the number of reads mapping to each microRNA. To make the next step of the analysis easier, it is convenient to create a new directory to which these files are printed. ``htseq-count`` takes around 5 mins for each data set. When the program has finished, look at the results with ``less``. 
 
 Once the reads mapping to each microRNA have been counted, we can analyze the microRNA expression levels using R. Start R by typing:
 
@@ -136,7 +134,7 @@ Since the log transformation we will do later cannot handle cases with zero read
 
 	exp.data <- exp.data + 1
 
-To compare expression levels from different libraries, the read counts have to be normalized to compensate for different sequencing depths etc. For this we will use the TMM normalization. This normalization method uses a trimmed mean of M- values (TMM) between each pair of samples to find a set of scaling factors for the library sizes that minimize the log-fold changes between the samples for most genes (if you are interested in the details, see [this paper](http://genomebiology.com/2010/11/3/r25)). To use this method we need to load the edgeR module. edgeR is an R module with many useful functions for normalizing RNA-seq data and finding differentially expressed genes. Here we will only use one of the normalization functions. ::
+To compare expression levels from different libraries, the read counts have to be normalized to compensate for different sequencing depths etc. For this we will use the TMM normalization. This normalization method uses a trimmed mean of M- values (TMM) between each pair of samples to find a set of scaling factors for the library sizes that minimize the log-fold changes between the samples for most genes (if you are interested in the details, see [this paper](http://genomebiology.com/2010/11/3/r25)). To use this method we need to load the edgeR module. edgeR is an R module with many useful functions for normalizing RNA-seq data and finding differentially expressed genes. Here we will only use one of the normalization functions.
 
 	library(edgeR)
 
@@ -154,7 +152,7 @@ Next, we apply the rescaling to the read counts for each library:
 
 	norm.data <- t(t(exp.data)/(scale.factors*lib.size))
 
-Finally, we log transform all values. This makes the analysis less sensitive to microRNAs with a huge number of reads: ::
+Finally, we log transform all values. This makes the analysis less sensitive to microRNAs with a huge number of reads:
 
 	norm.data <- log(norm.data)
 
@@ -174,7 +172,7 @@ To see which microRNAs are highly expressed in samples with low PC1, type:
 
 	head(sort(mir.pca$rotation[,1], decreasing=FALSE))
 
-(Some background about some specific microRNAs: bantam is known to prevent apoptosis by repressing pro-apoptosis genes, so it makes sense that it is  highly expressed in cell lines. mir-124 is a nervous system specific microRNA. It is  not surprising that it is higher expressed in embryos than in (non-neural) cell lines. Also, mir-4 mir-5 and mir-286 come from the same transcriptional cluster, and have been associated with degradation of maternal mRNA in embryos.
+(Some background about some specific microRNAs: bantam is known to prevent apoptosis by repressing pro-apoptosis genes, so it makes sense that it is  highly expressed in cell lines. mir-124 is a nervous system specific microRNA. It is  not surprising that it is higher expressed in embryos than in (non-neural) cell lines. Also, mir-4 mir-5 and mir-286 come from the same transcriptional cluster, and have been associated with degradation of maternal mRNA in embryos.)
 
 
 Another way to get a global overview of the data is to use clustering and plot heatmaps. You can do this with the following command:
