@@ -45,7 +45,7 @@ These data sets are described more in this [paper] (http://genome.cshlp.org/cont
 
 Short summary of the long reads
 ===============================
-This data set contains three PacBio reads from gene RAB11FIP5 from full-length RNAs in brain and heart from reads PacBio released last year: http://blog.pacificbiosciences.com/2014/10/data-release-whole-human-transcriptome.html
+This data set contains three PacBio reads from gene RAB11FIP5 from full-length RNAs in brain and heart from reads PacBio released last year. For more info go [here](http://blog.pacificbiosciences.com/2014/10/data-release-whole-human-transcriptome.html).
 
 
 Short summary of the peptide data
@@ -56,6 +56,5 @@ These data were measured by a
 group at SciLifeLab Stockholm in a 'proteogenomics' study where the aim was to discover 
 new genes or gene variants by deep proteomic profiling using an MS method, and mapping 
 the obtained peptides back to the genome.  How it was possible to 
-map MS data onto the human genome is explained here: 
-http://www.nature.com/nmeth/journal/v11/n1/full/nmeth.2732.html.
+map MS data onto the human genome is explained [here](http://www.nature.com/nmeth/journal/v11/n1/full/nmeth.2732.html).
  

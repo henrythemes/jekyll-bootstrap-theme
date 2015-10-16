@@ -17,11 +17,10 @@ If you still want to try to run IGV on Uppmax, please refer to the
 In IGV, select File > Load from File ... and navigate to the file of interest. From 
 the file extension, IGV will automatically treat the information in the file accordingly. 
 
-##Visualizing a BED, BAM or GTF file located on http
+##Visualizing a BED, BAM or GTF file from URL
 
-In IGV, select File > Load from File ... and navigate to the BED/GTF file (on 
-Uppmax according to above or to the location where you downloaded it locally). From 
-the BED/GTF file extension, IGV will automatically treat the information in the file accordingly. 
+In IGV, select File > Load from URL ... A window will pop up and ask you to give the correct URL to the file you want to view. Paste in the URL and the file will be downloaded. From 
+the file extension, IGV will automatically treat the information in the file accordingly. 
 
 
 

@@ -10,19 +10,18 @@ called **Trinity** in this practical. Independent assessment
 of *de novo* assembly programs showed that Trinity was one of the best assemblers to use. 
 It is also one of the programs that is being updated and does also have downstream analysis tools. 
 
-.. image:: ../images/Compare.jpg
+![de novo assembler comparison](images/deNovo_Compare.jpg)
 
 Figure taken from `Optimizing de novo transcriptome assembly from short-read RNA-Seq data: a comparative [study](http://www.biomedcentral.com/1471-2105/12/S14/S2).
 
 A de novo  take your reads and turn them into *contigs*. For more details
-on how **Trinity** work read the corresponding `paper 
-<http://www.nature.com/nbt/journal/v29/n7/full/nbt.1883.html>`_
+on how **Trinity** work read the corresponding [paper](http://www.nature.com/nbt/journal/v29/n7/full/nbt.1883.html)
 . 
 
 
 ##Preparation
 
-Make a new subdirectory and go there for this exercise.  ::
+Make a new subdirectory and go there for this exercise. 
 
 
 	#Create a new folder where you will do this exercise
@@ -49,16 +48,15 @@ To access the data there are two options.
 All the data you need for this lab is available in the folder:
 ``/proj/b2013006/webexport/downloads/courses/RNAseqWorkshop/isoform/deNovo/data/``
 
-Copy the data to your folder  ::
+Copy the data to your folder 
 
 	cp /proj/b2013006/webexport/downloads/courses/RNAseqWorkshop/isoform/deNovo/data/*.* . 
 
 
 ###If you are working from somewhere else
 
-You can download all data using a webinterface from [here](https://export.uppmax.uu.se/b2013006/downloads/courses/RNAseqWorkshop/isoform/deNovo/data/)
+You can download all data using a webinterface from [here](https://export.uppmax.uu.se/b2013006/downloads/courses/RNAseqWorkshop/isoform/deNovo/data/) and put it in your working folder. 
 
-and put it in your working folder. 
 
 You should now have two fastq files in your working folder.
 
@@ -95,13 +93,11 @@ If you are doing this exercise on somewhere else follow each program information
 
 Since **Trinity** is often being updated you should make sure you are using the latest version.
 That means that the requirements and the command line to to run **Trinity** changes occasionally. 
-You can find the basic usage info for **Trinity** here:
-	http://trinityrnaseq.github.io/#running_trinity
+You can find the basic usage info for **Trinity** (here)[http://trinityrnaseq.github.io/#running_trinity)
  
-A typical command line to type run trinity looks like this:
-	http://trinityrnaseq.github.io/#typical_usage
+A typical command line to type run trinity looks like [this](http://trinityrnaseq.github.io/#typical_usage)
 
-Adapt the trinity command line so it fits with your data and run it.  
+Adapt the **Trinity** command line so it fits with your data and run it.  
 
 
 Good things to know about the data used in this lab :
@@ -146,7 +142,7 @@ Also it is good practise when working on uppmax
 In total there were 12 samples and you have now assembled one of those samples. 
 If you want to view all the 12 different samples you can download the assembled and mapped samples. 
 We have also merged the reads from all the 12 samples and used all the reads to create assembled transcripts.
-On uppmax you can copy the BAM files folder to your folder  ::
+On uppmax you can copy the BAM files folder to your folder
 
    cp -r /proj/b2013006/webexport/downloads/courses/RNAseqWorkshop/isoform/otherData/deNovo/BAMfiles/ .  
 
@@ -190,7 +186,7 @@ names ``RAB11FIP5_trinity.Trinity._hg_19_STAR.bam``.
 
 **OPTIONAL**
 There is also a possibility to view tracks that is publicly available. This is easy to 
-do in IGV and adds some information in the region that we are looking into. ::
+do in IGV and adds some information in the region that we are looking into.
 	
     	
     # Load different gene annotations files
