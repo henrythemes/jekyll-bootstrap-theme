@@ -106,7 +106,7 @@ Importing the Pac bio reads mapped to the genome
 Unfortunately there are no pacbio reads that mapped to the **RAB11FIP5** gene but if you want to compare pacbio  reads from 
 full length transcripts and compare them with reference based transcripts 
 
-You can download the BAM file containing all mapped pac bio reads to the genome using a webinterface from `here 
+You can view the BAM file containing all mapped pac bio reads to the genome using a webinterface from `here 
 <https://export.uppmax.uu.se/b2013006/downloads/courses/RNAseqWorkshop/isoform/otherData/>`_
 
 
