@@ -52,11 +52,11 @@ The next steps will take quite a while (maybe several hours). What they entail i
 
 		for f in SRR057629 SRR057630 SRR057632 SRR057649 SRR057650 SRR057651
 		do sratoolkit.2.5.2-mac64/bin/fastq-dump --split-files $f
-		time kallisto/kallisto quant -i hsGRCh38_kallisto -b 100 ${f}_1.fastq ${f}_2.fastq -o ${f}
+		time kallisto/kallisto quant -i hsGRCh38_kallisto -t 4 -b 100 ${f}_1.fastq ${f}_2.fastq -o ${f}
 		rm ${f}_?.fastq
 		done	
 
-For example, if you wanted to run Kallisto without bootstraps and just get expression values on a pair of FASTQ files, you would run
+In this example, we put "-t 4" so we can use up to four processors in the bootstrapping. You may want to modify this value according to the machine you are working on. If you wanted to run Kallisto without bootstraps and just get expression values on a pair of FASTQ files, you would run
 
 		kallisto/kallisto quant -i hsGRCh38_kallisto <FILE1>.fastq <FILE2>.fastq -o <OUTPUT_DIR_NAME>
 
