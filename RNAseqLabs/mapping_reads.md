@@ -1,3 +1,9 @@
+---
+layout: default
+title:  'Mapping reads'
+---
+
+
 #Mapping reads using a reference and converting them to the BAM format
 
 
