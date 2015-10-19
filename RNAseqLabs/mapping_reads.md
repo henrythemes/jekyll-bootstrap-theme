@@ -13,19 +13,19 @@ If you want to map more files for practice you can continue with the files found
 	
 	/proj/b2013006/webexport/downloads/courses/RNAseqWorkshop/isoform/RAB11FIP5_fastqFiles
 
-on UPPMAX and through this [URL](<https://export.uppmax.uu.se/b2013006/downloads/courses/RNAseqWorkshop/isoform/RAB11FIP5_fastqFiles).
+on UPPMAX and through this [URL](https://export.uppmax.uu.se/b2013006/downloads/courses/RNAseqWorkshop/isoform/RAB11FIP5_fastqFiles).
  
 A pre-build hg19 human genome for HiSAT is found here on uppmax
  
 	/proj/b2013006/webexport/downloads/courses/RNAseqWorkshop/reference/hg19_hisat2
 
-on UPPMAX and through this [URL](<https://export.uppmax.uu.se/b2013006/downloads/courses/RNAseqWorkshop/reference/hg19_hisat2).
+on UPPMAX and through this [URL](https://export.uppmax.uu.se/b2013006/downloads/courses/RNAseqWorkshop/reference/hg19_hisat2).
 
 A pre-build hg19 human genome for STAR is found here on uppmax
  
 	/proj/b2013006/webexport/downloads/courses/RNAseqWorkshop/reference/hg19_Gencode14.overhang75
 
-on UPPMAX and through this [URL](<https://export.uppmax.uu.se/b2013006/downloads/courses/RNAseqWorkshop/reference/hg19_Gencode14.overhang75).
+on UPPMAX and through this [URL](https://export.uppmax.uu.se/b2013006/downloads/courses/RNAseqWorkshop/reference/hg19_Gencode14.overhang75).
  
 
  
