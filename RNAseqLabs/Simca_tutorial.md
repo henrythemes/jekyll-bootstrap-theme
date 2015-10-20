@@ -9,7 +9,7 @@ title:  'Multivariate analysis'
 This is a cookbook for handling multivariate analysis using SIMCA. 
 
 
-By following the steps in this cookbook with the excel sheet found [here](https:/someting)
+By following the steps in this cookbook with the excel sheet found [here](https://export.uppmax.uu.se/b2013006/downloads/courses/RNAseqWorkshop/multivariateAnalysis)
 
 1.	First start simca 
 2.	Load your excel file by doing clicking like in the figure  

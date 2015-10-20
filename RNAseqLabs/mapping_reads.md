@@ -44,7 +44,6 @@ Read below for the flags we use for this exercise. Remember to change names acco
 
 To load the HiSAT2 package on Uppmax, execute::
 
-     module load bioinfo-tools
      
      module use /proj/b2013006/sw/modules
      module load hisat2/2.0.0-beta
@@ -78,7 +77,7 @@ aligner, **STAR**. There are many many features that can be tweaked using STAR. 
 Read below for the flags we use for this exercise. Remember to change names accordingly 
 so that you can run your program properly and know which files you have used.
 
-To load the STAR package on Uppmax, execute::
+To load the STAR package on Uppmax, execute
 
      module load bioinfo-tools
      module load star
@@ -116,7 +115,13 @@ the directory that you specified with ``--outFileNamePrefix``.
 
 Next step is to convert the SAM  file to a BAM file and rename it to a more representable name. The most common tool used for this is [Samtools](http://www.htslib.org/doc/samtools.html). For more information regarding Samtools follow the link.  
 
-A good naming praxis is to name the file to correspond what you mapped. As an example if you mapped sample 12 using HiSAT2 you should rename the mapped SAM file to a file with the name ``sample12_RAB11FIP5.HiSAT2.bam``.  The renaming and BAMfile conversion can be done in one step. Then to view them you also have to sort the hits and index them. You can also get a report on your mapped reads using samtools **idxstats**. Since the BAM file contains all the information that you have in the SAM file remember to remove the sam file and the unsorted bam file once you are finished. 
+To load the Samtools package on Uppmax, execute
+
+     module load bioinfo-tools
+     module load samtools
+
+
+A good naming praxis is to name the file to correspond what you mapped. As an example if you mapped sample 12 using HiSAT2 you should rename the mapped SAM file to a file with the name ``sample12_RAB11FIP5.HiSAT2.bam``.  The renaming and BAMfile conversion can be done in one step. Then to view them you also have to sort the hits and index them. You can also get a report on your mapped reads using samtools **flagstat**. Since the BAM file contains all the information that you have in the SAM file remember to remove the sam file and the unsorted bam file once you are finished. 
 
 	samtools view -bSh -o /path/to/outDir/properName.bam /path/to/fileName.sam
 	#Go to outdir
@@ -125,7 +130,7 @@ A good naming praxis is to name the file to correspond what you mapped. As an ex
 	
 	samtools sort properName.bam  properName.sorted
 	samtools index properName.sorted.bam
-	samtools idxstats properName.sorted.bam
+	samtools flagstat properName.sorted.bam > properName.sorted.flagstat
 	
 	#remove all the temporary files
 	rm /path/to/fileName.sam
