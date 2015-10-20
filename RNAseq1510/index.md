@@ -9,7 +9,7 @@ title:  'Introduction to Bioinformatics Using NGS Data - October 2015'
 Held in Uppsala Oct 20-22, 2015.
 
 ## Important Links
-[Pre-course material](precourse) 
+[Pre-course material](precourse)   
 [Login procedure](login)  
 [Schedule](schedule)  
 [RNAseq exercises](../RNAseqLabs/index)  
