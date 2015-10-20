@@ -89,7 +89,7 @@ If you are somewhere else
 If you are doing this exercise on somewhere else follow each program information on how to install it.
    
 
-##Assemble the reads into contigs 
+##Assemble the reads into contigs using trinity
 
 Since **Trinity** is often being updated you should make sure you are using the latest version.
 That means that the requirements and the command line to to run **Trinity** changes occasionally. 
@@ -102,10 +102,9 @@ Adapt the **Trinity** command line so it fits with your data and run it.
 
 Good things to know about the data used in this lab :
 
-	* You are using fastq files. 
-	* You are using paired end data. 
-	* The RNA seq data that we use in this exercise is not strand specific.
-    * You are using two cores with a maximum of 16 GB of RAM
+*	You are using fastq files. 
+*	You are using paired end data. 
+*	The RNA seq data that we use in this exercise is not strand specific.
      
 	 
 In general to fully use the potential 
@@ -113,6 +112,13 @@ of a program it is worthwhile to read the manual and use the correct flags. As
 an example **Trinity** handle strand specific RNA which reduces the complexity of 
 the algorithm and produces better results.
 
+For this exercise we are using the stable 2014-07-17 version of Trinity. The minimal line to run that version of trinity is:
+
+	 Trinity --seqType fq --JM 100G --left reads_1.fq  --right reads_2.fq --CPU 6
+	 
+Remember to change the CPU count and memory to it fits with your allocated memory. To get all the available parameters that you can set type: 
+
+	Trinity --help 
 
 ##Mapping the new assemblies on to a reference genome
 

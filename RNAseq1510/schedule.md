@@ -9,9 +9,9 @@ title:  'Schedule'
 
 **Tuesday 20th**  
 Room:  
-**09.00-10.00** [Lecture:RNA seq introduction](slides/not_yet_available.pdf) (Johan Reimegård)  
-**10.15-11.00** [Lecture: Short read mapping programs](slides/not_yet_available.pdf) (Johan Reimegård)  
-**11.00-12.00** [Lecture: Short read assembly](slides/not_yet_available.pdf) (Estelle Proux-Wéra)  
+**09.00-10.00** [Lecture:RNA seq introduction](slides/RNAseq_transcriptome_introduction_Johan_Reimegard.pdf) (Johan Reimegård)  
+**10.15-11.00** [Lecture: Short read mapping programs](slides/RNA-seq_read_mapping_Johan_Reimegard.pdf) (Johan Reimegård)  
+**11.00-12.00** [Lecture: Short read assembly](slides/RNAseq_transcriptome_assembly_Estelle_Proux_Wera.pdf) (Estelle Proux-Wéra)  
 **12.00-13.00** Lunch  
 **13.00-17.00** [Exercise: ](../RNAseqLabs/index) (Johan Reimegård,Estelle Proux-Wéra)  
   
@@ -29,7 +29,7 @@ Room:
 **Thursday 22nd**  
 Room:  
 **09.00-10.00** [Lecture: Genome annotation](slides/not_yet_available.pdf) (Henrik Lantz)  
-**10:15-11:00** [Lecture: Multi variate analysis](slides/not_yet_available.pdf) (Sanela Kjellqvist)  
+**10:15-11:00** [Lecture: Multi variate analysis](slides/Multivariate_Analysis_Sanela_Kjellqvist.pdf) (Sanela Kjellqvist)  
 **11:00-12:00** [Lecture: RNA long reads analysis](slides/not_yet_available.pdf) (Adam Ameur)  
 **12.00-13.00** Lunch  
 **13.00-17.00** [Exercise: ](../RNAseqLabs/index) (Johan Reimegård,Estelle Proux-Wéra)  
