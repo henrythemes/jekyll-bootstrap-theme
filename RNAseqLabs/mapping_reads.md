@@ -52,7 +52,7 @@ Now you can map the reads from one of the samples (or several; it's up to you wh
 
 	mkdir outDir
     
-    hisat2 -p N --dta-cufflinks -x path/to/reference/fileName -1 path/to/fastqFile/sample_1.fastq -2 path/to/fastqFile/sample_2.fastq -S /path/to/outDir/fileName.sam > /path/to/outDir/fileName.sam.info 
+    hisat2 -p N --dta-cufflinks -x path/to/reference/fileName -1 path/to/fastqFile/sample_1.fastq -2 path/to/fastqFile/sample_2.fastq -S /path/to/outDir/fileName.sam &> /path/to/outDir/fileName.sam.info 
     
     
 flags used are 
