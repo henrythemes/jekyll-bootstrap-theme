@@ -24,6 +24,7 @@ from the user and may contain errors.
  
 ## Beta labs 
 *	[Differential expression analysis using kallisto](kallisto)
+*	[Single cell RNA PCA and clustering](Single_cell_RNA_PCA_and_Clustering)
  
 We will try to keep these tutorials up to date. If you find any errors or things that you think should be updated please contact Johan (johan.reimegard@scilifelab.se) 
   		
