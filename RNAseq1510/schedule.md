@@ -19,9 +19,9 @@ Room:
 
 **Wednesday 21st**  
 Room:  
-**09.00-10.00** [Lecture: miRNA analysis](slides/not_yet_available.pdf) (Jakub Westholm)  
-**10:15-11:00** [Lecture: RNA-seq Quality Control](slides/not_yet_available.pdf) (Åsa Björklund)  
-**11:00-12:00** [Lecture: Differential expression analysis](slides/not_yet_available.pdf) (Åsa Björklund)  
+**09.00-10.00** [Lecture: miRNA analysis](slides/smallRNAs_Jakub_Orzechowski_Westholm.pdf) (Jakub Westholm)  
+**10:15-11:00** [Lecture: RNA-seq Quality Control](slides/RNAseqQC_Asa_Bjorklund.pdf) (Åsa Björklund)  
+**11:00-12:00** [Lecture: Differential expression analysis](slides/DiffExp_Asa_Bjorklund.pdf) (Åsa Björklund)  
 **12.00-13.00** Lunch  
 **13.00-17.00** [Exercise: ](../RNAseqLabs/index)(Åsa Björklund, Jakub Westholm)  
 
