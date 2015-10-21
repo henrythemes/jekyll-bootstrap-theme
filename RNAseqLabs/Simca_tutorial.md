@@ -28,16 +28,21 @@ By following the steps in this cookbook with the excel sheet found [here](https:
 ##Principal component analysis
 
 ###TAV
+
 •	Edit M1 -> Variables -> CvsD -> Exclude -> Observations -> Find (write CB) -> Exclude -> Find (write DB) -> Exclude -> OK -> Autofit -> Scores -> Right click Score plot -> Properties -> Color -> Identifiers -> Length: 2  
 
 ###BAV
+
 •	New -> As M1 -> Variables -> CvsD -> Exclude -> Observations -> ctrl A -> Include-> Find (write CT) -> Exclude -> Find (write DT) -> Exclude -> OK -> Autofit -> Scores -> Right click Score plot -> Properties -> Color -> Identifiers -> Length: 2
 
 ##Orthogonal partial least squares to latent structures discriminant analysis (OPLS)
 
 ###TAV
+
 •	New -> As M1 -> Variables -> CvsD -> Y -> Model type: OPLS -> OK -> Autofit -> Scores -> Loadings -> Pred X-Y -> Right click loading plot -> Sort ascending -> Right click loading plot -> Create list 
-BAV  
+
+
+###BAV
 
 •	New -> As M3 -> Variables -> CvsD -> Y -> Model type: OPLS -> OK -> Autofit -> Scores -> Loadings -> Pred X-Y -> Right click loading plot -> Sort ascending -> Right click loading plot -> Create list   
 
