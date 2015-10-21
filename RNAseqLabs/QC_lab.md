@@ -144,7 +144,7 @@ The RseQC package is allready installed at Uppmax. Load the package:
 
 Some steps of the RseQC package require a file with gene annotations in BED format. These can be downloaded from various sources. Some of the more common ones are UCSC, RefSeq and Ensembl. In this case, the RseQC team have already created annotation files in some common formats that can be downloaded from their website, but if you have data for a less studied organism you may need to create a BED-file on your own. 
 
-Two annotation files have already been downloaded into `/proj/b2013006/webexport/downloads/courses/RNAseqWorkshop/QC/annotation` for you to use. These are: hg19.HouseKeepingGenes.bed  and hg19*RefSeq.bed. The folder also contains a reduced annotation file hg19*RefSeq_top1000.bed to speed things up. 
+Two annotation files have already been downloaded into `/proj/b2013006/webexport/downloads/courses/RNAseqWorkshop/QC/annotation` for you to use. These are: hg19.HouseKeepingGenes.bed  and hg19_RefSeq.bed. The folder also contains a reduced annotation file hg19_RefSeq_top1000.bed to speed things up. 
 
 In this tutorial we will not run all the different parts of the RseQC package, only the most relevant ones for this experiment. The different scripts in the RseQC package are well described at [their website](http://rseqc.sourceforge.net/), so read the instructions there and specify the input/output files to fit your file names and folder structure. 
 
@@ -155,7 +155,7 @@ The steps that we are going to run are:
 3. junction_saturation.py
 4. read_distribution.py
 
-Note: The geneBody*coverage.py script takes a very long time to run, so we have created a subsection of annotations to run it on. Use the file hg19*RefSeq_top1000.bed. This file was created with the command:
+Note: The geneBody_coverage.py script takes a very long time to run, so we have created a subsection of annotations to run it on. Use the file hg19_RefSeq_top1000.bed. This file was created with the command:
 
       # head -n 1000 hg19_RefSeq.bed > hg19_RefSeq_top1000.bed
 
@@ -169,7 +169,7 @@ Run RseQC for one sample and have a look at your output.
 * Based on the inner distance plots, what do you think the average fragment size of the libraries was?
 
 We have run the QC for all the samples and compiled summary files [here](https://export.uppmax.uu.se/b2013006/downloads/courses/RNAseqWorkshop/QC/output/).
-This folder contains one table that summarizes all the Log.final.out files from all the samples (summary*starlog.txt), and one pdf file with a few different plots to summarize those statistics (summary*starqc.pdf). There are also plots from the four RseqQC modules listed above including all the samples.
+This folder contains one table that summarizes all the Log.final.out files from all the samples (summary_starlog.txt), and one pdf file with a few different plots to summarize those statistics (summary_starqc.pdf). There are also plots from the four RseqQC modules listed above including all the samples.
 
 What is your conclusion, do your samples look good? Is there anything that looks strange in any sample, or do you feel comfortable using all the samples in your analysis?
 
