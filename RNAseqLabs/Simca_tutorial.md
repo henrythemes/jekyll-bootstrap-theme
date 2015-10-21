@@ -18,7 +18,7 @@ Thoracic aortic aneurysm (TAA) is a pathological widening of the aorta resulting
 This is a cookbook for handling multivariate analysis using SIMCA. 
 
 
-By following the steps in this cookbook with the excel sheet found [here](https://export.uppmax.uu.se/b2013006/downloads/courses/RNAseqWorkshop/multivariateAnalysis)
+By following the steps in this cookbook with the excel sheet downloaded [here](https://export.uppmax.uu.se/b2013006/downloads/courses/RNAseqWorkshop/multivariateAnalysis/Multivariate_excercise_data_set_151020.xlsb)
 
 ##Data import
 •	Open Simca  
