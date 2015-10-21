@@ -100,3 +100,61 @@ We can then use indices to access selected elements of the matrix:
 	[1] 105 108
 
 You can find manuals for R and more information on the [R web site](http://www.r-project.org/)
+
+# Installing packages in R and loading them
+
+##Installing packages from BioConductor
+To install packages from BioConductor you first have to load a function biocLite.R from bioconductor and then use that function to install the package. That is done in two lines of codes
+
+	## try http if https is not available
+	source("https://bioconductor.org/biocLite.R")
+	biocLite("Name of your package")
+	
+	##Example installing DEseq2
+	
+	## try http if https is not available
+	source("https://bioconductor.org/biocLite.R")
+	biocLite("DESeq2")
+	 
+##Installing packages from CRAN
+
+To install a CRAN package in R, use the install.packages() function. This simple command downloads the package from a specified repository (by default, CRAN) and installs it on your machine:
+
+	install.packages("Name of your CRAN package")
+	
+	##An example
+	
+	install.packages("ggplot2")
+
+	
+##Installing packages from github
+
+Sometimes you want to install packages that are still under development. Those are mostly found on github. This example show how you can switch between a stable version and the development version. If you only want to install from github ignore the dev_mode() part
+
+	install.packages("devtools")
+
+	library(devtools)
+
+	dev_mode(on=T)
+
+	install_github("hadley/ggplot2")
+
+	# use dev ggplot2 now
+
+	# when finished do:
+
+	dev_mode(on=F)  #and you are back to having stable ggplot2
+
+## Load package/library
+
+Use library() to load the package after installing it
+
+	#Example of loading DEseq and ggplot2
+	library(DEseq)
+	library(ggplot2)
+
+#Quit r
+ 
+	q() or quit()	 
+
+	 
