@@ -58,7 +58,7 @@ without feeding it a GTF file with the -G flag
 
 	module use /proj/b2013006/sw/modules
 	module load stringtie/1.0.5
-	stringtie -o /path/to/outputDirectory sample.sorted.bam
+	stringtie-v1.0.5 -o /path/to/outputDirectory sample.sorted.bam
 
 Substitute the appropriate names for the BAM file and the output directory. When 
 Stringtie has finished (which should hardly take any time at all), the output 
