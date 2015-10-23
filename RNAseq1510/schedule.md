@@ -28,9 +28,9 @@ Room:
 
 **Thursday 22nd**  
 Room:  
-**09.00-10.00** [Lecture: Genome annotation](slides/not_yet_available.pdf) (Henrik Lantz)  
+**09.00-10.00** [Lecture: Genome annotation](slides/Annotation_Henrik_Lantz.pdf) (Henrik Lantz)  
 **10:15-11:00** [Lecture: Multi variate analysis](slides/Multivariate_Analysis_Sanela_Kjellqvist.pdf) (Sanela Kjellqvist)  
-**11:00-12:00** [Lecture: RNA long reads analysis](slides/not_yet_available.pdf) (Adam Ameur)  
+**11:00-12:00** [Lecture: RNA long reads analysis](slides/Long_Reads_Adam_Amauer.pdf) (Adam Ameur)  
 **12.00-13.00** Lunch  
 **13.00-17.00** [Exercise: ](../RNAseqLabs/index) (Johan Reimegård,Estelle Proux-Wéra)  
 **16.00-17.00** [Lecture: Summary of the week ](labs/) (Johan Reimegård)  
