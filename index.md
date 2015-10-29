@@ -11,6 +11,7 @@ title:  'Welcome'
 [2015 February - Uppsala](introngs1502/)   
 [2015 May - Gothenburg](introngs1505/)  
 [2015 September - Uppsala](introngs1509/)  
+[2015 November - Lund](introngs1511/)  
 
 ### Introduction to Genome Annotation 
 
