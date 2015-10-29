@@ -14,7 +14,7 @@ Room: Heden
 **13.45-17.00** Exercise: Introduction to UPPMAX/UPPNEX (Martin Dahlö, Dag Ahrén, Elin Videvall)   
 
 **Tuesday**  
-Room:   
+Room: Heden  
 **09.00-09.20** Lecture: Introduction to File Types in Bioinformatics (Martin Dahlö)  
 **09.20-10.45** Exercise: Introduction to File Types in Bioinformatics (Martin Dahlö, Dag Ahrén)  
 **11.00-12.00** Lecture: Alignment with BWA; Samtools; Data Processing with Picard; Variant Calling with GATK; SAM/BAM and VCF Formats (Anna Johansson)  
