@@ -15,7 +15,7 @@ Held in Lund November 16-20, 2015.
 ## Maps & Travel Info
 [Map over Lund](https://www.google.se/maps/@55.7043427,13.1955233,14z)  
 [Map over the ecology building](http://www.biology.lu.se/map-over-education-facilities-in-the-ecology-building)  
-[Travel Info](http://campusmaps.umn.edu/ecology-building)   
+[Travel Info](http://www.geneco.se/Courses/Travel-information)   
 
 ## Helpful Things
 [Linux cheat sheet](../common/images/linux-cheat-sheet.pdf)  
