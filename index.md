@@ -15,11 +15,11 @@ title:  'Welcome'
 
 ### Introduction to Genome Annotation 
 
-[2015 April - Uppsala](IntroductionToGenomeAnnotation2015/)  
+[2015 April - Uppsala](annotation/2015/)  
 
 
 
 ### RNA-seq course ###
 
-[2015 October - Uppsala](RNAseq1510/)  
-[RNAseq tutorials](RNAseqLabs)  
+[2015 October - Uppsala](rnaseq1510/)  
+[RNAseq tutorials](rnaseq/labs)  
