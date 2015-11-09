@@ -9,7 +9,7 @@ http://www.scilifelab.se/education/courses/
 
 ## Editing instruction
 
-### To keep the main folder from getting cluttered>
+### To keep the main folder from getting cluttered
 Please create a single folder for your course and inside this folder create a folder for the current instance of the course. Ex:
 
 ```
@@ -21,3 +21,5 @@ $ mkdir myNiceCourse/November2015
 
 # now put all the files for this course instance inside the `November2015` folder.
 ```
+
+If it's a one-off course occation that will not repeat itself, please put it in the `misc` folder. 
