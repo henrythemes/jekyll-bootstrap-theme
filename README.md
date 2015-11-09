@@ -9,4 +9,15 @@ http://www.scilifelab.se/education/courses/
 
 ## Editing instruction
 
-Please create a single folder for your course instance and keep the files inside that one to keep the main folder form getting cluttered. If you have files that are in common for two or more of your course instances feel free to put them in the 'common' folder, or create a new common folder for your specific courses.
+### To keep the main folder from getting cluttered>
+Please create a single folder for your course and inside this folder create a folder for the current instance of the course. Ex:
+
+```
+# create a folder for the course as a whole
+$ mkdir myNiceCourse
+
+# create a folder for this instance of the course
+$ mkdir myNiceCourse/November2015
+
+# now put all the files for this course instance inside the `November2015` folder.
+```
