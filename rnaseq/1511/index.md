@@ -6,7 +6,7 @@ title:  'Introduction to Bioinformatics Using NGS Data - October 2015'
 
 # RNAseq course 
 Held in Uppsala at SLU Nov 23-25, 2015. 
-For more detailed information regarding the location and topics that will be covered can be found in the schedule
+For more detailed information regarding the location and topics that will be covered can be found in the schedule.
 
 ## Important Links
 [Login procedure](login)  
