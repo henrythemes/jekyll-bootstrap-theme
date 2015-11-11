@@ -23,13 +23,13 @@ Held in Uppsala November 24-25, 2015.
 
 ## Helpful Things
 
-[Linux cheat sheet](../common/images/linux-cheat-sheet.pdf)  
-[UPPMAX cheat sheet](../common/images/uppmax-cheat-sheet.png)  
+[Linux cheat sheet](common/images/linux-cheat-sheet.pdf)  
+[UPPMAX cheat sheet](common/images/uppmax-cheat-sheet.png)  
 [How to create a webexport in your project](https://www.uppmax.uu.se/webexport-guide)  
 
 ## External Resources
 
-[Mac keyboard layouts](../common/mac-keyboard)  
+[Mac keyboard layouts](common/mac-keyboard)  
 [IGV (Integrative Genomics Viewer) Home](https://www.broadinstitute.org/igv/)  
 [Samtools Home](http://www.htslib.org/)  
 [BWA Home](http://bio-bwa.sourceforge.net/)  
