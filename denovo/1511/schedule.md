@@ -5,42 +5,23 @@ title:  'Schedule'
 
 ####Click the heading of a topic to see the lecture slides or lab instructions. Slides are added as the course progresses.
 
-**Monday**  
-Room: Heden   
-**09.00-09.45** Lecture: Introduction to Linux (Martin Dahlö)  
-**10.00-12.00** Exercise: Introduction to Linux (Martin Dahlö, Dag Ahrén, Elin Videvall)  
-**12.00-13.00** Lunch  
-**13.00-13.45** Lecture: Introduction to UPPMAX/UPPNEX (Martin Dahlö)  
-**13.45-17.00** Exercise: Introduction to UPPMAX/UPPNEX (Martin Dahlö, Dag Ahrén, Elin Videvall)   
+**Monday**
+Room: E10:1309
+**09.00-09.15** Welcome to the course (Henrik Lantz)
+**09.15-10.00** Lecture: NGS Sequencing Technologies (Henrik Lantz)
+**10.00-10.20** Coffee break
+**10.20-11.00** Lecture: [QC and pre-assembly analyses](lectures/QC.ppt) (Henrik Lantz and Mahesh Panchal)
+**11.00-12.00** Exercise: [QC and pre-assembly analyses](exercises/QC) (Henrik Lantz , Mahesh Panchal and Martin Norling)
+**12.00-12.45** Lunch
+**12.45-13.30** Lecture: Genome Assembly (Henrik Lantz)
+**13.30-17.00** Exercise: Genome Assembly, incl. coffee break  (Henrik Lantz, Mahesh Panchal and Martin Norling)
+**19.00-** Dinner - locality to be decided
 
-**Tuesday**  
-Room: Heden  
-**09.00-09.20** Lecture: Introduction to File Types in Bioinformatics (Martin Dahlö)  
-**09.20-10.45** Exercise: Introduction to File Types in Bioinformatics (Martin Dahlö, Dag Ahrén)  
-**11.00-12.00** Lecture: Alignment with BWA; Samtools; Data Processing with Picard; Variant Calling with GATK; SAM/BAM and VCF Formats (Anna Johansson)  
-**12.00-13.00** Lunch  
-**13:00-17:00** Exercise: Alignment with BWA; Samtools; Data Processing with Picard; Variant Calling with GATK; SAM/BAM and VCF   Formats part I (Anna Johansson, Malin Larsson, Elin Videvall)  
-
-**Wednesday**  
-Room: Heden  
-**09:00-12:00** Exercise: Alignment with BWA; Samtools; Data Processing with Picard; Variant Calling with GATK; SAM/BAM and VCF Formats part II (Anna Johansson, Malin Larsson, Elin Videvall)   
-**12.00-13.00** Lunch  
-**13:00-13.30** Lecture: The National Bioinformatics Infrastructure Sweden (Malin Larsson)  
-**13.30-15.00** Lecture: Next Generation Sequencing Overview (Olga Vinnere Pettersson)  
-**15.00-16.00** Lecture: NGS and bioinformatics analysis pipelines (Adam Ameur)  
-**16.00-17:00** Project discussion (Adam Ameur, Olga Vinnere Pettersson, Dag Ahren)   
-
-**Thursday**  
-Room: Heden   
-**09:45-10:45** Lecture: RNA sequencing, transcriptome and expression quantification (Dag Ahren)  
-**11:00-12:00** Exercise: RNA sequencing, transcriptome and expression quantification part I (Dag Ahren, Markus Ringnér, Elin Videvall)   
-**12.00-13.00** Lunch  
-**13:00-17:00** Exercise: RNA sequencing, transcriptome and expression quantification part II (Dag Ahren, Markus Ringnér, Elin Videvall)   
-
-**Friday**  
-Room: Heden   
-**09:00-12.00** Exercise: RNA sequencing, transcriptome and expression quantification part III (Dag Ahren, Markus Ringnér, Elin Videvall)  
-**12.00-13.00** Lunch  
-**13:00-15.00** Exercise: RNA sequencing, transcriptome and expression quantification part IV (Dag Ahren, Markus Ringnér, Elin Videvall)    
-
-
+**Tuesday**
+Room: E10:1309
+**09.00-10.00** Lecture: Assembly Validation (Martin Norling)
+**10.00-10.20** Coffee break
+**10.20-12.00** Exercise: Assembly Validation (Henrik Lantz , Mahesh Panchal and Martin Norling)
+**12.00-12.45** Lunch
+**12.45-15.00** Exercise: Assembly Validation, cont., including coffee break (Henrik Lantz , Mahesh Panchal and Martin Norling)
+**15:00-17:00** Discussion of exercises + evaluation (Henrik Lantz)
