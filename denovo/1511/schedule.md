@@ -11,7 +11,7 @@ Room: E10:1309
 **09.15-10.00** Lecture: NGS Sequencing Technologies (Henrik Lantz)  
 **10.00-10.20** Coffee break  
 **10.20-11.00** Lecture: [QC and pre-assembly analyses](lectures/QC.ppt) (Henrik Lantz and Mahesh Panchal)  
-**11.00-12.00** Exercise: [QC and pre-assembly analyses](exercises/QC) (Henrik Lantz , Mahesh Panchal and Martin Norling)  
+**11.00-12.00** Exercise: [QC and pre-assembly analyses](exercises/assembly_QC) (Henrik Lantz , Mahesh Panchal and Martin Norling)  
 **12.00-12.45** Lunch  
 **12.45-13.30** Lecture: Genome Assembly (Henrik Lantz)  
 **13.30-17.00** Exercise: Genome Assembly, incl. coffee break  (Henrik Lantz, Mahesh Panchal and Martin Norling)  
