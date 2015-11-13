@@ -23,7 +23,7 @@ Make a directory for all of today’s exercises using `mkdir RhodoAssembly`
 
 And enter it using `cd RhodoAssembly`
 
-Now make a copy of the folder which includes links to all data using `cp -r /proj/g2014179/private/assembly_workshop/data .`
+Now make a copy of the folder which includes links to all data using `cp -r /proj/g2015027/private/nobackup/assembly_workshop/data .`
 
 You are now ready to proceed to working with the first assembly program, Velvet. You will start by using the HiSeq data for all exercises, and later if time allows, redo with the MiSeq data and compare results. 
 
