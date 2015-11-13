@@ -167,4 +167,4 @@ Here you will receive no help. Try to figure out how to use the program by googl
 
 Was the longer running-time worth it?
 
-By Henrik Lantz, BILS/SciLife/Uppsala University 
+By **Henrik Lantz**, BILS/SciLife/Uppsala University 
