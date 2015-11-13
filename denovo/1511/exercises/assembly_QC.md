@@ -17,7 +17,7 @@ Credits to to Björn Nystedt, Doug Scofield, Nat Street, Francesco Vezzi, Amaryl
 
 1.  Login to Uppmax and get your own node to run the lab
 
-  First follow the instructions [here](../common/login_instruction) to log in to UPPMAX.
+  First follow the instructions [here](../common/login_instructions) to log in to UPPMAX.
 
 2.  Go to your glob directory (in your home) and copy the files for the lab to your local folder
 
