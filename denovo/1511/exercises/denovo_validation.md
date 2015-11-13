@@ -100,13 +100,13 @@ You can run this script on all others de novo assemblies (stored in the folder `
 
 The output file reports assembly statistics twice: first in a human readable way and then in a tabular form that can be easily exported to excel. 
 
-Assembly                                   | GenomeSize | AssemblySize | #ctgs/scfs | MaxLength | NG50    | LG50 | NG90   | LG90
--------------------------------------------|------------|--------------|------------|-----------|---------|------|--------|------
-Staphylococcus_aureus.abyss.scf.fasta      | 2900000    | 3821622      | 125        | 346557    | 170210  | 6    | 78132  | 17
-Staphylococcus_aureus.allpaths.scf.fasta   | 2900000    | 2880676      | 19         | 1435559   | 1091731 | 2    | 179561 | 3
-Staphylococcus_aureus.masurca.scf.fasta    | 2900000    | 2872905      | 17         | 2411914   | 2411914 | 1    | 155799 | 3
-Staphylococcus_aureus.soapdenovo.scf.fasta | 2900000    | 2924135      | 175        | 518710    | 331598  | 4    | 93229  | 10
-Staphylococcus_aureus.velvet.scf.fasta     | 2900000    | 2877995      | 173        | 989718    | 762333  | 2    | 142854 | 5
+Assembly | GenomeSize | AssemblySize | #ctgs/scfs | MaxLength | NG50 | LG50 | NG90 | LG90 
+:------- | ----------:| ------------:| ----------:| ---------:| ----:| ----:| ----:| ----:
+Staphylococcus_aureus.abyss.scf.fasta | 2900000 | 3821622 | 125 | 346557 | 170210 | 6 | 78132 | 17 
+Staphylococcus_aureus.allpaths.scf.fasta | 2900000 | 2880676 | 19 | 1435559 | 1091731 | 2 | 179561 | 3 
+Staphylococcus_aureus.masurca.scf.fasta | 2900000 | 2872905 | 17 | 2411914 | 2411914 | 1 | 155799 | 3 
+Staphylococcus_aureus.soapdenovo.scf.fasta | 2900000 | 2924135 | 175 | 518710 | 331598 | 4 | 93229 | 10 
+Staphylococcus_aureus.velvet.scf.fasta | 2900000 | 2877995 | 173 | 989718 | 762333 | 2 | 142854 | 5 
 
 #### Questions 
 - What is the best assembly?
