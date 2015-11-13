@@ -16,6 +16,8 @@ google_analytics: 'UA-23985298-11'
 
 markdown: redcarpet
 pygments: true
+redcarpet:
+  extensions: ["tables", "no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript", "with_toc_data"]
 
 sass:
   sass_dir: css
