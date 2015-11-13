@@ -10,13 +10,13 @@ The files provided for your analysis are in Fastq format, and these are so-calle
 Look into the directory where the data files are located. For example, dataset 1.
 
 ```sh
-ls /proj/g2014180/nobackup/single_cell_exercises/sequences/dataset1/
+ls /proj/g2015028/nobackup/single_cell_exercises/sequences/dataset1/
 ```
 
 Take a look at what Fastq format looks like.
 
 ```sh
-less /proj/g2014180/nobackup/single_cell_exercises/sequences/dataset1/G5_Hiseq_1.fastq
+less /proj/g2015028/nobackup/single_cell_exercises/sequences/dataset1/G5_Hiseq_1.fastq
 ```
 
 **"less"** command allows you to take a look at a text file without changing its contents. 
@@ -29,7 +29,7 @@ MiSeq read pairs are named as *G5_Miseq_1.fastq* and *G5_Miseq_2.fastq*.
 For example, to count the reads from the HiSeq data set, type:
 
 ```sh
-grep -c -e "^@HWI" /proj/g2014180/nobackup/single_cell_exercises/sequences/dataset1/G5_Hiseq_1.fastq
+grep -c -e "^@HWI" /proj/g2015028/nobackup/single_cell_exercises/sequences/dataset1/G5_Hiseq_1.fastq
 ```
 
 This command searches for lines that begin with a string of characters that you’re looking for. In this example, the string of characters are ‘@HWI’. 
@@ -40,20 +40,20 @@ Fill in the table provided below (provided as links to Google Docs spreadsheets)
 Can you see the differences in the read pair files? Type:
 
 ```sh
-grep -e "^@HWI" /proj/g2014180/nobackup/single_cell_exercises/sequences/dataset1/G5_Hiseq_1.fastq | head
+grep -e "^@HWI" /proj/g2015028/nobackup/single_cell_exercises/sequences/dataset1/G5_Hiseq_1.fastq | head
 ```
 
 and then type:
 
 ```sh
-grep -e "^@HWI" /proj/g2014180/nobackup/single_cell_exercises/sequences/dataset1/G5_Hiseq_2.fastq | head
+grep -e "^@HWI" /proj/g2015028/nobackup/single_cell_exercises/sequences/dataset1/G5_Hiseq_2.fastq | head
 ```
 
 These commands print the first 10 lines from the grep search command. Do you notice the similarities and differences between the *_1.fastq* and *_2.fastq* files? 
 Next, to count the number of sequences in MiSeq data, type:
 
 ```sh
-grep -c -e "^@MISEQ" /proj/g2014180/nobackup/single_cell_exercises/sequences/dataset2/G5_Miseq_1.fastq
+grep -c -e "^@MISEQ" /proj/g2015028/nobackup/single_cell_exercises/sequences/dataset2/G5_Miseq_1.fastq
 ```
 
 MiSeq instrument produces different Fastq headers from HiSeq instrument and the headers start with ‘@MISEQ’. 

@@ -13,7 +13,7 @@ Make a folder called 'coverage_mapping' in the 'metagenomics_exercises' folder.
 Copy the contigs file from an example run:
 
 ```sh
-cp /proj/g2014180/nobackup/single_cell_exercises/assembly_examples/contigs.fasta .
+cp /proj/g2015028/nobackup/single_cell_exercises/assembly_examples/contigs.fasta .
 ```
 
 First you need to create an index for your contigs:

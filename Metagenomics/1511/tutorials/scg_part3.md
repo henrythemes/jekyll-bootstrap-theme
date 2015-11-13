@@ -370,10 +370,10 @@ cd spades_assemblies
 Next, make symbolic links of sequences in that folder:
 
 ```sh
-ln -s /proj/g2014180/nobackup/single_cell_exercises/sequences/dataset1/G5_Hiseq_[12].fastq G5_Hiseq_1.fastq
-#ln -s /proj/g2014180/nobackup/single_cell_exercises/sequences/dataset1/G5_Hiseq_2.fastq G5_Hiseq_2.fastq
-ln -s /proj/g2014180/nobackup/single_cell_exercises/sequences/dataset2/G5_Miseq_[12].fastq G5_Miseq_1.fastq
-#ln -s /proj/g2014180/nobackup/single_cell_exercises/sequences/dataset2/G5_Miseq_2.fastq G5_Miseq_2.fastq
+ln -s /proj/g2015028/nobackup/single_cell_exercises/sequences/dataset1/G5_Hiseq_[12].fastq G5_Hiseq_1.fastq
+#ln -s /proj/g2015028/nobackup/single_cell_exercises/sequences/dataset1/G5_Hiseq_2.fastq G5_Hiseq_2.fastq
+ln -s /proj/g2015028/nobackup/single_cell_exercises/sequences/dataset2/G5_Miseq_[12].fastq G5_Miseq_1.fastq
+#ln -s /proj/g2015028/nobackup/single_cell_exercises/sequences/dataset2/G5_Miseq_2.fastq G5_Miseq_2.fastq
 ```
 
 Now you are almost ready to run assemblies! But before you can start assemblies, you need to load SPAdes module first.  
@@ -497,13 +497,13 @@ module load blast/2.2.29+
 If you have identified a 16S rRNA sequence (check the gff file), type:
 
 ```sh
-blastn -query contigs.rnammer.fasta -db /proj/g2014180/nobackup/single_cell_exercises/databases/SSURef_NR99_115_tax_silva_trunc.dna.fasta -evalue 1e-6 -num_threads 8 -out contigs.rnammer.16S_silva.blastn
+blastn -query contigs.rnammer.fasta -db /proj/g2015028/nobackup/single_cell_exercises/databases/SSURef_NR99_115_tax_silva_trunc.dna.fasta -evalue 1e-6 -num_threads 8 -out contigs.rnammer.16S_silva.blastn
 ```
 
 If you have identified 23S rRNA sequence, then type:
 
 ```sh
-blastn -query contigs.rnammer.fasta -db /proj/g2014180/nobackup/single_cell_exercises/databases/LSURef_115_tax_silva_trunc.dna.fasta -evalue 1e-6 -num_threads 8 -out contigs.rnammer.23S_silva.blastn
+blastn -query contigs.rnammer.fasta -db /proj/g2015028/nobackup/single_cell_exercises/databases/LSURef_115_tax_silva_trunc.dna.fasta -evalue 1e-6 -num_threads 8 -out contigs.rnammer.23S_silva.blastn
 ```
 
 After running Blastn, can you identify what organism G5 belongs to?
@@ -525,7 +525,7 @@ module load hmmer/3.1b1-gcc
 Then go into the assembly directory and run the following perl script:
 
 ```sh
-perl /proj/g2014180/nobackup/single_cell_exercises/scripts/micomplete.pl -h /proj/g2014180/nobackup/single_cell_exercises/scripts/Bact139.hmm -w /proj/g2014180/nobackup/single_cell_exercises/scripts/Bact139.weights -p contigs.prodigal.faa -t 8 -e -c 1e-10
+perl /proj/g2015028/nobackup/single_cell_exercises/scripts/micomplete.pl -h /proj/g2015028/nobackup/single_cell_exercises/scripts/Bact139.hmm -w /proj/g2015028/nobackup/single_cell_exercises/scripts/Bact139.weights -p contigs.prodigal.faa -t 8 -e -c 1e-10
 ```
 
 If the script completed without any errors, you should see that the script printed something like this:

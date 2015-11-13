@@ -22,7 +22,7 @@ To do this, perform the following BLASTn search:
 
 ```sh
 module load blast/2.2.29+
-blastn -query contigs.fasta -db /proj/g2014180/nobackup/single_cell_exercises/databases/nt -evalue 1e-5 -num_threads 8 -out contigs_vs_nt.blastn #[This shouldn’t take more than 4 minutes]
+blastn -query contigs.fasta -db /proj/g2015028/nobackup/single_cell_exercises/databases/nt -evalue 1e-5 -num_threads 8 -out contigs_vs_nt.blastn #[This shouldn’t take more than 4 minutes]
 ```
 
 Once the search is done, take a quick look of contigs_vs_nt.blastn with less. Scroll a bit through the file by hitting space. 
@@ -84,7 +84,7 @@ several proteins you might be interested in could be missed by this analysis.
 Execute the BLASTp search:  
 
 ```sh
-blastp -query contigs.prodigal.faa -db /proj/g2014180/nobackup/single_cell_exercises/databases/db -evalue 1e-5 -num_threads 8 -out contigs.prodigal_vs_db.blastp
+blastp -query contigs.prodigal.faa -db /proj/g2015028/nobackup/single_cell_exercises/databases/db -evalue 1e-5 -num_threads 8 -out contigs.prodigal_vs_db.blastp
 ```
 
 The database that you are searching now is a modified version of NCBI's 'nr'. 
