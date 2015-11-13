@@ -22,8 +22,8 @@ Credits to to Björn Nystedt, Doug Scofield, Nat Street, Francesco Vezzi, Amaryl
 2.  Go to your glob directory (in your home) and copy the files for the lab to your local folder
 
   ```
-    cd ~/glob/
-    rsync -r -v --progress  /proj/g2014179/assemblyQC . # ~2 min to copy cd assemblyQC/
+  cd ~/glob/
+  rsync -r -v --progress  /proj/g2014179/assemblyQC . # ~2 min to copy cd assemblyQC/
   ```
 
 3.  Load the bioinfo module: This will give you access to other bioinformatics modules used below.
