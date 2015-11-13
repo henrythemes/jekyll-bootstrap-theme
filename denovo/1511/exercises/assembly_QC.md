@@ -37,19 +37,23 @@ You are now ready to start the analyses!
 Much of the current large-scale assemblers are built on deBruijn kmer graphs. Hence, errors and adapters remained in your seqs can cause more problems than in e.g read mapping and SNP-calling, since base quality values are not taken into account in the assembly process.
 
 Here, we will adopt a strategy to first search a subset of reads for adapters with Cutadapt (using a large collection of possible Illumina adapters). We will then use Trimmomatic to trim adapters and perform quality trimming based on the read quality scores. The reason for not running Cutadpat on the entire dataset is that it is quite slow if many adaptors are used in the search.
+
 ```
 cd trim/
 # Note that the Rhodobacter genome data is placed here (slightly edited to adher to older fastq format).
 /proj/g2014179/assemblyQC/scripts/runCutadapt.sh
 ```
+
 Take a look at the output file 'Rbac_cutadapt.report.short'.
 
 We will now convert the Cutadapt output to a fasta file with adapters, and then run Trimmomatic using this file for trimming. We will at the same time also use Trimmomatic to trim the reads based on their quality values.
+
 ```
 module add BioPerl
 perl /proj/g2014179/assemblyQC/scripts/cutadaptReport2conf.pl Rbac_cutadapt.report.short > adapter_seqs.fa 
 /proj/g2014179/assemblyQC/scripts/runFastQTrim.sh # ~6 min to run
 ```
+
 Take a look at the html summary file produced by the script above: 'fastqc_summary/Rbac.html. (You can e.g. run firefox from the commandline to look at this file).
 
 #### Questions
@@ -64,6 +68,7 @@ Take a look at the html summary file produced by the script above: 'fastqc_summa
 We will count the abundance (coverage) of each kmer in the complete set of reads using [Jellyfish](http://www.cbcb.umd.edu/software/jellyfish/). For a small dataset like this you can run it quickly (~3 min, <24 GB RAM). For large datsets, this can demand quite a lot of RAM.
 
 Here we will run with the kmer size 31 bp:
+
 ```
 # Goto the kmer folder
 cd ~/glob/assemblyQC/kmer/
@@ -87,9 +92,11 @@ jellyfish histo -o Rbac_trim_jelly.hist Rbac_trim_jelly_0
 ```
 
 To inspect the histograms you can plot them
+
 ```
 Rscript --vanilla /proj/g2014179/assemblyQC/scripts/plotJelly.R
 ```
+
 Inspect the histogram ('Rbac_jelly_hist.pdf'; copy to your own computer first, ask the teachers for help if needed)
 
 #### Questions
@@ -104,10 +111,12 @@ Inspect the histogram ('Rbac_jelly_hist.pdf'; copy to your own computer first, a
 `Genome size = (total nb of kmers - noise kmers ) / Cpeak`
 
 I've made a small script to make this calculation, along with a rough repeat estimation (the total number of kmers is found in the 'Stats' file produced by Jellyfis, while the rest of the parameters are taken from the histogram plot). You can run this for both the raw and trimmed data:
+
 ```
 perl /proj/g2014179/assemblyQC/scripts/kmerStats.pl Rbac_raw_jelly.hist  <total nb of kmers> <noise cutoff> <Cpeak> <single-copy upper bound>
 perl /proj/g2014179/assemblyQC/scripts/kmerStats.pl Rbac_trim_jelly.hist  <total nb of kmers> <noise cutoff> <Cpeak> <single-copy upper bound>
 ```
+
 #### Questions
 - What is the estimated genome size? Is there a difference between estimations from the raw and the trimmed data?
 - What is the expected repeat content of the genome, based on 31-mers? 
@@ -121,14 +130,19 @@ One interesting aspect of a novel genome is the level of repeats. The repeat fra
 Here, we will use [Repeat Explorer](http://repeatexplorer.umbr.cas.cz/static/html/help/manual.html) to build a repeat library from a small subset of the reads (e.g. 0.1X genome coverage), and then use that library to estimate the repeat content of the genome directly from the reads.
 
 Since the genome we are looking at contains very few repeats, we will use novel marine organism as a test case here instead. The organism has an estimated genome size of 1.4 Gbp (from kmer analyses). We will run Repeat Explorer on a subset of reads representing 0.01X coverage of the genome. Repeat Explorer is slow (even for this small subset) so I've done the run for you. The results are here:
+
 ```
 cd ~/glob/assemblyQC/repeats/
 ```
+
 You find two output folders, 'seqClust' and 'summary'. The most important output file is the reapeat library, ie a set of representative sequenced for high-copy repeat families
+
 ```
 seqClust/assembly/contigs.info.minRD5_sort-GR
 ```
+
 We can begin by running some stats on the repeat library.
+
 ```
 module add BioPerl
 /proj/g2014179/assemblyQC/scripts/contigStats.pl seqClust/assembly/contigs.info.minRD5_sort-GR 600000 > repeatlib.stats
