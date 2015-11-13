@@ -27,8 +27,8 @@ $ salloc -A g2014179 -t 08:00:00 -p core -n 8 --no-shell --reservation=check_bel
 
 where you should substitute “check_below” with one of these alternatives depending on the day.
 
-**Monday:** g2015027_mon  
-**Tuesday:** g2015027_tue  
+**Monday:** g2015027_20151116  
+**Tuesday:** g2015027_20151117  
 
 Now check which node you got (replace username with your uppmax user name) like this:
 
