@@ -72,28 +72,25 @@ We will count the abundance (coverage) of each kmer in the complete set of reads
 Here we will run with the kmer size 31 bp:
 
 ```
-# Goto the kmer folder
-cd ~/glob/assemblyQC/kmer/
-#
-# Link the data files (both raw and filtered data; unpack the filtered)
-ln -s ../trim/Rbac_1.fq .
-ln -s ../trim/Rbac_2.fq .
-gunzip -c ../trim/trimmomatic_dir/Rbac.trimmomatic_1.fq.gz > Rbac.trimmomatic_1.fq
-gunzip -c ../trim/trimmomatic_dir/Rbac.trimmomatic_2.fq.gz > Rbac.trimmomatic_2.fq
-#
-# Load jellyfish and run the kmer analysis
-module add jellyfish/1.1.11
-# Raw data 
-# I precomputed the "jellyfish count" run for you; takes too long for the lab
-## jellyfish count -m 31 -c 4 -s 2G -t 8 --both-strands -o Rbac_raw_jelly --timing=rawTiming --stats=rawStats Rbac_1.fq Rbac_2.fq 
-jellyfish histo -o Rbac_raw_jelly.hist Rbac_raw_jelly_0
-# Trimmed data 
-# I precomputed the "jellyfish count" run for you; takes too long for the lab
-## jellyfish count -m 31 -c 4 -s 2G -t 8 --both-strands -o Rbac_trim_jelly --timing=trimTiming --stats=trimStats Rbac.trimmomatic_1.fq Rbac.trimmomatic_2.fq 
-jellyfish histo -o Rbac_trim_jelly.hist Rbac_trim_jelly_0
+#Define folder variables
+OUTPUTDIR=$SNIC_TMP/kat_qc
+PROJDIR=$(pwd)
+#create a temporary directory on the scratchdisk
+mkdir -p $OUTPUTDIR
+#copy files to scratch and enter the folder
+rsync *.fq $OUTPUTDIR
+cd $OUTPUTDIR
+#run kat
+kat hist -t 32 -C -o all_data_hist *.fq
+#remove sequence files from scratch
+rm *.fq
+#transfer files from scratch to exercise folder
+cd $PROJDIR
+rsync -av $OUTPUTDIR .
+
 ```
 
-To inspect the histograms you can plot them
+To inspect the histogram, transfer the files to your computer using scp, and view them by clicking on all_data_hist.png
 
 ```
 Rscript --vanilla /proj/g2014179/assemblyQC/scripts/plotJelly.R
