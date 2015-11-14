@@ -23,7 +23,7 @@ Credits to to Björn Nystedt, Doug Scofield, Nat Street, Francesco Vezzi, Amaryl
 
   ```
   cd ~/glob/
-  rsync -r -v --progress  /proj/g2014179/assemblyQC . # ~2 min to copy cd assemblyQC/
+  rsync -r -v --progress  /proj/g2015027/assemblyQC . # ~2 min to copy cd assemblyQC/
   ```
 
 3.  Load the bioinfo module: This will give you access to other bioinformatics modules used below.
