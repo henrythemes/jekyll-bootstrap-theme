@@ -92,12 +92,6 @@ rsync -av $OUTPUTDIR .
 
 To inspect the histogram, transfer the files to your computer using scp, and view them by clicking on all_data_hist.png
 
-```
-Rscript --vanilla /proj/g2014179/assemblyQC/scripts/plotJelly.R
-```
-
-Inspect the histogram ('Rbac_jelly_hist.pdf'; copy to your own computer first, ask the teachers for help if needed)
-
 #### Questions
 
 - Does it look like you expected?
