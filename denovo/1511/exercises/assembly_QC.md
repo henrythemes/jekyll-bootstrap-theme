@@ -42,6 +42,7 @@ First we can get a number of statistics from the reads by running FastQC. This i
 # Enter the course directory and create a new folder
 cd ~/assemblyQC
 mkdir FastQC
+cd FastQC
 # Load FastQC
 module load bioinfo-tools
 module load FastQC
@@ -50,7 +51,7 @@ fastqc ../trim/Rbac_1.fq
 fastqc ../trim/Rbac_2.fq
   ```
 
-Transfer the html-reports to you own computer using scp. Ask the teachers if you are unsure how to.
+Transfer the html-reports to you own computer using scp and click on them to view. Ask the teachers if you are unsure how to.
 
 #### Questions
 
