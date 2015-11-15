@@ -142,6 +142,25 @@ perl /proj/g2015027/assemblyQC/scripts/kmerStats.pl Rbac_trim_jelly.hist  <total
 
 You can check the true genome size of Rhodobacter sphaeroides here: http://gage.cbcb.umd.edu/results/index.html 
 
+### Compare kmer-spectrum and GC-content
+
+```
+# compare read 1 vs read 2 or lib A vs lib B
+# Density plot
+cd ~/assemblyQC
+mkdir kat
+cd kat
+kat comp -p -t 8 -C -D -o katout ../trim/Rbac_1.fq ../trim/Rbac_2.fq
+# Spectra plot (must run density computation first)
+kat plot spectra-mx -n -o katout_s.png katout-main.mx
+
+
+# Compare GC content
+kat gcp -t 8 -C -o katout ../trim/Rbac_1.fq ../trim/Rbac_2.fq
+
+```
+
+
 ### De novo repeat library
 
 One interesting aspect of a novel genome is the level of repeats. The repeat fraction differ enormously, sometimes even between relatively closely related species. Since repeats break up the assembly, and also tend to appear very fragmented themselves, it is wise to try to get an assembly-independent repeat library and repeat-quantification.
