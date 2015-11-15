@@ -20,7 +20,7 @@ We will go through all the steps using the Velvet assembly. All assemblies have 
 
 ### Setting up your project environment  
 
-Copy the data from the project directory to your home folder in order to run your excersices locally. It is important that you copy the files exactly in this way as many commands that will follow rely on finding things in a precise place. **DO NOT START TO RUN SCRIPTS ALREADY: WE NEED TO FIX THE WORKING ENVIORMENT FIRST.**
+Copy the data from the project directory to your home folder in order to run your excersices locally. It is important that you copy the files exactly in this way as many commands that will follow rely on finding things in a precise place. **DO NOT START TO RUN SCRIPTS ALREADY: WE NEED TO FIX THE WORKING ENVIRONMENT FIRST.**
 
 ```
 $ cd ~
