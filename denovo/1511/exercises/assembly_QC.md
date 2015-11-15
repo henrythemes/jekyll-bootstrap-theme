@@ -19,10 +19,10 @@ Credits to to Björn Nystedt, Doug Scofield, Nat Street, Francesco Vezzi, Amaryl
 
   First follow the instructions [here](../../common/login_instructions) to log in to UPPMAX.
 
-2.  Go to your glob directory (in your home) and copy the files for the lab to your local folder
+2.  Go to your home directory and copy the files for the lab to your local folder
 
   ```
-  cd ~/glob/
+  cd
   rsync -r -v --progress  /proj/g2015027/assemblyQC . # ~2 min to copy cd assemblyQC/
   ```
 
