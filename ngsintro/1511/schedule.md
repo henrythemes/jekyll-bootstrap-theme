@@ -7,11 +7,11 @@ title:  'Schedule'
 
 **Monday**  
 Room: Heden   
-**09.00-09.45** Lecture: Introduction to Linux (Martin Dahlö)  
-**10.00-12.00** Exercise: Introduction to Linux (Martin Dahlö, Dag Ahrén, Elin Videvall)  
+**09.00-09.45** [Lecture: Introduction to Linux](slides/dahlo-linux.pdf) (Martin Dahlö)  
+**10.00-12.00** [Exercise: Introduction to Linux](labs/linux-intro) (Martin Dahlö, Dag Ahrén, Elin Videvall)  
 **12.00-13.00** Lunch  
-**13.00-13.45** Lecture: Introduction to UPPMAX/UPPNEX (Martin Dahlö)  
-**13.45-17.00** Exercise: Introduction to UPPMAX/UPPNEX (Martin Dahlö, Dag Ahrén, Elin Videvall)   
+**13.00-13.45** [Lecture: Introduction to UPPMAX/UPPNEX](slides/dahlo-uppmax.pdf) (Martin Dahlö)  
+**13.45-17.00** [Exercise: Introduction to UPPMAX/UPPNEX](labs/uppmax-intro) (Martin Dahlö, Dag Ahrén, Elin Videvall)   
 
 **Tuesday**  
 Room: Heden  
