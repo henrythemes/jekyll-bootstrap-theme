@@ -56,7 +56,7 @@ Transfer the html-reports to you own computer using scp. Ask the teachers if you
 
 - Do you see anything that looks problematic in the reports? If so, how can you improve the read files?
 
-#### Adapter trimming and QC filtering 
+### Adapter trimming and QC filtering 
 
 Much of the current large-scale assemblers are built on deBruijn kmer graphs. Hence, errors and adapters remained in your seqs can cause more problems than in e.g read mapping and SNP-calling, since base quality values are not taken into account in the assembly process.
 
@@ -78,14 +78,14 @@ perl /proj/g2015027/assemblyQC/scripts/cutadaptReport2conf.pl Rbac_cutadapt.repo
 /proj/g2015027/assemblyQC/scripts/runFastQTrim.sh # ~6 min to run
 ```
 
-Take a look at the html summary file produced by the script above: 'fastqc_summary/Rbac.html. (You can e.g. run firefox from the commandline to look at this file).
+Take a look at the html summary file produced by the script above: 'fastqc_summary/Rbac.html.
 
 #### Questions
 
 - How many adaptors were found in the read subset by Cutadapt?
 - What fraction of the 25,000 reads in the subset had adapters?
 - How many reads survived the quality trimming?
-- Did the quality trimming have any major effect on the overall quality? 
+- Did the quality trimming have any major effect on the overall quality? Compare with the FastQC-report you did before trimming
 
 ###  Kmers
 
