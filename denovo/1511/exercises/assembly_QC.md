@@ -34,7 +34,7 @@ Credits to to Björn Nystedt, Doug Scofield, Nat Street, Francesco Vezzi, Amaryl
 
 You are now ready to start the analyses!
 
-#### FastQC
+### FastQC
 
 First we can get a number of statistics from the reads by running FastQC. This is dead simple and fast.
 
