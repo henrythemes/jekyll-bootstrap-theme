@@ -158,9 +158,12 @@ kat plot spectra-mx -n -o katout_s.png katout-main.mx
 
 # Compare GC content
 kat gcp -t 8 -C -o katout ../trim/Rbac_1.fq ../trim/Rbac_2.fq
-
 ```
 
+Transfer the kat folder to your computer using scp and inspect the plots.
+
+#### Questions
+- Do you notice anything in the plots that you would like to correct for before assembly?
 
 ### De novo repeat library
 
