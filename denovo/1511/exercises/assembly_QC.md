@@ -38,7 +38,7 @@ You are now ready to start the analyses!
 
 First we can get a number of statistics from the reads by running FastQC. This is dead simple and fast.
 
-...
+  ```
 # Enter the course directory and create a new folder
 cd ~/assemblyQC
 mkdir FastQC
@@ -48,7 +48,7 @@ module load FastQC
 # Run FastQC separately on both read files
 fastqc ../trim/Rbac_1.fq
 fastqc ../trim/Rbac_2.fq
-...
+  ```
 
 Transfer the html-reports to you own computer using scp. Ask the teachers if you are unsure how to.
 
