@@ -29,43 +29,34 @@ You are now ready to proceed to working with the first assembly program, Velvet.
 
 ### Part1, HiSeq data
 
-#### Velvet
+#### Spades
 
-Start by making a folder called velvet in RhodoAssembly and enter it with `cd velvet`.
+Start by making a folder called spades in RhodoAssembly and enter it with `cd spades`.
 
-Now load the velvet module:
+Now load the spades module:
 
 ```
 module load bioinfo-tools
-module load velvet/1.1.07
+module load spades
 ```
 
-Velvet needs the input reads in one file, and since we have paired end reads in two files we need to combine them into an interleaved fastq using a script that is supplied by velvet:
+Spades is very easy to run in the basic configuration. Usually you want to run with the "--careful" flag, but this will take too long for this exercise. It will take around 16 mins anyway, grab a coffee.
 
 ```
-shuffleSequences_fastq.pl ../data/Rhodo_Hiseq_trimmed_read1.fastq ../data/Rhodo_Hiseq_trimmed_read2.fastq Rhodo_Hiseq_trimmed_both.fastq
+spades -t 8 --pe1-1 ../data/Rhodo_Hiseq_trimmed_read1.fastq --pe1-2 ../data/Rhodo_Hiseq_trimmed_read2.fastq -o SpadesOut
 ```
 
-Velvet has two components, velveth and velvetg. You run velveth first, which prepares the data for velvetg, which builds the de Bruijn graph and creates contigs and scaffolds. The dot "." After the program names is important. It tells Velvet to work with and output files in the current folder.
+In SpadesOut you will now have a number of files, including contigs.fasta and scaffolds.fasta.
 
+Take a look at the files using `less`. Can you see any regions where contigs have been scaffolded together?
+
+We then calculate some statistocs and generate plots using Quast:
 ```
-velveth . 49 -fastq -shortPaired Rhodo_Hiseq_trimmed_both.fastq
-velvetg . -exp_cov auto -ins_length 220 -ins_length_sd 25 -scaffolding yes
-```
-
-You will now have a file called contigs.fa which is your genome assembly. Although it is called contigs.fa, scaffolds are actually built since you told velvetg to do so (-scaffolding yes).
-
-Take a look at the file using `less`. Then calculate the N50 size:
-
-```
-perl ../data/calculateN50.pl contigs.fa
+module load module load quast/2.3
+quast.py -o spades -l Spades_scaffolds,Spades_contigs -t 1 scaffolds.fasta contigs.fasta
 ```
 
-Take a note of the N50 size to use for comparisons later. Now count the number of scaffolds in the file (do you understand how the command works? Ask if not!):
-
-```
-grep -c “>” contigs.fa
-```
+Download the whole quast result-folder (spades) to your own computer using scp and click on the reports.html file. Any big differences between the scaffolds and contigs files?
 
 Now go on the next assembly program:
 
@@ -86,7 +77,7 @@ If you have paired end data you can start Abyss using the abyss-pe script:
 abyss-pe k=31 l=1 n=5 s=100 np=8 name=asm lib='reads' reads=' ../data/Rhodo_Hiseq_trimmed_read1.fastq ../data/Rhodo_Hiseq_trimmed_read2.fastq' aligner=bowtie
 ```
 
-Once done you will have two files called asm-contigs.fa and as-.scaffolds.fa. Check the N50 values like you did for the velvet assemblies. Any differences to the Velvet-assemblies? 
+Once done you will have two files called asm-contigs.fa and asm.scaffolds.fa. Now load these files together with the earlier Spades contigs. Can you based on these numbers say which assembler does the best job? Note that this is a trick question!
 
 The next assembler we'll try is
 
@@ -134,7 +125,7 @@ Start SoapDeNovo by:
 SOAPdenovo-63mer all –K 55 –F –R –E –w –u –s soap.config –o asm –p 8>> SOAPdenovo.log
 ```
 
-Check the result-files asm.contig and asm.scafSeq for N50 size and number of contigs/scaffolds. Compare with earlier results.
+Check the result-files asm.contig and asm.scafSeq for N50 size and number of contigs/scaffolds and compare with earlier results using Quast.
 
 SoapDeNovo also comes with a GapCloser utlity that tries to improve the assemblies by closing gaps in the scaffolds. Try it out using:
 
@@ -152,8 +143,6 @@ There is also MiSeq data for the same organism. Links are in the data folder. Yo
 
 The MiSeq data have longer reads, and you therefore need to change the following parameters (and remember to use the MiSeq files this time):
 
-- Velveth - change the K value (49) to 31.
-- Velvetg - change -ins_length to 540, ins_length_sd to 60.
 - Abyss-pe - change k to 49
 - SoapDeNovo - change in the config file avg_ins to 540, use on the command line a K value of 79.
 
@@ -163,7 +152,7 @@ Compare with your HiSeq results. Differences?
 
 This is an optional exercise. Here you should try to use Mira on the HiSeq data. Load the module using: `module load mira/4.0rc4`
 
-Here you will receive no help. Try to figure out how to use the program by googling, in particular try to find the manual. Once you get it to run, kill it. No, I am serious. Press ctrl-c to kill the process. It simply takes to long to run, but now you have probably learned a lot by trying to get it to work. smile Then check the result-files in `/proj/g2014179/private/assembly_workshop/mira/`
+Here you will receive no help. Try to figure out how to use the program by googling, in particular try to find the manual. Once you get it to run, kill it. No, I am serious. Press ctrl-c to kill the process. It simply takes to long to run, but now you have probably learned a lot by trying to get it to work. smile Then check the result-files in `/proj/g2015027/private/assembly_workshop/mira/`
 
 Was the longer running-time worth it?
 
