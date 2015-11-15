@@ -43,7 +43,7 @@ Here, we will adopt a strategy to first search a subset of reads for adapters wi
 ```
 cd trim/
 # Note that the Rhodobacter genome data is placed here (slightly edited to adher to older fastq format).
-/proj/g2014179/assemblyQC/scripts/runCutadapt.sh
+/proj/g2015027/assemblyQC/scripts/runCutadapt.sh
 ```
 
 Take a look at the output file 'Rbac_cutadapt.report.short'.
@@ -52,8 +52,8 @@ We will now convert the Cutadapt output to a fasta file with adapters, and then 
 
 ```
 module add BioPerl
-perl /proj/g2014179/assemblyQC/scripts/cutadaptReport2conf.pl Rbac_cutadapt.report.short > adapter_seqs.fa 
-/proj/g2014179/assemblyQC/scripts/runFastQTrim.sh # ~6 min to run
+perl /proj/g2015027/assemblyQC/scripts/cutadaptReport2conf.pl Rbac_cutadapt.report.short > adapter_seqs.fa 
+/proj/g2015027/assemblyQC/scripts/runFastQTrim.sh # ~6 min to run
 ```
 
 Take a look at the html summary file produced by the script above: 'fastqc_summary/Rbac.html. (You can e.g. run firefox from the commandline to look at this file).
@@ -93,7 +93,7 @@ jellyfish histo -o Rbac_raw_jelly.hist Rbac_raw_jelly_0
 jellyfish histo -o Rbac_trim_jelly.hist Rbac_trim_jelly_0
 ```
 To inspect the histograms you can plot them
-Rscript --vanilla /proj/g2014179/assemblyQC/scripts/plotJelly.R
+Rscript --vanilla /proj/g2015027/assemblyQC/scripts/plotJelly.R
 Inspect the histogram ('Rbac_jelly_hist.pdf'; copy to your own computer first, ask the teachers for help if needed)
 
 #### Questions
@@ -110,8 +110,8 @@ Inspect the histogram ('Rbac_jelly_hist.pdf'; copy to your own computer first, a
 I've made a small script to make this calculation, along with a rough repeat estimation (the total number of kmers is found in the 'Stats' file produced by Jellyfis, while the rest of the parameters are taken from the histogram plot). You can run this for both the raw and trimmed data:
 
 ```
-perl /proj/g2014179/assemblyQC/scripts/kmerStats.pl Rbac_raw_jelly.hist  <total nb of kmers> <noise cutoff> <Cpeak> <single-copy upper bound>
-perl /proj/g2014179/assemblyQC/scripts/kmerStats.pl Rbac_trim_jelly.hist  <total nb of kmers> <noise cutoff> <Cpeak> <single-copy upper bound>
+perl /proj/g2015027/assemblyQC/scripts/kmerStats.pl Rbac_raw_jelly.hist  <total nb of kmers> <noise cutoff> <Cpeak> <single-copy upper bound>
+perl /proj/g2015027/assemblyQC/scripts/kmerStats.pl Rbac_trim_jelly.hist  <total nb of kmers> <noise cutoff> <Cpeak> <single-copy upper bound>
 ```
 
 #### Questions
@@ -142,7 +142,7 @@ We can begin by running some stats on the repeat library.
 
 ```
 module add BioPerl
-/proj/g2014179/assemblyQC/scripts/contigStats.pl seqClust/assembly/contigs.info.minRD5_sort-GR 600000 > repeatlib.stats
+/proj/g2015027/assemblyQC/scripts/contigStats.pl seqClust/assembly/contigs.info.minRD5_sort-GR 600000 > repeatlib.stats
 ```
 
 #### Questions
