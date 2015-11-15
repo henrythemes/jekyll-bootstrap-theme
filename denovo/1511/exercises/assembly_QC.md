@@ -34,6 +34,28 @@ Credits to to Björn Nystedt, Doug Scofield, Nat Street, Francesco Vezzi, Amaryl
 
 You are now ready to start the analyses!
 
+#### FastQC
+
+First we can get a number of statistics from the reads by running FastQC. This is dead simple and fast.
+
+...
+# Enter the course directory and create a new folder
+cd ~/assemblyQC
+mkdir FastQC
+# Load FastQC
+module load bioinfo-tools
+module load FastQC
+# Run FastQC separately on both read files
+fastqc ../trim/Rbac_1.fq
+fastqc ../trim/Rbac_2.fq
+...
+
+Transfer the html-reports to you own computer using scp. Ask the teachers if you are unsure how to.
+
+#### Questions
+
+- Do you see anything that looks problematic in the reports? If so, how can you improve the read files?
+
 #### Adapter trimming and QC filtering 
 
 Much of the current large-scale assemblers are built on deBruijn kmer graphs. Hence, errors and adapters remained in your seqs can cause more problems than in e.g read mapping and SNP-calling, since base quality values are not taken into account in the assembly process.
