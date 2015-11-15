@@ -171,7 +171,7 @@ Here, we will use [Repeat Explorer](http://repeatexplorer.umbr.cas.cz/static/htm
 Since the genome we are looking at contains very few repeats, we will use novel marine organism as a test case here instead. The organism has an estimated genome size of 1.4 Gbp (from kmer analyses). We will run Repeat Explorer on a subset of reads representing 0.01X coverage of the genome. Repeat Explorer is slow (even for this small subset) so I've done the run for you. The results are here:
 
 ```
-cd ~/glob/assemblyQC/repeats/
+cd ~/assemblyQC/repeats/
 ```
 
 You find two output folders, 'seqClust' and 'summary'. The most important output file is the reapeat library, ie a set of representative sequenced for high-copy repeat families
