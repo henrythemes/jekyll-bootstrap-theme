@@ -22,7 +22,7 @@ You should now get a welcoming message from Uppmax to show that you have success
 Usually you would do most of the work in this lab directly on one of the login nodes at uppmax, but we have arranged for you to have half of one node (=8 cores) each to avoid disturbances. To get this reservation you need to use the salloc command like this:
 
 ```
-$ salloc -A g2014179 -t 08:00:00 -p core -n 8 --no-shell --reservation=check_below &
+$ salloc -A g2015027 -t 08:00:00 -p core -n 8 --no-shell --reservation=check_below &
 ```
 
 where you should substitute “check_below” with one of these alternatives depending on the day.
