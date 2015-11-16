@@ -49,8 +49,8 @@ cd FastQC
 module load bioinfo-tools
 module load FastQC
 # Run FastQC separately on both read files
-fastqc ../trim/Rbac_1.fq
-fastqc ../trim/Rbac_2.fq
+fastqc ../trim/Rbac_1.fq -o .
+fastqc ../trim/Rbac_2.fq -o .
   ```
 
 Transfer the html-reports to you own computer using scp and click on them to view. Ask the teachers if you are unsure how to.
