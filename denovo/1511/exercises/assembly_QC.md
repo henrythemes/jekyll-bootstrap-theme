@@ -66,7 +66,7 @@ Much of the current large-scale assemblers are built on deBruijn kmer graphs. He
 Here, we will adopt a strategy to first search a subset of reads for adapters with Cutadapt (using a large collection of possible Illumina adapters). We will then use Trimmomatic to trim adapters and perform quality trimming based on the read quality scores. The reason for not running Cutadpat on the entire dataset is that it is quite slow if many adaptors are used in the search.
 
 ```
-cd trim/
+cd ../trim/
 # Note that the Rhodobacter genome data is placed here (slightly edited to adher to older fastq format).
 /proj/g2015027/assemblyQC/scripts/runCutadapt.sh
 ```
@@ -178,7 +178,7 @@ Here, we will use [Repeat Explorer](http://repeatexplorer.umbr.cas.cz/static/htm
 Since the genome we are looking at contains very few repeats, we will use novel marine organism as a test case here instead. The organism has an estimated genome size of 1.4 Gbp (from kmer analyses). We will run Repeat Explorer on a subset of reads representing 0.01X coverage of the genome. Repeat Explorer is slow (even for this small subset) so I've done the run for you. The results are here:
 
 ```
-cd ~/assemblyQC/repeats/
+cd ~/glob/assemblyQC/repeats/
 ```
 
 You find two output folders, 'seqClust' and 'summary'. The most important output file is the reapeat library, ie a set of representative sequenced for high-copy repeat families
