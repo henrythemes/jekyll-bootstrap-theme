@@ -42,7 +42,7 @@ First we can get a number of statistics from the reads by running FastQC. This i
 
   ```
 # Enter the course directory and create a new folder
-cd ~/assemblyQC
+cd ~/glob/assemblyQC
 mkdir FastQC
 cd FastQC
 # Load FastQC
@@ -117,6 +117,7 @@ jellyfish histo -o Rbac_raw_jelly.hist Rbac_raw_jelly_0
 ## jellyfish count -m 31 -c 4 -s 2G -t 8 --both-strands -o Rbac_trim_jelly --timing=trimTiming --stats=trimStats Rbac.trimmomatic_1.fq Rbac.trimmomatic_2.fq 
 jellyfish histo -o Rbac_trim_jelly.hist Rbac_trim_jelly_0
 ```
+
 To inspect the histograms you can plot them
 Rscript --vanilla /proj/g2015027/assemblyQC/scripts/plotJelly.R
 Inspect the histogram ('Rbac_jelly_hist.pdf'; copy to your own computer first, ask the teachers for help if needed)
