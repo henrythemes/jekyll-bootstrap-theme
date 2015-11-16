@@ -112,47 +112,45 @@ Staphylococcus_aureus.velvet.scf.fasta | 2900000 | 2877995 | 173 | 989718 | 7623
 - Are there any outlier(s)?
 - What about your assembly? Does it seems close to these ones? 
 
-### Raw data congruency
-
 One way to evaluate an assembly is to map back reads and check if they are congruent with the contigs/scaffolds. Moreover, alignments alone are able to give us a lot of informations about the assemblies and the genome content.
 
-We will look into three pipelines based on this approach:
+We will look into three tools based on this approach:
 
 - QAtools: unpublished, available on-line on git-hub.
 - REAPR: publication "REAPR: a universal tool for genome assembly evaluation"
 - FRCbam: publication "Re-evaluating assembly evaluation with Feature Responses Curves"
 
-but first of all let us genearate the alignments. 
+but first of all let us generate the alignments. 
 
-### Read Alignment
+### 02 - Read Alignment
 
 We will now see how to align both PE and MP reads against an assembly (scaffolded sequences). This step is time consuming, you can do it manually on one assembly to try the various steps. You are strongly encouraged to try this on your own assembly.
 
 You need to work in the following directory:
 
 ```
-~/AV_Exercise/04_align
+~/AV_Exercise/02_read_mapping
 ```
 
 To automatically generate all the alignments run `sh run_alignments.sh` (this will take ~30 minutes)
 
 To softlink here pre-computed results run `sh run_softlinkAlignments.sh` (this will take ~2 minutes as PicardTools are exectued)
 
-Let us see the various steps, we will use velvet assembly:
+These are the different steps to map the reads to the assembly. I will use the "velvet" assembly, but feel free to use any of them:
 
-Create directory and collect all data:
+Create directory and collect all data using soft links:
 
 ```
 $ mkdir velvet
 $ cd velvet
-$ ln -s ~/AV_Exercise/02_assemblies/velvet/Staphylococcus_aureus.velvet.scf.fasta .
-$ ln -s ~/AV_Exercise/01_data/PE/Staphylococcus_aureus_PE_1.fastq .
-$ ln -s ~/AV_Exercise/01_data/PE/Staphylococcus_aureus_PE_2.fastq .
-$ ln -s ~/AV_Exercise/01_data/MP_rc/Staphylococcus_aureus_MP_rc_1.fastq .
-$ ln -s ~/AV_Exercise/01_data/MP_rc/Staphylococcus_aureus_MP_rc_2.fastq .
+$ ln -s ~/AV_Exercise/assemblies/velvet/Staphylococcus_aureus.velvet.scf.fasta .
+$ ln -s ~/AV_Exercise/data/PE/Staphylococcus_aureus_PE_1.fastq .
+$ ln -s ~/AV_Exercise/data/PE/Staphylococcus_aureus_PE_2.fastq .
+$ ln -s ~/AV_Exercise/data/MP_rc/Staphylococcus_aureus_MP_rc_1.fastq .
+$ ln -s ~/AV_Exercise/data/MP_rc/Staphylococcus_aureus_MP_rc_2.fastq .
 ```
 
-Now assembly and reads are reachable from our local directory. N.B. we are using soft-links this is high reccomended in order to avoid data duplication.
+Now assembly and reads are available from our local directory. **Note**: we are using soft-links - and this is highly recommended in order to avoid using too much space. Have a backup copy, and one working copy, that's all you'll ever need!
 
 Now create index:
 
@@ -163,40 +161,47 @@ $ bwa index Staphylococcus_aureus.velvet.scf.fasta
 Now we have the index, so we can align reads with bwa. We start with the PE:
 
 ```
-$ bwa mem -t 8 -M Staphylococcus_aureus.velvet.scf.fasta  Staphylococcus_aureus_PE_1.fastq Staphylococcus_aureus_PE_2.fastq > PE_on_velvet.sam
+$ bwa mem -t 8 -M Staphylococcus_aureus.velvet.scf.fasta  Staphylococcus_aureus_PE_1.fastq Staphylococcus_aureus_PE_2.fastq > velvet_PE.sam
 ```
 
-Now convert SAM file into BAM file (less space and more tools able to use it):
+Now convert SAM file into BAM file (the binary BAM format uses less space, and more tools are able to use it):
 
 ```
-$ samtools view -Sb -o  PE_on_velvet.bam PE_on_velvet.sam
+$ samtools view -Sb velvet_PE.sam -o velvet_PE.bam 
 ```
 
 Now sort the BAM file (many tools require it sorted):
 
 ```
-$ samtools sort PE_on_velvet.bam PE_on_velvet_sorted
+$ samtools sort velvet_PE.bam velvet_PE.sorted
+```
+
+Finally, index the BAM file (makes reading it faster, and many tools require it indexed):
+
+```
+$ samtools index velvet_PE.sorted.bam
 ```
 
 Now compute Insert Size Statistics with PicardTools (extremely usefull suite of tools, but can be a bit tricky to use):
 
 ```
-$ java -Xmx16g -XX:PermSize=8g -jar $PICARD_HOME/CollectInsertSizeMetrics.jar MINIMUM_PCT=0 HISTOGRAM_FILE=PE_on_velvet.pdf  INPUT=PE_on_velvet_sorted.bam  OUTPUT=PE_on_velvet_sorted.collectInseSize HISTOGRAM_WIDTH=500
+$ java -Xmx16g -XX:PermSize=8g -jar $PICARD_HOME/CollectInsertSizeMetrics.jar MINIMUM_PCT=0 HISTOGRAM_FILE=velvet_PE.pdf  INPUT=velvet_PE.sorted.bam  OUTPUT=velvet_PE.sorted.collectInseSize HISTOGRAM_WIDTH=500
 ```
 
 Have a look to:
 
-- `PE_on_velvet_sorted.collectInseSize`
-- `PE_on_velvet.pdf`
+- `velvet_PE.sorted.collectInseSize`
+- `velvet_PE.pdf`
 
 What kind of information this table and plot give us? How can be used to judge the assembly?
 Let us do it again for the MP:
 
 ```
-$ bwa mem -t 8 -M Staphylococcus_aureus.velvet.scf.fasta  Staphylococcus_aureus_MP_rc_1.fastq Staphylococcus_aureus_MP_rc_2.fastq > MP_on_velvet.sam
-$ samtools view -Sb -o  MP_on_velvet.bam MP_on_velvet.sam
-$ samtools sort MP_on_velvet.bam MP_on_velvet_sorted
-$ java -Xmx16g -XX:PermSize=8g -jar $PICARD_HOME/CollectInsertSizeMetrics.jar MINIMUM_PCT=0 HISTOGRAM_FILE=MP_on_velvet.pdf  INPUT=MP_on_velvet_sorted.bam  OUTPUT=MP_on_velvet_sorted.collectInseSize HISTOGRAM_WIDTH=8000
+$ bwa mem -t 8 -M Staphylococcus_aureus.velvet.scf.fasta Staphylococcus_aureus_MP_rc_1.fastq Staphylococcus_aureus_MP_rc_2.fastq > velvet_MP.sam
+$ samtools view -Sb velvet_MP.sam -o velvet_MP.bam 
+$ samtools sort velvet_MP.bam velvet_MP.sorted
+$ samtools index velvet_MP.sorted.bam
+$ java -Xmx16g -XX:PermSize=8g -jar $PICARD_HOME/CollectInsertSizeMetrics.jar MINIMUM_PCT=0 HISTOGRAM_FILE=velvet_MP.pdf  INPUT=velvet_MP.sorted.bam  OUTPUT=velvet_MP.sorted.collectInseSize HISTOGRAM_WIDTH=8000
 ```
 
 What kind of information this table and plot give us? How can be used to judge the assembly?
