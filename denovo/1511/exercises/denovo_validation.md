@@ -23,7 +23,7 @@ We will go through all the steps using the Velvet assembly. All assemblies have 
 Copy the data from the project directory to your home folder in order to run your excersices locally. It is important that you copy the files exactly in this way as many commands that will follow rely on finding things in a precise place. **DO NOT START TO RUN SCRIPTS ALREADY: WE NEED TO FIX THE WORKING ENVIRONMENT FIRST.**
 
 ```
-$ cd ~
+$ cd ~/glob/
 $ rsync -r -v --progress /proj/g2015027/assemblyValidation/AV_Exercise/ AV_Exercise 
 $ cd AV_Exercise/ 
 $ ls 
@@ -37,21 +37,22 @@ If you soft link this folder into your directory pay attention to not delete the
 
  The AV_Exercise folder in your home contains the following elements:
 
-- **00_tools**: set of useful tools and commands to facilitate your work.
-- **01_data**: data, Paired End reads in the folder PE (in standard format) and Mate Pair reads in the folder MP_rc (they have been reverse complemented as software we will use expect all pairs to be innies -><-)
-- **02_assemblies**: de novo assemblies for *ABySS*, *Allpaths-LG*, *MaSuRCA* (a.k.a. MSR-CA), *SOAPdenovo*, *Velvet*. **Note**: In case you want to run the exercise on your own de novo assembly you must first of all rename all the contigs (Reapr wants all contigs in a form similar to ">contig_NUM"). Use the script `~/AV_Exercise/00_tools/rename_assembly_contigs.pl --assembly ORIGINAL_SEQ > RENAMED_SEQ`
-- **03_eval**: first evaluation step, i.e., standard assembly statistics.
-- **04_align**: reads alignments (PE and MP) against the assemblies, this is a required step for further analysis. Command `run_alignments.sh` allows you to generate all the alignments. This is time consuming (it takes 34 minutes), so you are encouraged to use the comand `run_soflinkAlignments.sh` that creates softlinks to pre-computed alignments and runs "only" PicardTools (it takes less than 2 minutes).
-- **05_QA_tools**: In this folder we will execute and play around with QA-tools, a set of useful tools to asses assembly complexity/quality. The command runQA_tools.sh executes the command.
-- **06_FRCbam**: In this folder we will execute and play around with FRCbam a tool to rank de novo assemblies obtained with different assemblers.
-- **07_REAPR**: In this folder we will execute and play around with Reapr a tool to rank and correct assemblies. As this tool is slower than the others (37 minutes to evaluete all 5 assemblies) you will find the results already computed (some partial large files have been deleted to avoid the transfer of large files).
-- **07_CEGMA**: results from CEGMA. THis tool is extremely slow and unstable so we will only look at the results
+- **tools**: set of useful tools and commands to facilitate your work.
+- **data**: data, Paired-End reads in the folder PE (in standard format) and Mate-Pair reads in the folder MP_rc (they have been reverse complemented as software we will use expect all pairs to be innies --><--)
+- **assemblies**: de novo assemblies for *ABySS*, *Allpaths-LG*, *MaSuRCA* (a.k.a. MSR-CA), *SOAPdenovo*, *Velvet*. **Note**: In case you want to run the exercise on your own de novo assembly you must first rename all the contigs (REAPR wants all contigs in a form similar to ">contig_NUM"). Use the script `~/AV_Exercise/00_tools/rename_assembly_contigs.pl --assembly ORIGINAL_SEQ > RENAMED_SEQ`
+- **01_assembly_statistics**: first evaluation step, i.e., standard assembly statistics.
+- **02_read_mapping**: reads alignments (PE and MP) against the assemblies, this is a required step for further analysis. Command `run_alignments.sh` allows you to generate all the alignments. This is time consuming (it takes 34 minutes), so you are encouraged to use the comand `run_softlinkAlignments.sh` that creates softlinks to pre-computed alignments and runs "only" PicardTools (it takes less than 2 minutes).
+- **03_QA_tools**: In this folder we will execute and play around with QA-tools, a set of useful tools to asses assembly complexity/quality. The command runQA_tools.sh executes the command.
+- **04_KAT**: Here we'll take another look at KAT, a toolset for kmer analysis which can be used both for pre-assembly QC, and post-assembly validation.
+- **05_FRCbam**: In this folder we will execute and play around with FRCbam a tool to rank de novo assemblies obtained with different assemblers.
+- **06_REAPR**: In this folder is scripts to try out REAPR - a tool to rank and correct assemblies. As this tool is slower than the others (37 minutes to evaluete all 5 assemblies) you will find the results already computed (some partial large files have been deleted to avoid the transfer of large files).
+- **07_CEGMA**: results from CEGMA. This tool is extremely slow and unstable so we will only look at the results
 
 For each assembler contig (*ctg*) and scaffold (*scf*) sequences are present. We will use _only_ scaffolds but everything we say can be done on contigs too.
 
 ### Setting up the working enviorment
 
-Now all the data you need is in your home folder, in the `AV_Exercise` directory. You still need a lot of tools though.
+Now all the data you need is in your home folder, on `glob`, in the `AV_Exercise` directory. You still need a lot of tools though.
 
 Setting up the working the environment (i.e., be sure that all the needed tools are available on the command line) is the first and probably most important step. 
 
@@ -71,15 +72,15 @@ export PERL5LIB=/proj/g2015027/assemblyValidation/tools/File-Copy-Link-0.112/lib
 module load BioPerl/1.6.1
 ```
 
-This should set up all the variables and paths that allow you to run all the needed programs. Try this:
+This should set up all the variables and paths needed to run all the programs in this tutorial! Try this:
 
 ```
 $ FRC --help
 ```
 
-If an help message is produced everything should be working, if it's not, feel free to panic! Another solution is to call one of us and we'll sort it out.
+If you see a help message then everything should be working. If it's not, feel free to panic. Another solution is to call one of us and we'll sort it out.
 
-At this point everything should be set and you can start to work. I suggest you to start looking at folders `01_data` and `02_assemblies` to see how they are structured.
+At this point everything should be set and you can start working. Start by looking at folders `01_data` and `02_assemblies` to see how they are structured, and what you'll be working with.
 
 ### Standard assembly statistics
 
@@ -89,10 +90,11 @@ Standard assembly statistics do not tell too much about assembly quality, howeve
 - they can be used to understand that more parameters should be changed (the "best" assembler as an NG50 of 300bp) 
 
 **Remember**: never (*never*, **never**, _never_) use these statistics as only source to decide which assembler/assembly is the best. ***Contiguity and Correctness are not correlated***!
+In this step we will generate the same statistics that's generated by QUAST, but we'll generate it on the command line. This is useful to get a quick look on the numbers if you're unable to open a report file, but using quast is generally both easier and better since it also produces graphs!
 
 ```
-$ cd ~/AV_Exercise/03_eval/
-$ ./assembly_stats.pl --assembly ~/AV_Exercise/02_assemblies/velvet/Staphylococcus_aureus.velvet.scf.fasta --genome-length 2900000 > Staph_velvet.stats 
+$ cd ~/glob/AV_Exercise/03_eval/
+$ ./assembly_stats.pl --assembly ~/glob/AV_Exercise/02_assemblies/velvet/Staphylococcus_aureus.velvet.scf.fasta --genome-length 2900000 > Staph_velvet.stats 
 ```
 
 You can run this script on all others de novo assemblies (stored in the folder `~/AV_Excercise/02_assemblies`) and obtain a table similar to the one below here.
@@ -109,12 +111,12 @@ Staphylococcus_aureus.velvet.scf.fasta | 2900000 | 2877995 | 173 | 989718 | 7623
 
 #### Questions 
 - What is the best assembly?
-- is there any outlyer?
+- is there any outlier?
 - What about your assembly? Does it seems close to these ones? 
 
 ### Raw data congruency
 
-One way to evaluate an assembly is to map back reads and check if they are congruent with the contigs/scaffolds. Moreover, alignments alones are able to give us a lot of informations about the assemblies and the genome content.
+One way to evaluate an assembly is to map back reads and check if they are congruent with the contigs/scaffolds. Moreover, alignments alone are able to give us a lot of informations about the assemblies and the genome content.
 
 We will look into three pipelines based on this approach:
 
@@ -136,7 +138,7 @@ You need to work in the following directory:
 
 To automatically generate all the alignments run `sh run_alignments.sh` (this will take ~30 minutes)
 
-To softlink here pre-computed results run `sh run_soflinkAlignments.sh` (this will take ~2 minutes as PicardTools are exectued)
+To softlink here pre-computed results run `sh run_softlinkAlignments.sh` (this will take ~2 minutes as PicardTools are exectued)
 
 Let us see the various steps, we will use velvet assembly:
 
@@ -178,7 +180,7 @@ Now sort the BAM file (many tools require it sorted):
 $ samtools sort PE_on_velvet.bam PE_on_velvet_sorted
 ```
 
-Now compute Insert Size Statistics with PicardTools (extremely usefull suite of tools):
+Now compute Insert Size Statistics with PicardTools (extremely usefull suite of tools, but can be a bit tricky to use):
 
 ```
 $ java -Xmx16g -XX:PermSize=8g -jar $PICARD_HOME/CollectInsertSizeMetrics.jar MINIMUM_PCT=0 HISTOGRAM_FILE=PE_on_velvet.pdf  INPUT=PE_on_velvet_sorted.bam  OUTPUT=PE_on_velvet_sorted.collectInseSize HISTOGRAM_WIDTH=500
@@ -201,9 +203,11 @@ $ java -Xmx16g -XX:PermSize=8g -jar $PICARD_HOME/CollectInsertSizeMetrics.jar MI
 
 What kind of information this table and plot give us? How can be used to judge the assembly?
 
-### QA tools 
+### QA tools and KAT
 
-QA-tools is an extremely usefull program to have a first but important understanding about the quality of the assembly. It is a tool under-development but it is important to use it.
+[QA-tools](https://github.com/CosteaPaul/qaTools) is an extremely usefull program to have a first but important understanding about the quality of the assembly. It is a tool under-development but it is important to use it. If you like it, bookmark the repository, as it's name is so generic it can be very hard to find on google!
+
+[KAT](https://github.com/TGAC/KAT) is Kmer Analysis Toolkit, which is very useful in evaluating kmer statistics for assemblies and read sets.
 
 Like before we will focus on velvet assembly. It is up to you to try the others and/or your assemblies.
 
@@ -346,11 +350,11 @@ look at this file: `reapr_velvet/05.summary.report.txt`
 - Do the numbers coincide with FRCbam results?
 - Look to the other assemblers... what do you think is the best assembler for Reapr? Why?
 
-### CEGMA
+### CEGMA and BOSCO
 
 [CEGMA](http://korflab.ucdavis.edu/datasets/cegma/) performs a HMM alignment of 248 Eukaryotic core genes to the assembly. CEGMA reports the completeness. I've allready run this analysis on the assembly to save time.
 
-The software is pretty unstable and hopefully a new realese will soon be available. It can be used on UPPMAX (it is installed as a module) but it is pretty slow. We will only look at the reusults (anyway you will find the runCEGMA.sh script to see how to tun it, it takes more than one hour running all 5 assemblies in parallel):
+The software is pretty unstable and is more or less deprecated, it has been used extensively until this year though, so it's definitely worth knowing about! It can be used on UPPMAX (it is installed as a module) but it is pretty slow. We will only look at the reusults (anyway you will find the runCEGMA.sh script to see how to tun it, it takes more than one hour running all 5 assemblies in parallel). 
 
 ```
 ~/AV_Exercise/08_CEGMA/ 
@@ -363,3 +367,5 @@ Look at this file:
 ```
 
 - How many complete (>70% aligned) core genes are there in the assembly, according to the CEGMA output? How many partial (>30% aligned)? 
+
+CEGMA was more or less succeeded by a new program called [BOSCO](http://busco.ezlab.org/), which is currently not available on UPPMAX, but as we're test-running it at the moment it should be made available within too long.
