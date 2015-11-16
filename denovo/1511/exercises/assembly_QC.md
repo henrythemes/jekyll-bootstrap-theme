@@ -119,7 +119,7 @@ jellyfish histo -o Rbac_trim_jelly.hist Rbac_trim_jelly_0
 ```
 
 To inspect the histograms you can plot them
-Rscript --vanilla /proj/g2015027/assemblyQC/scripts/plotJelly.R
+`Rscript --vanilla /proj/g2015027/assemblyQC/scripts/plotJelly.R`
 Inspect the histogram ('Rbac_jelly_hist.pdf'; copy to your own computer first, ask the teachers for help if needed)
 
 #### Questions
