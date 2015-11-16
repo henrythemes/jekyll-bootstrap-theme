@@ -22,7 +22,8 @@ We have reserved half a node for each student during this course.
 By now, you are probably already familiar with the procedure:
 
 ```bash
-salloc -A g2015031 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2015031_15 &
+salloc -A g2015045 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2015045_20151116 (Tuesday)
+salloc -A g2015045 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2015045_20151117 (Wednesday)
 ```
 
 Make sure you ony do this once, otherwise you will take away resources from the other course participants!
@@ -73,7 +74,7 @@ You need to know where your input data are and where your output will go.
 All of your input data for the first steps of these exercises will be in our course project:
 
 ```bash
-/proj/g2015031/labs/gatk
+/proj/g2015045/labs/gatk
 ```
 
 Normally, if you were working on your own project, you would want to write your output into your project directory also.
@@ -133,7 +134,7 @@ You can copy this from the project directory to your workspace.
 (Normally copying references is a bad thing, but this is so that everyone can see the full BWA process.)
 
 ```bash
-cp /proj/g2015031/labs/gatk/refs/human_17_v37.fasta ~/glob/gatk
+cp /proj/g2015045/labs/gatk/refs/human_17_v37.fasta ~/glob/gatk
 ```
 
 Check to see that this worked.
@@ -148,7 +149,7 @@ should show you:
 -rw-r--r-- 1 mczody uppmax 82548517 Sep 23 21:44 human_17_v37.fasta
 ```
 
-except with your username. The size of the file in bytes is the number showing after your username. 
+except with your username. The size of the file in bytes is the number showing after your username and "uppmax". 
 
 If your file is not there or if it's the wrong size, something went wrong with your copy and you need to figure out what before you move on.
 Checking the existence and size of files from each step in a process before performing the next step is a good practice that save a lot of time.
@@ -183,7 +184,7 @@ First we align each set of reads, then we combine the paired alignments together
 Let's start with one chunk of whole genome shotgun data from individual NA06984.
 
 ```bash
-bwa aln ~/glob/gatk/human_17_v37.fasta /proj/g2015031/labs/gatk/fastq/wgs/NA06984.ILLUMINA.low_coverage.17q_1.fq > ~/glob/gatk/NA06984.ILLUMINA.low_coverage.17q_1.sai
+bwa aln ~/glob/gatk/human_17_v37.fasta /proj/g2015045/labs/gatk/fastq/wgs/NA06984.ILLUMINA.low_coverage.17q_1.fq > ~/glob/gatk/NA06984.ILLUMINA.low_coverage.17q_1.sai
 ```
 
 Note that if you have to use a file redirect ( &gt;) for your output.
@@ -344,7 +345,7 @@ This also happens in two steps.
 First, we compute all the covariation of quality with various other factors:
 
 ```bash
-java -Xmx16g -jar /sw/apps/bioinfo/GATK/3.4-46/GenomeAnalysisTK.jar -T BaseRecalibrator -I <input bam> -R <ref file> -knownSites /proj/g2015006/labs/gatk/ALL.chr17.phase1_integrated_calls.20101123.snps_indels_svs.genotypes.vcf -o <calibration table>
+java -Xmx16g -jar /sw/apps/bioinfo/GATK/3.4-46/GenomeAnalysisTK.jar -T BaseRecalibrator -I <input bam> -R <ref file> -knownSites /proj/g2015045/labs/gatk/ALL.chr17.phase1_integrated_calls.20101123.snps_indels_svs.genotypes.vcf -o <calibration table>
 ```
 
 We need to feed it our bam file and our ref file.
@@ -388,7 +389,7 @@ Now you will call variants on all the gvcf-files produced in the previous step b
 java -Xmx2g -jar /sw/apps/bioinfo/GATK/3.4-46/GenomeAnalysisTK.jar -T GenotypeGVCFs -R <ref file> --variant <sample1>.g.vcf --variant <sample2>.g.vcf ... -o <output>.vcf
 ```
 
-As an alternative try also to run the same thing but with all the gvcf for all low_coverage files in the course directory. A gvcf file where these have been merged can be found in the course directory, /proj/g2015031/labs/gatk/vcfs/ILLUMINA.low_coverage.17q.g.vcf. In the next step when viewing the data in IGV, look at both and try to see if there is a difference for a your sample. 
+As an alternative try also to run the same thing but with all the gvcf for all low_coverage files in the course directory. A gvcf file where these have been merged can be found in the course directory, /proj/g2015045/labs/gatk/vcfs/ILLUMINA.low_coverage.17q.g.vcf. In the next step when viewing the data in IGV, look at both and try to see if there is a difference for a your sample. 
 
 ```bash
 java -Xmx8g -jar /sw/apps/bioinfo/GATK/3.4-46/GenomeAnalysisTK.jar -T GenotypeGVCFs -R <ref file> --variant /proj/g2015031/labs/gatk/vcfs/ILLUMINA.low_coverage.17q.g.vcf -o <output>
@@ -447,7 +448,7 @@ We will start with the merged bam files.
 We want to get both the bams and bais for the low coverage and exome data.
 
 ```bash
-scp <username>@milou.uppmax.uu.se:/proj/g2015031/labs/gatk/processed/MERGED.illumina.\* ./
+scp <username>@milou.uppmax.uu.se:/proj/g2015045/labs/gatk/processed/MERGED.illumina.\* ./
 ```
 
 Because your uppmax user name is different than the user name on the local machine, you have to put your uppmax user name in front of the @ in the scp so that it knows you want to log in as your uppmax user, not as macuser.
@@ -462,7 +463,7 @@ It will prompt you for your uppmax password, then it should download four files.
 We will also want to load the vcfs into IGV, so you can look at what calls got made.
 
 ```bash
-scp <username>@milou.uppmax.uu.se:/proj/g2015031/labs/gatk/vcfs/MERGED.illumina.\* ./
+scp <username>@milou.uppmax.uu.se:/proj/g2015045/labs/gatk/vcfs/MERGED.illumina.\* ./
 ```
 
 Do the same thing for the vcf that you have created in your home directory. 
