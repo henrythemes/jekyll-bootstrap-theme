@@ -15,8 +15,8 @@ Room: Heden
 
 **Tuesday**  
 Room: Heden  
-**09.00-09.20** Lecture: Introduction to File Types in Bioinformatics (Martin Dahlö)  
-**09.20-10.45** Exercise: Introduction to File Types in Bioinformatics (Martin Dahlö, Dag Ahrén)  
+**09.00-09.20** [Lecture: Introduction to File Types in Bioinformatics](slides/dahlo-filetypes.pdf) (Martin Dahlö)  
+**09.20-10.45** [Exercise: Introduction to File Types in Bioinformatics](labs/filetypes) (Martin Dahlö, Dag Ahrén)  
 **11.00-12.00** [Lecture: Alignment with BWA; Samtools; Data Processing with Picard; Variant Calling with GATK; SAM/BAM and VCF Formats](slides/NGS_AJ_201511.pdf) (Anna Johansson)  
 **12.00-13.00** Lunch  
 **13:00-17:00** [Exercise: Alignment with BWA; Samtools; Data Processing with Picard; Variant Calling with GATK; SAM/BAM and VCF Formats part I](labs/resequencing-analysis) (Anna Johansson, Malin Larsson, Elin Videvall)  
