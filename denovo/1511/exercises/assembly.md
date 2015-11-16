@@ -43,7 +43,7 @@ module load spades
 Spades is very easy to run in the basic configuration. Usually you want to run with the "--careful" flag, but this will take too long for this exercise. It will take around 16 mins anyway, grab a coffee.
 
 ```
-spades -t 8 --pe1-1 ../data/Rhodo_Hiseq_trimmed_read1.fastq --pe1-2 ../data/Rhodo_Hiseq_trimmed_read2.fastq -o SpadesOut
+spades.py -t 8 --pe1-1 ../data/Rhodo_Hiseq_trimmed_read1.fastq --pe1-2 ../data/Rhodo_Hiseq_trimmed_read2.fastq -o SpadesOut
 ```
 
 In SpadesOut you will now have a number of files, including contigs.fasta and scaffolds.fasta.
@@ -122,7 +122,7 @@ Exit and save the file by ctrl-x (if using nano) and answer yes when asked to sa
 Start SoapDeNovo by:
 
 ```
-SOAPdenovo-63mer all –K 55 –F –R –E –w –u –s soap.config –o asm –p 8>> SOAPdenovo.log
+SOAPdenovo-63mer all -s soap.config -o asm -F -R -E -w -u -K 55 -p 8 >>SOAPdenovo.log
 ```
 
 Check the result-files asm.contig and asm.scafSeq for N50 size and number of contigs/scaffolds and compare with earlier results using Quast.
