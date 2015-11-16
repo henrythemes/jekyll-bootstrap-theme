@@ -130,7 +130,7 @@ Check the result-files asm.contig and asm.scafSeq for N50 size and number of con
 SoapDeNovo also comes with a GapCloser utlity that tries to improve the assemblies by closing gaps in the scaffolds. Try it out using:
 
 ```
-GapCloser –b soap.config –a asm.scafSeq –o asm.new.scafSeq –t 8 >> SOAPdenovo.log
+GapCloser -b soap.config -a asm.scafSeq -o asm.new.scafSeq -t 8 >> SOAPdenovo.log
 ```
 
 Any improvements? 
