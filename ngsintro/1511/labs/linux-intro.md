@@ -205,7 +205,7 @@ I.e. if you want to download the file http://somewhere.com/my.file and you give 
 ```bash
 Ex: wget -P <destination prefix> <source URL>
 
-$ wget -P ~/glob/ngs-intro/linux_tutorial {{site.url}}/introngs1502/labs/files/linux-intro/files.tar.gz
+$ wget -P ~/glob/ngs-intro/linux_tutorial {{site.url}}/ngsintro/1502/labs/files/linux-intro/files.tar.gz
 ```
 
 ## 5. Unpack Files
