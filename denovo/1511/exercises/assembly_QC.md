@@ -152,6 +152,7 @@ You can check the true genome size of Rhodobacter sphaeroides here: http://gage.
 cd ~/assemblyQC
 mkdir kat
 cd kat
+module load KAT
 kat comp -p -t 8 -C -D -o katout ../trim/Rbac_1.fq ../trim/Rbac_2.fq
 # Spectra plot (must run density computation first)
 kat plot spectra-mx -n -o katout_s.png katout-main.mx
