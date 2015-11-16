@@ -151,7 +151,7 @@ You can check the true genome size of Rhodobacter sphaeroides here: http://gage.
 ```
 # compare read 1 vs read 2 or lib A vs lib B
 # Density plot
-cd ~/assemblyQC
+cd ~/glob/assemblyQC
 mkdir kat
 cd kat
 module load KAT
