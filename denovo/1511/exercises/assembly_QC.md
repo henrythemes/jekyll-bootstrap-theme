@@ -23,6 +23,7 @@ Credits to to Björn Nystedt, Doug Scofield, Nat Street, Francesco Vezzi, Amaryl
 
   ```
   cd
+  cd glob
   rsync -r -v --progress  /proj/g2015027/assemblyQC . # ~2 min to copy 
   cd assemblyQC/
   ```
