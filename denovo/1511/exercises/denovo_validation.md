@@ -367,7 +367,7 @@ Like always we will see how to run Reapr on velvet assembly. You nee to work in 
 ~/AV_Exercise/06_REAPR/
 ```
 
-REAPR is slow, and **currently won't run due to an uppmax problem**, so copy the results from the completed exercises. The script `run_REAPR.sh` would normally run all the analyses, but it takes more than 30 minutes.
+REAPR is slow, and **currently won't run due to an uppmax library problem**, so copy the results from the completed exercises. The script `run_REAPR.sh` would normally run all the analyses, but it takes more than 30 minutes.
 
 The details look like this:
 
