@@ -19,7 +19,7 @@ Room: E10:1309
 
 **Tuesday**  
 Room: E10:1309  
-**09.00-10.00** Lecture: Assembly Validation (Martin Norling)  
+**09.00-10.00** Lecture: [Assembly Validation](lectures/2015_denovo_validation.ppt) (Martin Norling)  
 **10.00-10.20** Coffee break  
 **10.20-12.00** [Exercise: Assembly Validation](exercises/denovo_validation) (Henrik Lantz , Mahesh Panchal and Martin Norling)  
 **12.00-12.45** Lunch  
