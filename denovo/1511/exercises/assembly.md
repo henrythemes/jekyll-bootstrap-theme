@@ -70,7 +70,7 @@ Now run Quast again but supply the reference this time:
 ```
 quast.py -R GCF_000012905.2_ASM1290v2_genomic.fna -o spades -l Spades_scaffolds,Spades_contigs -t 1 scaffolds.fasta contigs.fasta
 ```
-Does it tell you anyhtong about misassemblies?
+Does it tell you anything about misassemblies?
 
 Now go on the next assembly program:
 
