@@ -50,16 +50,16 @@ In SpadesOut you will now have a number of files, including contigs.fasta and sc
 
 Take a look at the files using `less`. Can you see any regions where contigs have been scaffolded together?
 
-We then calculate some statistocs and generate plots using Quast:
+We then calculate some statistics and generate plots using Quast:
 
 ```
-module load module load quast/2.3
+module load quast/2.3
 quast.py -o spades -l Spades_scaffolds,Spades_contigs -t 1 scaffolds.fasta contigs.fasta
 ```
 
 Download the whole quast result-folder (spades) to your own computer using scp and click on the reports.html file. Any big differences between the scaffolds and contigs files?
 
-You can also supply a reference genome to Quast that it will compare your assemblies with. You can find a reference genome at /proj/g2015027/private/nobackup/assembly_workshop/reference/GCF_000012905.2_ASM1290v2_genomic.fna
+(OBS! Not working at the moment! You can also supply a reference genome to Quast that it will compare your assemblies with. You can find a reference genome at /proj/g2015027/private/nobackup/assembly_workshop/reference/GCF_000012905.2_ASM1290v2_genomic.fna
 Make symbolic link in your Rhodoassembly folder using
 
 ```
@@ -70,7 +70,7 @@ Now run Quast again but supply the reference this time:
 ```
 quast.py -R GCF_000012905.2_ASM1290v2_genomic.fna -o spades -l Spades_scaffolds,Spades_contigs -t 1 scaffolds.fasta contigs.fasta
 ```
-Does it tell you anything about misassemblies?
+Does it tell you anything about misassemblies?)
 
 Now go on the next assembly program:
 
@@ -91,7 +91,7 @@ If you have paired end data you can start Abyss using the abyss-pe script:
 abyss-pe k=31 l=1 n=5 s=100 np=8 name=asm lib='reads' reads=' ../data/Rhodo_Hiseq_trimmed_read1.fastq ../data/Rhodo_Hiseq_trimmed_read2.fastq' aligner=bowtie
 ```
 
-Once done you will have two files called asm-contigs.fa and asm.scaffolds.fa. Now load these files together with the earlier Spades contigs. Can you based on these numbers say which assembler does the best job? Note that this is a trick question!
+Once done you will have two files called asm-contigs.fa and asm.scaffolds.fa. Now load these files into Quast together with the earlier Spades contigs. Can you based on these numbers say which assembler does the best job? Note that this is a trick question!
 
 The next assembler we'll try is
 
