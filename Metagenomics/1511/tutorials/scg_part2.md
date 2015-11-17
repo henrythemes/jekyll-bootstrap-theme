@@ -49,7 +49,7 @@ and then type:
 grep -e "^@HWI" /proj/g2015028/nobackup/single_cell_exercises/sequences/dataset1/G5_Hiseq_2.fastq | head
 ```
 
-These commands print the first 10 lines from the grep search command. Do you notice the similarities and differences between the *_1.fastq* and *_2.fastq* files? 
+These commands print the first 10 lines from the grep search command. Do you notice the similarities and differences between the *_1.fastq* and *_2.fastq* files?  
 Next, to count the number of sequences in MiSeq data, type:
 
 ```sh
@@ -71,4 +71,5 @@ A quick example command to count the length of a DNA sequence:
 
 ```sh
 echo "ACGTACGT" | awk '{print length($1)}'
+head -n4  /proj/g2015028/nobackup/single_cell_exercises/sequences/dataset2/G5_Miseq_1.fastq | sed -n 2p | awk '{print length($1)}'
 ```
