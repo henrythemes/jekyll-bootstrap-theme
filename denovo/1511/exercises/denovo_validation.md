@@ -273,8 +273,36 @@ Rscript --vanilla /proj/g2015027/assemblyValidation/tools/scripts/plotCovGC.R ve
 
 ### 03 - KAT
 
-[KAT](https://github.com/TGAC/KAT) is Kmer Analysis Toolkit, which is very useful in evaluating kmer statistics for assemblies and read sets.
+[KAT](https://github.com/TGAC/KAT) is Kmer Analysis Toolkit, which is very useful in evaluating kmer statistics for assemblies and read sets. We will use it to [...]
 
+Start by going into the KAT directory:
+
+```
+$ cd ~/glob/AV_Exercise/04_KAT
+```
+
+We will create a file of all input data combined, as KAT only takes a single input file.
+
+```
+$ ALLREADS="combined_reads.fastq"
+$ READS="../data/*/*"
+$ cat $READS >$ALLREADS
+```
+
+We will then load the required modules, and run KAT like this on velvet:
+
+```
+$ module load bioinfo-tools KAT/2.0.6 gnuplot/4.6.5
+$ kat comp -t 8 -C -o reads_vs_velvet combined_reads.fastq ../assemblies/velvet/Staphylococcus_aureus.velvet.scf.fasta
+$ kat plot spectra-cn -o reads_vs_velvet.png reads_vs_velvet-main.mx
+$ kat sect -t 8 -o reads_vs_velvet_sect -C ../assemblies/velvet/Staphylococcus_aureus.velvet.scf.fasta combined_reads.fastq
+```
+
+This creates the files `reads_vs_velvet-main.mx.spectra-cn.png` and `reads_vs_velvet.png`. Take a look at these!
+
+#### Questions
+
+- Is there anything you can tell from these pictures? What does the black and red area represent in these plots?
 
 ### FRCbam
 
@@ -284,10 +312,10 @@ FRCbam acknowledges the trade-off between long contigs/scaffolds and assembly er
 We will now compute FRCurve for velvet assembly as example and we will plot the FRCurve for all the other assemblies.You need to work in the following directory:
 
 ```
-~/AV_Exercise/06_FRCbam
+~/glob/AV_Exercise/05_FRCbam
 ```
 
-run the command runFRCbam.sh to generate the data necessary to produce FRCurves
+run the command `run_FRCbam.sh` to generate the data necessary to produce FRCurves
 
 Let us see in details how it works: 
 
@@ -302,7 +330,7 @@ $ ln -s ~/AV_Exercise/04_align/velvet/MP_on_velvet_sorted.bam .
 And now compute the FRCurve:
 
 ```
-FRC --pe-sam PE_on_velvet_sorted.bam --pe-min-insert 100 --pe-max-insert 260 --mp-sam MP_on_velvet_sorted.bam --mp-min-insert 3000 --mp-max-insert 5000 --genome-size 2900000 --output velvet
+FRC --pe-sam PE_on_velvet_sorted.bam --pe-max-insert 260 --mp-sam MP_on_velvet_sorted.bam --mp-max-insert 5000 --genome-size 2900000 --output velvet
 ```
 
 - What information can you get from the printed output? I know it is a bit messy but there is a lot of nice information!!!
@@ -311,12 +339,12 @@ FRC --pe-sam PE_on_velvet_sorted.bam --pe-min-insert 100 --pe-max-insert 260 --m
 
 Let us now compare different assemblies usinf FRC, maybe also your. **Note**: to compare different FRCurve you MUST specify the same genome size, otherwise the curves cannot be compared.
 
-Use the following command from folder `~/AV_Exercise/06_FRCbam/` to plot all 5 FRCurves 
+Use the following command from folder `~/AV_Exercise/05_FRCbam/` to plot all 5 FRCurves 
 
 ```
 $ mkdir FRCplot
 $ cd FRCplot
-$ Rscript ~/AV_Exercise/00_tools/plotFRCurves.R ../abyss/abyss_FRC.txt ../allpaths/allpaths_FRC.txt ../masurca/masurca_FRC.txt ../soapdenovo/soapdenovo_FRC.txt ../velvet/velvet_FRC.txt
+$ Rscript ~/glob/AV_Exercise/tools/plotFRCurves.R ../abyss/abyss_FRC.txt ../allpaths/allpaths_FRC.txt ../masurca/masurca_FRC.txt ../soapdenovo/soapdenovo_FRC.txt ../velvet/velvet_FRC.txt
 ```
 
 First plot is the entire picture, in order to allow a better visualisation the second plot is a zoom.
@@ -336,12 +364,12 @@ Play a bit around:
 Like always we will see how to run Reapr on velvet assembly. You nee to work in the folllwoing direcotry
 
 ```
-~/AV_Exercise/07_REAPR/
+~/AV_Exercise/06_REAPR/
 ```
 
-REAPR is slow so I already copied here the results, To regenerate them run the command runREAPR.sh but it will take more than 30 minutes.
+REAPR is slow, and **currently won't run due to an uppmax problem**, so copy the results from the completed exercises. The script `run_REAPR.sh` would normally run all the analyses, but it takes more than 30 minutes.
 
-Lat us see the details:
+The details look like this:
 
 ```
 $ mkdir velvet
@@ -351,7 +379,7 @@ $ ln -s ~/AV_Exercise/04_align/velvet/PE_on_velvet_sorted.bam .
 $ reapr pipeline Staphylococcus_aureus.velvet.scf.fasta PE_on_velvet_sorted.bam reapr_velvet
 ```
 
-look at this file: `reapr_velvet/05.summary.report.txt`
+Now look at this file: `reapr_velvet/05.summary.report.txt`
 
 - How many assembly errors did Reapr find and break? How many warnings?
 - What is the N50 before and after Reapr?
@@ -365,13 +393,13 @@ look at this file: `reapr_velvet/05.summary.report.txt`
 The software is pretty unstable and is more or less deprecated, it has been used extensively until this year though, so it's definitely worth knowing about! It can be used on UPPMAX (it is installed as a module) but it is pretty slow. We will only look at the reusults (anyway you will find the runCEGMA.sh script to see how to tun it, it takes more than one hour running all 5 assemblies in parallel). 
 
 ```
-~/AV_Exercise/08_CEGMA/ 
+~/AV_Exercise/07_CEGMA/ 
 ```
 
 Look at this file:
 
 ```
-~/AV_Exercise/08_CEGMA/velvet/Staphylococcus_aureus.velvet.scf.fasta.cegma.completeness_report
+~/glob/AV_Exercise/07_CEGMA/velvet/Staphylococcus_aureus.velvet.scf.fasta.cegma.completeness_report
 ```
 
 - How many complete (>70% aligned) core genes are there in the assembly, according to the CEGMA output? How many partial (>30% aligned)? 
