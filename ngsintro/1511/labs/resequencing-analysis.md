@@ -22,8 +22,8 @@ We have reserved half a node for each student during this course.
 By now, you are probably already familiar with the procedure:
 
 ```bash
-salloc -A g2015045 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2015045_20151116 (Tuesday)
-salloc -A g2015045 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2015045_20151117 (Wednesday)
+salloc -A g2015045 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2015045_20151117 (Tuesday)
+salloc -A g2015045 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2015045_20151118 (Wednesday)
 ```
 
 Make sure you ony do this once, otherwise you will take away resources from the other course participants!
@@ -149,7 +149,7 @@ should show you:
 -rw-r--r-- 1 mczody uppmax 82548517 Sep 23 21:44 human_17_v37.fasta
 ```
 
-except with your username. The size of the file in bytes is the number showing after your username and "uppmax". 
+except with your username. The size of the file in bytes is the number showing after your username. 
 
 If your file is not there or if it's the wrong size, something went wrong with your copy and you need to figure out what before you move on.
 Checking the existence and size of files from each step in a process before performing the next step is a good practice that save a lot of time.
@@ -187,9 +187,7 @@ Let's start with one chunk of whole genome shotgun data from individual NA06984.
 bwa aln ~/glob/gatk/human_17_v37.fasta /proj/g2015045/labs/gatk/fastq/wgs/NA06984.ILLUMINA.low_coverage.17q_1.fq > ~/glob/gatk/NA06984.ILLUMINA.low_coverage.17q_1.sai
 ```
 
-Note that if you have to use a file redirect ( &gt;) for your output.
-Many (but not all!) functions of BWA default to sending their output to stdout (i.e., your screen) if you do not define a specific outputfile using the -f option, which is great if you want to build pipelines that redirect these things but not so useful when you want to write them to disk.
-Forgetting the redirect can be very disappointing.
+Note that if you have to use a file redirect ( &gt;) for your output, otherwise bwa will print the output directly to stdout, i.e. your screen. Which means that forgetting the redirect can be very disappointing.
 
 While that's running, take a minute to look at the input file path.
 This is a fastq file, so I put it in a directory called fastq.
