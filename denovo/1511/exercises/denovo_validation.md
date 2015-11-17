@@ -273,7 +273,7 @@ Rscript --vanilla /proj/g2015027/assemblyValidation/tools/scripts/plotCovGC.R ve
 
 ### 04 - KAT
 
-[KAT](https://github.com/TGAC/KAT) is Kmer Analysis Toolkit, which is very useful in evaluating kmer statistics for assemblies and read sets. We will use it to [...]
+[KAT](https://github.com/TGAC/KAT) is Kmer Analysis Toolkit, which is very useful in evaluating kmer statistics for assemblies and read sets. We will use it to look if the kmer composition of the assemblies match that of the raw data.
 
 Start by going into the KAT directory:
 
