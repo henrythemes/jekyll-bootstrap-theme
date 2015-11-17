@@ -158,7 +158,7 @@ There is also MiSeq data for the same organism. Links are in the data folder. Yo
 The MiSeq data have longer reads, and you therefore need to change the following parameters (and remember to use the MiSeq files this time):
 
 - Abyss-pe - change k to 49
-- SoapDeNovo - change in the config file avg_ins to 540, use on the command line a K value of 79.
+- SoapDeNovo - change in the config file avg_ins to 540, use on the command line a K value of 79. **Note**: when using a kmer size greater than 63, you'll need to use `SOAPdenovo-127mer` instead of `SOAPdenovo-63mer`.
 
 Compare with your HiSeq results. Differences? 
 
