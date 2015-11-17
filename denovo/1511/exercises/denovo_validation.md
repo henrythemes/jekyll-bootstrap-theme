@@ -131,7 +131,7 @@ We will now see how to align both PE and MP reads against an assembly (scaffolde
 You need to work in the following directory:
 
 ```
-~/AV_Exercise/02_read_mapping
+~/glob/AV_Exercise/02_read_mapping
 ```
 
 To automatically generate all the alignments run `bash run_alignments.sh` (this will take ~30 minutes)
@@ -145,11 +145,11 @@ Create directory and collect all data using soft links:
 ```
 $ mkdir velvet
 $ cd velvet
-$ ln -s ~/AV_Exercise/assemblies/velvet/Staphylococcus_aureus.velvet.scf.fasta .
-$ ln -s ~/AV_Exercise/data/PE/Staphylococcus_aureus_PE_1.fastq .
-$ ln -s ~/AV_Exercise/data/PE/Staphylococcus_aureus_PE_2.fastq .
-$ ln -s ~/AV_Exercise/data/MP_rc/Staphylococcus_aureus_MP_rc_1.fastq .
-$ ln -s ~/AV_Exercise/data/MP_rc/Staphylococcus_aureus_MP_rc_2.fastq .
+$ ln -s ~/glob/AV_Exercise/assemblies/velvet/Staphylococcus_aureus.velvet.scf.fasta .
+$ ln -s ~/glob/AV_Exercise/data/PE/Staphylococcus_aureus_PE_1.fastq .
+$ ln -s ~/glob/AV_Exercise/data/PE/Staphylococcus_aureus_PE_2.fastq .
+$ ln -s ~/glob/AV_Exercise/data/MP_rc/Staphylococcus_aureus_MP_rc_1.fastq .
+$ ln -s ~/glob/AV_Exercise/data/MP_rc/Staphylococcus_aureus_MP_rc_2.fastq .
 ```
 
 Now assembly and reads are available from our local directory. **Note**: we are using soft-links - and this is highly recommended in order to avoid using too much space. Have a backup copy, and one working copy, that's all you'll ever need!
@@ -217,7 +217,7 @@ Just like before we will focus on velvet assembly. It is up to you to try the ot
 We will work in this directory:
 
 ```
-~/AV_Exercise/03_QAtools
+~/glob/AV_Exercise/03_QAtools
 ```
 
 To automatically generate all the files (with the exception of pdf files that need to be generated manully) run the command: `bash run_QAtools.sh`.
@@ -227,8 +227,8 @@ Create directory and collect the data:
 ```
 $ mkdir velvet
 $ cd velvet
-$ ln -s ~/AV_Exercise/assemblies/velvet/Staphylococcus_aureus.velvet.scf.fasta .
-$ ln -s ~/AV_Exercise/02_read_mapping/velvet/velvet_PE.sorted.bam .
+$ ln -s ~/glob/AV_Exercise/assemblies/velvet/Staphylococcus_aureus.velvet.scf.fasta .
+$ ln -s ~/glob/AV_Exercise/02_read_mapping/velvet/velvet_PE.sorted.bam .
 ```
 
 We will work only with PE data as, in general, PE data is the one with high coverage and less affacted by problems (e.g, duplicated reads).
@@ -322,9 +322,9 @@ Let us see in details how it works:
 ```
 $ mkdir velvet
 $ cd velvet
-$ ln -s ~/AV_Exercise/02_assemblies/velvet/Staphylococcus_aureus.velvet.scf.fasta .
-$ ln -s ~/AV_Exercise/04_align/velvet/PE_on_velvet_sorted.bam .
-$ ln -s ~/AV_Exercise/04_align/velvet/MP_on_velvet_sorted.bam .
+$ ln -s ~/glob/AV_Exercise/02_assemblies/velvet/Staphylococcus_aureus.velvet.scf.fasta .
+$ ln -s ~/glob/AV_Exercise/04_align/velvet/PE_on_velvet_sorted.bam .
+$ ln -s ~/glob/AV_Exercise/04_align/velvet/MP_on_velvet_sorted.bam .
 ```
 
 And now compute the FRCurve:
@@ -339,7 +339,7 @@ FRC --pe-sam PE_on_velvet_sorted.bam --pe-max-insert 260 --mp-sam MP_on_velvet_s
 
 Let us now compare different assemblies usinf FRC, maybe also your. **Note**: to compare different FRCurve you MUST specify the same genome size, otherwise the curves cannot be compared.
 
-Use the following command from folder `~/AV_Exercise/05_FRCbam/` to plot all 5 FRCurves 
+Use the following command from folder `~/glob/AV_Exercise/05_FRCbam/` to plot all 5 FRCurves 
 
 ```
 $ mkdir FRCplot
@@ -364,7 +364,7 @@ Play a bit around:
 Like always we will see how to run Reapr on velvet assembly. You nee to work in the folllwoing direcotry
 
 ```
-~/AV_Exercise/06_REAPR/
+~/glob/AV_Exercise/06_REAPR/
 ```
 
 REAPR is slow, and **currently won't run due to an uppmax library problem**, so copy the results from the completed exercises. The script `run_REAPR.sh` would normally run all the analyses, but it takes more than 30 minutes.
@@ -374,8 +374,8 @@ The details look like this:
 ```
 $ mkdir velvet
 $ cd velvet
-$ ln -s ~/AV_Exercise/02_assemblies/velvet/Staphylococcus_aureus.velvet.scf.fasta .
-$ ln -s ~/AV_Exercise/04_align/velvet/PE_on_velvet_sorted.bam .
+$ ln -s ~/glob/AV_Exercise/02_assemblies/velvet/Staphylococcus_aureus.velvet.scf.fasta .
+$ ln -s ~/glob/AV_Exercise/04_align/velvet/PE_on_velvet_sorted.bam .
 $ reapr pipeline Staphylococcus_aureus.velvet.scf.fasta PE_on_velvet_sorted.bam reapr_velvet
 ```
 
@@ -393,7 +393,7 @@ Now look at this file: `reapr_velvet/05.summary.report.txt`
 The software is pretty unstable and is more or less deprecated, it has been used extensively until this year though, so it's definitely worth knowing about! It can be used on UPPMAX (it is installed as a module) but it is pretty slow. We will only look at the reusults (anyway you will find the runCEGMA.sh script to see how to tun it, it takes more than one hour running all 5 assemblies in parallel). 
 
 ```
-~/AV_Exercise/07_CEGMA/ 
+~/glob/AV_Exercise/07_CEGMA/ 
 ```
 
 Look at this file:
