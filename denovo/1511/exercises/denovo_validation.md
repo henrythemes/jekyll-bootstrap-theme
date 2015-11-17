@@ -95,7 +95,7 @@ $ cd ~/glob/AV_Exercise/01_assembly_statistics/
 $ ./assembly_stats.pl --assembly ~/glob/AV_Exercise/assemblies/velvet/Staphylococcus_aureus.velvet.scf.fasta --genome-length 2900000 > Staph_velvet.stats 
 ```
 
-You can run this script on all others de novo assemblies (stored in the folder `~/AV_Excercise/assemblies`) and obtain a table similar to the one below here. The simple script called `make_table.sh` can be used to easily make a table from all the .stats-files in the directory.
+You can run this script on all others de novo assemblies (stored in the folder `~/glob/AV_Excercise/assemblies`) and obtain a table similar to the one below here. The simple script called `make_table.sh` can be used to easily make a table from all the .stats-files in the directory.
 
 The output file reports assembly statistics twice: first in a human readable way and then in a tabular form that can be easily exported to excel. 
 
@@ -244,7 +244,7 @@ This generates the table `velvet.cov` and some nice information is given as outp
 qaCompute does no report any information about the assembly sequences, let use the following script to add information about GC-content:
 
 ```
-$ ~/AV_Exercise/tools/addCG.pl  Staphylococcus_aureus.velvet.scf.fasta velvet.cov > velvet.cov.gc
+$ ~/glob/AV_Exercise/tools/addCG.pl  Staphylococcus_aureus.velvet.scf.fasta velvet.cov > velvet.cov.gc
 ```
 
 For each contig we now have the length, the coverage and the GC content. We can produce some 2D plots to inspect the result. We can use the following script to produce 2D plots:
