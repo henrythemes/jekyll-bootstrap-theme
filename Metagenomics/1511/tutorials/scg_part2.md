@@ -71,9 +71,8 @@ A quick example command to count the length of a DNA sequence:
 
 ```sh
 echo "ACGTACGT" | awk '{print length($1)}'
-<<<<<<< HEAD
+```
+
+<!---
 head -n4  /proj/g2015028/nobackup/single_cell_exercises/sequences/dataset2/G5_Miseq_1.fastq | sed -n 2p | awk '{print length($1)}'
-```
-=======
-```
->>>>>>> e65c02529effcfdeea129cba2b53345f3fd0a7a9
+-->
