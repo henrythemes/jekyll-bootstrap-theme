@@ -51,6 +51,7 @@ In SpadesOut you will now have a number of files, including contigs.fasta and sc
 Take a look at the files using `less`. Can you see any regions where contigs have been scaffolded together?
 
 We then calculate some statistocs and generate plots using Quast:
+
 ```
 module load module load quast/2.3
 quast.py -o spades -l Spades_scaffolds,Spades_contigs -t 1 scaffolds.fasta contigs.fasta
@@ -65,6 +66,7 @@ Make symbolic link in your Rhodoassembly folder using
 ln -s /proj/g2015027/private/nobackup/assembly_workshop/reference/GCF_000012905.2_ASM1290v2_genomic.fna
 ```
 Now run Quast again but supply the reference this time:
+
 ```
 quast.py -R GCF_000012905.2_ASM1290v2_genomic.fna -o spades -l Spades_scaffolds,Spades_contigs -t 1 scaffolds.fasta contigs.fasta
 ```
