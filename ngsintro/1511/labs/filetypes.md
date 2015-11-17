@@ -20,10 +20,10 @@ On OSX: it is included by default, named **Terminal**.
 On Windows: [Google MobaXterm](http://bit.ly/19yaQOM) and download it.
 
 Fire up the available ssh program and enter the following (replace **username** with your uppmax user name).
--X means that X-forwarding is activated on the connection, which means graphical data can be transmitted if a program requests it, i.e. programs can use a graphical user interface (GUI) if they want to.
+-Y means that X-forwarding is activated on the connection, which means graphical data can be transmitted if a program requests it, i.e. programs can use a graphical user interface (GUI) if they want to.
 
 ```bash
-$ ssh -X username@milou.uppmax.uu.se
+$ ssh -Y username@milou.uppmax.uu.se
 ```
 
 and give your password when prompted.
@@ -44,7 +44,7 @@ Usually you would do most of the work in this lab directly on one of the login n
 This was covered briefly in the lecture notes.
 
 ```bash
-$ salloc -A g2015031 -t 07:00:00 -p core -n 1 --no-shell --reservation=g2015031_15 &
+$ salloc -A g2015045 -t 07:00:00 -p core -n 1 --no-shell --reservation=g2015045_20151117 &
 ```
 
 check which node you got (replace **username** with your uppmax user name)
@@ -64,7 +64,7 @@ When it reaches the time limit you requested (3 hours in this case) the session 
 Connect to this node from within uppmax.
 
 ```bash
-$ ssh -X q34 
+$ ssh -Y q34 
 ```
 
 **Note:** there is a uppmax specific tool called jobinfo that supplies the same kind of information as squeue that you can use as well (```$ jobinfo -u username```).
@@ -73,7 +73,7 @@ $ ssh -X q34
 
 To be able to do parts of this lab, you will need some files.
 To avoid all the course participants editing the same file all at once, undoing each other's edits, each participant will get their own copy of the needed files.
-The files are located in the folder `/proj/g2015031/labs/filetypes`
+The files are located in the folder `/proj/g2015045/labs/filetypes`
 
 Next, copy the lab files from this folder.
 -r means recursively, which means all the files including sub-folders of the source folder.
@@ -86,7 +86,7 @@ Ex.
 ```bash
 $ cp -r <source> <destination>
 
-$ cp -r /proj/g2015031/labs/filetypes ~/glob/ngs-intro/
+$ cp -r /proj/g2015045/labs/filetypes ~/glob/ngs-intro/
 ```
 
 Have a look in **~/glob/ngs-intro/uppmax_tutorial:**
@@ -292,7 +292,7 @@ Many tabular files are extremely more readable when using the -S option.
 Try viewing the file without it and see the difference.
 
 To view the file, we will use the program **IGV** (Integrated Genome Viewer).
-You have already loaded the module for this program at the start of the lab, so start it by typing the following command (now we'll find out if you used -X in all your ssh connections!):
+You have already loaded the module for this program at the start of the lab, so start it by typing the following command (now we'll find out if you used -Y in all your ssh connections!):
 
 ```bash
 $ igv.sh

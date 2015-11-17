@@ -66,10 +66,14 @@ Add the count of each read pair to get the total number.
 __Q2.1:__ Looking at a fastq file, can you tell a repeating pattern in the file?  
 Do you notice any unique characters or strings that would help you identify where a read begins and ends?  
 __Q2.2:__ Did you notice anything similar in the Fastq headers of the two read pairs? And differences? How can you identify paired-end reads?  
-__Q2.3:__ Did you see where the actual DNA sequences are? Can you count how long the DNA sequences are?  
+__Q2.3:__ (BONUS) Did you see where the actual DNA sequences are? Can you count how long the DNA sequences are?  
 A quick example command to count the length of a DNA sequence:
 
 ```sh
 echo "ACGTACGT" | awk '{print length($1)}'
+<<<<<<< HEAD
 head -n4  /proj/g2015028/nobackup/single_cell_exercises/sequences/dataset2/G5_Miseq_1.fastq | sed -n 2p | awk '{print length($1)}'
 ```
+=======
+```
+>>>>>>> e65c02529effcfdeea129cba2b53345f3fd0a7a9
