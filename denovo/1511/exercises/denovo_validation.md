@@ -208,7 +208,7 @@ $ java -Xmx16g -XX:PermSize=8g -jar $PICARD_HOME/CollectInsertSizeMetrics.jar MI
 
 What kind of information this table and plot give us? How can be used to judge the assembly?
 
-### 02 - QA tools
+### 03 - QA tools
 
 [QA-tools](https://github.com/CosteaPaul/qaTools) is an extremely usefull program to have a first, but important, understanding about the quality of the assembly. It is a tool under development but it is important to use it. If you like it, bookmark the repository, as it's name is so generic it can be very hard to find on google!
 
@@ -271,7 +271,7 @@ Rscript --vanilla /proj/g2015027/assemblyValidation/tools/scripts/plotCovGC.R ve
 - Is there a correlation between the length of the contig and the coverage? Why/why not?
 - Can you start to have a feeling about quality? 
 
-### 03 - KAT
+### 04 - KAT
 
 [KAT](https://github.com/TGAC/KAT) is Kmer Analysis Toolkit, which is very useful in evaluating kmer statistics for assemblies and read sets. We will use it to [...]
 
@@ -304,7 +304,7 @@ This creates the files `reads_vs_velvet-main.mx.spectra-cn.png` and `reads_vs_ve
 
 - Is there anything you can tell from these pictures? What does the black and red area represent in these plots?
 
-### FRCbam
+### 05 - FRCbam
 
 [FRCbam](https://github.com/vezzi/FRC_align) takes as input one or two alignments (usually one PE and one MP library) and looks for suspicious regions where the alignments do not agree with the expected behaviour of the library. As an example places in the assembly where many reads align as singletons, or areas characterised by a too high or too low coverage.
 FRCbam acknowledges the trade-off between long contigs/scaffolds and assembly errors, and will try to find the "best" assembly, using a penalty for potential errors while still acknowledging the benefit of contiguity.
@@ -357,7 +357,7 @@ Play a bit around:
 - plot FRCurve for a single feature (you only need to change a bit the R script.... in case you do not know nothing about R this is a great moment to start!!!!)
 - rerun FRCuve using only PE data, does the scenario changes radically? 
 
-###  REAPR
+### 06 - REAPR
 
 [Reapr](http://www.sanger.ac.uk/resources/software/reapr/) is a tool trying to find explicit errors in the assembly based on incongruently mapped reads. It is heavily based on too low span coverage, or reads mapping too far or too close to each other. The program will also break up contigs/scaffolds at spurious sites to form smaller (but hopefully correct) contigs.
 
@@ -386,7 +386,7 @@ Now look at this file: `reapr_velvet/05.summary.report.txt`
 - Do the numbers coincide with FRCbam results?
 - Look to the other assemblers... what do you think is the best assembler for Reapr? Why?
 
-### CEGMA and BOSCO
+### 07 - CEGMA
 
 [CEGMA](http://korflab.ucdavis.edu/datasets/cegma/) performs a HMM alignment of 248 Eukaryotic core genes to the assembly. CEGMA reports the completeness. I've allready run this analysis on the assembly to save time.
 
