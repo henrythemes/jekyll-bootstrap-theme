@@ -315,7 +315,7 @@ We will now compute FRCurve for velvet assembly as example and we will plot the 
 ~/glob/AV_Exercise/05_FRCbam
 ```
 
-run the command `run_FRCbam.sh` to generate the data necessary to produce FRCurves
+run the script `run_FRCbam.sh` to generate the data necessary to produce FRCurves
 
 Let us see in details how it works: 
 
