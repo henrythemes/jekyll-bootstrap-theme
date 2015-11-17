@@ -330,7 +330,7 @@ $ ln -s ~/glob/AV_Exercise/02_read_mapping/velvet/MP_on_velvet_sorted.bam .
 And now compute the FRCurve:
 
 ```
-FRC --pe-sam PE_on_velvet_sorted.bam --pe-max-insert 260 --mp-sam MP_on_velvet_sorted.bam --mp-max-insert 5000 --genome-size 2900000 --output velvet
+FRC --pe-sam velvet_PE.sorted.bam --pe-max-insert 260 --mp-sam velvet_MP.sorted.bam --mp-max-insert 5000 --genome-size 2900000 --output velvet
 ```
 
 - What information can you get from the printed output? I know it is a bit messy but there is a lot of nice information!!!
