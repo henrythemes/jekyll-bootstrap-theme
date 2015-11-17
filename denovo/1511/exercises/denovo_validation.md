@@ -210,25 +210,25 @@ What kind of information this table and plot give us? How can be used to judge t
 
 ### 02 - QA tools
 
-[QA-tools](https://github.com/CosteaPaul/qaTools) is an extremely usefull program to have a first but important understanding about the quality of the assembly. It is a tool under-development but it is important to use it. If you like it, bookmark the repository, as it's name is so generic it can be very hard to find on google!
+[QA-tools](https://github.com/CosteaPaul/qaTools) is an extremely usefull program to have a first, but important, understanding about the quality of the assembly. It is a tool under development but it is important to use it. If you like it, bookmark the repository, as it's name is so generic it can be very hard to find on google!
 
-Like before we will focus on velvet assembly. It is up to you to try the others and/or your assemblies.
+Just like before we will focus on velvet assembly. It is up to you to try the others and/or your assemblies.
 
 We will work in this directory:
 
 ```
-~/AV_Exercise/05_QAtools
+~/AV_Exercise/03_QAtools
 ```
 
-To automatically generate all the files (with the exception of pdf files that need to be generated manully) run the command: `sh runQA_tools.sh`.
+To automatically generate all the files (with the exception of pdf files that need to be generated manully) run the command: `bash run_QAtools.sh`.
 
 Create directory and collect the data:
 
 ```
 $ mkdir velvet
 $ cd velvet
-$ ln -s ~/AV_Exercise/02_assemblies/velvet/Staphylococcus_aureus.velvet.scf.fasta .
-$ ln -s ~/AV_Exercise/04_align/velvet/PE_on_velvet_sorted.bam .
+$ ln -s ~/AV_Exercise/assemblies/velvet/Staphylococcus_aureus.velvet.scf.fasta .
+$ ln -s ~/AV_Exercise/02_read_mapping/velvet/velvet_PE.sorted.bam .
 ```
 
 We will work only with PE data as, in general, PE data is the one with high coverage and less affacted by problems (e.g, duplicated reads).
@@ -236,7 +236,7 @@ We will work only with PE data as, in general, PE data is the one with high cove
 We run qaCompute (-q 0 count aligment with 0 quality, -m compute median coverage):
 
 ```
-$ qaCompute -m -q 0 -i PE_on_velvet_sorted.bam  velvet.cov
+$ qaCompute -m -q 0 -i velvet_PE.sorted.bam  velvet.cov
 ```
 
 This generates the table `velvet.cov` and some nice information is given as output. How to interpret information printed on the screen? What about the table velvet.cov? 
@@ -244,13 +244,13 @@ This generates the table `velvet.cov` and some nice information is given as outp
 qaCompute does no report any information about the assembly sequences, let use the following script to add information about GC-content:
 
 ```
-$ ~/AV_Exercise/00_tools/addCG.pl  Staphylococcus_aureus.velvet.scf.fasta velvet.cov > velvet.cov.gc
+$ ~/AV_Exercise/tools/addCG.pl  Staphylococcus_aureus.velvet.scf.fasta velvet.cov > velvet.cov.gc
 ```
 
 For each contig we now have the length, the coverage and the GC content. We can produce some 2D plots to inspect the result. We can use the following script to produce 2D plots:
 
 ```
-$ Rscript --vanilla /proj/g2014179/assemblyValidation/tools/scripts/plotCovGC.R ASSEMBLER.cov.gc MAX_CTG_LENGTH
+$ Rscript --vanilla /proj/g2015027/assemblyValidation/tools/scripts/plotCovGC.R ASSEMBLER.cov.gc MAX_CTG_LENGTH
 ```
 
 you need to play around with MAX_CTG_LENGTH value to have a nice visualisation. If you have experience with R copy the script and play around.
