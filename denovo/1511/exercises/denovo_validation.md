@@ -323,8 +323,8 @@ Let us see in details how it works:
 $ mkdir velvet
 $ cd velvet
 $ ln -s ~/glob/AV_Exercise/assemblies/velvet/Staphylococcus_aureus.velvet.scf.fasta .
-$ ln -s ~/glob/AV_Exercise/02_read_mapping/velvet/PE_on_velvet_sorted.bam .
-$ ln -s ~/glob/AV_Exercise/02_read_mapping/velvet/MP_on_velvet_sorted.bam .
+$ ln -s ~/glob/AV_Exercise/02_read_mapping/velvet/velvet_PE.sorted.bam .
+$ ln -s ~/glob/AV_Exercise/02_read_mapping/velvet/velvet_MP.sorted.bam .
 ```
 
 And now compute the FRCurve:
@@ -375,8 +375,8 @@ The details look like this:
 $ mkdir velvet
 $ cd velvet
 $ ln -s ~/glob/AV_Exercise/assemblies/velvet/Staphylococcus_aureus.velvet.scf.fasta .
-$ ln -s ~/glob/AV_Exercise/02_read_mapping/velvet/PE_on_velvet_sorted.bam .
-$ reapr pipeline Staphylococcus_aureus.velvet.scf.fasta PE_on_velvet_sorted.bam reapr_velvet
+$ ln -s ~/glob/AV_Exercise/02_read_mapping/velvet/velvet_PE.sorted.bam .
+$ reapr pipeline Staphylococcus_aureus.velvet.scf.fasta velvet_PE.sorted.bam reapr_velvet
 ```
 
 Now look at this file: `reapr_velvet/05.summary.report.txt`
