@@ -33,7 +33,7 @@ Room: Heden
 **Thursday**  
 Room: Heden   
 **09:45-10:45** Lecture: RNA sequencing, transcriptome and expression quantification (Dag Ahren)  
-**11:00-12:00** [Exercise: RNA sequencing, transcriptome and expression quantification part I](labs/rnaseqMapping) (Dag Ahren, Markus Ringnér, Elin Videvall)
+**11:00-12:00** [Exercise: RNA sequencing, transcriptome and expression quantification part I](labs/rnaseqMapping) (Dag Ahren, Markus Ringnér, Elin Videvall)  
 **12.00-13.00** Lunch  
 **13:00-17:00** Exercise: RNA sequencing, transcriptome and expression quantification part II (Dag Ahren, Markus Ringnér, Elin Videvall)   
 **Friday**  
