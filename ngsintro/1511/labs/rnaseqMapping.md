@@ -153,7 +153,7 @@ It may be that you need to load a different version.
 
 #### 4) Run Tophat
 
-What goes in, what comes out:
+What goes in and what comes out? 
 
 In:
 
@@ -197,10 +197,11 @@ to refer to the correct bam file in later steps.
 ```bash
 $ cd results
 $ ln -s tophat_outputSE30888/accepted_hits.bam SE30888.bam
+$ cd ..
 ```
 #### 5) Cufflinks: Assembly and transcript calling
 
-What goes in, what comes out:
+What goes in and what comes out? 
 
 **In:** A read alignment in BAM format (SAM is also an option, but should not be used due to it being uncrompressed)
 
