@@ -197,6 +197,7 @@ to refer to the correct bam file in later steps.
 ```bash
 $ cd results
 $ ln -s tophat_outputSE30888/accepted_hits.bam SE30888.bam
+$ ln -s tophat_outputPE30880/accepted_hits.bam PE30880.bam
 $ cd ..
 ```
 #### 5) Cufflinks: Assembly and transcript calling
@@ -208,6 +209,9 @@ What goes in and what comes out?
 **Out:** A number of files, including a transcriptome annotation reconstructed from the read distribution
 
 Please adjust the name of the bam file as well as the output folder name to the appropriate names for your analysis.
+**Note: Remember the path to the output folder that you choose below, you will need it later!!
+
+** Run cufflinks on all tophat results 
 
 General command format: 
 
@@ -277,22 +281,23 @@ Moreover, many vertebrate genomes have only been annotated by reference to other
 Using the expression data obtained through cufflinks may hence allow us to improve existing annotations.
 Cuffmerge is a tool that takes cufflinks-derived annotation files (known & ‘novel’ loci) and reconciles them into a consensus annotation, discarding e.g. spuriously transcribed loci and merging overlapping loci into larger transcription units where possible.
 
-Again, the commands below are **just examples**, your files and folder may be called differently.
+Again, the commands below are **just examples**, your files and folder will be called differently.
 
 ```bash
 $ cd ~/glob
 $ mkdir cuffmerge
 $ cd cuffmerge
-$ ln -s ../cufflinks.brainSE/transcripts.gtf brainSE.gtf
-$ ln -s ../cufflinks.kidneyPE/transcripts.gtf kidneyPE.gtf
+$ ln -s ../cufflinks.adiposeSE/transcripts.gtf adiposeSE.gtf
+$ ln -s ../cufflinks.adiposePE/transcripts.gtf adiposePE.gtf
 ```
 
-*Note: If this didn't work (check that the linked files actually exist and have content), then you probably chose a different way of organizing your folders and will have to figure out where your source files are yourself ;)*
+*Note: If this didn't work (check that the linked files actually exist and have content), then you probably chose a different way of organizing your folders and will have to figure out where the cufflink files your generated earlier are located ;)*
 
 Now that we have both transcript model files in one location, we can attempt to merge them.
 For this, we first have to create a text file that contains a list of GTF files to merge (quite inconvenient, I know).
 Use whichever tool you feel comfortable with and write the name of
 each gtf file line by line, then save it as transcripts.txt.
+If you would like to be fancy, you could try to use unix commands to do this (tip: use ls and ">")
 
 ```bash
 $ cuffmerge -o merged -g reference/Homo_sapiens.GRCh38_Chr1.77.gtf -p 8 -s reference/rm.chr.1.fa transcripts.txt
@@ -302,7 +307,7 @@ This will save the reconciled annotation file as merged/merged.gtf.
 Symlink this file into your main project folder.
 
 ```bash
-$ cd ~/glob/transcription
+$ cd ~/glob/transcriptome/
 $ ln -s cuffmerge/merged/merged.gtf
 ```
 
