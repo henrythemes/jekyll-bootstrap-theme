@@ -207,7 +207,9 @@ What goes in and what comes out?
 
 **Out:** A number of files, including a transcriptome annotation reconstructed from the read distribution
 
-General command format:
+Please adjust the name of the bam file as well as the output folder name to the appropriate names for your analysis.
+
+General command format: 
 
 ```bash
 $ cufflinks -o my_output_folder -p 8 -g reference/Homo_sapiens.GRCh38_Chr1.77.gtf my_infile.bam
