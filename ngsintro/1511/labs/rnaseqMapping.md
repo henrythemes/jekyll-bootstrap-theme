@@ -93,7 +93,8 @@ reservations running at the same time, otherwise you will take away resources fr
 
 
 ```bash
-$ salloc -A g2015031 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2015031_17 &
+$ salloc -A g2015045 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2015045_18 &
+
 ```
 
 #### 2) Prepare your data
@@ -142,7 +143,7 @@ You have done this before, but here is a quick reminder:
 $ module load bioinfo-tools samtools/0.1.19 bowtie2/2.2.3 tophat/2.0.12 cufflinks/2.2.1
 ```
 
-If any of these packages does load as expected, you can check that module names are correct using the command
+If any of these packages does not load as expected, you can check that module names are correct using the command
 
 ```bash
 $ module avail
