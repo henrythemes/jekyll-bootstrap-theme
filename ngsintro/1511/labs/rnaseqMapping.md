@@ -101,7 +101,7 @@ $ salloc -A g2015045 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2015045_
 
 <font color="red">**Note: It is completely up to your how you organize your data - what follows below is merely a suggestion:**</font>
 
-<font color="red">**Note:Remember that you have to run the analysis on SE and PE for two tissues! Examples below show for one tissue...
+<font color="red">**Remember that you have to run the analysis on SE and PE for two tissues! Examples below shows how to do this for one tissue...**</font>
 
 * create a folder for your project
 
