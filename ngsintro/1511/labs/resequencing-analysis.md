@@ -419,7 +419,7 @@ If you want to run the indel filtering version, you can look on the web page abo
 
 Once you have the filtered calls, open your filtered VCF with less and page through it.
 It has all the variant lines, still, but one of the fields that was blank before is now filled in, indicating that the variant on that line either passed filtering or was filtered out, with a list of the filters it failed.
-Note also that the filters that were run are described in the header section.t
+Note also that the filters that were run are described in the header section.
 
 ## Step 7. Looking at Your Data with IGV
 
