@@ -85,9 +85,10 @@ Transcripts are grouped as follows: * components: the set of all sequences that 
 ```bash
 $ /sw/apps/bioinfo/trinity/2014-07-17/milou/util/TrinityStats.pl Trinity.fasta
 ```
-How many "genes" did Trinity assemble? How many transcripts?
-How large is the assembly? (nr of bases)
-What is N50?
+- How many "genes" did Trinity assemble? 
+- How many transcripts?
+- How large is the assembly? (nr of bases)
+- What is N50?
 
 2.3 Filter out sequences shorter than 1000 nucleotides (hint: do a web search for appropriate tools. Someone else must have had the exact same problem.). Count the number of sequences again.
 
