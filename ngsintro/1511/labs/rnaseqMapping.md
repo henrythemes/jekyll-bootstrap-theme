@@ -363,15 +363,15 @@ A workaround to this is to use an older version of R and if you want to test thi
 
 For this part you need graphics, so you need to log in to Uppmax using thinlinc (as you have done before) or by using the -Y parameter when using ssh.
 
-```R
+```bash
 $ module load RStudio
 $ rstudio /proj/g2015045/labs/transcriptome_cummeRbund/cummeRbund_course_code.R
 
+```
 In the R Studio environment, you need to make two changes in the R script.
 1. Change the working directory to your own transcriptome directory
 2. Change the cufflinks directory to the one you generated earlier.
 
-```
 
 ### Closing remarks
 
