@@ -401,7 +401,7 @@ are a few options for the different steps
 * [Featurecounts](http://bioinf.wehi.edu.au/featureCounts/)
 
 #### Mapping & counting RNASeq
-[RSEM](http://deweylab.github.io/RSEM/) 
+* [RSEM](http://deweylab.github.io/RSEM/) 
 
 #### Detect differential gene expression
 
