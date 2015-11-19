@@ -361,7 +361,7 @@ It reads the native output from Cuffdiff, parses it into a database and provide 
 This package offer a lot of efficient parsing of the output files created by cuffdiff, however a recent update to Rsqlite package has broken the procedure whereby this package reads the data into R.
 A workaround to this is to use an older version of R and if you want to test this steps on Uppmax one can just load an older R version via the module system as this:
 
-For this part you need graphics, so you need to log in to Uppmax using thinlinc (as you have done before) or by using the -Y parameter when using ssh.
+For this part you need graphics, so you need to log in to Uppmax using thinlinc (as you have done before) or by using the -Y parameter when using ssh. 
 
 ```bash
 $ module load RStudio
@@ -399,6 +399,9 @@ are a few options for the different steps
 
 * [HTseq](http://www-huber.embl.de/users/anders/HTSeq/doc/count.html#count)
 * [Featurecounts](http://bioinf.wehi.edu.au/featureCounts/)
+
+#### Mapping & counting RNASeq
+[RSEM](http://deweylab.github.io/RSEM/) 
 
 #### Detect differential gene expression
 
