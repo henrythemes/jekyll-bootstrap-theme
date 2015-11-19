@@ -27,7 +27,7 @@ Room: Heden
 **12.00-13.00** Lunch  
 **13:00-13.30** [Lecture: The National Bioinformatics Infrastructure Sweden](slides/MalinLarsson_BioinfoPresNov2015.pptx) (Malin Larsson)  
 **13.30-15.00** [Lecture: Next Generation Sequencing Overview](slides/Sequencing_OVP 2015_a.pptx) (Olga Vinnere Pettersson)  
-**15.00-16.00** Lecture: NGS and bioinformatics analysis pipelines (Adam Ameur)  
+**15.00-16.00** [Lecture: NGS and bioinformatics analysis pipelines](slides/AdamAmeur_SciLife_Bioinfo_course_Nov2015.ppt) (Adam Ameur)  
 **16.00-17:00** Project discussion (Adam Ameur, Olga Vinnere Pettersson, Dag Ahren)   
 
 **Thursday**  
