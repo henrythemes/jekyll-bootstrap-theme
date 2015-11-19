@@ -25,7 +25,7 @@ Room: Heden
 Room: Heden  
 **09:00-12:00** [Exercise: Alignment with BWA; Samtools; Data Processing with Picard; Variant Calling with GATK; SAM/BAM and VCF Formats part II](labs/resequencing-analysis) (Anna Johansson, Malin Larsson, Elin Videvall)   
 **12.00-13.00** Lunch  
-**13:00-13.30** Lecture: The National Bioinformatics Infrastructure Sweden (Malin Larsson)  
+**13:00-13.30** [Lecture: The National Bioinformatics Infrastructure Sweden](slides/MalinLarsson_BioinfoPresNov2015.pptx) (Malin Larsson)  
 **13.30-15.00** [Lecture: Next Generation Sequencing Overview](slides/Sequencing_OVP 2015_a.pptx) (Olga Vinnere Pettersson)  
 **15.00-16.00** Lecture: NGS and bioinformatics analysis pipelines (Adam Ameur)  
 **16.00-17:00** Project discussion (Adam Ameur, Olga Vinnere Pettersson, Dag Ahren)   
