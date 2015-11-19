@@ -22,24 +22,25 @@ Type the following command but replace *username* with your login name.
 Connect to Uppmax:
 
 ```bash
-ssh -X *username*@milou.uppmax.uu.se
+ssh -X usernam@milou.uppmax.uu.se
 ```
 
 Next, request a compute node for the next 8 hours.  
 **Do not repeat this command otherwise you will be using more than 8 cores and other might not be able to work.**  
-Note that the reservation code for Wednesday is g2014179_wed.  
+Just type it once and see which node you are assigned to.  
+<!--- Note that the reservation code for Wednesday is g2014179_wed.  -->
 
 ```bash
 salloc -A g2015028 -t 08:00:00 -p core -n 8 --no-shell --qos=interact &
 ```
 
- Just type it once and see which node you are assigned to.Type the following command to see the login node: 
+ Type the following command to see the login node: 
 
 ```bash
-squeue -u *username*
+squeue -u username
 ```
 
-The nodelist column gives you the name of the node that has been reserved for you (starts with 'q').  
+The nodelist column gives you the name of the node that has been reserved for you.  
 Log in to compute node (replace mXX with the actual compute node you are assigned to)  
 
 ```bash
@@ -72,7 +73,7 @@ Then type:
 module avail
 ```
 
-Now, youâ€™ll see the bioinformatics tools installed on Milou that are categorized by the type of main tasks they perform.  
+Now, you wi€™ll see the bioinformatics tools installed on Milou that are categorized by the type of main tasks they perform.  
 
 <!---
 ```bash
