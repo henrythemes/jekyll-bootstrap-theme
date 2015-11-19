@@ -53,6 +53,10 @@ Below is a summary of the data and tissues available.
 * genome index for aligning reads with Bowtie2
 * reference genome annotation based on the [EnsEMBL](http://www.ensembl.org/index.html) database named: Homo_sapiens.GRCh38_Chr1.77.gtf
 
+Please start by testing Brain vs Kidney! 
+Afterwards you can go back and test more tissues against each other.
+
+
 ## Tophat
 
 Tophat is a script pipeline built on-top of the popular short-read aligner Bowtie.
@@ -289,8 +293,8 @@ Again, the commands below are **just examples**, your files and folder will be c
 $ cd ~/glob
 $ mkdir cuffmerge
 $ cd cuffmerge
-$ ln -s ../cufflinks.adiposeSE/transcripts.gtf adiposeSE.gtf
-$ ln -s ../cufflinks.adiposePE/transcripts.gtf adiposePE.gtf
+$ ln -s ../cufflinks.brainSE/transcripts.gtf brainSE.gtf
+$ ln -s ../cufflinks.brainPE/transcripts.gtf brainPE.gtf
 ```
 
 *Note: If this didn't work (check that the linked files actually exist and have content), then you probably chose a different way of organizing your folders and will have to figure out where the cufflink files your generated earlier are located ;)*
@@ -349,17 +353,13 @@ $ grep yes gene_exp.diff >> results.txt
 
 (This copies the header of the output file as well as all rows tagged as significant into a new text file - open this file in a text editor or spread sheet program).
 
-Using their _EnsEMBL_ accession numbers, you can go to [http://www.ensembl.org](http://www.ensembl.org/) to retrieve information on the function of these genes and see whether you can draw any conclusions as to why these genes would be differentially expressed between samples.
-
-### Where to go next
+### Where to go next - Visualize the results
 
 So now you have analyzed the expression of genes between two samples.
 However, usually the work does not end here.
 For example, you may want to perform a thorough analysis of your output, visualize distributions and obtain statictics.
-This can be done either through clever scripting in R, or by use of a recently developed software suite called [CummeRbund](http://compbio.mit.edu/cummeRbund/).
-It reads the native output from Cuffdiff, parses it into a database and provide ample options for in-depth analysis of the data.
-This package offer a lot of efficient parsing of the output files created by cuffdiff, however a recent update to Rsqlite package has broken the procedure whereby this package reads the data into R.
-A workaround to this is to use an older version of R and if you want to test this steps on Uppmax one can just load an older R version via the module system as this:
+This can be done either through clever scripting in R, or by use of an R package called [cummeRbund](http://compbio.mit.edu/cummeRbund/).
+cummeRbund reads the native output from Cuffdiff, parses it into a database and provide ample options for in-depth analysis of the data.
 
 For this part you need graphics, so you need to log in to Uppmax using thinlinc (as you have done before) or by using the -Y parameter when using ssh. 
 
@@ -368,9 +368,14 @@ $ module load RStudio
 $ rstudio /proj/g2015045/labs/transcriptome_cummeRbund/cummeRbund_course_code.R
 
 ```
+Installing cummeRbund in R or Rstudio takes a bit of time, so a good idea is to start the installation before taking a break.
 In the R Studio environment, you need to make two changes in the R script.
 1. Change the working directory to your own transcriptome directory
 2. Change the cufflinks directory to the one you generated earlier.
+
+
+Optional: Using the _EnsEMBL_ accession numbers of the significant genes, you can go to [http://www.ensembl.org](http://www.ensembl.org/) to retrieve information on the function of these genes and see whether you can draw any conclusions as to why these genes would be differentially expressed in the two tissues.
+
 
 
 ### Closing remarks
@@ -378,10 +383,10 @@ In the R Studio environment, you need to make two changes in the R script.
 This tutorial has introduced you to a very straight-forward, but somewhat simplified pipeline for the analysis of RNA-seq data by use of a reference genome to study transcription.
 Both Cufflinks and Tophat come with additional parameters that we have not touched upon to avoid unnecessary confusion.
 Likewise, the read data we have used was strand-unspecific.
-This has certain drawbacks, specifically with respect to accuracy in the isoform analysis.
+This has some drawbacks, specifically with respect to accuracy in the isoform analysis.
 Or perhaps you are not interested in comparing expression between pairs of samples but in a time series.
 For this reason as well as others, you may need to adjust one or several parameters to get the best results - depending on the nature of your data.
-We therefore highly recommend you to carefully read both manuals (and possible the original publications) so as to familiarize yourself with these additional options.
+We therefore highly recommend you to carefully read the manuals (and the original publications) so as to familiarize yourself with these additional options.
 
 ### Other alternatives
 
@@ -389,7 +394,7 @@ There are several different tools available that have the ability to
 do many of the steps described above with the Tuxedo pipeline. Here
 are a few options for the different steps
 
-#### Short read mappers that suitable for RNA-seq data
+#### Short read mappers that are suitable for RNA-seq data
 
 * [Star](https://github.com/alexdobin/STAR)
 * [Subread](http://subread.sourceforge.net)
