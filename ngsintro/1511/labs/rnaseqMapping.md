@@ -53,7 +53,7 @@ Below is a summary of the data and tissues available.
 * genome index for aligning reads with Bowtie2
 * reference genome annotation based on the [EnsEMBL](http://www.ensembl.org/index.html) database named: Homo_sapiens.GRCh38_Chr1.77.gtf
 
-Please start by testing Brain vs Kidney! 
+<font color="red">Please start by testing Brain vs Kidney!</font> 
 Afterwards you can go back and test more tissues against each other.
 
 ## Tophat
