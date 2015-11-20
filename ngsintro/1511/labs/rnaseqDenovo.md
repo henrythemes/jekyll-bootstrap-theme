@@ -98,7 +98,7 @@ $ /sw/apps/bioinfo/trinity/2014-07-17/milou/util/TrinityStats.pl Trinity.fasta
 - Select the mouse/mm9 genome and click “submit”.
 - Click on the top scoring hit.
 
-Optional: examine the alignments by clicking “details” on the resulting page.
+Examine the alignments by clicking “details” on the resulting page.
 - Your sequences will be displayed in the browser.
 - Enable the mouse annotations (ENSEMBL gene build, UCSC genes, human proteins etc.).
 
