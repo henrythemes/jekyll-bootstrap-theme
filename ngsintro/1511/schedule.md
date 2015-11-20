@@ -39,7 +39,7 @@ Room: Heden
 
 **Friday**  
 Room: Heden   
-**09:00-12.00** Exercise: [RNA sequencing, transcriptome and expression quantification part III](labs/rnaseqDenovo) (Dag Ahren, Markus Ringnér, Elin Videvall)  
+**09:00-12.00** [Exercise: RNA sequencing, transcriptome and expression quantification part III](labs/rnaseqDenovo) (Dag Ahren, Markus Ringnér, Elin Videvall)  
 **12.00-13.00** Lunch  
 **13:00-15.00** Exercise: RNA sequencing, transcriptome and expression quantification part IV (Dag Ahren, Markus Ringnér, Elin Videvall)    
 
