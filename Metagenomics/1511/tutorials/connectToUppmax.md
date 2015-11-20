@@ -22,7 +22,7 @@ Type the following command but replace *username* with your login name.
 Connect to Uppmax:
 
 ```bash
-ssh -X usernam@milou.uppmax.uu.se
+ssh -X username@milou.uppmax.uu.se
 ```
 
 Next, request a compute node for the next 8 hours.  

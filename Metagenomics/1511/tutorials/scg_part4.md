@@ -7,9 +7,11 @@ title:  'Part 4: Coverage plotting, chimera detection and inspection'
 
 As explained during the lectures, the genome amplification process (MDA) results in a coverage bias across the genome and induces chimera formation. 
 Here you will have a look at the 'best' assembly that you managed to obtain, and try to assess the level of bias and chimera formation.
-In order to visualize how the coverage a normal single-cell assembly, you need to map your reads used in the assembly, back to your assembled contigs. 
-This can be done with various read-mappers such as bwa, bowtie, gsnap etc. You will be using bwa since it is fast and it can also map partial reads back to our reference.
-Make a folder called 'coverage_mapping' in the 'metagenomics_exercises' folder.  
+In order to visualize the coverage of a normal single-cell assembly, you need to map your reads used in the assembly, back to your assembled contigs. 
+This can be done with various read-mappers such as *bwa, bowtie, gsnap* etc... You will be using bwa since it is fast and it can also map partial reads back to our reference.  
+
+Make a folder called 'coverage_mapping' in the *~/single_cell_exercises/datasetX* folder and move into it.  
+*Notice: Replace X in datasetX by the dataset number you were working on in the previous part.*  
 Copy the contigs file from an example run:
 
 ```sh
@@ -19,8 +21,6 @@ cp /proj/g2015028/nobackup/single_cell_exercises/assembly_examples/contigs.fasta
 First you need to create an index for your contigs:
 
 ```sh
-module load bioinfo-tools
-module load bwa/0.7.5a
 bwa index contigs.fasta #[time to run: < 1 sec]
 ```
 
@@ -29,7 +29,7 @@ Make sure you know where the fastq files are, in this example the location is in
 Then map your reads back to your contigs:
 
 ```sh
-bwa mem -t 8 contigs.fasta ../spades_assemblies/G5_Hiseq_1.fastq ../spades_assemblies/G5_Hiseq_2.fastq > G5_vs_contigs.sam [time to run: 2.5 sec]
+bwa mem -t 8 contigs.fasta ../G5_Hiseq_R1_001.fastq ../G5_Hiseq_R2_001.fastq > G5_vs_contigs.sam #[time to run: 2.5 sec]
 ```
 
 This will produce a SAM file (Sequence Alignment/Map) which is a flat text file. 
@@ -37,8 +37,7 @@ These files are often quite large, so converting it to a smaller, binary, format
 To do this, and to do some additional manipulations to the mapped reads, you will be using picard-tools.
 
 ```sh
-module load picard/1.92
-java -jar /sw/apps/bioinfo/picard/1.92/milou/SamFormatConverter.jar INPUT=G5_vs_contigs.sam OUTPUT=G5_vs_contigs.bam [time to run: 13 sec]
+java -jar /sw/apps/bioinfo/picard/1.92/milou/SamFormatConverter.jar INPUT=G5_vs_contigs.sam OUTPUT=G5_vs_contigs.bam #[time to run: 13 sec]
 ```
 
 We can now safely remove our original SAM file in order to save space

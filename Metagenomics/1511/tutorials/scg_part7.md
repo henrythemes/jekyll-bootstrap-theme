@@ -6,7 +6,8 @@ title:  'Part 6: Comparing MiSeq vs. HiSeq data'
 # Part 7: Analysis of a novel single cell genome (bonus exercise)
 ---
 
-Now that you have worked with several single cell genome datasets, you will be able to play around with a bonus dataset of a mystery single cell (dataset3). With the knowledge that you have acquired during this course, try to:
+Now that you have worked with several single cell genome datasets, you will be able to play around with a bonus dataset of a mystery single cell (dataset3). 
+With the knowledge that you have acquired during this course, try to:
 
 - make a decent assembly
 - assess the completeness of your single cell

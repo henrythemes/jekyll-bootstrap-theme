@@ -63,7 +63,7 @@ ls dataset2
 
 You should now see 2 files per dataset, a forward fastq file ```_R1_001.fastq``` and its reverse ```_R2_001.fastq```  
 
-Later in some commands we use the variable *sample*, those commands set this variable. 
+Later in some commands we use the variables *sample* and *merge*, the following commands set those variables. 
 We will also load the softwares we need to work.  
 **In case you loose your connection, you will need to redo this step again.**  
 
@@ -284,7 +284,7 @@ blastn -db $DB -evalue 1e-6 -num_threads 8 -query G5_${sample}_${merge}sc_carefu
 
 After running Blastn, can you identify what organism G5 belongs to?
 
-
+For the next part you need to come back in the 
 
 
 ## Questions:
