@@ -73,7 +73,7 @@ Then type:
 module avail
 ```
 
-Now, you wi€™ll see the bioinformatics tools installed on Milou that are categorized by the type of main tasks they perform.  
+Now, you will see the bioinformatics tools installed on Milou that are categorized by the type of main tasks they perform.  
 
 <!---
 ```bash
