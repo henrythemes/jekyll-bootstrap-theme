@@ -1,6 +1,6 @@
 ---
 layout: default
-title:  'Introduction to Bioinformatics Using NGS Data - October 2015'
+title:  'RNAseq course - November 2015'
 ---
  
 
