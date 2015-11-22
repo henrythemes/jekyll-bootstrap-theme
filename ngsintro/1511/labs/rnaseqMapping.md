@@ -53,6 +53,9 @@ Below is a summary of the data and tissues available.
 * genome index for aligning reads with Bowtie2
 * reference genome annotation based on the [EnsEMBL](http://www.ensembl.org/index.html) database named: Homo_sapiens.GRCh38_Chr1.77.gtf
 
+<font color="red">**Please start by testing Brain vs Kidney!**</font> 
+Afterwards you can go back and test more tissues against each other.
+
 ## Tophat
 
 Tophat is a script pipeline built on-top of the popular short-read aligner Bowtie.
@@ -93,12 +96,15 @@ reservations running at the same time, otherwise you will take away resources fr
 
 
 ```bash
-$ salloc -A g2015031 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2015031_17 &
+$ salloc -A g2015045 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2015045_20151119 &
+
 ```
 
 #### 2) Prepare your data
 
 <font color="red">**Note: It is completely up to your how you organize your data - what follows below is merely a suggestion:**</font>
+
+<font color="red">**Remember that you have to run the analysis on SE and PE for two tissues! Examples below shows how to do this for one tissue...**</font>
 
 * create a folder for your project
 
@@ -112,9 +118,9 @@ $ mkdir results
 * sym-link the required files and folders (this will create a symbolic link to the original folders/files and saves you the trouble of always typing the full path - BUT: Do not write into these linked folders, because that data is shared across everyone working with these folders...)
 
 ```bash
-ln -s /proj/g2015031/labs/transcriptome_map/reads/PE/
-ln -s /proj/g2015031/labs/transcriptome_map/reads/SE
-ln -s /proj/g2015031/labs/transcriptome_map/reference
+ln -s /proj/g2015045/labs/transcriptome_map/reads/PE
+ln -s /proj/g2015045/labs/transcriptome_map/reads/SE
+ln -s /proj/g2015045/labs/transcriptome_map/reference
 ```
 
 Your directory structure should look like this:
@@ -142,7 +148,7 @@ You have done this before, but here is a quick reminder:
 $ module load bioinfo-tools samtools/0.1.19 bowtie2/2.2.3 tophat/2.0.12 cufflinks/2.2.1
 ```
 
-If any of these packages does load as expected, you can check that module names are correct using the command
+If any of these packages does not load as expected, you can check that module names are correct using the command
 
 ```bash
 $ module avail
@@ -152,7 +158,7 @@ It may be that you need to load a different version.
 
 #### 4) Run Tophat
 
-What goes in, what comes out:
+What goes in and what comes out? 
 
 In:
 
@@ -168,7 +174,7 @@ For the next step, please chose two tissues that you want to analyse and make su
 We do this since the time needed to align an actual read file with data from all human chromosomes can take several hours.
 With these sub-sampled data sets, it should be possible to align them with tophat in a reasonable time frame.
 However, if this should still take too long (>20mins), you may wish to abort this step.
-You already have the corresponding output the subfolder results/tophat/.
+You already have the corresponding output in the subfolder results/tophat/.
 
 Tophat will take one or multiple FASTQ files and align the reads therein to a genomic reference.
 A common command may look like this:
@@ -196,16 +202,23 @@ to refer to the correct bam file in later steps.
 ```bash
 $ cd results
 $ ln -s tophat_outputSE30888/accepted_hits.bam SE30888.bam
+$ ln -s tophat_outputPE30880/accepted_hits.bam PE30880.bam
+$ cd ..
 ```
 #### 5) Cufflinks: Assembly and transcript calling
 
-What goes in, what comes out:
+What goes in and what comes out? 
 
 **In:** A read alignment in BAM format (SAM is also an option, but should not be used due to it being uncrompressed)
 
 **Out:** A number of files, including a transcriptome annotation reconstructed from the read distribution
 
-General command format:
+Please adjust the name of the bam file as well as the output folder name to the appropriate names for your analysis.
+**Note: Remember the path to the output folder that you choose below, you will need it later!!
+
+** Run cufflinks on all tophat results 
+
+General command format: 
 
 ```bash
 $ cufflinks -o my_output_folder -p 8 -g reference/Homo_sapiens.GRCh38_Chr1.77.gtf my_infile.bam
@@ -273,22 +286,23 @@ Moreover, many vertebrate genomes have only been annotated by reference to other
 Using the expression data obtained through cufflinks may hence allow us to improve existing annotations.
 Cuffmerge is a tool that takes cufflinks-derived annotation files (known & ‘novel’ loci) and reconciles them into a consensus annotation, discarding e.g. spuriously transcribed loci and merging overlapping loci into larger transcription units where possible.
 
-Again, the commands below are **just examples**, your files and folder may be called differently.
+Again, the commands below are **just examples**, your files and folder will be called differently.
 
 ```bash
 $ cd ~/glob
 $ mkdir cuffmerge
 $ cd cuffmerge
 $ ln -s ../cufflinks.brainSE/transcripts.gtf brainSE.gtf
-$ ln -s ../cufflinks.kidneyPE/transcripts.gtf kidneyPE.gtf
+$ ln -s ../cufflinks.brainPE/transcripts.gtf brainPE.gtf
 ```
 
-*Note: If this didn't work (check that the linked files actually exist and have content), then you probably chose a different way of organizing your folders and will have to figure out where your source files are yourself ;)*
+*Note: If this didn't work (check that the linked files actually exist and have content), then you probably chose a different way of organizing your folders and will have to figure out where the cufflink files your generated earlier are located ;)*
 
 Now that we have both transcript model files in one location, we can attempt to merge them.
 For this, we first have to create a text file that contains a list of GTF files to merge (quite inconvenient, I know).
 Use whichever tool you feel comfortable with and write the name of
 each gtf file line by line, then save it as transcripts.txt.
+If you would like to be fancy, you could try to use unix commands to do this (tip: use ls and ">")
 
 ```bash
 $ cuffmerge -o merged -g reference/Homo_sapiens.GRCh38_Chr1.77.gtf -p 8 -s reference/rm.chr.1.fa transcripts.txt
@@ -298,7 +312,7 @@ This will save the reconciled annotation file as merged/merged.gtf.
 Symlink this file into your main project folder.
 
 ```bash
-$ cd ~/glob/transcription
+$ cd ~/glob/transcriptome/
 $ ln -s cuffmerge/merged/merged.gtf
 ```
 
@@ -338,35 +352,38 @@ $ grep yes gene_exp.diff >> results.txt
 
 (This copies the header of the output file as well as all rows tagged as significant into a new text file - open this file in a text editor or spread sheet program).
 
-Using their _EnsEMBL_ accession numbers, you can go to [http://www.ensembl.org](http://www.ensembl.org/) to retrieve information on the function of these genes and see whether you can draw any conclusions as to why these genes would be differentially expressed between samples.
 
-### Where to go next
+### Where to go next - Visualize the results
 
 So now you have analyzed the expression of genes between two samples.
 However, usually the work does not end here.
-For example, you may want to perform a thorough analysis of your output, visualze distributions and obtain statictics.
-This can be done either through clever scripting in R, or by use of a recently developed software suite called [CummeRbund](http://compbio.mit.edu/cummeRbund/).
-It reads the native output from Cuffdiff, parses it into a database and provide ample options for in-depth analysis of the data.
-This package offer a lot of efficient parsing of the output files created by cuffdiff, however a recent update to Rsqlite package has broken the procedure whereby this package reads the data into R.
-A workaround to this is to use an older version of R and if you want to test this steps on Uppmax one can just load an older R version via the module system as this:
+For example, you may want to perform a thorough analysis of your output, visualize distributions and obtain statictics.
+This can, for example, be done either through clever scripting in R, or by use of a recently developed software suite called [CummeRbund](http://compbio.mit.edu/cummeRbund/).
+cummeRbund reads the native output from Cuffdiff, parses it into a database and provide ample options for in-depth analysis of the data.
 
-```R
-$ module load R/3.0.1
-$ R
-> source("http://bioconductor.org/biocLite.R")
-> biocLite("cummeRbund")
-> library("cummeRbund")
+For this part you need graphics, so you need to log in to Uppmax using thinlinc (as you have done before) or by using the -Y parameter when using ssh. 
+
+```bash
+$ module load RStudio
+$ rstudio /proj/g2015045/labs/transcriptome_cummeRbund/cummeRbund_course_code.R
+
 ```
+Installing cummeRbund in R or Rstudio takes a bit of time, so a good idea is to start the installation before taking a break.
+In the R Studio environment, you need to make two changes in the R script.
+1. Change the working directory to your own transcriptome directory
+2. Change the cufflinks directory to the one you generated earlier.
+
+Optional: Using the _EnsEMBL_ accession numbers of the significant genes, you can go to [http://www.ensembl.org](http://www.ensembl.org/) to retrieve information on the function of these genes and see whether you can draw any conclusions as to why these genes would be differentially expressed in the two tissues.
 
 ### Closing remarks
 
 This tutorial has introduced you to a very straight-forward, but somewhat simplified pipeline for the analysis of RNA-seq data by use of a reference genome to study transcription.
 Both Cufflinks and Tophat come with additional parameters that we have not touched upon to avoid unnecessary confusion.
 Likewise, the read data we have used was strand-unspecific.
-This has certain drawbacks, specifically with respect to accuracy in the isoform analysis.
+This has some drawbacks, specifically with respect to accuracy in the isoform analysis.
 Or perhaps you are not interested in comparing expression between pairs of samples but in a time series.
 For this reason as well as others, you may need to adjust one or several parameters to get the best results - depending on the nature of your data.
-We therefore highly recommend you to carefully read both manuals (and possible the original publications) so as to familiarize yourself with these additional options.
+We therefore highly recommend you to carefully read the manuals (and the original publications) so as to familiarize yourself with these additional options.
 
 ### Other alternatives
 
@@ -374,7 +391,7 @@ There are several different tools available that have the ability to
 do many of the steps described above with the Tuxedo pipeline. Here
 are a few options for the different steps
 
-#### Short read mappers that suitable for RNA-seq data
+#### Short read mappers that are suitable for RNA-seq data
 
 * [Star](https://github.com/alexdobin/STAR)
 * [Subread](http://subread.sourceforge.net)
@@ -384,6 +401,9 @@ are a few options for the different steps
 
 * [HTseq](http://www-huber.embl.de/users/anders/HTSeq/doc/count.html#count)
 * [Featurecounts](http://bioinf.wehi.edu.au/featureCounts/)
+
+#### Mapping & counting RNASeq
+* [RSEM](http://deweylab.github.io/RSEM/) 
 
 #### Detect differential gene expression
 

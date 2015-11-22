@@ -18,10 +18,10 @@ On OSX: it is included by default, named **Terminal**.
 On Windows: [Google MobaXterm](http://bit.ly/19yaQOM) and download it.
 
 Fire up the available ssh program and enter the following (replace **username** with your uppmax user name).
--X means that X-forwarding is activated on the connection, which means graphical data can be transmitted if a program requests it, i.e. programs can use a graphical user interface (GUI) if they want to.
+-Y means that X-forwarding is activated on the connection, which means graphical data can be transmitted if a program requests it, i.e. programs can use a graphical user interface (GUI) if they want to.
 
 ```bash
-$ ssh -X username@milou.uppmax.uu.se
+$ ssh -Y username@milou.uppmax.uu.se
 ```
 
 and give your password when prompted.
@@ -44,7 +44,8 @@ If it is running, skip this step and connect to that reservation.</font>
 (We only have 20 reserved cores, so if someone has two, someone else will not get one..)
 
 ```bash
-$ salloc -A g2015031 -t 04:30:00 -p core -n 1 --no-shell --reservation=g2015031_14 &
+# ONLY IF YOU DON'T ALREADY HAVE AN ACTIVE ALLOCATION SINCE BEFORE
+$ salloc -A g2015045 -t 04:30:00 -p core -n 1 --no-shell --reservation=g2015045_20151116 &
 ```
 
 check which node you got (replace **username** with your uppmax user name)
@@ -64,7 +65,7 @@ When it reaches the time limit you requested (4.5 hours in this case) the sessio
 Connect to this node from within uppmax.
 
 ```bash
-$ ssh -X q34
+$ ssh -Y q34
 ```
 
 **Note:** there is a uppmax specific tool called jobinfo that supplies the same kind of information as squeue that you can use as well (```$ jobinfo -u username```).
@@ -72,7 +73,7 @@ $ ssh -X q34
 ## 3. Copying files needed for laboratory
 To be able to do parts of this lab, you will need some files.
 To avoid all the course participants editing the same file all at once, undoing each other's edits, each participant will get their own copy of the needed files.
-The files are located in the folder `/proj/g2015031/labs/uppmax_pipeline_exercise`
+The files are located in the folder `/proj/g2015045/labs/uppmax_pipeline_exercise`
 
 Next, copy the lab files from this folder.
 -r means recursively, which means all the files including sub-folders of the source folder.
@@ -85,7 +86,7 @@ Ex.
 ```bash
 $ cp -r <source> <destination>
 
-$ cp -r /proj/g2015031/labs/uppmax_pipeline_exercise ~/glob/ngs-intro/
+$ cp -r /proj/g2015045/labs/uppmax_pipeline_exercise ~/glob/ngs-intro/
 ```
 
 Have a look in `~/glob/ngs-intro/uppmax_pipeline_exercise`:
@@ -146,7 +147,7 @@ $ echo $PATH
 To pretend that we are loading a module, we will just add a the directory containing my dummy scripts to the $PATH variable, and it will be like we loaded the module for them.
 
 ```bash
-$ export PATH=$PATH:/proj/g2015031/labs/uppmax_pipeline_exercise/dummy_scripts
+$ export PATH=$PATH:/proj/g2015045/labs/uppmax_pipeline_exercise/dummy_scripts
 ```
 
 This will set the $PATH variable to whatever it is at the moment, and add a directory at the end of it.
@@ -304,7 +305,7 @@ In SLURM words, this would be
 
 ```bash
 #!/bin/sh
-#SBATCH -A g2015031
+#SBATCH -A g2015045
 #SBATCH -t 00:05:00
 #SBATCH -p core
 ```

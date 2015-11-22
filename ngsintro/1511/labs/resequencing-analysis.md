@@ -22,7 +22,8 @@ We have reserved half a node for each student during this course.
 By now, you are probably already familiar with the procedure:
 
 ```bash
-salloc -A g2015031 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2015031_15 &
+salloc -A g2015045 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2015045_20151117 (Tuesday)
+salloc -A g2015045 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2015045_20151118 (Wednesday)
 ```
 
 Make sure you ony do this once, otherwise you will take away resources from the other course participants!
@@ -73,7 +74,7 @@ You need to know where your input data are and where your output will go.
 All of your input data for the first steps of these exercises will be in our course project:
 
 ```bash
-/proj/g2015031/labs/gatk
+/proj/g2015045/labs/gatk
 ```
 
 Normally, if you were working on your own project, you would want to write your output into your project directory also.
@@ -133,7 +134,7 @@ You can copy this from the project directory to your workspace.
 (Normally copying references is a bad thing, but this is so that everyone can see the full BWA process.)
 
 ```bash
-cp /proj/g2015031/labs/gatk/refs/human_17_v37.fasta ~/glob/gatk
+cp /proj/g2015045/labs/gatk/refs/human_17_v37.fasta ~/glob/gatk
 ```
 
 Check to see that this worked.
@@ -183,12 +184,10 @@ First we align each set of reads, then we combine the paired alignments together
 Let's start with one chunk of whole genome shotgun data from individual NA06984.
 
 ```bash
-bwa aln ~/glob/gatk/human_17_v37.fasta /proj/g2015031/labs/gatk/fastq/wgs/NA06984.ILLUMINA.low_coverage.17q_1.fq > ~/glob/gatk/NA06984.ILLUMINA.low_coverage.17q_1.sai
+bwa aln ~/glob/gatk/human_17_v37.fasta /proj/g2015045/labs/gatk/fastq/wgs/NA06984.ILLUMINA.low_coverage.17q_1.fq > ~/glob/gatk/NA06984.ILLUMINA.low_coverage.17q_1.sai
 ```
 
-Note that if you have to use a file redirect ( &gt;) for your output.
-Many (but not all!) functions of BWA default to sending their output to stdout (i.e., your screen) if you do not define a specific outputfile using the -f option, which is great if you want to build pipelines that redirect these things but not so useful when you want to write them to disk.
-Forgetting the redirect can be very disappointing.
+Note that if you have to use a file redirect ( &gt;) for your output, otherwise bwa will print the output directly to stdout, i.e. your screen. Which means that forgetting the redirect can be very disappointing.
 
 While that's running, take a minute to look at the input file path.
 This is a fastq file, so I put it in a directory called fastq.
@@ -344,7 +343,7 @@ This also happens in two steps.
 First, we compute all the covariation of quality with various other factors:
 
 ```bash
-java -Xmx16g -jar /sw/apps/bioinfo/GATK/3.4-46/GenomeAnalysisTK.jar -T BaseRecalibrator -I <input bam> -R <ref file> -knownSites /proj/g2015006/labs/gatk/ALL.chr17.phase1_integrated_calls.20101123.snps_indels_svs.genotypes.vcf -o <calibration table>
+java -Xmx16g -jar /sw/apps/bioinfo/GATK/3.4-46/GenomeAnalysisTK.jar -T BaseRecalibrator -I <input bam> -R <ref file> -knownSites /proj/g2015045/labs/gatk/ALL.chr17.phase1_integrated_calls.20101123.snps_indels_svs.genotypes.vcf -o <calibration table>
 ```
 
 We need to feed it our bam file and our ref file.
@@ -388,7 +387,7 @@ Now you will call variants on all the gvcf-files produced in the previous step b
 java -Xmx2g -jar /sw/apps/bioinfo/GATK/3.4-46/GenomeAnalysisTK.jar -T GenotypeGVCFs -R <ref file> --variant <sample1>.g.vcf --variant <sample2>.g.vcf ... -o <output>.vcf
 ```
 
-As an alternative try also to run the same thing but with all the gvcf for all low_coverage files in the course directory. A gvcf file where these have been merged can be found in the course directory, /proj/g2015031/labs/gatk/vcfs/ILLUMINA.low_coverage.17q.g.vcf. In the next step when viewing the data in IGV, look at both and try to see if there is a difference for a your sample. 
+As an alternative try also to run the same thing but with all the gvcf for all low_coverage files in the course directory. A gvcf file where these have been merged can be found in the course directory, /proj/g2015045/labs/gatk/vcfs/ILLUMINA.low_coverage.17q.g.vcf. In the next step when viewing the data in IGV, look at both and try to see if there is a difference for a your sample. 
 
 ```bash
 java -Xmx8g -jar /sw/apps/bioinfo/GATK/3.4-46/GenomeAnalysisTK.jar -T GenotypeGVCFs -R <ref file> --variant /proj/g2015031/labs/gatk/vcfs/ILLUMINA.low_coverage.17q.g.vcf -o <output>
@@ -406,7 +405,7 @@ Why do you think that some of these parameters are different between the two typ
 An example command line is:
 
 ```bash
-java -Xmx2g -jar /sw/apps/bioinfo/GATK/3.4-46/GenomeAnalysisTK.jar -T VariantFiltration -R <reference> -V <input vcf> -o <output vcf> --filterExpression "QD>2.0" --filterName QDfilter --filterExpression "MQ>40.0" --filterName MQfilter --filterExpression "FS>60.0" --filterName FSfilter
+java -Xmx2g -jar /sw/apps/bioinfo/GATK/3.4-46/GenomeAnalysisTK.jar -T VariantFiltration -R <reference> -V <input vcf> -o <output vcf> --filterExpression "QD<2.0" --filterName QDfilter --filterExpression "MQ<40.0" --filterName MQfilter --filterExpression "FS>60.0" --filterName FSfilter
 ```
 
 Note two things about this.
@@ -420,7 +419,7 @@ If you want to run the indel filtering version, you can look on the web page abo
 
 Once you have the filtered calls, open your filtered VCF with less and page through it.
 It has all the variant lines, still, but one of the fields that was blank before is now filled in, indicating that the variant on that line either passed filtering or was filtered out, with a list of the filters it failed.
-Note also that the filters that were run are described in the header section.t
+Note also that the filters that were run are described in the header section.
 
 ## Step 7. Looking at Your Data with IGV
 
@@ -447,7 +446,7 @@ We will start with the merged bam files.
 We want to get both the bams and bais for the low coverage and exome data.
 
 ```bash
-scp <username>@milou.uppmax.uu.se:/proj/g2015031/labs/gatk/processed/MERGED.illumina.\* ./
+scp <username>@milou.uppmax.uu.se:/proj/g2015045/labs/gatk/processed/MERGED.illumina.\* ./
 ```
 
 Because your uppmax user name is different than the user name on the local machine, you have to put your uppmax user name in front of the @ in the scp so that it knows you want to log in as your uppmax user, not as macuser.
@@ -462,7 +461,7 @@ It will prompt you for your uppmax password, then it should download four files.
 We will also want to load the vcfs into IGV, so you can look at what calls got made.
 
 ```bash
-scp <username>@milou.uppmax.uu.se:/proj/g2015031/labs/gatk/vcfs/MERGED.illumina.\* ./
+scp <username>@milou.uppmax.uu.se:/proj/g2015045/labs/gatk/vcfs/MERGED.illumina.\* ./
 ```
 
 Do the same thing for the vcf that you have created in your home directory. 

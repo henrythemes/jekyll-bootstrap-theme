@@ -1,21 +1,22 @@
 ---
 layout: default
-title:  'Introduction to Bioinformatics Using NGS Data - November 2015'
+title:  'Introduction to De Novo Genome Assembly - November 2015'
 ---
  
 
-# Introduction to Bioinformatics Using NGS Data
+# Introduction to De Novo Genome Assembly
 
-Held in Lund November 16-20, 2015.
+Held at BMC, Uppsala - November 16-17, 2015.
+The course is held in "Navet" at BMC, entry C11.
 
 ## Important Links
 [Pre-course material](precourse)   
 [Schedule](schedule)  
 
 ## Maps & Travel Info
-[Map over Lund](https://www.google.se/maps/@55.7043427,13.1955233,14z)  
-[Map over the ecology building](http://www.biology.lu.se/map-over-education-facilities-in-the-ecology-building)  
-[Travel Info](http://www.geneco.se/Courses/Travel-information)   
+[Map to BMC](https://www.google.se/maps/place/Husargatan+3,+752+37+Uppsala/@59.8419288,17.634913,17z)  
+[Map of BMC](http://www.bmc.uu.se/digitalAssets/205/205659_3bmc-2014-810x374.jpg)  
+[Travel Info](travel)  
 
 ## Helpful Things
 [Linux cheat sheet](../common/images/linux-cheat-sheet.pdf)  

@@ -7,8 +7,7 @@ title:  'RNAseq'
 
 ## Trinity
 
-By efficiently constructing and analyzing sets of de Bruijn graphs, Trinity fully reconstructs a large fraction of transcripts, including alternatively spliced isoforms and transcripts from recently duplicated genes.
-Compared with other de novo transcriptome assemblers, Trinity recovers more full-length transcripts across a broad range of expression levels, with a sensitivity similar to methods that rely on genome alignments.
+Trinity is one of several de novo transcriptome assemblers. By efficiently constructing and analyzing sets of de Bruijn graphs, Trinity reconstructs a large fraction of transcripts, including alternatively spliced isoforms and transcripts from recently duplicated genes.
 This approach provides a unified solution for transcriptome reconstruction in any sample, especially in the absence of a reference genome.
 
 Grabherr MG, Haas BW, Yassour M et al. (2011) Full-length transcriptome assembly from RNA-Seq data without a reference genome.
@@ -47,7 +46,7 @@ $ Trinity --seqType (fq for fastq or fa for fast) --left ~/path/to/reads_1.fq --
 Get yourself familiar with Trinity by having a look at the manual: http://trinityrnaseq.sourceforge.net/
 
 Have a look at the example data used in this exercise.
-The data is obtained from mouse dendritic cells (mouse_left.fasta and mouse_right.fasta and) and a whitefly (whitefly_both.fasta), and the files are located in `/proj/g2015031/labs/transcriptome_assembly/`.
+The data is obtained from mouse dendritic cells (mouse_left.fasta and mouse_right.fasta and) and a whitefly (whitefly_both.fasta), and the files are located in `/proj/g2015045/labs/transcriptome_assembly/`.
 The mouse data is strand-specific (RF), the whitefly data is unstranded.
 For strand-specific data, specify the library type.
 There are four library types:
@@ -65,9 +64,9 @@ By default, reads are treated as not strand-specific.
 
 ### Trinity on Uppmax example command line:
 ```bash
-$ salloc -A g2015031 -t 04:00:00 -p core -n 8 --no-shell --reservation=g2015031_18 &
+$ salloc -A g2015045 -t 04:00:00 -p core -n 8 --no-shell --reservation=g2015045_20151120 &
 $ module load bioinfo-tools java/sun_jdk1.7.0_25 bowtie/1.1.0 samtools/0.1.19 trinity/2014-07-17
-$ Trinity --seqType fa --left /proj/g2015031/labs/transcriptome_assembly/mouse_left.fasta --right /proj/g2015031/labs/transcriptome_assembly/mouse_right.fasta --SS_lib_type RF --CPU 8 --max_memory 16G --output trinity_out/
+$ Trinity --seqType fa --left /proj/g2015045/labs/transcriptome_assembly/mouse_left.fasta --right /proj/g2015045/labs/transcriptome_assembly/mouse_right.fasta --SS_lib_type RF --CPU 8 --max_memory 16G --output trinity_out/
 ```
 
 NB! -It is recommended to use fully specified paths for sequence files with Trinity.
@@ -82,11 +81,16 @@ Transcripts are grouped as follows: * components: the set of all sequences that 
 
 2.1 Count the number of sequences in the Trinity.fasta file (hint: use 'grep' and 'wc')
 
-2.2 Count the number of nucleotides in the Trinity.fasta file (hint: use 'grep' and 'wc')
+2.2 Get basic information about the assembly with TrinityStats.
+```bash
+$ /sw/apps/bioinfo/trinity/2014-07-17/milou/util/TrinityStats.pl Trinity.fasta
+```
+- How many "genes" did Trinity assemble? 
+- How many transcripts?
+- How large is the assembly? (nr of bases)
+- What is N50?
 
-2.3 Filter out sequences shorter than 1000 nucleotides (hint: do a web search for appropriate tools.
-Someone else must have had the exact same problem.).
-Count the number of sequences again.
+2.3 Filter out sequences shorter than 1000 nucleotides (hint: do a web search for appropriate tools. Someone else must have had the exact same problem.). Count the number of sequences again.
 
 2.4 Align some sequences to a protein database and assess full-lengthness of a couple of sequences (hint: NCBI has an online blast version).
 
@@ -94,9 +98,9 @@ Count the number of sequences again.
 - Select the mouse/mm9 genome and click “submit”.
 - Click on the top scoring hit.
 
-Optional: examine the alignments by clicking “details” on the resulting page.
+Examine the alignments by clicking “details” on the resulting page.
 - Your sequences will be displayed in the browser.
 - Enable the mouse annotations (ENSEMBL gene build, UCSC genes, human proteins etc.).
 
-Redo above exercises with the whitefly data.
+Optional: Do a new transcriptome assembly of whitefly RNAseq data using above code as help.
 

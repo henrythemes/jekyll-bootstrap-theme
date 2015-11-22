@@ -5,10 +5,14 @@ title:  'Precourse Material'
 
 # Pre-course Material
 
-**Introduction and chapter 1 + 2** from [this unix tutorial.](../common/unixtut/)
+**The three first part from the [UNIX Tutorial for Beginners](../../ngsintro/common/unixtut/)**  
 
-You must use [http://uppnex.se/emu/](http://uppnex.se/emu/) to try the commands in the tutorial, otherwise some the commands will not work.
-If you any questions regarding this tutorial contact: [martin.dahlo@scilifelab.uu.se](mailto:martin.dahlo@scilifelab.uu.se)
+* [**Introduction**](../../ngsintro/common/unixtut/unixintro.html)  
+* [**chapter 1**](../../ngsintro/common/unixtut/unix1.html)  
+* [**chapter 2**](../../ngsintro/common/unixtut/unix2.html)  
+
+You must use [http://uppnex.se/emu/](http://uppnex.se/emu/) [(or this mirror)](http://bellard.org/jslinux/) to try the commands in the tutorial, otherwise the commands will not work. 
+If you any questions regarding this tutorial contact: martin.dahlo@scilifelab.uu.se
 
 Using Linux is often the hardest part of the course, so being familiar with writing things on a command-line will help.
 **You should at least go through the exercises (1+2) in the tutorial, no need to know it by heart.**

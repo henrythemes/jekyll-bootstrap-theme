@@ -7,6 +7,10 @@ title:  'Welcome'
 
 [Old courses (2012-2014)](http://uppnex.se/twiki/bin/view/Courses/)
 
+### Metagenomics Workshop  
+
+[2015 November - Uppsala](Metagenomics/1511/)  
+
 ### Introduction to Bioinformatics Using NGS Data 
 [2015 February - Uppsala](ngsintro/1502/)   
 [2015 May - Gothenburg](ngsintro/1505/)  
