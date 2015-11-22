@@ -1,6 +1,6 @@
 ---
 layout: default
-title:  'RNAseq course - November 2015'
+title:  'RNAseq course Login- November 2015'
 ---
  
 
