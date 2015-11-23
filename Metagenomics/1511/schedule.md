@@ -17,7 +17,7 @@ Room:  E10:1308/1309 (BMC, entrance C11)
 **12.00-12.45** Lunch  
 **12.45-17.00** Tutorial (incl. coffe break) Metagenomics 
 (Johannes Alneberg, Luisa Hugerth, John Larsson, Yue Hu, Sophie Charvet, Thijs Ettema, Anders Andersson)  
-**18.00** <abbr title="Dinner at restaurant Koh Pangan">TBA</abbr>   
+**18.00** Dinner at restaurant Koh Pangan  
 
 <!--- 
 [Lecture: Introduction to metagenomics](http://metagenomics-workshop.readthedocs.org/)
