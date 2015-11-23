@@ -59,7 +59,7 @@ flags used are
 
 *  ``-p N`` is the number of threads that will be used by the program.  
 *  ``--dta-cufflinks`` will generate a output that is optimal for downstream analysis with cufflinks     
-* ``-x /path/to/HiSAT2genome/fileName`` is the path to a pre-rendered reference library that HiSAT2 uses to map reads to the genome.``fileName`` is the part of the files in the folder without the endings ``.bt2``  
+* ``-x /path/to/HiSAT2genome/fileName`` is the path to a pre-rendered reference library that HiSAT2 uses to map reads to the genome.``fileName`` is the part of the files in the folder without the endings ``.ht2``  
 *  `` -1 /path/to/read1/sample_1.fastq `` is where you should add your forward fastq files that you will map to the reference.  
 *  `` -2 /path/to/read1/sample_2.fastq `` is where you should add your reverse fastq files that you will map to the reference.  
 *  ``-s /path/to/output/fileName.sam`` is the fileName of the samfile that will tell were the reads mapped to the reference.     
