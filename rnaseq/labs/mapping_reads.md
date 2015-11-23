@@ -66,7 +66,7 @@ flags used are
 *  ``> /path/to/output/fileName.sam.info`` will give the statistics of how many of the reads that mapped that is generated from HiSAT2.  
 
 This should run fairly quickly and put a file called ``fileName.sam`` in 
-the directory that you specified with ``-s``. 
+the directory that you specified with ``-S``. 
 
 
 ##Mapping short reads to a reference using STAR
