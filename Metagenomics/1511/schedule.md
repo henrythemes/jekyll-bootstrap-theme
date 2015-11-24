@@ -11,7 +11,7 @@ title:  'Schedule'
 
 Room:  E10:1308/1309 (BMC, entrance C11)
 
-**09.00-09.30** [Lecture](https://drive.google.com/drive/u/0/folders/0B-ktNmaBM1yrVTBUWmF1SFhTY2M): Introduction to metagenomics 
+**09.00-09.30** [Lecture](https://drive.google.com/file/d/0B4JcZE6D3IWZamJmWDVrdzgwLUU/view?usp=sharing): Introduction to metagenomics 
 (Anders Andersson)  
 **09.30-12.00** [Tutorial](http://metagenomics-workshop.readthedocs.org/en/latest/) (incl. coffe break) Metagenomics (Johannes Alneberg, Anders Andersson, Sophie Charvet, Thijs Ettema, Yue Hu, Luisa Hugerth, John Larsson)  
 **12.00-12.45** Lunch  
