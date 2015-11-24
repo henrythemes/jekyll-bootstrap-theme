@@ -279,7 +279,8 @@ If this does not work, you may need to install the package:
 
 When you have successfully loaded the package, run the following:
 
-    ensembl <- useMart( "ensembl", dataset = "hsapiens_gene_ensembl" )
+
+    ensembl  <- useMart(host="www.ensembl.org", "ENSEMBL_MART_ENSEMBL",  dataset="hsapiens_gene_ensembl")
     genemap <- getBM(attributes = c("ensembl_gene_id", "hgnc_symbol"),
                      filters = "ensembl_gene_id",
                      values = rownames(sig),
