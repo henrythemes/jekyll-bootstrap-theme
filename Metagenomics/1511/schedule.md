@@ -11,13 +11,13 @@ title:  'Schedule'
 
 Room:  E10:1308/1309 (BMC, entrance C11)
 
-**09.00-09.20** Lecture: Introduction to metagenomics 
+**09.00-09.30** Lecture: Introduction to metagenomics 
 (Anders Andersson)  
-**09.20-12.00** Tutorial (incl. coffe break) Metagenomics (Johannes Alneberg, Luisa Hugerth, John Larsson, Anders Andersson, Thijs Ettema, Jimmy Saw, Kasia Zaremba)  
+**09.30-12.00** [Tutorial](http://metagenomics-workshop.readthedocs.org/en/latest/) (incl. coffe break) Metagenomics (Johannes Alneberg, Anders Andersson, Sophie Charvet, Thijs Ettema, Yue Hu, Luisa Hugerth, John Larsson)  
 **12.00-12.45** Lunch  
-**12.45-17.00** Tutorial (incl. coffe break) Metagenomics 
-(Johannes Alneberg, Luisa Hugerth, John Larsson, Anders Andersson, Thijs Ettema, Jimmy Saw, Kasia Zaremba)  
-**18.00** <abbr title="To be announced">TBA</abbr> 
+**12.45-17.00** [Tutorial](http://metagenomics-workshop.readthedocs.org/en/latest/) (incl. coffe break) Metagenomics 
+(Johannes Alneberg, Anders Andersson, Sophie Charvet, Thijs Ettema, Yue Hu, Luisa Hugerth, John Larsson)  
+**18.00** Dinner at restaurant [Koh Pangan] (https://www.google.se/maps/dir/''/koh+Phangan+uppsala/@59.8568264,17.5593038,12z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x465fcbf3d83e6711:0x4b004e395b108348!2m2!1d17.629343!2d59.856845)  
 
 <!--- 
 [Lecture: Introduction to metagenomics](http://metagenomics-workshop.readthedocs.org/)
