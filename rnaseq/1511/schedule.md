@@ -37,8 +37,8 @@ Room:  Room K, Undervisningshuset, Ultuna
 **Wednesday 25th**  
 Room:  Room Q, Ulls hus, Ultuna
 **09.00-10.00** [Lecture: Johan Reimegård](slides/scRNAseq_Johan_Reimegard.pdf) (Single cell RNA seq)  
-**10:15-11:00** [Lecture: Summary, Question and project planning](slides/not_yet_available.pdf) (Sanela Kjellqvist)  
-**11:00-12:00** [Lecture: Multi variate analysis](slides/MultiVariateAnalysis_Johan_Reimegard.pdf) (Sanela Kjellqvist)  
+**10:15-11:00** [Lecture: Summary, Question and project planning](slides/Summary.pdf) (Johan Reimegård)  
+**11:00-12:00** [Lecture: Multi variate analysis](slides/MultiVariateAnalysis_Johan_Reimegard.pdf) (Johan Reimegård)  
 **12.00-13.00** Lunch  
 Room:  Room Q, Ulls hus, Ultuna  
 **13.00-17.00** [Exercise: ](../labs/index) (Johan Reimegård,Sanela Kjellqvist)  
