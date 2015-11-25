@@ -1,3 +1,8 @@
+---
+layout: default
+title:  'Tricks'
+---
+
 #Small tips and tricks mentioned during the course
 
 ##Login to uppmax
