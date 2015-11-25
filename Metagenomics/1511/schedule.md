@@ -28,7 +28,7 @@ Room:  E10:1308/1309 (BMC, entrance C11)
 
 Room:  E10:1308/1309 (BMC, entrance C11)
 
-**09.00-09.40** [Lecture: Single cell genomics](tutorials/sc_genome_assembly) (Thijs Ettema)  
+**09.00-09.40** [Lecture: Single cell genomics](slides/Ettema_Single_cell_genomics_2015.PDF) (Thijs Ettema)  
 **09:40-10:00** [Lecture: Single cell genome assembly using SPAdes](slides/SAGassembly_intro_2015.pdf) 
 (Kasia Zaremba-Niedzwiedzka)  
 **10:00-10:20** Coffee break  
