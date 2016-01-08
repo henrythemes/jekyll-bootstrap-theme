@@ -15,7 +15,7 @@ Held in Uppsala January 25-29, 2016.
 ## Maps & Travel Info
 [Map over Uppsala](https://www.google.se/maps/@59.8557755,17.6369985,13.5z)  
 [Map over Uppsala Biomedical Centre (BMC)](../common/images/bmc_map.jpg)  
-[Travel Info](http://www.geneco.se/Courses/Travel-information)   
+[Travel Info](travel)  
 
 ## Helpful Things
 [Linux cheat sheet](../common/images/linux-cheat-sheet.pdf)  
