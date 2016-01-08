@@ -45,7 +45,7 @@ If it is running, skip this step and connect to that reservation.</font>
 
 ```bash
 # ONLY IF YOU DON'T ALREADY HAVE AN ACTIVE ALLOCATION SINCE BEFORE
-$ salloc -A g2016001 -t 04:30:00 -p core -n 1 --no-shell --reservation=g2016001_20160125 &
+$ salloc -A g2016001 -t 04:30:00 -p core -n 1 --no-shell --reservation=g2016001_25 &
 ```
 
 check which node you got (replace **username** with your uppmax user name)
