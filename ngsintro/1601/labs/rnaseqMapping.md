@@ -96,7 +96,7 @@ reservations running at the same time, otherwise you will take away resources fr
 
 
 ```bash
-$ salloc -A g2015045 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2015045_20151119 &
+$ salloc -A g2016001 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2016001_20160128 &
 
 ```
 
@@ -118,9 +118,9 @@ $ mkdir results
 * sym-link the required files and folders (this will create a symbolic link to the original folders/files and saves you the trouble of always typing the full path - BUT: Do not write into these linked folders, because that data is shared across everyone working with these folders...)
 
 ```bash
-ln -s /proj/g2015045/labs/transcriptome_map/reads/PE
-ln -s /proj/g2015045/labs/transcriptome_map/reads/SE
-ln -s /proj/g2015045/labs/transcriptome_map/reference
+ln -s /proj/g2016001/labs/transcriptome_map/reads/PE
+ln -s /proj/g2016001/labs/transcriptome_map/reads/SE
+ln -s /proj/g2016001/labs/transcriptome_map/reference
 ```
 
 Your directory structure should look like this:
