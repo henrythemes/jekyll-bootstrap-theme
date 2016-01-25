@@ -9,10 +9,10 @@ title:  'Schedule'
 Room: [Trippelrummet, E10, ground floor](../common/images/bmc_map.jpg)   
 **09.00-09.15** Registration and Welcome (Eva Molin)  
 **09.15-10.00** [Lecture: Introduction to Linux](slides/dahlo-linux.pdf) (Martin Dahlö)  
-**10.00-12.00** Exercise: Introduction to Linux (Martin Dahlö, Jacques Dainat, Sebastian DiLorenzo, Manfred Grabherr)  
+**10.00-12.00** [Exercise: Introduction to Linux](labs/linux-intro) (Martin Dahlö, Jacques Dainat, Sebastian DiLorenzo, Manfred Grabherr)  
 **12.00-13.00** Lunch  
 **13.00-14.00** [Lecture: Introduction to UPPMAX/UPPNEX](slides/dahlo-uppmax.pdf) (Martin Dahlö)  
-**14.00-17.00** Exercise: Introduction to UPPMAX/UPPNEX (Martin Dahlö, Jacques Dainat, Sebastian DiLorenzo, Thomas Källman)   
+**14.00-17.00** [Exercise: Introduction to UPPMAX/UPPNEX](labs/uppmax-intro) (Martin Dahlö, Jacques Dainat, Sebastian DiLorenzo, Thomas Källman)   
 
 **Tuesday**  
 Room: [Trippelrummet, E10, ground floor](../common/images/bmc_map.jpg)   
