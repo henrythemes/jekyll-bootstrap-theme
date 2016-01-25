@@ -34,12 +34,12 @@ Room: [Trippelrummet, E10, ground floor](../common/images/bmc_map.jpg)
 **09:00-12:00** Exercise: ChIP sequencing and data analysis part II (Agata Smialowska, Thomas Källman, Jacques Dainat, Manfred Grabherr)  
 **12.00-13.00** Lunch  
 **13:00-14:00** Lecture: RNA sequencing, transcriptome and expression quantification (Olga Dethlefsen)   
-**14:00-17:00** Exercise: RNA sequencing, transcriptome and expression quantification part I (Olga Dethlefsen, Johan Reimegård, Agata Smialowska, Jacques Dainat) 
+**14:00-17:00** [Exercise: RNA sequencing, transcriptome and expression quantification part I](labs/rnaseqMapping) (Olga Dethlefsen, Johan Reimegård, Agata Smialowska, Jacques Dainat) 
 
 **Friday**  
 Room: [Trippelrummet, E10, ground floor](../common/images/bmc_map.jpg)   
 **09:00-09.30** Lecture: The National Bioinformatics Infrastructure Sweden (Björn Nystedt)  
-**09:30-12.00** Exercise: RNA sequencing, transcriptome and expression quantification part II (Olga Dethlefsen, Pall Olason, Henrik Lantz, Johan Reimegård)  
+**09:30-12.00** [Exercise: RNA sequencing, transcriptome and expression quantification part II](labs/rnaseqDenovo) (Olga Dethlefsen, Pall Olason, Henrik Lantz, Johan Reimegård)  
 **12.00-13.00** Lunch  
 **13:00-15.00** Project discussion (Olga Vinnere Pettersson, Henrik Lantz, Manfred Grabherr)     
 
