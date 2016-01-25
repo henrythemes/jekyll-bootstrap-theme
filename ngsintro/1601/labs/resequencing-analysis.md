@@ -22,8 +22,7 @@ We have reserved half a node for each student during this course.
 By now, you are probably already familiar with the procedure:
 
 ```bash
-salloc -A g2015045 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2015045_20151117 (Tuesday)
-salloc -A g2015045 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2015045_20151118 (Wednesday)
+salloc -A g2016001 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2016001_26
 ```
 
 Make sure you ony do this once, otherwise you will take away resources from the other course participants!
@@ -74,7 +73,7 @@ You need to know where your input data are and where your output will go.
 All of your input data for the first steps of these exercises will be in our course project:
 
 ```bash
-/proj/g2015045/labs/gatk
+/proj/g2016001/labs/gatk
 ```
 
 Normally, if you were working on your own project, you would want to write your output into your project directory also.
@@ -134,7 +133,7 @@ You can copy this from the project directory to your workspace.
 (Normally copying references is a bad thing, but this is so that everyone can see the full BWA process.)
 
 ```bash
-cp /proj/g2015045/labs/gatk/refs/human_17_v37.fasta ~/glob/gatk
+cp /proj/g2016001/labs/gatk/refs/human_17_v37.fasta ~/glob/gatk
 ```
 
 Check to see that this worked.
@@ -174,7 +173,7 @@ samtools faidx ~/glob/gatk/human_17_v37.fasta
 ```
 
 ```bash
-java -jar /sw/apps/bioinfo/picard/1.69/kalkyl/CreateSequenceDictionary.jar R=~/glob/gatk/human_17_v37.fasta O=~/glob/gatk/human_17_v37.dict
+java -Xmx16g -jar /sw/apps/bioinfo/picard/1.69/kalkyl/CreateSequenceDictionary.jar R=~/glob/gatk/human_17_v37.fasta O=~/glob/gatk/human_17_v37.dict
 ```
 
 ## Step 2. Mapping - Making Single Read Alignments for Each of the Reads in the Paired End Data
@@ -184,7 +183,7 @@ First we align each set of reads, then we combine the paired alignments together
 Let's start with one chunk of whole genome shotgun data from individual NA06984.
 
 ```bash
-bwa aln ~/glob/gatk/human_17_v37.fasta /proj/g2015045/labs/gatk/fastq/wgs/NA06984.ILLUMINA.low_coverage.17q_1.fq > ~/glob/gatk/NA06984.ILLUMINA.low_coverage.17q_1.sai
+bwa aln ~/glob/gatk/human_17_v37.fasta /proj/g2016001/labs/gatk/fastq/wgs/NA06984.ILLUMINA.low_coverage.17q_1.fq > ~/glob/gatk/NA06984.ILLUMINA.low_coverage.17q_1.sai
 ```
 
 Note that if you have to use a file redirect ( &gt;) for your output, otherwise bwa will print the output directly to stdout, i.e. your screen. Which means that forgetting the redirect can be very disappointing.
@@ -255,7 +254,7 @@ However, it turns out that Picard is a very smart program, and we can start with
 (It does, however, have a very awkward calling syntax.)
 
 ```bash
-java -Xmx2g -jar /sw/apps/bioinfo/picard/1.69/kalkyl/AddOrReplaceReadGroups.jar INPUT=<sam file> OUTPUT=<bam file> SORT_ORDER=coordinate RGID=<sample>-id RGLB=<sample>-lib RGPL=ILLUMINA RGPU=<sample>-01 RGSM=<sample>
+java -Xmx16g -jar /sw/apps/bioinfo/picard/1.69/kalkyl/AddOrReplaceReadGroups.jar INPUT=<sam file> OUTPUT=<bam file> SORT_ORDER=coordinate RGID=<sample>-id RGLB=<sample>-lib RGPL=ILLUMINA RGPU=<sample>-01 RGSM=<sample>
 ```
 
 Note that the arguments to Picard tools are parsed (read by the computer) as single words, so it is important that there is no whitespace between the upper case keyword, the equals, and the value specified, and that you quote ('write like this') any arguments that contain whitespace.
@@ -277,7 +276,7 @@ This is how programs know to find the index associated with a BAM file.
 If you manually mix these things up (like you change a BAM without changing its name and do not reindex it), you can cause problems for programs that expect them to be in sync.
 
 ```bash
-java -Xmx2g -jar /sw/apps/bioinfo/picard/1.69/kalkyl/BuildBamIndex.jar INPUT=<bam file>
+java -Xmx16g -jar /sw/apps/bioinfo/picard/1.69/kalkyl/BuildBamIndex.jar INPUT=<bam file>
 ```
 
 ## Step 5. Processing Reads with GATK
@@ -289,7 +288,7 @@ This is done in two steps.
 First, we identify possible sites to realign:
 
 ```bash
-java -Xmx2g -jar /sw/apps/bioinfo/GATK/3.4-46/GenomeAnalysisTK.jar -I <input bam file> -R <ref file> -T RealignerTargetCreator -o <intervals file>
+java -Xmx16g -jar /sw/apps/bioinfo/GATK/3.4-46/GenomeAnalysisTK.jar -I <input bam file> -R <ref file> -T RealignerTargetCreator -o <intervals file>
 ```
 
 The &lt;bam file&gt; should be your sorted and indexed BAM with read groups added from before.
@@ -302,7 +301,7 @@ Using this speeds up the process of identifying potential realignment sites, but
 Now we feed our intervals file back into GATK with a different argument to actually do the realignments:
 
 ```bash
-java -Xmx2g -jar /sw/apps/bioinfo/GATK/3.4-46/GenomeAnalysisTK.jar -I <input bam> -R <ref file> -T IndelRealigner -o <realigned bam> -targetIntervals <intervals file>
+java -Xmx16g -jar /sw/apps/bioinfo/GATK/3.4-46/GenomeAnalysisTK.jar -I <input bam> -R <ref file> -T IndelRealigner -o <realigned bam> -targetIntervals <intervals file>
 ```
 
 Note that we need to give it the intervals file we just made, and also specify a new output bam (&lt;realigned bam&gt;).
@@ -311,7 +310,7 @@ GATK is also clever and automatically indexes that bam for us (you can type ls a
 Next, we're going to go back to Picard and mark duplicate reads:
 
 ```bash
-java -Xmx2g -jar /sw/apps/bioinfo/picard/1.69/kalkyl/MarkDuplicates.jar INPUT=<input bam> OUTPUT=<marked bam> METRICS_FILE=<metrics file>
+java -Xmx16g -jar /sw/apps/bioinfo/picard/1.69/kalkyl/MarkDuplicates.jar INPUT=<input bam> OUTPUT=<marked bam> METRICS_FILE=<metrics file>
 ```
 
 Note that you need to feed it an &lt;input bam&gt;, which should be your realigned BAM from before, and you need to specify an output, the &lt;marked bam&gt; which will be a new file used in the following steps.
@@ -321,7 +320,7 @@ We will take a look at that now.
 Picard do not automatically index the .bam file so you need to do that before proceeding.
 
 ```bash
-java -Xmx2g -jar /sw/apps/bioinfo/picard/1.69/kalkyl/BuildBamIndex.jar INPUT=<bam file>
+java -Xmx16g -jar /sw/apps/bioinfo/picard/1.69/kalkyl/BuildBamIndex.jar INPUT=<bam file>
 ```
 
 Now we can look at the duplicates we marked with Picard, using a filter on the bit flag.
@@ -343,7 +342,7 @@ This also happens in two steps.
 First, we compute all the covariation of quality with various other factors:
 
 ```bash
-java -Xmx16g -jar /sw/apps/bioinfo/GATK/3.4-46/GenomeAnalysisTK.jar -T BaseRecalibrator -I <input bam> -R <ref file> -knownSites /proj/g2015045/labs/gatk/ALL.chr17.phase1_integrated_calls.20101123.snps_indels_svs.genotypes.vcf -o <calibration table>
+java -Xmx64g -jar /sw/apps/bioinfo/GATK/3.4-46/GenomeAnalysisTK.jar -T BaseRecalibrator -I <input bam> -R <ref file> -knownSites /proj/g2016001/labs/gatk/ALL.chr17.phase1_integrated_calls.20101123.snps_indels_svs.genotypes.vcf -o <calibration table>
 ```
 
 We need to feed it our bam file and our ref file.
@@ -357,7 +356,7 @@ We will take a look at this.
 It will be used in the next step:
 
 ```bash
-java -Xmx2g -jar /sw/apps/bioinfo/GATK/3.4-46/GenomeAnalysisTK.jar -T PrintReads -BQSR <calibration table> -I <input bam> -R <ref file> -o <output bam>
+java -Xmx16g -jar /sw/apps/bioinfo/GATK/3.4-46/GenomeAnalysisTK.jar -T PrintReads -BQSR <calibration table> -I <input bam> -R <ref file> -o <output bam>
 ```
 
 The &lt;input bam&gt; in this step is the same as the last step, because we haven't changed it yet, but the &lt;output bam&gt; is new and will have the recalibrated qualities.
@@ -368,7 +367,7 @@ The &lt;calibration table&gt; is the file we created in the previous step.
 Now we'll run the GATK HaplotypeCaller on our bam and output a gVCF file that will later be used for joint genotyping.
 
 ```bash
-java -Xmx2g -jar /sw/apps/bioinfo/GATK/3.4-46/GenomeAnalysisTK.jar -T HaplotypeCaller -R <ref file> -I <input bam> --emitRefConfidence GVCF --variant_index_type LINEAR --variant_index_parameter 128000 -o <output>
+java -Xmx16g -jar /sw/apps/bioinfo/GATK/3.4-46/GenomeAnalysisTK.jar -T HaplotypeCaller -R <ref file> -I <input bam> --emitRefConfidence GVCF --variant_index_type LINEAR --variant_index_parameter 128000 -o <output>
 ```
 
 The &lt;ref file&gt; is our old reference fasta again.
@@ -384,13 +383,13 @@ Rerun the mapping and variant calling steps for at least one more sample before 
 Now you will call variants on all the gvcf-files produced in the previous step by using the GenotypeGVCFs. This takes the output from the Haplotypecaller that was run on each sample to create raw SNP and indel VCFs.
 
 ```bash
-java -Xmx2g -jar /sw/apps/bioinfo/GATK/3.4-46/GenomeAnalysisTK.jar -T GenotypeGVCFs -R <ref file> --variant <sample1>.g.vcf --variant <sample2>.g.vcf ... -o <output>.vcf
+java -Xmx16g -jar /sw/apps/bioinfo/GATK/3.4-46/GenomeAnalysisTK.jar -T GenotypeGVCFs -R <ref file> --variant <sample1>.g.vcf --variant <sample2>.g.vcf ... -o <output>.vcf
 ```
 
 As an alternative try also to run the same thing but with all the gvcf for all low_coverage files in the course directory. A gvcf file where these have been merged can be found in the course directory, /proj/g2015045/labs/gatk/vcfs/ILLUMINA.low_coverage.17q.g.vcf. In the next step when viewing the data in IGV, look at both and try to see if there is a difference for a your sample. 
 
 ```bash
-java -Xmx8g -jar /sw/apps/bioinfo/GATK/3.4-46/GenomeAnalysisTK.jar -T GenotypeGVCFs -R <ref file> --variant /proj/g2015031/labs/gatk/vcfs/ILLUMINA.low_coverage.17q.g.vcf -o <output>
+java -Xmx16g -jar /sw/apps/bioinfo/GATK/3.4-46/GenomeAnalysisTK.jar -T GenotypeGVCFs -R <ref file> --variant /proj/g2016001/labs/gatk/vcfs/ILLUMINA.low_coverage.17q.g.vcf -o <output>
 ```
 
 ## Filtering Variants
@@ -405,7 +404,7 @@ Why do you think that some of these parameters are different between the two typ
 An example command line is:
 
 ```bash
-java -Xmx2g -jar /sw/apps/bioinfo/GATK/3.4-46/GenomeAnalysisTK.jar -T VariantFiltration -R <reference> -V <input vcf> -o <output vcf> --filterExpression "QD<2.0" --filterName QDfilter --filterExpression "MQ<40.0" --filterName MQfilter --filterExpression "FS>60.0" --filterName FSfilter
+java -Xmx16g -jar /sw/apps/bioinfo/GATK/3.4-46/GenomeAnalysisTK.jar -T VariantFiltration -R <reference> -V <input vcf> -o <output vcf> --filterExpression "QD<2.0" --filterName QDfilter --filterExpression "MQ<40.0" --filterName MQfilter --filterExpression "FS>60.0" --filterName FSfilter
 ```
 
 Note two things about this.
@@ -446,7 +445,7 @@ We will start with the merged bam files.
 We want to get both the bams and bais for the low coverage and exome data.
 
 ```bash
-scp <username>@milou.uppmax.uu.se:/proj/g2015045/labs/gatk/processed/MERGED.illumina.\* ./
+scp <username>@milou.uppmax.uu.se:/proj/g2016001/labs/gatk/processed/MERGED.illumina.\* ./
 ```
 
 Because your uppmax user name is different than the user name on the local machine, you have to put your uppmax user name in front of the @ in the scp so that it knows you want to log in as your uppmax user, not as macuser.
@@ -461,7 +460,7 @@ It will prompt you for your uppmax password, then it should download four files.
 We will also want to load the vcfs into IGV, so you can look at what calls got made.
 
 ```bash
-scp <username>@milou.uppmax.uu.se:/proj/g2015045/labs/gatk/vcfs/MERGED.illumina.\* ./
+scp <username>@milou.uppmax.uu.se:/proj/g2016001/labs/gatk/vcfs/MERGED.illumina.\* ./
 ```
 
 Do the same thing for the vcf that you have created in your home directory. 
