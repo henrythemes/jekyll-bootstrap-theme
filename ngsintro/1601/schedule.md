@@ -16,13 +16,8 @@ Room: [Trippelrummet, E10, ground floor](../common/images/bmc_map.jpg)
 
 **Tuesday**  
 Room: [Trippelrummet, E10, ground floor](../common/images/bmc_map.jpg)   
-<<<<<<< HEAD
 **09.00-10.00** [Lecture: Alignment with BWA; Data Processing with Picard; Variant Calling with GATK; SAM/BAM and VCF Formats](slides/NGS_AJ_201511.pdf) (Anna Johansson)  
-**10.00-12.00** Exercise: Alignment with BWA; Data Processing with Picard; Variant Calling with GATK; SAM/BAM and VCF Formats part I (Anna Johansson, Mahesh Panchal, Lucile Soler, Martin Dahlö)  
-=======
-**09.00-10.00** Lecture: Alignment with BWA; Data Processing with Picard; Variant Calling with GATK; SAM/BAM and VCF Formats (Anna Johansson)  
 **10.00-12.00** [Exercise: Alignment with BWA; Data Processing with Picard; Variant Calling with GATK; SAM/BAM and VCF Formats part I](labs/resequencing-analysis) (Anna Johansson, Mahesh Panchal, Lucile Soler, Martin Dahlö)  
->>>>>>> daf7c1211c7462940aa3a14043a9d410257618f4
 **12.00-13.00** Lunch  
 **13:00-17:00** [Exercise: Alignment with BWA; Data Processing with Picard; Variant Calling with GATK; SAM/BAM and VCF Formats part II](labs/resequencing-analysis) (Anna Johansson, Mahesh Panchal, Lucile Soler, Martin Dahlö)  
 
