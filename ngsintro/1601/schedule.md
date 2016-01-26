@@ -27,7 +27,7 @@ Room: [Trippelrummet, E10, ground floor](../common/images/bmc_map.jpg)
 **11.00-12.00** Lecture: NGS and bioinformatics analysis pipelines (Adam Ameur)  
 **12.00-13.00** Lunch  
 **13:00-14.00** Lecture: ChIP sequencing and data analysis (Agata Smialowska)  
-**14.00-17:00** Exercise: ChIP sequencing and data analysis part I (Agata Smialowska, Thomas Källman, Mahesh Panchal, Lucile Soler)
+**14.00-17:00** [Exercise: ChIP sequencing and data analysis part I](labs/chipseq_pract_1601.pdf) (Agata Smialowska, Thomas Källman, Mahesh Panchal, Lucile Soler)
 
 **Thursday**  
 Room: [Trippelrummet, E10, ground floor](../common/images/bmc_map.jpg)   
