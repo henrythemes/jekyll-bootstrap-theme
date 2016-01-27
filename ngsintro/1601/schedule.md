@@ -16,18 +16,18 @@ Room: [Trippelrummet, E10, ground floor](../common/images/bmc_map.jpg)
 
 **Tuesday**  
 Room: [Trippelrummet, E10, ground floor](../common/images/bmc_map.jpg)   
-**09.00-10.00** Lecture: Alignment with BWA; Data Processing with Picard; Variant Calling with GATK; SAM/BAM and VCF Formats (Anna Johansson)  
+**09.00-10.00** [Lecture: Alignment with BWA; Data Processing with Picard; Variant Calling with GATK; SAM/BAM and VCF Formats](slides/NGS_AJ_201511.pdf) (Anna Johansson)  
 **10.00-12.00** [Exercise: Alignment with BWA; Data Processing with Picard; Variant Calling with GATK; SAM/BAM and VCF Formats part I](labs/resequencing-analysis) (Anna Johansson, Mahesh Panchal, Lucile Soler, Martin Dahlö)  
 **12.00-13.00** Lunch  
 **13:00-17:00** [Exercise: Alignment with BWA; Data Processing with Picard; Variant Calling with GATK; SAM/BAM and VCF Formats part II](labs/resequencing-analysis) (Anna Johansson, Mahesh Panchal, Lucile Soler, Martin Dahlö)  
 
 **Wednesday**  
 Room: [Trippelrummet, E10, ground floor](../common/images/bmc_map.jpg)  
-**09.00-11.00** Lecture: Next Generation Sequencing Overview (Olga Vinnere Pettersson)  
+**09.00-11.00** [Lecture: Next Generation Sequencing Overview](slides/Sequencing_OVP 2015_a.pptx) (Olga Vinnere Pettersson)  
 **11.00-12.00** Lecture: NGS and bioinformatics analysis pipelines (Adam Ameur)  
 **12.00-13.00** Lunch  
 **13:00-14.00** Lecture: ChIP sequencing and data analysis (Agata Smialowska)  
-**14.00-17:00** Exercise: ChIP sequencing and data analysis part I (Agata Smialowska, Thomas Källman, Mahesh Panchal, Lucile Soler)
+**14.00-17:00** [Exercise: ChIP sequencing and data analysis part I](labs/chipseq_pract_1601.pdf) (Agata Smialowska, Thomas Källman, Mahesh Panchal, Lucile Soler)
 
 **Thursday**  
 Room: [Trippelrummet, E10, ground floor](../common/images/bmc_map.jpg)   
