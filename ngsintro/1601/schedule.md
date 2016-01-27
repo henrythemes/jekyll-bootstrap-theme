@@ -26,12 +26,12 @@ Room: [Trippelrummet, E10, ground floor](../common/images/bmc_map.jpg)
 **09.00-11.00** [Lecture: Next Generation Sequencing Overview](slides/Sequencing_OVP 2015_a.pptx) (Olga Vinnere Pettersson)  
 **11.00-12.00** Lecture: NGS and bioinformatics analysis pipelines (Adam Ameur)  
 **12.00-13.00** Lunch  
-**13:00-14.00** Lecture: ChIP sequencing and data analysis (Agata Smialowska)  
-**14.00-17:00** [Exercise: ChIP sequencing and data analysis part I](labs/chipseq_pract_1601.pdf) (Agata Smialowska, Thomas Källman, Mahesh Panchal, Lucile Soler)
+**13:00-14.00** [Lecture: ChIP sequencing and data analysis](slides/Smialowska_chipseq_27i2016.pdf) (Agata Smialowska)  
+**14.00-17:00** [Exercise: ChIP sequencing and data analysis part I](labs/chipseq_pract_1601_v2.pdf) (Agata Smialowska, Thomas Källman, Mahesh Panchal, Lucile Soler)
 
 **Thursday**  
 Room: [Trippelrummet, E10, ground floor](../common/images/bmc_map.jpg)   
-**09:00-12:00** [Exercise: ChIP sequencing and data analysis part II](slides/Smialowska_chipseq_27i2016.pdf) (Agata Smialowska, Thomas Källman, Jacques Dainat, Manfred Grabherr)  
+**09:00-12:00** [Exercise: ChIP sequencing and data analysis part II](labs/chipseq_pract_1601_v2.pdf) (Agata Smialowska, Thomas Källman, Jacques Dainat, Manfred Grabherr)  
 **12.00-13.00** Lunch  
 **13:00-14:00** [Lecture: RNA sequencing, transcriptome and expression quantification](slides/dethlefsen-RNAseq.pdf) (Olga Dethlefsen)   
 **14:00-17:00** [Exercise: RNA sequencing, transcriptome and expression quantification part I](labs/rnaseqMapping) (Olga Dethlefsen, Johan Reimegård, Agata Smialowska, Jacques Dainat) 
