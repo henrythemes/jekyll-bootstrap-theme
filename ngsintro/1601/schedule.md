@@ -31,7 +31,7 @@ Room: [Trippelrummet, E10, ground floor](../common/images/bmc_map.jpg)
 
 **Thursday**  
 Room: [Trippelrummet, E10, ground floor](../common/images/bmc_map.jpg)   
-**09:00-12:00** Exercise: ChIP sequencing and data analysis part II (Agata Smialowska, Thomas Källman, Jacques Dainat, Manfred Grabherr)  
+**09:00-12:00** [Exercise: ChIP sequencing and data analysis part II](slides/Smialowska_chipseq_27i2016.pdf) (Agata Smialowska, Thomas Källman, Jacques Dainat, Manfred Grabherr)  
 **12.00-13.00** Lunch  
 **13:00-14:00** [Lecture: RNA sequencing, transcriptome and expression quantification](slides/dethlefsen-RNAseq.pdf) (Olga Dethlefsen)   
 **14:00-17:00** [Exercise: RNA sequencing, transcriptome and expression quantification part I](labs/rnaseqMapping) (Olga Dethlefsen, Johan Reimegård, Agata Smialowska, Jacques Dainat) 
