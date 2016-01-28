@@ -96,7 +96,7 @@ reservations running at the same time, otherwise you will take away resources fr
 
 
 ```bash
-$ salloc -A g2016001 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2016001_20160128 &
+$ salloc -A g2016001 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2016001_28 &
 
 ```
 
