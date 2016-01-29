@@ -365,7 +365,7 @@ For this part you need graphics, so you need to log in to Uppmax using thinlinc 
 
 ```bash
 $ module load RStudio
-$ rstudio /proj/g2015045/labs/transcriptome_cummeRbund/cummeRbund_course_code.R
+$ rstudio /proj/g2016001/labs/transcriptome_cummeRbund/cummeRbund_course_code.R
 
 ```
 Installing cummeRbund in R or Rstudio takes a bit of time, so a good idea is to start the installation before taking a break.
@@ -374,6 +374,30 @@ In the R Studio environment, you need to make two changes in the R script.
 2. Change the cufflinks directory to the one you generated earlier.
 
 Optional: Using the _EnsEMBL_ accession numbers of the significant genes, you can go to [http://www.ensembl.org](http://www.ensembl.org/) to retrieve information on the function of these genes and see whether you can draw any conclusions as to why these genes would be differentially expressed in the two tissues.
+
+Instead of cummeRbund
+As an alternative to CummeRbund I have prepared a simple, dependency-free R script that you may run from the command line to summarize the Cuffdiff results and create a Volcano plot.
+
+```bash
+$ cd ~glob/transcriptome
+$ cp /proj/g2015005/labs/transcriptome_map/extra/summarizeDE.R ~glob/transcriptome
+$ RScript summarizeDE.R ~glob/transcriptome/cuffdiff.brain_vs_kidney/gene_exp.diff 0.1 1
+```
+where,
+
+'0.1' is the FDR threshold
+and 
+'1' is the log2FC
+
+The script should print the number of differentially expressed, down- and up-regulated genes given the FDR and log2FC threshold. It also prints the entries for the top 10 down-up and up-regulated genes. Finally, it creates a .pdf file with a Volcano plot (google Volcano plot for explanation if not clear)
+
+To open the Volcano plot from Uppmax
+```bash
+$ firefox open Volcano_0.1_1.pdf 
+```
+You can experiment with summarizing your results using different cut-offs for FDR and log2FC. Does the number of differentially expressed genes change? Does the Volcano.pdf change?
+
+
 
 ### Closing remarks
 
