@@ -92,6 +92,13 @@ $ /sw/apps/bioinfo/trinity/2014-07-17/milou/util/TrinityStats.pl Trinity.fasta
 
 2.3 Filter out sequences shorter than 1000 nucleotides (hint: do a web search for appropriate tools. Someone else must have had the exact same problem.). Count the number of sequences again.
 
+One solution is to use FastX
+```bash
+$ module load FastX 
+$ fasta_formatter -i Trinity.fasta -o Trinity.formated  
+$ fastx_clipper -l 1000 -i Trinity.formated -o Trinity1000.fasta
+```
+
 2.4 Align some sequences to a protein database and assess full-lengthness of a couple of sequences (hint: NCBI has an online blast version).
 
 2.5 Find alternatively spliced genes (hint: see above) You can verify alternative splicing by using the UCSC genome browser (do a web search to find it): - Select BLAT from the menu at the top of the page and paste in a mouse transcript sequence from Trinity.fasta.
