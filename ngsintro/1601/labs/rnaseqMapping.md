@@ -375,7 +375,6 @@ In the R Studio environment, you need to make two changes in the R script.
 
 Optional: Using the _EnsEMBL_ accession numbers of the significant genes, you can go to [http://www.ensembl.org](http://www.ensembl.org/) to retrieve information on the function of these genes and see whether you can draw any conclusions as to why these genes would be differentially expressed in the two tissues.
 
-Instead of cummeRbund
 As an alternative to CummeRbund I have prepared a simple, dependency-free R script that you may run from the command line to summarize the Cuffdiff results and create a Volcano plot.
 
 ```bash
@@ -392,11 +391,13 @@ and
 The script should print the number of differentially expressed, down- and up-regulated genes given the FDR and log2FC threshold. It also prints the entries for the top 10 down-up and up-regulated genes. Finally, it creates a .pdf file with a Volcano plot (google Volcano plot for explanation if not clear)
 
 To open the Volcano plot from Uppmax
+
 ```bash
 $ firefox open Volcano_0.1_1.pdf 
 ```
 You can experiment with summarizing your results using different cut-offs for FDR and log2FC. Does the number of differentially expressed genes change? Does the Volcano change?
 
+After obtaining the differential expression results, it it common to transfer the files to the local computer. One can get far by just looking at the results in e.g. Excel, running R scripts or using online tools. 
 
 
 ### Closing remarks
