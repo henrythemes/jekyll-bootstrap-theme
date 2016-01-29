@@ -94,7 +94,7 @@ $ /sw/apps/bioinfo/trinity/2014-07-17/milou/util/TrinityStats.pl Trinity.fasta
 
 One solution is to use FastX
 ```bash
-$ module load FastX 
+$ module load Fastx
 $ fasta_formatter -i Trinity.fasta -o Trinity.formated  
 $ fastx_clipper -l 1000 -i Trinity.formated -o Trinity1000.fasta
 ```
