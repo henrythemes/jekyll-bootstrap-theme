@@ -393,7 +393,7 @@ The script should print the number of differentially expressed, down- and up-reg
 To open the Volcano plot from Uppmax
 
 ```bash
-$ firefox open Volcano_0.1_1.pdf 
+$ firefox Volcano_0.1_1.pdf 
 ```
 You can experiment with summarizing your results using different cut-offs for FDR and log2FC. Does the number of differentially expressed genes change? Does the Volcano change?
 
