@@ -380,7 +380,7 @@ As an alternative to CummeRbund I have prepared a simple, dependency-free R scri
 ```bash
 $ cd ~glob/transcriptome
 $ cp /proj/g2016001/extra/summarizeDE.R ~glob/transcriptome
-$ RScript summarizeDE.R ~glob/transcriptome/cuffdiff.brain_vs_kidney/gene_exp.diff 0.1 1
+$ Rscript summarizeDE.R ~glob/transcriptome/cuffdiff.brain_vs_kidney/gene_exp.diff 0.1 1
 ```
 where,
 
