@@ -7,7 +7,7 @@ title:  'Schedule'
 
 **Monday**  
 Room: [Trippelrummet, E10, ground floor](../common/images/bmc_map.jpg)   
-**09.00-09.15** Registration and Welcome (Eva Molin)  
+**09.00-09.15** [Registration and Welcome](slides/Molin_Scilifelab_160125.pptx) (Eva Molin)  
 **09.15-10.00** [Lecture: Introduction to Linux](slides/dahlo-linux.pdf) (Martin Dahlö)  
 **10.00-12.00** [Exercise: Introduction to Linux](labs/linux-intro) (Martin Dahlö, Jacques Dainat, Sebastian DiLorenzo, Manfred Grabherr)  
 **12.00-13.00** Lunch  
@@ -24,7 +24,7 @@ Room: [Trippelrummet, E10, ground floor](../common/images/bmc_map.jpg)
 **Wednesday**  
 Room: [Trippelrummet, E10, ground floor](../common/images/bmc_map.jpg)  
 **09.00-11.00** [Lecture: Next Generation Sequencing Overview](slides/Sequencing_OVP 2015_a.pptx) (Olga Vinnere Pettersson)  
-**11.00-12.00** Lecture: NGS and bioinformatics analysis pipelines (Adam Ameur)  
+**11.00-12.00** [Lecture: NGS and bioinformatics analysis pipelines](slides/Ameur_SciLife_Bioinfo_course_jan2016.ppt) (Adam Ameur)  
 **12.00-13.00** Lunch  
 **13:00-14.00** [Lecture: ChIP sequencing and data analysis](slides/Smialowska_chipseq_27i2016.pdf) (Agata Smialowska)  
 **14.00-17:00** [Exercise: ChIP sequencing and data analysis part I](labs/chipseq_pract_1601_v4.pdf) (Agata Smialowska, Thomas Källman, Mahesh Panchal, Lucile Soler)
