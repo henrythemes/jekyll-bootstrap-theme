@@ -38,7 +38,7 @@ Room: [Trippelrummet, E10, ground floor](../common/images/bmc_map.jpg)
 
 **Friday**  
 Room: [Trippelrummet, E10, ground floor](../common/images/bmc_map.jpg)   
-**09:00-09.30** Lecture: The National Bioinformatics Infrastructure Sweden (Björn Nystedt)  
+**09:00-09.30** [Lecture: The National Bioinformatics Infrastructure Sweden](slides/Nystedt_IntroBioinfoJan2016.pdf) (Björn Nystedt)  
 **09:30-12.00** [Exercise: RNA sequencing, transcriptome and expression quantification part II](labs/rnaseqDenovo) (Olga Dethlefsen, Pall Olason, Henrik Lantz, Johan Reimegård)  
 **12.00-13.00** Lunch  
 **13:00-15.00** Project discussion (Olga Vinnere Pettersson, Henrik Lantz, Manfred Grabherr)     
