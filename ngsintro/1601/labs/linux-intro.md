@@ -3,7 +3,7 @@ layout: default
 title:  'Linux Intro'
 ---
 
-# Linux Introduction
+# Linux Introductionn
 **NOTE:** in syntax examples, the dollar sign ($) is not to be printed.
 The dollar sign is usually an indicator that the text following it should be typed in a terminal window.
 
