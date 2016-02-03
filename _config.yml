@@ -9,6 +9,8 @@ google_analytics: 'UA-23985298-11'
 ########
 # more settings
 
+markdown: kramdown
+
 pygments: true
 
 sass:
