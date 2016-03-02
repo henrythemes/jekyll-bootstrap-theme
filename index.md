@@ -21,7 +21,7 @@ title:  'Welcome'
 ### Introduction to Genome Annotation 
 
 [2015 April - Uppsala](annotation/2015/)  
-
+[2016 April - Uppsala](annotation/2016/)
 
 
 ### RNA-seq course ###
