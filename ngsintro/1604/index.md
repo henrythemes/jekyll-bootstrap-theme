@@ -13,9 +13,9 @@ Held in Linköping April 18-22, 2016.
 [Schedule](schedule)  
 
 ## Maps & Travel Info
-[Map over Linköping](https://www.google.se/maps/@59.8557755,17.6369985,13.5z)  
-[Map over ](../common/images/bmc_map.jpg)  
-[Travel Info](travel)  
+[Map over Linköping](http://www.visitlinkoping.se/sites/visitlinkoping/files/public/linkoping_bk_14_low.pdf)  
+[Map over Campus Valla](https://liu.se/om-liu/till-liu/kartor/campus-valla/1.666177/LiU-Valla-151009.pdf)  
+[Travel Info](http://www.visitlinkoping.se/en/travel/travel-linkoping)  
 
 ## Helpful Things
 [Linux cheat sheet](../common/images/linux-cheat-sheet.pdf)  
