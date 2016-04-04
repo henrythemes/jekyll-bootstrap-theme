@@ -48,9 +48,9 @@ Room: [Campus Valla, House B, Room Odén]
 **Friday**  
 Room: [Campus Valla, House B, Room Odén]  
 **09:00-10:00** [Lecture: RNA sequencing, transcriptome and expression quantification] (Olga Dethlefsen)   
-**10:00-12:00** [Exercise: RNA sequencing, transcriptome and expression quantification part I] (Olga Dethlefsen, TBA)   
+**10:00-12:00** [Exercise: RNA sequencing, transcriptome and expression quantification part I] (Olga Dethlefsen, Agata Smialowska, TBA)   
 
 **12.00-13.00** Lunch  
-**13:00-17.00** [Exercise: RNA sequencing, transcriptome and expression quantification part II] (Olga Dethlefsen, TBA)  
+**13:00-17.00** [Exercise: RNA sequencing, transcriptome and expression quantification part II] (Olga Dethlefsen, Agata Smialowska, TBA)  
 
 
