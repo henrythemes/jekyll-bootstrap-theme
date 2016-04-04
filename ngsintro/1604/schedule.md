@@ -40,14 +40,14 @@ Room: [Campus Valla, House B, Room Odén]
 **Thursday**  
 Room: [Campus Valla, House B, Room Odén]  
 **09:00-10.00** [Lecture: ChIP sequencing and data analysis] (Agata Smialowska)  
-**10.00-12:00** [Exercise: ChIP sequencing and data analysis part I] (Agata Smialowska, TBD)
+**10.00-12:00** [Exercise: ChIP sequencing and data analysis part I] (Agata Smialowska, TBD)  
 **12.00-13.00** Lunch  
 **13.00-17:00** [Exercise: ChIP sequencing and data analysis part II] (Agata Smialowska, TBD)
 
 **Friday**  
 Room: [Campus Valla, House B, Room Odén]  
 **09:00-10:00** [Lecture: RNA sequencing, transcriptome and expression quantification] (Olga Dethlefsen)   
-**10:00-12:00** [Exercise: RNA sequencing, transcriptome and expression quantification part I] (Olga Dethlefsen, TBA) 
+**10:00-12:00** [Exercise: RNA sequencing, transcriptome and expression quantification part I] (Olga Dethlefsen, TBA)  
 **12.00-13.00** Lunch  
 **13:00-17.00** [Exercise: RNA sequencing, transcriptome and expression quantification part II] (Olga Dethlefsen, TBA)  
 
