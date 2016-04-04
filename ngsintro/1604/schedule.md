@@ -31,7 +31,7 @@ Room: [Campus Valla, House B, Room Odén]
 
 **Wednesday**  
 Room: [Campus Valla, House B, Room Odén]  
-**09.00-11.30** [Lecture: Next Generation Sequencing Overview](Olga Vinnere Pettersson)  
+**09.00-11.30** [Lecture: Next Generation Sequencing Overview] (Olga Vinnere Pettersson)  
 **11:30-12.00** [Lecture: The National Bioinformatics Infrastructure Sweden] (Malin Larsson)  
 **12.00-13.00** Lunch  
 **13.00-14.00** [Lecture: NGS and bioinformatics analysis pipelines] (Adam Ameur)  
@@ -49,6 +49,6 @@ Room: [Campus Valla, House B, Room Odén]
 **09:00-10:00** [Lecture: RNA sequencing, transcriptome and expression quantification] (Olga Dethlefsen)   
 **10:00-12:00** [Exercise: RNA sequencing, transcriptome and expression quantification part I] (Olga Dethlefsen, TBA) 
 **12.00-13.00** Lunch  
-**13:00-17.00** [Exercise: RNA sequencing, transcriptome and expression quantification part II](labs/rnaseqDenovo) (Olga Dethlefsen, TBA)  
+**13:00-17.00** [Exercise: RNA sequencing, transcriptome and expression quantification part II] (Olga Dethlefsen, TBA)  
 
 
