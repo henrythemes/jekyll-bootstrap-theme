@@ -17,10 +17,10 @@ title:  'Schedule (preliminary)'
 Room: [Campus Valla, House B, Room Odén]   
 **09.00-09.15** [Registration and Welcome] (Malin Larsson)  
 **09.15-10.00** [Lecture: Introduction to Linux] (Martin Dahlö)  
-**10.00-12.00** [Exercise: Introduction to Linux] (Martin Dahlö, Malin Larsson, Mihaela Martis)  
+**10.00-12.00** [Exercise: Introduction to Linux] (Martin Dahlö, Malin Larsson)  
 **12.00-13.00** Lunch  
 **13.00-14.00** [Lecture: Introduction to UPPMAX/UPPNEX] (Martin Dahlö)  
-**14.00-17.00** [Exercise: Introduction to UPPMAX/UPPNEX] (Martin Dahlö, Malin Larsson, Mihaela Martis)   
+**14.00-17.00** [Exercise: Introduction to UPPMAX/UPPNEX] (Martin Dahlö, Malin Larsson)   
 
 **Tuesday**  
 Room: [Campus Valla, House B, Room Odén]   
