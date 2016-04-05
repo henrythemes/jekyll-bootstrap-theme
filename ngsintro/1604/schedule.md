@@ -7,7 +7,7 @@ title:  'Schedule (preliminary)'
 
 **Monday**  
 Room: [Campus Valla, House B, Room Odén](https://www.google.com/maps/place/B-Huset,+Link%C3%B6pings+Universitet,+581+83+Link%C3%B6ping,+Sweden/@58.3999874,15.5760839,18z/data=!3m1!5s0x46596f6fb2197c83:0xb96430f10c01d745!4m2!3m1!1s0x46596f6f9949a0e1:0xbdc92e871aaeee08?hl=en-US)   
-**09.00-09.15** [Registration and Welcome] (Malin Larsson)  
+**09.00-09.15** [Registration and Welcome, presentation of SciLifeLab] (Malin Larsson & Eva Molin)  
 **09.15-10.00** [Lecture: Introduction to Linux] (Martin Dahlö)  
 **10.00-12.00** [Exercise: Introduction to Linux] (Martin Dahlö, Malin Larsson)  
 **12.00-13.00** Lunch  
