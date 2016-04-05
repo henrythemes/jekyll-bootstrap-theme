@@ -15,7 +15,7 @@ title:  'Schedule (preliminary)'
 
 **Monday**  
 Room: [Campus Valla, House B, Room Odén]   
-**09.00-09.15** [Registration and Welcome] (Malin Larsson testing)  
+**09.00-09.15** [Registration and Welcome] (Malin Larsson)  
 **09.15-10.00** [Lecture: Introduction to Linux] (Martin Dahlö)  
 **10.00-12.00** [Exercise: Introduction to Linux] (Martin Dahlö, Malin Larsson)  
 **12.00-13.00** Lunch  
