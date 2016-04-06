@@ -45,7 +45,7 @@ If it is running, skip this step and connect to that reservation.</font>
 
 ```bash
 # ONLY IF YOU DON'T ALREADY HAVE AN ACTIVE ALLOCATION SINCE BEFORE
-$ salloc -A g2016001 -t 04:30:00 -p core -n 1 --no-shell --reservation=g2016001_25 &
+$ salloc -A g2016008 -t 04:30:00 -p core -n 1 --no-shell --reservation=g2016008_25 &
 ```
 
 check which node you got (replace **username** with your uppmax user name)
@@ -73,7 +73,7 @@ $ ssh -Y q34
 ## 3. Copying files needed for laboratory
 To be able to do parts of this lab, you will need some files.
 To avoid all the course participants editing the same file all at once, undoing each other's edits, each participant will get their own copy of the needed files.
-The files are located in the folder `/proj/g2016001/labs/uppmax_pipeline_exercise`
+The files are located in the folder `/proj/g2016008/labs/uppmax_pipeline_exercise`
 
 Next, copy the lab files from this folder.
 -r means recursively, which means all the files including sub-folders of the source folder.
@@ -86,7 +86,7 @@ Ex.
 ```bash
 $ cp -r <source> <destination>
 
-$ cp -r /proj/g2016001/labs/uppmax_pipeline_exercise ~/glob/ngs-intro/
+$ cp -r /proj/g2016008/labs/uppmax_pipeline_exercise ~/glob/ngs-intro/
 ```
 
 Have a look in `~/glob/ngs-intro/uppmax_pipeline_exercise`:
@@ -147,7 +147,7 @@ $ echo $PATH
 To pretend that we are loading a module, we will just add a the directory containing my dummy scripts to the $PATH variable, and it will be like we loaded the module for them.
 
 ```bash
-$ export PATH=$PATH:/proj/g2016001/labs/uppmax_pipeline_exercise/dummy_scripts
+$ export PATH=$PATH:/proj/g2016008/labs/uppmax_pipeline_exercise/dummy_scripts
 ```
 
 This will set the $PATH variable to whatever it is at the moment, and add a directory at the end of it.
@@ -305,7 +305,7 @@ In SLURM words, this would be
 
 ```bash
 #!/bin/sh
-#SBATCH -A g2016001
+#SBATCH -A g2016008
 #SBATCH -t 00:05:00
 #SBATCH -p core
 ```

@@ -36,7 +36,7 @@ Usually you would do most of the work in this lab directly on one of the login n
 
 ```bash
 # ONLY IF YOU DON'T ALREADY HAVE AN ACTIVE ALLOCATION SINCE BEFORE
-$ salloc -A g2016001 -t 04:30:00 -p core -n 1 --no-shell --reservation=g2016001_25 &
+$ salloc -A g2016008 -t 04:30:00 -p core -n 1 --no-shell --reservation=g2016008_25 &
 ```
 
 check which node you got (replace **username** with your uppmax user name)
@@ -58,7 +58,7 @@ $ ssh -Y q34
 **Note:** there is a uppmax specific tool called jobinfo that supplies the same kind of information as squeue that you can use as well (```$ jobinfo -u username```).
 
 ## 3. Copying files needed for laboratory
-To be able to do parts of this lab, you will need some files. To avoid all the course participants editing the same file all at once, undoing each other's edits, each participant will get their own copy of the needed files. The files are located in the folder **/proj/g2016001/labs/uppmax_tutorial**
+To be able to do parts of this lab, you will need some files. To avoid all the course participants editing the same file all at once, undoing each other's edits, each participant will get their own copy of the needed files. The files are located in the folder **/proj/g2016008/labs/uppmax_tutorial**
 
 Next, copy the lab files from this folder. -r means recursively, which means all the files including sub-folders of the source folder. Without it, only files directly in the source folder would be copied, NOT sub-folders and files in sub-folders.
 
@@ -69,7 +69,7 @@ Ex.
 ```bash
 $ cp -r <source> <destination>
 
-$ cp -r /proj/g2016001/labs/uppmax_tutorial ~/glob/ngs-intro/
+$ cp -r /proj/g2016008/labs/uppmax_tutorial ~/glob/ngs-intro/
 ```
 
 Have a look in **~/glob/ngs-intro/uppmax_tutorial**:
@@ -246,7 +246,7 @@ This will create a booking for you which has a higher priority than the jobs sub
 Try closing down your current session on the reserved node you connected to in the beginning of the lab by typing exit. Then make a new booking using interactive:
 
 ```bash
-$ interactive -A g2016001 -t 02:00:00 -p core
+$ interactive -A g2016008 -t 02:00:00 -p core
 ```
 
 Congratulations, you are now ready to be let loose on the cluster!

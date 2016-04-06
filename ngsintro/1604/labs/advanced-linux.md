@@ -57,7 +57,7 @@ Start your terminal, log onto UPPMAX (check with squeue which core you had and s
 
 ```bash
 # ONLY IF YOU DON'T ALREADY HAVE AN ACTIVE ALLOCATION SINCE BEFORE
-$ salloc -A g2016001 -t 04:30:00 -p core --no-shell --reservation=g2016001_25 &
+$ salloc -A g2016008 -t 04:30:00 -p core --no-shell --reservation=g2016008_25 &
 
 ```
 
@@ -342,7 +342,7 @@ This example would perhaps be more real if we had several text files with differ
 Copy the file sample_1.sam to your folder using the command below
 
 ```bash
-$ cp /proj/g2016001/labs/linux_additional-files/sample_1.sam .
+$ cp /proj/g2016008/labs/linux_additional-files/sample_1.sam .
 ```
 
 Use grep to search in the file for a specific string of nucleotides, for example:
