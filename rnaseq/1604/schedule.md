@@ -32,5 +32,5 @@ Room:
 **10:15-11:00** [Lecture: Single cell RNA-seq analysis](slides/not_yet_available.pdf) (Åsa Björklund)  
 **11:00-12:00** [Lecture: Long RNA-seq read analysis](slides/Long_Reads_Adam_Amauer.pdf) (Adam Ameur)  
 **12.00-13.00** Lunch  
-**13.00-17.00** [Exercise: ](../RNAseqLabs/index) (Åsa Björklund, Leif Väremo,Johan Reimegård)  
+**13.00-17.00** [Exercise: ](../RNAseqLabs/index) (Åsa Björklund, Leif Väremo, Johan Reimegård)  
 **16.00-17.00** [Lecture: Summary of the week ](labs/) (Johan Reimegård)  
