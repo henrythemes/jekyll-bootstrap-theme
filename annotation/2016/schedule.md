@@ -7,7 +7,7 @@ title:  'Schedule'
 
 ####This course is given at Navet (E10) at BMC. Click the heading of a topic to see the lecture slides or lab instructions.
 
-**Monday 27th** 
+**Tuesday 26th** 
 
 Room: E10:1309  
 **09.00-9.15** Introduction  
@@ -20,7 +20,7 @@ Room: E10:1309
 
 **18.00** Course dinner at [Lingon](http://restauranglingon.com) restaurant
 
-**Tuesday 28th** 
+**Wednesday 27th** 
 
 Room: E10:1309  
 **09.00-10.00** [Lecture: Functional annotation](files/Functional_annotation_Apr2015.pdf) (Henrik Lantz)  
