@@ -1,12 +1,12 @@
 ---
 layout: default
-title:  'Introduction to Genome Annotation - April 2015'
+title:  'Introduction to Genome Annotation - April 2016'
 ---
  
 
 # Introduction to Genome Annotation
 
-Held in Uppsala April 27-28, 2015.
+Held in Uppsala April 26-27, 2016.
 
 ## Important Links
 [Pre-course material](precourse)  
