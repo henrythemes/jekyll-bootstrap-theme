@@ -57,7 +57,7 @@ Several tools, such as DESeq and edgeR, start from read counts per gene and use 
 
 *	[Tutorial for differential expression analysis using DEseq2](DEseq2)
 *	[Tutorial for differential expression analysis using Sleuth](kallisto)
-*	[Tutorial for differential expression analysis using CuffDiff and CummRBund](CuffiDff)
+*	[Tutorial for differential expression analysis using CuffDiff and CummRBund](CuffDiff)
 *	[Tutorial for differential expression analysis using multi variate analysis in SIMCA](Simca_tutorial)
  
 ## Beta labs 
