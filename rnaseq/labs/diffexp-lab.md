@@ -3,16 +3,16 @@ layout: default
 title:  'Differential Expression'
 ---
 
-###Differential expression analysis of RNA-seq data
+### Differential expression analysis of RNA-seq data
 
-##Overview
+## Overview
 
 
 There are many software packages for differential expression analysis of RNA-seq data. We will first look at **Cuffdiff/CummeRbund** and then try the alternative method **DESeq**.
 
 Several tools, such as DESeq and edgeR, start from read counts per gene and use the discrete nature of the data to do statistical tests appropriate for this kind of data. It can be argued that that such counts will never give quite the correct results because the presence of alernative isoforms confound the read counting. Cuffdiff therefore combines isoform-level quantification and differential expression testing into one framework and claim that they achieve better results because they are able to take into account the uncertainty of isoform quantification.
 
-##Data set
+## Data set
 
 In this exercise we are going to look at RNA-seq data from the A431 cell line. A431 is an epidermoid carcinoma cell line which is often used to study cancer and the cell cycle, and as a sort of positive control of epidermal growth factor receptor (EGFR) expression. A431 cells express very high levels of EGFR, in contrast to normal human
 fibroblasts. In the experiment we are looking at today, A431 cells were treated with gefinitib, which is an EGFR inhibitor, and is used (under the trade name Iressa) as a drug to treat cancers with mutated and overactive EGFR. In the experiment, RNA was extracted at four time points: before the gefinitib treatment (t=0), and two, six and twenty-four hours after treatment (t=2, t=6, t=24, respectively), and sequenced using an Illumina HiSeq instrument in triplicates (thus there are 3x4=12 samples). Since gefinitib suppresses the expression of EGFR, the effects on the cell line are quite severe, as you will see when comparing the 24h time point to the control.
@@ -20,7 +20,7 @@ fibroblasts. In the experiment we are looking at today, A431 cells were treated 
 Some of the files that we will use have been pre-constructed by us ahead of the lab because it would take too much time to do it during the lab exercise. In those cases, we have indicated the commands that we used to generate the files, so that you should be able to reproduce the results on your own.
 
 
-##CuffDiff and cummeRbund
+## CuffDiff and cummeRbund
 
 ** ATTENTION!! Some of the steps do not work on uppmax! We recommend that you run CummRBund this on your local computer **
 
@@ -142,7 +142,7 @@ There is also a heatmap function for samples. Of course there are also various h
 
     csDistHeat(genes(cuff)) 
 
-##DESeq
+## DESeq
 
 As mentioned above, the DESeq approach identifies differentially expressed genes based on counts of the number of reads mapped to each gene. DESeq is not limited to RNA-seq, but can be used for comparions of other count-based data, such gene expression profiles from tag sequencing or data from ChIP-seq experiments.
 
@@ -338,7 +338,7 @@ There is a section called [Visually exploring the dataset](http://www.bioconduct
 
 You may also want to try some of the examples from the cummeRbund manual. For example, the function s csDensity and fpkmSCVPlot produce nice looking and informative plots.
 
-##Further reading
+## Further reading
 
 The algorithms used by Cuffdiff and DESeq are described in the papers by
 [Trapnell et al. (2013)](http://www.ncbi.nlm.nih.gov/pubmed/23222703),

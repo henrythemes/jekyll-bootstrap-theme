@@ -3,7 +3,7 @@ layout: default
 title:  'PCA and clustering'
 ---
 
-#PCA and clustering on a single cell RNA-seq dataset
+# PCA and clustering on a single cell RNA-seq dataset
 
 Here are some examples on how to run PCA/Clustering on a single cell RNA-seq dataset. These methods can also be applied to any other type of dataset, such as RNA-seq or other high throuput data. 
 The dataset used is single-cell RNA-seq data from mouse embryonic development from Deng. et al. Science 2014, Vol. 343 no. 6167 pp. 193-196, "Single-Cell RNA-Seq Reveals Dynamic, Random Monoallelic Gene Expression in Mammalian Cells"
@@ -18,7 +18,7 @@ You will need some R packages, gplots and plotrix, these can be installed with t
 
 All the commands that are run in this example can also be found in the file: run_PCA_clust.R
 
-##Data processing:
+## Data processing:
 
 First read in the data and define colors/symbols for plotting
 
@@ -52,7 +52,7 @@ We want to create a vector of colors for each embryonic stage, but also symbols 
 	    pch.embryo[idx]<-pchdef.embryo[i]
 	}
 
-##PCA
+## PCA
 
 There are some custom functions in PCA_RNAseq_functions.R that are called run.pca, pca.plot, pca.contribution.plot and pca.loadings.plot. Have a look at the file for documentation of the scripts.
 
@@ -85,7 +85,7 @@ There are some custom functions in PCA_RNAseq_functions.R that are called run.pc
 Have a look at the file you created, what type of variance does the different PCs capture? 
 How many PCs are informative? Do the genes that contribute to each PC make sense? 
 
-##Coloring in PCA
+## Coloring in PCA
 
 We can also add in coloring by any color we want, lets use the expression of the top genes for PC1 & PC2. Here I have used the function color.scale from the "plotrix" package to define a color range with green-yellow-red scale.
 
@@ -108,7 +108,7 @@ We can also add in coloring by any color we want, lets use the expression of the
 	}
 	dev.off()
 	
-##Different settings in PCA
+## Different settings in PCA
 
 The PCA that was run automatically transforms the rpkm-values to log-space and does centering of the data, test doing it without logging and witout centering and compare the results.
 	
@@ -127,7 +127,7 @@ The PCA that was run automatically transforms the rpkm-values to log-space and d
 	
 What are the main differences, why is that do you think? Why should the RPKM-values be logged? 
 
-##PCA based on blastocyst stages only
+## PCA based on blastocyst stages only
 
 The different embryonic stages separated out quite well in the first PCA, but at the blastocyst stage the cells do not separate by timepoint. Try running a PCA with only those cells and see if you can get them to separate.
 
@@ -147,7 +147,7 @@ The different embryonic stages separated out quite well in the first PCA, but at
 Have a look at the PCA with blastocyst cells, do you see clear separation of the timepoints at any of the PCs?
 
 
-##Clustering
+## Clustering
 
 Now, lets try some different clustering methods. Quite often, clustering is based on pairwise correlations. So let's start with calculating pairwise correlations for all samples. 
 
@@ -204,7 +204,7 @@ Another common clustering method is K-means clustering, lets try that as well, w
 	km10<-kmeans(log2(t(DATA)+1),10)
 	km15<-kmeans(log2(t(DATA)+1),15)
 	
-##Plot the clusters from hierarchical clustering in PCA-space
+## Plot the clusters from hierarchical clustering in PCA-space
 
 To get clusters from a hierarchical clustering we have to cut the branches of the dendrogram, this is done with the function "cutree", either with desired number of final clusters, or the height for cutting.
 
@@ -257,7 +257,7 @@ Test some different cutoffs with:
 
 
 
-##PCA or MDS
+## PCA or MDS
 
 Classical MDS (based on euklidean distances) should be identical to PCA, so let's run both and compare
 

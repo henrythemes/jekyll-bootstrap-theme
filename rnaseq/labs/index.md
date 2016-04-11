@@ -3,7 +3,7 @@ layout: default
 title:  'Index'
 ---
 
-#Welcome to WABI RNA-seq tutorial packages
+# Welcome to WABI RNA-seq tutorial packages
 
 This page contains links to different tutorials that are used in the RNA-seq course. Some of the tutorials 
 are well documented and should be easy to follow. We also supply more beta versions of labs that requires more 

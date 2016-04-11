@@ -3,7 +3,7 @@ layout: default
 title:  'Integrated Genomics Viewer'
 ---
 
-#Viewing data in the Integrated Genomics Viewer (IGV)
+# Viewing data in the Integrated Genomics Viewer (IGV)
 
 
 In these exercises we will use the  Integrated Genomics Viewer (IGV). 
@@ -12,19 +12,19 @@ IGV is installed on UPPMAX, but since you will then access it over a network con
 If you still want to try to run IGV on Uppmax, please refer to the 
 [Uppmax page for IGV instructions](http://www.uppmax.uu.se/starting-integrative-genomics-viewer-igv-on-milou) for advice.  
 
-##Visualising a BED, BAM or GTF file from your local computer                                                          
+## Visualising a BED, BAM or GTF file from your local computer                                                          
 
 In IGV, select File > Load from File ... and navigate to the file of interest. From 
 the file extension, IGV will automatically treat the information in the file accordingly. 
 
-##Visualizing a BED, BAM or GTF file from URL
+## Visualizing a BED, BAM or GTF file from URL
 
 In IGV, select File > Load from URL ... A window will pop up and ask you to give the correct URL to the file you want to view. Paste in the URL and the file will be downloaded. From 
 the file extension, IGV will automatically treat the information in the file accordingly. 
 
 
 
-##Visualising a SAM file
+## Visualising a SAM file
 
 If the file output is in the SAM format (file ends with .sam), which is a uncompressed test format, 
 you need to convert it to the BAM format (file ends with .bam). A BAM file contains the same information as the SAM file but now it is in a binary compressed format unreadable for a human. 

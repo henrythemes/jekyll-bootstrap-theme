@@ -3,7 +3,7 @@ layout: default
 title:  'Quality Control'
 ---
 
-#Quality control
+# Quality control
 
 In this tutorial we will go through some of the key steps in performing a quality control on your samples. We will start with the read based quality control, using FastQC, and continue with mapping based QC using RseqQC.  
 
@@ -20,7 +20,7 @@ This folder contains:
 * BAM file and BAM-file index (bam.bai) for that sample mapped to the human genome using STAR
 * count_table.txt - a table with number of reads per gene, using Ensembl annotations, created with HTseq-count
 
-##Before mapping - FastQC statistics on the reads.
+## Before mapping - FastQC statistics on the reads.
 
 FastQC aims to provide a simple way to do some quality control checks on raw sequence data coming from high throughput sequencing pipelines. It provides a modular set of analyses which you can use to get a quick impression of whether your data has any problems of which you should be aware before doing any further analysis.
 

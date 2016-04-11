@@ -4,7 +4,7 @@ title:  'Small RNA lab'
 ---
 
 
-###Small RNA computer excercise
+# Small RNA computer excercise
 
 In this exercise we will analyze a few small RNA libraries, from *Drosophila melanogaster* (fruit fly) embryos and two cell lines (KC167 cells derived from whole embryos, and ML-DmD32 cells derived from adult wing discs). This is a subset of a much larger data set used to study microRNAs and other small RNAs in Drosophila:
 
@@ -20,7 +20,7 @@ The aim of the exercise is to show a simple way to process small RNA data and to
 
 
 
-##Preliminaries
+## Preliminaries
 
 Running this on UPPMAX, start by loading the modules you will need:
 

@@ -3,7 +3,7 @@ layout: default
 title:  'R-intro'
 ---
 
-#Very quick introduction to R
+# Very quick introduction to R
 
 In several exercises in this course, we use the statistical
 programming environment R. Here follows a very quick introduction,
@@ -103,7 +103,7 @@ You can find manuals for R and more information on the [R web site](http://www.r
 
 # Installing packages in R and loading them
 
-##Installing packages from BioConductor
+## Installing packages from BioConductor
 To install packages from BioConductor you first have to load a function biocLite.R from bioconductor and then use that function to install the package. That is done in two lines of codes
 
 	## try http if https is not available
@@ -116,7 +116,7 @@ To install packages from BioConductor you first have to load a function biocLite
 	source("https://bioconductor.org/biocLite.R")
 	biocLite("DESeq2")
 	 
-##Installing packages from CRAN
+## Installing packages from CRAN
 
 To install a CRAN package in R, use the install.packages() function. This simple command downloads the package from a specified repository (by default, CRAN) and installs it on your machine:
 
@@ -127,7 +127,7 @@ To install a CRAN package in R, use the install.packages() function. This simple
 	install.packages("ggplot2")
 
 	
-##Installing packages from github
+## Installing packages from github
 
 Sometimes you want to install packages that are still under development. Those are mostly found on github. This example show how you can switch between a stable version and the development version. If you only want to install from github ignore the dev_mode() part
 
@@ -153,7 +153,7 @@ Use library() to load the package after installing it
 	library(DEseq)
 	library(ggplot2)
 
-#Quit r
+# Quit r
  
 	q() or quit()	 
 

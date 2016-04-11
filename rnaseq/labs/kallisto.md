@@ -3,7 +3,7 @@ layout: default
 title:  'Kallisto'
 ---
 
-#Kallisto and Sleuth (Beta format)
+# Kallisto and Sleuth (Beta format)
 
 ## Transcript-level quantification with Kallisto
 

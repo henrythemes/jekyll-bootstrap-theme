@@ -3,7 +3,7 @@ layout: default
 title:  'Isoform Reference'
 ---
 
-#Reference guided assembly using Cufflinks or Stringtie
+# Reference guided assembly using Cufflinks or Stringtie
 
 Assembly of genes and isoforms using an assembly using cufflinks and Stringtie is a two step process. 
 First you map all the reads from your experiment to the reference sequence. For information on how to map reads to a reference go to the [mapping reads tutorial](mapping_reads). Then you run another step where you use the mapped reads to idenitify potenital genes including introns and exons.  If you have multipe isoforms you can merge them into one file using Cuffmerge to create one file. Cuffmerge is part of the Cufflinks program.
@@ -11,7 +11,7 @@ First you map all the reads from your experiment to the reference sequence. For 
 
 
 
-##Data available for exercise
+## Data available for exercise
 
 
 There are files that have been pre-mapped using STAR and those can be found in
@@ -29,7 +29,7 @@ on UPPMAX and through this [URL](https://export.uppmax.uu.se/b2013006/downloads/
 
 
 
-##Reference guided assembly using Cufflinks
+## Reference guided assembly using Cufflinks
 
 Cufflinks can do reference based assembly, which means that it tries to discover transcripts, disregarding gene annotation (actually there is an option to use it as well but we will ignore that for now), just based on the 
 mapped reads to the genome. This functionality works even on our small files.
@@ -49,7 +49,7 @@ the usual way into IGV as a track.
 Was Cufflinks able to assemble your alignments into something that makes sense?
  
  
-##Reference guided assembly using Stringtie
+## Reference guided assembly using Stringtie
 
 Stringtie can also do reference based assembly similair to cufflinks. In their own paper they claim they can do better assembly than cufflinks in much shorter time. We have not done any comparison on this ourselves and can not tell if this is the truth. To read the paper go [here](http://www.nature.com/nbt/journal/vaop/ncurrent/full/nbt.3122.html). To view a short example on their webpage for examples when it does better go [here](http://ccb.jhu.edu/software/stringtie/#tab3) This functionality works even on our small files.  
 
@@ -81,7 +81,7 @@ where ``assembly_GTF_list.txt`` is a rext file with a list (one per line) of GTF
 
 
 
-##Quantification with Cufflinks
+## Quantification with Cufflinks
 
 Cufflinks is a well-known software package for estimating gene and isoform abundances in a BAM or SAM files based on an annotation file in GTF format . However, we run into problems here because of the small file size. Cufflinks needs a certain amount of data to be able to do its estimations so it will not work very well on our small alignment files. Therefore we have run it on the full alignment files on each sample and provided the merged results at ``/proj/b2013006/webexport/downloads/courses/RNAseqWorkshop/isoform/otherData/isoform_fpkm_table.txt``
 (isoform FPKM) and ``/proj/b2013006/webexport/downloads/courses/RNAseqWorkshop/isoform/otherData/RNAseqfpkm_table.txt``.

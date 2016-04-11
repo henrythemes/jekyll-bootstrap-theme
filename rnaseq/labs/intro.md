@@ -3,7 +3,7 @@ layout: default
 title:  'Intro'
 ---
 
-#Short summary of the datasets
+# Short summary of the datasets
 
 For the tutorials we have set up multiple data sets:
 
@@ -13,7 +13,7 @@ For the tutorials we have set up multiple data sets:
 - Peptide data for the cell line A431
 
 
-##Short summary of the A431 cell line RNA seq data
+## Short summary of the A431 cell line RNA seq data
 
 In most of the exercises, we will use RNA-seq data from the A431 cell line. 
 It is an epidermoid carcinoma cell line which is often used to study cancer
@@ -36,20 +36,19 @@ indicated that novel exons or splice variants could be present at the protein le
 the RNA-seq data to examine if there is corresponding evidence on the mRNA level, 
 and how different software tools could be used to detect novel gene variants. 
 
-#Short summary of the sRNA dataset
+## Short summary of the sRNA dataset
 
 This datset contains a few small RNA libraries, from *Drosophila melanogaster* (fruit fly) embryos
 and two cell lines (KC167 cells derived from whole embryos, and ML-DmD32 cells derived from adult wing discs).
 This is a subset of a much larger data set used to study microRNAs and other small RNAs in *Drosophila*.
 These data sets are described more in this [paper] (http://genome.cshlp.org/content/24/7/1236.full)
 
-Short summary of the long reads
-===============================
+## Short summary of the long reads
+
 This data set contains three PacBio reads from gene RAB11FIP5 from full-length RNAs in brain and heart from reads PacBio released last year. For more info go [here](http://blog.pacificbiosciences.com/2014/10/data-release-whole-human-transcriptome.html).
 
 
-Short summary of the peptide data
-=================================
+## Short summary of the peptide data
 
 The peptide data set contains mapped peptide fragments from mass spectrometry (MS) carried out on protein samples from A431 cells. 
 These data were measured by a 

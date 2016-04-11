@@ -3,7 +3,7 @@ layout: default
 title:  'Isoform de Novo'
 ---
 
-#Isoform detection using RNA seq *de novo* Assembly 
+# Isoform detection using RNA seq *de novo* Assembly 
 
 There are many programs to do RNA de novo assembly We are going to use one of the open source RNA *de novo* assemblers 
 called **Trinity** in this practical. Independent assessment 
@@ -19,7 +19,7 @@ on how **Trinity** work read the corresponding [paper](http://www.nature.com/nbt
 . 
 
 
-##Preparation
+## Preparation
 
 Make a new subdirectory and go there for this exercise. 
 
@@ -31,7 +31,7 @@ Make a new subdirectory and go there for this exercise.
    
    
    
-##Files used during the exercise 
+## Files used during the exercise 
 
 Running an assembly using **Trinity** for ~20 million of reads takes at least a day and more than 50 GB of RAM. In order 
 to reduce the time for the **Trinity** to run during this course we will focus on reads that can be mapped to a small region on the human chromosome.  
@@ -43,7 +43,7 @@ A description of the dataset can be found [here] (intro)
  
 To access the data there are two options. 
    
-###If you are working on uppmax
+### If you are working on uppmax
 
 All the data you need for this lab is available in the folder:
 ``/proj/b2013006/webexport/downloads/courses/RNAseqWorkshop/isoform/deNovo/data/``
@@ -53,7 +53,7 @@ Copy the data to your folder
 	cp /proj/b2013006/webexport/downloads/courses/RNAseqWorkshop/isoform/deNovo/data/*.* . 
 
 
-###If you are working from somewhere else
+### If you are working from somewhere else
 
 You can download all data using a webinterface from [here](https://export.uppmax.uu.se/b2013006/downloads/courses/RNAseqWorkshop/isoform/deNovo/data/) and put it in your working folder. 
 
@@ -61,10 +61,10 @@ You can download all data using a webinterface from [here](https://export.uppmax
 You should now have two fastq files in your working folder.
 
 
-##Programs used during the exercise 
+## Programs used during the exercise 
 
 
-###If you are on uppmax
+### If you are on uppmax
 
 When doing this course on UPPMAX all programs will be available to load as pre-installed modules. 
 In order to be able to use these programs you need to load the modules before using them. 
@@ -89,7 +89,7 @@ If you are somewhere else
 If you are doing this exercise on somewhere else follow each program information on how to install it.
    
 
-##Assemble the reads into contigs using trinity
+## Assemble the reads into contigs using trinity
 
 Since **Trinity** is often being updated you should make sure you are using the latest version.
 That means that the requirements and the command line to to run **Trinity** changes occasionally. 
@@ -120,7 +120,7 @@ Remember to change the CPU count and memory to it fits with your allocated memor
 
 	Trinity --help 
 
-##Mapping the new assemblies on to a reference genome
+## Mapping the new assemblies on to a reference genome
 
 Now that the reads have been assembled into contigs you can map them back onto 
 the human genome sequence to see how they were assembled. Note that in 

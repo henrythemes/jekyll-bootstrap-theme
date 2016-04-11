@@ -4,10 +4,10 @@ title:  'Mapping reads'
 ---
 
 
-#Mapping reads using a reference and converting them to the BAM format
+# Mapping reads using a reference and converting them to the BAM format
 
 
-###Data available for exercise
+### Data available for exercise
 
 All fastqfiles if you do not have any your self that you will need for this exercise can be found in
  
@@ -36,7 +36,7 @@ on UPPMAX and through this [URL](https://export.uppmax.uu.se/b2013006/downloads/
 
  
 
-##Mapping short reads to a reference using HiSAT2
+## Mapping short reads to a reference using HiSAT2
 
 If you are using our data you will map the reads to the hg19 reference genome using a popular RNA-seq aligner **HiSAT2**. There are many features that can be tweaked using HiSAT2. For more information on all flags that can be used go [here](https://ccb.jhu.edu/software/hisat2/manual.shtml).
 
@@ -69,7 +69,7 @@ This should run fairly quickly and put a file called ``fileName.sam`` in
 the directory that you specified with ``-S``. 
 
 
-##Mapping short reads to a reference using STAR
+## Mapping short reads to a reference using STAR
 
 Here we will map the reads to the hg19 reference genome using a popular RNA-seq 
 aligner, **STAR**. There are many many features that can be tweaked using STAR. For more information concerning different features that can be used see the [manual](https://github.com/alexdobin/STAR/blob/master/doc/STARmanual.pdf).
@@ -109,7 +109,7 @@ the directory that you specified with ``--outFileNamePrefix``.
 
 
 
-##Converting SAM files to BAM files
+## Converting SAM files to BAM files
 
 
 
