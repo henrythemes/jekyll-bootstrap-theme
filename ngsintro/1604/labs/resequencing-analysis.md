@@ -52,15 +52,14 @@ module load samtools
 ```
 
 We will also use Picard and GATK.
-These are java programs, which means that we need to explicitly invoke java each time we run them and we need to know where the code actually lives.
-The GATK module tells you the location of the executable files when you load it:
+These are java programs, which means that we need to explicitly invoke java each time we run them and we need to know where the code actually lives. The GATK module tells you the location of the executable jarfile when you load it:
 
 ```bash
 module load GATK/3.4-46
 You can find all the GATK files in /sw/apps/bioinfo/GATK/3.4-46
 ```
 
-The Picard module does not thell you the location of the executable file, but they are in a similar place as for GATK.
+The Picard module does not thell you the location of the executable file, but it is in a similar place as for GATK.
 For various parts of this exercise, you will need to know:
 
 ```bash
