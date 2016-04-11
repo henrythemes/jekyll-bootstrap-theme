@@ -261,7 +261,7 @@ The sample names for each of these 1000 Genomes runs is the Coriell identifier, 
 We're going to use this for all our read group information.
 
 * RGID is the group ID. This is usually derived from the combination of the sample id and run id, or the SRA/EBI id. We will just add -id to the sample name.
-* RGLB is the group library. This will come from your library construction process. You may have multiple read groups per library if you did multiple runs, but you should only have one library per read group. We will add -lib the sample name.
+* RGLB is the group library. This will come from your library construction process. You may have multiple read groups per library if you did multiple sequencing runs, but you should only have one library per read group. We will add -lib the sample name.
 * RGPL is the platform. It is a restricted vocabulary. These reads are ILLUMINA.
 * RGPU is the run identifier. It would normally be the barcode of your flowcell. You may have multiple read groups per run, but only one run per read group. We will just fake it as &lt;sample&gt;-01.
 * RGSM is the sample name. Use the actual sample name. You can have multiple read groups, libraries, runs, and even platforms per sample, but you can only have one sample per read group. (If you are pooling samples without barcoding, there is no way to separate them later, so you should just designate the pool itself as a sample, but downstream analyses like SNP calling will be blind to that knowledge.) 
