@@ -55,9 +55,9 @@ There are many software packages for differential expression analysis of RNA-seq
 
 Several tools, such as DESeq and edgeR, start from read counts per gene and use the discrete nature of the data to do statistical tests appropriate for this kind of data. It can be argued that that such counts will never give quite the correct results because the presence of alernative isoforms confound the read counting. Cuffdiff therefore combines isoform-level quantification and differential expression testing into one framework and claim that they achieve better results because they are able to take into account the uncertainty of isoform quantification. 
 
-*	[Tutorial for differential expression analysis using DEseq2](deseq2)
-*	[Tutorial for differential expression analysis using Sleuth](sleuth)
-*	[Tutorial for differential expression analysis using CuffDiff and CummRBund](cuffidff)
+*	[Tutorial for differential expression analysis using DEseq2](DEseq2)
+*	[Tutorial for differential expression analysis using Sleuth](kallisto)
+*	[Tutorial for differential expression analysis using CuffDiff and CummRBund](CuffiDff)
 *	[Tutorial for differential expression analysis using multi variate analysis in SIMCA](Simca_tutorial)
  
 ## Beta labs 
@@ -67,5 +67,8 @@ There are some labs that are more close to the cutting edge of analysis and ther
 *	[Single cell RNA PCA and clustering](Single_cell_RNA_PCA_and_Clustering)
  
  
+ 
+## Caveat
+
 We will try to keep these tutorials up to date. If you find any errors or things that you think should be updated please contact Johan (johan.reimegard@scilifelab.se) 
   		
