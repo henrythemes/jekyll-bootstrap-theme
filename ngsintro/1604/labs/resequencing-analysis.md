@@ -44,23 +44,23 @@ To access the bioinformatics modules you first need the bioinfo module:
 ```bash
 module load bioinfo-tools
 ```
-Now you can load the individual programs we need:
+This makes it possible to load the individual programs we need:
 
 ```bash
 module load bwa
 module load samtools
 ```
 
-We also will use Picard and GATK.
-There are modules for these, but they are java programs, which means we need to explicitly invoke java each time we run them, and we need to know where the code actually lives.
-The GATK module tells you this when you use it:
+We will also use Picard and GATK.
+These are java programs, which means that we need to explicitly invoke java each time we run them and we need to know where the code actually lives.
+The GATK module tells you the location of the executable files when you load it:
 
 ```bash
 module load GATK/3.4-46
 You can find all the GATK files in /sw/apps/bioinfo/GATK/3.4-46
 ```
 
-The Picard module does not, but they are in a similar place.
+The Picard module does not thell you the location of the executable file, but they are in a similar place as for GATK.
 For various parts of this exercise, you will need to know:
 
 ```bash
