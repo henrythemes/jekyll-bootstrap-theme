@@ -120,7 +120,7 @@ The first step after you have finished your mapping is to get a general feel of 
                  % of reads unmapped: too short |       7.21%
                      % of reads unmapped: other |       0.02%
 
-The most important parts to look at are the proportion of uniquely mapping, multi-mapping and unmapped reads. We ideally want the uniquely mapping reads to be as high as possible. Multi-mapping or unmapped reads could indicate poor quality of the reads, adapter contamination or other reasons for low quality scores.
+The most important parts to look at are the proportion of uniquely mapping, multi-mapping and unmapped reads. We ideally want the uniquely mapping reads to be as high as possible. Multi-mapping or unmapped reads could indicate poor quality of the reads, adapter contamination or other reasons for low quality scores.cd 
 
 Another key point is the mismatch and indel rates. If they are very high, this could indicate that there has been some problems during the sequencing or during the library preparation.
 
@@ -155,7 +155,7 @@ The steps that we are going to run are:
 3. junction_saturation.py
 4. read_distribution.py
 
-Note: The geneBody_coverage.py script takes a very long time to run, so we have created a subsection of annotations to run it on. Use the file hg19_RefSeq_top1000.bed. This file was created with the command:
+Note: The geneBody_coverage.py script takes a very long time to run, so we have created a subsection of annotations to run it on. Use the file ` hg19_RefSeq_top1000.bed `. This file was created with the command:
 
       # head -n 1000 hg19_RefSeq.bed > hg19_RefSeq_top1000.bed
 
