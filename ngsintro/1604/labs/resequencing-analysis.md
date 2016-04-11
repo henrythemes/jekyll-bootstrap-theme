@@ -157,7 +157,7 @@ except with your username. The size of the file in bytes is the number showing a
 
 If your file is not there or if it's the wrong size, something went wrong with your copy and you need to figure out what before you move on.
 Checking the existence and size of files from each step in a process before performing the next step is a good practice that save a lot of time.
-A common mistake people make is to attempt to load input files that do not exist or create output files that they cannot write.
+A common mistake people make is to attempt to load input files that do not exist or create output files where they cannot write.
 
 Now we need to build the Burrows-Wheeler transform
 
