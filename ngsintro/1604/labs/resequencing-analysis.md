@@ -44,9 +44,6 @@ To access the bioinformatics modules you first need the bioinfo module:
 ```bash
 module load bioinfo-tools
 ```
-
-Throughout these exercises, that preformatted text, like above, will usually indicate something you can type into the command line.
-
 Now you can load the individual programs we need:
 
 ```bash
