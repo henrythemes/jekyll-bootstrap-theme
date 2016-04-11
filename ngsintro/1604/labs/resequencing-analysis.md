@@ -511,4 +511,4 @@ Are there calls that were made using only one or two samples that were not made 
 
 ## [Extra labs](resequencing-extra)
 
-If you have more time there are a couple of extra exercises where you will perform downstream analysis of the called variants in your .vcf file. [Extra labs](resequencing-extra)
+If you have more time there are a couple of extra exercises where you will perform downstream analysis of the called variants in your .vcf file. [Extra labs](resequencing-extra.md)
