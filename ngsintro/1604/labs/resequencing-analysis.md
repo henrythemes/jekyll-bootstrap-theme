@@ -26,7 +26,7 @@ salloc -A g2016008 -t 08:00:00 -p core -n 8 --no-shell --reservation=g2016008_21
 ```
 
 Make sure you ony do this once, otherwise you will take away resources from the other course participants! 
-Once your job allocation has been granted you can login to the job node using ssh, just like in the [Uppmax-introduction exercise](uppmax-intro.md) yesterday.
+Once your job allocation has been granted you can login to the job node using ssh, just like in the [Uppmax Introduction exercise](uppmax-intro.md) yesterday.
 
 ## Accessing Programs
 
