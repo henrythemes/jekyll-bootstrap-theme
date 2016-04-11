@@ -39,7 +39,7 @@ To connect to the node.
 ## Accessing Programs
 
 First, we're going to run several programs that are installed under the module system.
-To access the bioinformatics modules you first need the bioinfo module:
+To access the bioinformatics modules you first need to load the bioinfo-tools module:
 
 ```bash
 module load bioinfo-tools
